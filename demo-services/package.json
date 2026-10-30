@@ -1,0 +1,24 @@
+{
+  "name": "infrapulse-demo-services",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local OpenTelemetry instrumented microservices for InfraPulse demo and validation",
+  "scripts": {
+    "start": "node run-all.js",
+    "start:gateway": "node api-gateway/server.js",
+    "start:orders": "node orders-service/server.js",
+    "start:payments": "node payments-service/server.js"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.55.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.57.0",
+    "@opentelemetry/resources": "^1.30.0",
+    "@opentelemetry/sdk-node": "^0.57.0",
+    "@opentelemetry/semantic-conventions": "^1.30.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
+

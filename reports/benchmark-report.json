@@ -1,0 +1,483 @@
+{
+  "generatedAt": "2026-10-30T21:50:49.235Z",
+  "environment": {
+    "os": "Windows_NT 10.0.26100 (x64)",
+    "nodeVersion": "v26.4.0",
+    "cpuModel": "13th Gen Intel(R) Core(TM) i5-13420H",
+    "logicalCores": 12,
+    "totalMemoryGb": 15.6,
+    "targetUrl": "http://localhost:5000"
+  },
+  "apiBenchmarks": {
+    "core": {
+      "GET /api/health/ready": {
+        "concurrency": 10,
+        "durationMs": 2500,
+        "totalRequests": 3334,
+        "successCount": 3334,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 1332,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 3334
+        },
+        "percentiles": {
+          "p50": 5.91,
+          "p90": 11.04,
+          "p95": 13.43,
+          "p99": 22,
+          "min": 2.09,
+          "max": 229.44,
+          "avg": 7.49
+        }
+      },
+      "GET /api/services": {
+        "concurrency": 10,
+        "durationMs": 2500,
+        "totalRequests": 1532,
+        "successCount": 1532,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 605.1,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 1532
+        },
+        "percentiles": {
+          "p50": 15.2,
+          "p90": 22.79,
+          "p95": 25.68,
+          "p99": 40.49,
+          "min": 7.73,
+          "max": 59.17,
+          "avg": 16.46
+        }
+      },
+      "GET /api/incidents": {
+        "concurrency": 10,
+        "durationMs": 2500,
+        "totalRequests": 739,
+        "successCount": 739,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 267.9,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 739
+        },
+        "percentiles": {
+          "p50": 28.49,
+          "p90": 41.08,
+          "p95": 51.98,
+          "p99": 396.84,
+          "min": 12.82,
+          "max": 472.88,
+          "avg": 36.97
+        }
+      },
+      "GET /api/alerts": {
+        "concurrency": 10,
+        "durationMs": 2500,
+        "totalRequests": 791,
+        "successCount": 791,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 313.4,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 791
+        },
+        "percentiles": {
+          "p50": 21.81,
+          "p90": 38.29,
+          "p95": 63.33,
+          "p99": 291.64,
+          "min": 9.26,
+          "max": 448.67,
+          "avg": 31.71
+        }
+      }
+    },
+    "incidents": {
+      "GET /api/incidents": {
+        "concurrency": 15,
+        "durationMs": 3000,
+        "totalRequests": 788,
+        "successCount": 788,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 259.7,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 788
+        },
+        "percentiles": {
+          "p50": 36.16,
+          "p90": 79.99,
+          "p95": 159.34,
+          "p99": 565.85,
+          "min": 11.57,
+          "max": 591.76,
+          "avg": 57.45
+        }
+      },
+      "GET /api/incidents/INC-4921/timeline": {
+        "concurrency": 10,
+        "durationMs": 2500,
+        "totalRequests": 1629,
+        "successCount": 1629,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 647.5,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 1629
+        },
+        "percentiles": {
+          "p50": 13.54,
+          "p90": 21.78,
+          "p95": 27.72,
+          "p99": 49.97,
+          "min": 3.46,
+          "max": 99.17,
+          "avg": 15.39
+        }
+      }
+    },
+    "investigation": {
+      "GET /api/incidents/INC-4921/investigation": {
+        "concurrency": 10,
+        "durationMs": 3000,
+        "totalRequests": 2010,
+        "successCount": 2010,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 666.4,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 2010
+        },
+        "percentiles": {
+          "p50": 13.31,
+          "p90": 23.2,
+          "p95": 26.98,
+          "p99": 37.14,
+          "min": 4.92,
+          "max": 180.81,
+          "avg": 14.94
+        }
+      },
+      "POST /api/incidents/INC-4921/investigation/run": {
+        "concurrency": 5,
+        "durationMs": 3000,
+        "totalRequests": 1897,
+        "successCount": 1897,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 630.7,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 1897
+        },
+        "percentiles": {
+          "p50": 7.61,
+          "p90": 10.06,
+          "p95": 11.12,
+          "p99": 16.74,
+          "min": 3.7,
+          "max": 136.2,
+          "avg": 7.91
+        }
+      }
+    },
+    "alerts": {
+      "GET /api/alerts": {
+        "concurrency": 15,
+        "durationMs": 3000,
+        "totalRequests": 709,
+        "successCount": 709,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 232.6,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 709
+        },
+        "percentiles": {
+          "p50": 44.72,
+          "p90": 64.08,
+          "p95": 296.63,
+          "p99": 381.03,
+          "min": 16.64,
+          "max": 437.45,
+          "avg": 64.25
+        }
+      },
+      "POST /api/alerts/evaluate": {
+        "concurrency": 5,
+        "durationMs": 2500,
+        "totalRequests": 176,
+        "successCount": 176,
+        "errorCount": 0,
+        "timeoutCount": 0,
+        "rps": 69.2,
+        "errorRate": 0,
+        "timeoutRate": 0,
+        "statusCodes": {
+          "200": 176
+        },
+        "percentiles": {
+          "p50": 67.24,
+          "p90": 86.29,
+          "p95": 93.25,
+          "p99": 304.38,
+          "min": 48.35,
+          "max": 344.94,
+          "avg": 71.75
+        }
+      }
+    }
+  },
+  "rcaEvaluation": {
+    "totalScenarios": 8,
+    "scenariosWithTarget": 7,
+    "top1Accuracy": "85.7%",
+    "top3Accuracy": "100%",
+    "meanReciprocalRank": 0.929,
+    "falsePositiveRate": "0%",
+    "insufficientEvidenceDetectionRate": "100%",
+    "averageDurationMs": 3.45,
+    "details": [
+      {
+        "id": "eval-01-deployment-regression",
+        "name": "Canary Deployment Regression",
+        "type": "deployment_failure",
+        "durationMs": 6.45,
+        "expected": "payment-service",
+        "actualTop1": "payment-service",
+        "actualScore": 85.3,
+        "rank": 1,
+        "isTop1": true,
+        "isTop3": true,
+        "reciprocalRank": 1,
+        "top3Candidates": [
+          "payment-service",
+          "ledger-db-proxy",
+          "checkout-api"
+        ]
+      },
+      {
+        "id": "eval-02-upstream-dependency-outage",
+        "name": "Upstream Dependency Outage (Fraud Evaluator Crash)",
+        "type": "dependency_outage",
+        "durationMs": 20,
+        "expected": "fraud-evaluator",
+        "actualTop1": "fraud-evaluator",
+        "actualScore": 53.8,
+        "rank": 1,
+        "isTop1": true,
+        "isTop3": true,
+        "reciprocalRank": 1,
+        "top3Candidates": [
+          "fraud-evaluator",
+          "ledger-db-proxy",
+          "payment-service"
+        ]
+      },
+      {
+        "id": "eval-03-database-latency",
+        "name": "Database Proxy Connection Pool Deadlock",
+        "type": "database_latency",
+        "durationMs": 0.41,
+        "expected": "ledger-db-proxy",
+        "actualTop1": "ledger-db-proxy",
+        "actualScore": 53.8,
+        "rank": 1,
+        "isTop1": true,
+        "isTop3": true,
+        "reciprocalRank": 1,
+        "top3Candidates": [
+          "ledger-db-proxy",
+          "payment-service",
+          "checkout-api"
+        ]
+      },
+      {
+        "id": "eval-04-network-timeout",
+        "name": "Cross-AZ Network Partition / Gateway Timeout",
+        "type": "network_timeout",
+        "durationMs": 0.2,
+        "expected": "inventory-mesh",
+        "actualTop1": "inventory-mesh",
+        "actualScore": 53.8,
+        "rank": 1,
+        "isTop1": true,
+        "isTop3": true,
+        "reciprocalRank": 1,
+        "top3Candidates": [
+          "inventory-mesh",
+          "payment-service",
+          "ledger-db-proxy"
+        ]
+      },
+      {
+        "id": "eval-05-high-error-rate",
+        "name": "Auth Gateway JWKS Validation HTTP 500 Surge",
+        "type": "high_error_rate",
+        "durationMs": 0.17,
+        "expected": "auth-gateway-v2",
+        "actualTop1": "auth-gateway-v2",
+        "actualScore": 51.3,
+        "rank": 1,
+        "isTop1": true,
+        "isTop3": true,
+        "reciprocalRank": 1,
+        "top3Candidates": [
+          "auth-gateway-v2",
+          "ledger-db-proxy",
+          "payment-service"
+        ]
+      },
+      {
+        "id": "eval-06-isolated-latency",
+        "name": "Search Mesh GC Pause Latency Spike",
+        "type": "isolated_latency",
+        "durationMs": 0.14,
+        "expected": "search-mesh",
+        "actualTop1": "search-mesh",
+        "actualScore": 40.8,
+        "rank": 1,
+        "isTop1": true,
+        "isTop3": true,
+        "reciprocalRank": 1,
+        "top3Candidates": [
+          "search-mesh",
+          "ledger-db-proxy",
+          "payment-service"
+        ]
+      },
+      {
+        "id": "eval-07-incomplete-telemetry",
+        "name": "Incomplete Telemetry Coverage",
+        "type": "incomplete_telemetry",
+        "durationMs": 0.17,
+        "expected": "payment-service",
+        "actualTop1": "ledger-db-proxy",
+        "actualScore": 53.8,
+        "rank": 2,
+        "isTop1": false,
+        "isTop3": true,
+        "reciprocalRank": 0.5,
+        "top3Candidates": [
+          "ledger-db-proxy",
+          "payment-service",
+          "checkout-api"
+        ]
+      },
+      {
+        "id": "eval-08-ambiguous-false-alarm",
+        "name": "Ambiguous Incident With No Convincing Cause",
+        "type": "false_alarm",
+        "durationMs": 0.07,
+        "expected": null,
+        "actualTop1": "payment-service",
+        "actualScore": 34.3,
+        "rank": "N/A",
+        "isTop1": false,
+        "isTop3": false,
+        "reciprocalRank": 0,
+        "top3Candidates": [
+          "payment-service",
+          "ledger-db-proxy"
+        ]
+      }
+    ]
+  },
+  "telemetryBenchmarking": {
+    "compositeTelemetryQuery": {
+      "concurrency": 10,
+      "durationMs": 3000,
+      "totalRequests": 2448,
+      "successCount": 2448,
+      "errorCount": 0,
+      "timeoutCount": 0,
+      "rps": 813.3,
+      "errorRate": 0,
+      "timeoutRate": 0,
+      "statusCodes": {
+        "200": 2448
+      },
+      "percentiles": {
+        "p50": 9.94,
+        "p90": 18.72,
+        "p95": 22.74,
+        "p99": 51.86,
+        "min": 4.46,
+        "max": 170.85,
+        "avg": 12.26
+      }
+    },
+    "metricsQuery": {
+      "concurrency": 10,
+      "durationMs": 2500,
+      "totalRequests": 2200,
+      "successCount": 2200,
+      "errorCount": 0,
+      "timeoutCount": 0,
+      "rps": 872.3,
+      "errorRate": 0,
+      "timeoutRate": 0,
+      "statusCodes": {
+        "200": 2200
+      },
+      "percentiles": {
+        "p50": 9.77,
+        "p90": 18.44,
+        "p95": 21.78,
+        "p99": 37.07,
+        "min": 3.83,
+        "max": 60.36,
+        "avg": 11.44
+      }
+    },
+    "burstStage": {
+      "concurrency": 25,
+      "durationMs": 1000,
+      "totalRequests": 775,
+      "successCount": 775,
+      "errorCount": 0,
+      "timeoutCount": 0,
+      "rps": 749.5,
+      "errorRate": 0,
+      "timeoutRate": 0,
+      "statusCodes": {
+        "200": 775
+      },
+      "percentiles": {
+        "p50": 26.13,
+        "p90": 38.02,
+        "p95": 65.97,
+        "p99": 349.64,
+        "min": 14.49,
+        "max": 383.99,
+        "avg": 32.87
+      }
+    },
+    "malformedQueryHandling": {
+      "totalSent": 20,
+      "acceptedHandledGracefully": 20,
+      "rejectedUnexpectedly": 0,
+      "visibilityDelayMs": "< 5ms (In-memory normalized mock) / Datasource bounded"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+# InfraPulse - Root Docker Compose Bridge
+# Delegates to deploy/docker-compose.yml with appropriate context
+include:
+  - path: deploy/docker-compose.yml
+

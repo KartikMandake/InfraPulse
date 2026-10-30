@@ -1,0 +1,178 @@
+services:
+  # ============================================================================
+  # InfraPulse Application Services
+  # ============================================================================
+
+  # Frontend Web Container (Unprivileged Nginx + Vite React Production Build)
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: infrapulse-frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    restart: unless-stopped
+
+  # Backend API Server (Node.js Express + RCA Engine)
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: infrapulse-backend
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGDATABASE=infrapulse
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - FRONTEND_URL=http://localhost:8080
+      - APP_BASE_URL=http://localhost:8080
+      - NOTIFICATION_WORKER_ENABLED=false # Dedicated worker container handles queue
+      - NOTIFICATION_MOCK_MODE=true
+      - PROMETHEUS_URL=http://prometheus:9090
+      - TEMPO_URL=http://tempo:3200
+      - LOKI_URL=http://loki:3100
+      - OTEL_COLLECTOR_URL=http://otel-collector:4318
+    ports:
+      - "127.0.0.1:5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      otel-collector:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5000/api/health/ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+
+  # Standalone Background Notification Queue Worker
+  worker:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: infrapulse-worker
+    command: ["node", "src/worker.js"]
+    environment:
+      - NODE_ENV=production
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGDATABASE=infrapulse
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - NOTIFICATION_MOCK_MODE=true
+      - APP_BASE_URL=http://localhost:8080
+    depends_on:
+      postgres:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ============================================================================
+  # Relational Storage & Observability Pipeline
+  # ============================================================================
+
+  # PostgreSQL (InfraPulse Relational Persistence)
+  postgres:
+    image: postgres:16-alpine
+    container_name: infrapulse-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=infrapulse
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d infrapulse"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  # OpenTelemetry Collector
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.114.0
+    container_name: infrapulse-otel-collector
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml:ro
+    ports:
+      - "127.0.0.1:4317:4317" # OTLP gRPC receiver (localhost bound)
+      - "127.0.0.1:4318:4318" # OTLP HTTP receiver (localhost bound)
+      - "127.0.0.1:8889:8889" # Prometheus metrics exporter (localhost bound)
+    depends_on:
+      - tempo
+      - loki
+    restart: unless-stopped
+
+  # Prometheus (Metrics Storage & PromQL)
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    container_name: infrapulse-prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.enable-lifecycle
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "127.0.0.1:9090:9090" # Localhost bound
+    restart: unless-stopped
+
+  # Grafana Tempo (Distributed Tracing Storage)
+  tempo:
+    image: grafana/tempo:2.6.1
+    container_name: infrapulse-tempo
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes:
+      - ./tempo-config.yaml:/etc/tempo.yaml:ro
+    ports:
+      - "127.0.0.1:3200:3200" # Localhost bound
+    restart: unless-stopped
+
+  # Grafana Loki (Structured Logs Storage & LogQL)
+  loki:
+    image: grafana/loki:3.2.1
+    container_name: infrapulse-loki
+    command: ["-config.file=/etc/loki/local-config.yaml"]
+    volumes:
+      - ./loki-config.yaml:/etc/loki/local-config.yaml:ro
+    ports:
+      - "127.0.0.1:3100:3100" # Localhost bound
+    restart: unless-stopped
+
+  # Grafana Dashboard (Optional Operator UI)
+  grafana:
+    image: grafana/grafana:11.3.0
+    container_name: infrapulse-grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    ports:
+      - "127.0.0.1:3000:3000" # Localhost bound
+    depends_on:
+      - prometheus
+      - tempo
+      - loki
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  pgdata:

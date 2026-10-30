@@ -1,0 +1,130 @@
+name: InfraPulse CI / CD Pipeline
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+# Enforce least-privilege permissions
+permissions:
+  contents: read
+
+jobs:
+  test-backend:
+    name: Backend Tests & Database Migrations
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: infrapulse_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (v20 LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: |
+          npm ci
+          npm ci --prefix backend
+
+      - name: Run Database Migrations
+        env:
+          PGHOST: localhost
+          PGPORT: 5432
+          PGDATABASE: infrapulse_test
+          PGUSER: postgres
+          PGPASSWORD: postgres
+        run: npm run db:migrate --prefix backend
+
+      - name: Seed Initial State
+        env:
+          PGHOST: localhost
+          PGPORT: 5432
+          PGDATABASE: infrapulse_test
+          PGUSER: postgres
+          PGPASSWORD: postgres
+        run: npm run db:seed --prefix backend
+
+      - name: Execute Complete Multi-Phase Test Suite
+        env:
+          NODE_ENV: test
+          PGHOST: localhost
+          PGPORT: 5432
+          PGDATABASE_TEST: infrapulse_test
+          PGDATABASE: infrapulse_test
+          PGUSER: postgres
+          PGPASSWORD: postgres
+          NOTIFICATION_MOCK_MODE: 'true'
+        run: npm test
+
+      - name: Verify Database Migration & Disaster Recovery
+        env:
+          PGHOST: localhost
+          PGPORT: 5432
+          PGUSER: postgres
+          PGPASSWORD: postgres
+        run: node tests/release/verifyDatabaseRecovery.js
+
+      - name: Run Security Vulnerability Audit
+        run: |
+          npm audit --audit-level=high
+          npm audit --prefix backend --audit-level=high
+          npm audit --prefix frontend --audit-level=high
+
+  build-frontend:
+    name: Frontend Production Build & Bundle Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (v20 LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: |
+          npm ci
+          npm ci --prefix frontend
+
+      - name: Build Vite React Production Bundle
+        run: npm run build:frontend
+
+  docker-validate:
+    name: Docker & Compose Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate Docker Compose Configuration
+        run: docker compose -f deploy/docker-compose.yml config
+
+      - name: Build Backend Docker Image
+        run: docker build -t infrapulse-backend:ci backend
+
+      - name: Build Frontend Docker Image
+        run: docker build -t infrapulse-frontend:ci frontend
+

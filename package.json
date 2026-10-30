@@ -1,0 +1,37 @@
+{
+  "name": "infrapulse",
+  "version": "2.4.0",
+  "private": true,
+  "description": "InfraPulse - AI-Assisted SRE Root Cause Analysis & Infrastructure Observability Platform",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix frontend && npm install --prefix demo-services",
+    "start:backend": "npm start --prefix backend",
+    "start:worker": "npm run start:worker --prefix backend",
+    "start:frontend": "npm start --prefix frontend",
+    "start:demo": "npm start --prefix demo-services",
+    "db:migrate": "npm run db:migrate --prefix backend",
+    "db:seed": "npm run db:seed --prefix backend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"blue,green\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "build:frontend": "npm run build --prefix frontend",
+    "build": "npm run build:frontend",
+    "test:backend": "npm test --prefix backend",
+    "test:reliability": "node --test tests/reliability/reliability.test.js",
+    "test:assistant": "node --test tests/rca-evaluation/aiAssistant.test.js",
+    "test:remediation": "node --test tests/remediation/runbookOrchestration.test.js",
+    "test:slo": "node --test tests/slo/sloReliability.test.js",
+    "test:changes": "node --test tests/changes/changeIntelligence.test.js",
+    "test:correlation": "node --test tests/correlation/unifiedCorrelation.test.js",
+    "test:operations": "node --test tests/operations/operationalIntelligence.test.js",
+    "test:integrations": "node --test tests/integrations/enterpriseIntegrations.test.js",
+    "test:e2e": "node --test tests/release/fullLifecycleE2E.test.js",
+    "test:failure": "node --test tests/release/failureRecovery.test.js",
+    "test:rca": "node --test tests/rca-evaluation/rcaEngineEnhancement.test.js && node tests/rca-evaluation/evaluationRunner.js && node --test tests/rca-evaluation/aiAssistant.test.js",
+    "test": "npm run test:backend && npm run test:reliability && npm run test:rca && npm run test:remediation && npm run test:slo && npm run test:changes && npm run test:correlation && npm run test:operations && npm run test:integrations && npm run test:e2e && npm run test:failure",
+    "benchmark": "node tests/performance/runAllBenchmarks.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

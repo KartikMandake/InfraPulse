@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#121318","surface-bright":"#38393e","tertiary-fixed":"#d8e3f3","primary-container":"#c8f30c","error-container":"#93000a","on-surface":"#e2e2e9","on-background":"#e2e2e9","on-error":"#690005","primary-fixed-dim":"#afd500","on-surface-variant":"#c5c9ad","outline":"#8f9379","on-primary-container":"#586c00","background":"#121318","surface-container-lowest":"#0c0e13","surface-tint":"#afd500","on-secondary-fixed-variant":"#00419f","on-secondary":"#002c71","secondary-fixed-dim":"#b1c5ff","primary":"#ffffff","inverse-primary":"#536600","surface-container-high":"#282a2f","primary-fixed":"#c8f30c","tertiary-container":"#d8e3f3","error":"#ffb4ab","secondary-container":"#0050c0","outline-variant":"#444933","surface-dim":"#121318","secondary":"#b1c5ff","surface-container-highest":"#33353a","on-tertiary":"#27313d","secondary-fixed":"#dae2ff","on-tertiary-fixed-variant":"#3d4854","on-primary-fixed":"#171e00","on-error-container":"#ffdad6","inverse-surface":"#e2e2e9","on-primary":"#2a3500","tertiary-fixed-dim":"#bcc7d7","inverse-on-surface":"#2f3035","surface-container":"#1e1f24","surface-variant":"#33353a","surface-container-low":"#1a1b20","on-tertiary-fixed":"#121c28","on-tertiary-container":"#5b6573","tertiary":"#ffffff","on-secondary-container":"#bbccff","on-primary-fixed-variant":"#3e4c00","on-secondary-fixed":"#001946"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter":"0.75rem","space-lg":"1rem","gutter-desktop":"1rem","space-2xl":"2rem","space-xl":"1.5rem","margin-desktop":"1.5rem","space-xs":"0.25rem","space-sm":"0.5rem","space-md":"0.75rem","margin":"1rem"},fontFamily:{"body-sm":["Geist"],"code-sm":["JetBrains Mono"],"label-md":["Geist"],"body-lg":["Geist"],"headline-md":["Geist"],"headline-xl":["Geist"],"headline-xl-mobile":["Geist"],"headline-lg":["Geist"],"code-lg":["JetBrains Mono"],"code-md":["JetBrains Mono"],"body-md":["Geist"],"label-sm":["Geist"]},fontSize:{"body-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0em","fontWeight":"400"}],"code-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0em","fontWeight":"400"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"500"}],"body-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-md":["1.125rem",{"lineHeight":"1.375rem","letterSpacing":"-0.015em","fontWeight":"500"}],"headline-xl":["2rem",{"lineHeight":"2.25rem","letterSpacing":"-0.025em","fontWeight":"600"}],"headline-xl-mobile":["1.5rem",{"lineHeight":"1.75rem","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["1.5rem",{"lineHeight":"1.75rem","letterSpacing":"-0.02em","fontWeight":"600"}],"code-lg":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"-0.01em","fontWeight":"500"}],"code-md":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"-0.01em","fontWeight":"400"}],"body-md":["0.8125rem",{"lineHeight":"1.125rem","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"600"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col"><div class="h-14 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded-lg bg-secondary-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">monitoring</span></div><span class="font-headline-md text-headline-md tracking-tight text-primary font-semibold">InfraPulse</span></div><div class="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-surface-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span><span class="font-code-sm text-code-sm text-primary-fixed uppercase tracking-wider">Live</span></div></div><div class="px-gutter py-space-xs"><div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface-container-low"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-on-surface-variant">hub</span><span class="font-code-sm text-code-sm text-on-surface-variant">US-EAST-1</span></div><span class="font-code-sm text-code-sm text-on-surface-variant">99.98%</span></div></div><div class="px-gutter py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase px-2 tracking-wider">Telemetry Operations</span></div><nav class="px-gutter flex flex-col gap-0.5" data-active-classes="bg-secondary-container text-on-secondary-container rounded-lg font-medium shadow-sm"><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-md text-body-md">Overview</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="services-and-topology" href="#"><span class="material-symbols-outlined text-[18px]">account_tree</span><span class="font-body-md text-body-md">Services &amp; Topology</span></a><a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="incidents" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">emergency</span><span class="font-body-md text-body-md">Incidents</span></div><span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-error-container text-error">1 Active</span></a><a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="alerts" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">notifications_active</span><span class="font-body-md text-body-md">Alerts</span></div><span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface">3</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="telemetry-explorer" href="#"><span class="material-symbols-outlined text-[18px]">query_stats</span><span class="font-body-md text-body-md">Telemetry Explorer</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="deployments" href="#"><span class="material-symbols-outlined text-[18px]">rocket_launch</span><span class="font-body-md text-body-md">Deployments</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="slos-and-error-budgets" href="#"><span class="material-symbols-outlined text-[18px]">speed</span><span class="font-body-md text-body-md">SLOs &amp; Error Budgets</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="runbooks" href="#"><span class="material-symbols-outlined text-[18px]">menu_book</span><span class="font-body-md text-body-md">Runbooks</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="reports-and-postmortems" href="#"><span class="material-symbols-outlined text-[18px]">assignment</span><span class="font-body-md text-body-md">Reports &amp; Postmortems</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="fault-injection-lab" href="#"><span class="material-symbols-outlined text-[18px]">science</span><span class="font-body-md text-body-md">Fault Injection Lab</span></a></nav></div><div class="px-gutter pb-4 pt-2"><div class="px-2 py-1 mb-1"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">System Config</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-secondary-container text-on-secondary-container rounded-lg font-medium"><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="integrations" href="#"><span class="material-symbols-outlined text-[18px]">extension</span><span class="font-body-md text-body-md">Integrations</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="team-and-access" href="#"><span class="material-symbols-outlined text-[18px]">group</span><span class="font-body-md text-body-md">Team &amp; Access</span></a><a class="flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-body-md text-body-md">Settings</span></a></nav></div></aside><div class="pl-60 min-h-screen flex flex-col"><header class="fixed top-0 left-60 right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-gutter-desktop shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-1.5 font-code-sm text-code-sm"><span class="text-on-surface-variant">cluster:</span><span class="text-primary font-medium">prod-us-east-1</span><span class="text-on-surface-variant">/</span><span class="text-on-surface-variant">production</span></div><div class="h-4 w-[1px] bg-surface-container-highest"></div><div class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container cursor-pointer hover:bg-surface-container-high transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span><span class="font-label-md text-label-md text-on-surface">Production</span><span class="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span></div></div><div class="flex items-center gap-space-lg"><div class="relative flex items-center w-96"><span class="material-symbols-outlined text-[16px] text-on-surface-variant absolute left-3 pointer-events-none">search</span><input class="w-full pl-9 pr-14 py-1.5 rounded bg-surface-container text-on-surface placeholder:text-on-surface-variant font-code-sm text-code-sm focus:outline-none focus:ring-1 focus:ring-primary-fixed transition-all" placeholder="Search traces, services, incident IDs, or query logs (Cmd + K)..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">⌘K</kbd></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container"><span class="w-2 h-2 rounded-full bg-error animate-ping"></span><span class="font-label-md text-label-md text-on-surface">Degraded (1 Incident)</span></div><div class="relative flex items-center justify-center p-1.5 rounded bg-surface-container hover:bg-surface-container-high cursor-pointer transition-colors text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-error-container text-error font-code-sm text-[9px] flex items-center justify-center font-bold">3</span></div><div class="h-5 w-[1px] bg-surface-container-highest"></div><div class="flex items-center gap-space-sm pl-1 cursor-pointer"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-medium">Sarah Chen</span><span class="font-code-sm text-code-sm text-on-surface-variant leading-tight">Principal SRE</span></div><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1Vw3MOD6TCk10Cjh1m7IVvGgZd3WhlGH7dN-O6-XB_V6kEkxoobCt3tL-rQErRlZQwsvmIPJzjlrm7GDOV-dN2RMiHKu0OJZ74VuvmGJvqPS3uy9yxaU8_dyKS90c1VJu_uFXzZ5ycMMo7IcaRXYCOrvlWvHa_D5iwZQdoyf8MNT1UAGr_kSJhtEVjUVfbiKN0Wv2V-lmy_hB2CRy9mZmvFjSgKLph5LRh2CElmY54BBw"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-primary-fixed"></span></div></div></div></div></header><main class="w-full pt-14 px-gutter-desktop pb-space-2xl bg-background flex-1"><div class="flex flex-col w-full">
+<!-- Script for sidebar active link syncing & interactive canvas actions -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Sync sidebar active state to Services & Topology
+      document.querySelectorAll("aside nav a").forEach(el => {
+        if (el.getAttribute("data-path") === "services-and-topology") {
+          el.className = "flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg bg-secondary-container text-on-secondary-container font-medium shadow-sm transition-colors";
+        } else {
+          el.className = "flex items-center gap-space-sm px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors";
+        }
+      });
+    });
+
+    function toggleDrawer() {
+      const drawer = document.getElementById("node-drawer");
+      drawer.classList.toggle("hidden");
+    }
+
+    function toggleEdgeModal() {
+      const modal = document.getElementById("edge-detail-popover");
+      modal.classList.toggle("hidden");
+    }
+
+    function selectNode(serviceName) {
+      const drawer = document.getElementById("node-drawer");
+      drawer.classList.remove("hidden");
+    }
+  </script>
+<!-- Top Breadcrumb & Live Health Context Bar -->
+<div class="flex items-center justify-between py-space-sm mb-space-xs">
+<div class="flex items-center gap-2 font-code-sm text-code-sm">
+<span class="text-on-surface-variant">Cluster:</span>
+<span class="text-primary font-medium">prod-us-east-1</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface-variant">Namespace:</span>
+<span class="text-secondary font-medium">all</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Services &amp; Topology</span>
+</div>
+<!-- Telemetry status indicator pill -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-low shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-fixed"></span>
+</span>
+<span class="font-code-sm text-code-sm text-on-surface tracking-tight">68 Nodes • 142 Edges • Realtime Streaming (10s)</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low p-0.5 rounded-lg">
+<button class="px-2 py-0.5 font-label-sm text-label-sm rounded bg-surface-container-highest text-primary font-medium">Production</button>
+<button class="px-2 py-0.5 font-label-sm text-label-sm rounded text-on-surface-variant hover:text-on-surface">Staging</button>
+<button class="px-2 py-0.5 font-label-sm text-label-sm rounded text-on-surface-variant hover:text-on-surface">Canary</button>
+</div>
+</div>
+</div>
+<!-- Primary Page Control Header -->
+<div class="flex flex-wrap items-center justify-between gap-space-md py-space-md mb-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-md">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight font-semibold">Services &amp; Topology</h1>
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded bg-error-container text-error font-medium">Degraded Mesh</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live telemetry service graph, bidirectional latency traces, and critical path bottlenecks.</p>
+</div>
+</div>
+<!-- Time range & view switches -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center bg-surface-container-low rounded-lg p-0.5">
+<button class="px-2.5 py-1 font-code-sm text-code-sm rounded bg-secondary-container text-on-secondary-container font-medium">15m</button>
+<button class="px-2.5 py-1 font-code-sm text-code-sm rounded text-on-surface-variant hover:text-primary">1h</button>
+<button class="px-2.5 py-1 font-code-sm text-code-sm rounded text-on-surface-variant hover:text-primary">6h</button>
+<button class="px-2.5 py-1 font-code-sm text-code-sm rounded text-on-surface-variant hover:text-primary">24h</button>
+<button class="px-2 py-1 font-code-sm text-code-sm rounded text-on-surface-variant hover:text-primary flex items-center gap-1">
+<span>Custom</span>
+<span class="material-symbols-outlined text-[13px]">calendar_today</span>
+</button>
+</div>
+<div class="h-6 w-px bg-surface-container-highest"></div>
+<div class="flex items-center bg-surface-container-low rounded-lg p-0.5">
+<button class="flex items-center gap-1.5 px-3 py-1 font-label-md text-label-md rounded bg-surface-container-highest text-primary font-medium shadow-sm" title="Topology Graph View">
+<span class="material-symbols-outlined text-[16px]">bubble_chart</span>
+<span>Graph</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 font-label-md text-label-md rounded text-on-surface-variant hover:text-on-surface" title="Table Inventory View">
+<span class="material-symbols-outlined text-[16px]">table_rows</span>
+<span>Inventory</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Filter & Highlight Toolbar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md p-space-md bg-surface-container-low rounded-xl mb-space-md shadow-sm">
+<div class="flex items-center gap-space-md flex-1 min-w-[320px]">
+<div class="relative flex items-center flex-1 max-w-md">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant absolute left-3 pointer-events-none">filter_alt</span>
+<input class="w-full pl-9 pr-4 py-1.5 rounded-lg bg-surface-container text-on-surface placeholder:text-on-surface-variant font-code-sm text-code-sm focus:outline-none focus:bg-surface-container-highest transition-all" placeholder="Filter services, protocols, trace tags (e.g. env=prod, tier=0)..." type="text" value="payment-service"/>
+</div>
+<!-- Health Filter Chips -->
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 rounded-md bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors">All (68)</button>
+<button class="px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>Healthy (62)
+        </button>
+<button class="px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>Degraded (4)
+        </button>
+<button class="px-2.5 py-1 rounded-md bg-error-container text-error font-label-sm text-label-sm transition-colors flex items-center gap-1.5 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>Critical (2)
+        </button>
+</div>
+<!-- Tier Dropdown -->
+<div class="relative">
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="text-on-surface-variant">Tier:</span>
+<span>All Tiers</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Visual Graph Overlays -->
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-wider">Overlays:</span>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-error-container text-error font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[14px]">report</span>
+<span>Highlight Unhealthy</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed">bolt</span>
+<span>High Latency (&gt;150ms)</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">timeline</span>
+<span>Path to Payment</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">grid_goldenratio</span>
+<span>Group Tiers</span>
+</button>
+</div>
+</div>
+<!-- Main Canvas & Detail Drawer Grid -->
+<div class="relative flex w-full gap-space-md items-start">
+<!-- Graph Interactive Canvas -->
+<div class="relative flex-1 bg-surface-container-lowest rounded-xl overflow-hidden min-h-[740px] shadow-lg flex flex-col justify-between">
+<!-- Subtle Canvas Grid Pattern via Inline SVG -->
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="32" id="grid-dots" patternunits="userSpaceOnUse" width="32">
+<circle cx="2" cy="2" fill="#8f9379" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#grid-dots)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<!-- Floating Controls: Top Bar -->
+<div class="relative z-10 flex items-center justify-between p-space-md pointer-events-none">
+<!-- Floating Canvas Legend -->
+<div class="pointer-events-auto flex items-center gap-space-md px-3 py-1.5 rounded-lg bg-surface-container-low/90 backdrop-blur-md shadow-md">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="text-on-surface">Nominal</span>
+</div>
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span class="text-on-surface">Degraded</span>
+</div>
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-on-surface">Critical</span>
+</div>
+<div class="h-3 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="inline-block w-4 h-0.5 bg-outline"></span>
+<span>gRPC/HTTP2</span>
+</div>
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="inline-block w-4 h-0.5 border-t border-dashed border-outline-variant"></span>
+<span>Kafka/Async</span>
+</div>
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-error">
+<span class="inline-block w-4 h-0.5 bg-error"></span>
+<span>Bottleneck</span>
+</div>
+</div>
+<!-- Floating Graph Layout Mode & Refresh -->
+<div class="pointer-events-auto flex items-center gap-space-xs bg-surface-container-low/90 backdrop-blur-md p-1 rounded-lg shadow-md">
+<button class="px-2 py-1 rounded bg-surface-container-highest font-code-sm text-code-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">account_tree</span>
+<span>Hierarchical DAG</span>
+</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">hub</span>
+<span>Force-Directed</span>
+</button>
+</div>
+</div>
+<!-- Main SVG Layer Rendering Nodes & Directed Edges -->
+<div class="relative w-full h-[620px] flex-1 overflow-hidden">
+<svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Marker Arrows -->
+<marker id="arrow-nominal" markerheight="8" markerwidth="8" orient="auto" refx="7" refy="4">
+<path d="M 0 0 L 8 4 L 0 8 z" fill="#8f9379"></path>
+</marker>
+<marker id="arrow-error" markerheight="8" markerwidth="8" orient="auto" refx="7" refy="4">
+<path d="M 0 0 L 8 4 L 0 8 z" fill="#ffb4ab"></path>
+</marker>
+<marker id="arrow-warning" markerheight="8" markerwidth="8" orient="auto" refx="7" refy="4">
+<path d="M 0 0 L 8 4 L 0 8 z" fill="#b1c5ff"></path>
+</marker>
+<filter height="140%" id="glow-critical" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="0" flood-color="#ffb4ab" flood-opacity="0.6" stddeviation="6"></fedropshadow>
+</filter>
+<filter height="140%" id="glow-lime" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="0" flood-color="#c8f30c" flood-opacity="0.4" stddeviation="4"></fedropshadow>
+</filter>
+</defs>
+<!-- Edge Connections (Directed Paths) -->
+<!-- Ingress -> api-gateway -->
+<path d="M 90 280 C 130 280, 150 280, 180 280" fill="none" marker-end="url(#arrow-nominal)" stroke="#8f9379" stroke-width="2"></path>
+<!-- api-gateway -> auth-service -->
+<path d="M 330 250 C 370 200, 390 140, 440 140" fill="none" marker-end="url(#arrow-nominal)" stroke="#8f9379" stroke-width="1.5"></path>
+<!-- api-gateway -> order-service -->
+<path d="M 330 280 C 380 280, 400 280, 440 280" fill="none" marker-end="url(#arrow-warning)" stroke="#b1c5ff" stroke-width="2"></path>
+<!-- api-gateway -> inventory-service -->
+<path d="M 330 310 C 370 370, 390 420, 440 420" fill="none" marker-end="url(#arrow-nominal)" stroke="#8f9379" stroke-width="1.5"></path>
+<!-- order-service -> payment-service (Critical Path) -->
+<path d="M 590 280 C 640 280, 660 280, 700 280" fill="none" marker-end="url(#arrow-error)" stroke="#ffb4ab" stroke-width="2.5"></path>
+<!-- order-service -> notification-worker (Async Kafka) -->
+<path d="M 590 300 C 630 350, 650 490, 700 490" fill="none" marker-end="url(#arrow-nominal)" stroke="#8f9379" stroke-dasharray="5,5" stroke-width="1.5"></path>
+<!-- payment-service -> postgres-primary-db (HIGH BOTTLENECK) -->
+<path class="cursor-pointer" d="M 850 260 C 890 220, 910 180, 960 180" fill="none" filter="url(#glow-critical)" id="critical-edge" marker-end="url(#arrow-error)" onclick="toggleEdgeModal()" stroke="#ffb4ab" stroke-width="3.5"></path>
+<!-- payment-service -> redis-cache-cluster -->
+<path d="M 850 280 C 900 280, 920 300, 960 300" fill="none" marker-end="url(#arrow-nominal)" stroke="#8f9379" stroke-width="1.5"></path>
+<!-- payment-service -> stripe-external-gateway -->
+<path d="M 850 310 C 900 360, 920 420, 960 420" fill="none" marker-end="url(#arrow-nominal)" stroke="#8f9379" stroke-width="1.5"></path>
+</svg>
+<!-- Node 1: Ingress Edge -->
+<div class="absolute left-6 top-[246px] w-24 p-2 rounded-lg bg-surface-container shadow-md flex flex-col items-center text-center cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">cloud_done</span>
+<span class="font-label-sm text-label-sm text-primary font-medium mt-1">Cloudflare</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Edge Ingress</span>
+</div>
+<!-- Node 2: API Gateway -->
+<div class="absolute left-[180px] top-[240px] w-36 p-2.5 rounded-lg bg-surface-container shadow-md cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5" onclick="selectNode('api-gateway')">
+<div class="flex items-center justify-between">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Envoy</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-semibold mt-1">api-gateway</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-code-sm text-code-sm">
+<span>14ms p95</span>
+<span class="text-primary-fixed font-medium">34.2k rps</span>
+</div>
+</div>
+<!-- Node 3: Auth Service (Upstream Top) -->
+<div class="absolute left-[440px] top-[105px] w-36 p-2.5 rounded-lg bg-surface-container shadow-md cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5" onclick="selectNode('auth-service')">
+<div class="flex items-center justify-between">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">gRPC</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-semibold mt-1">auth-service</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-code-sm text-code-sm">
+<span>8ms p95</span>
+<span class="text-primary font-medium">12.1k rps</span>
+</div>
+</div>
+<!-- Node 4: Order Service (Degraded) -->
+<div class="absolute left-[440px] top-[245px] w-36 p-2.5 rounded-lg bg-surface-container shadow-md cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5" onclick="selectNode('order-service')">
+<div class="flex items-center justify-between">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span class="font-code-sm text-code-sm text-secondary-fixed">Degraded</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-semibold mt-1">order-service</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary-fixed">185ms p95</span>
+<span class="text-primary font-medium">8.4k rps</span>
+</div>
+</div>
+<!-- Node 5: Inventory Service (Nominal Down) -->
+<div class="absolute left-[440px] top-[385px] w-36 p-2.5 rounded-lg bg-surface-container shadow-md cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5" onclick="selectNode('inventory-service')">
+<div class="flex items-center justify-between">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">HTTP/2</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-semibold mt-1">inventory-service</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-code-sm text-code-sm">
+<span>12ms p95</span>
+<span class="text-primary font-medium">5.2k rps</span>
+</div>
+</div>
+<!-- Node 6: Payment Service (CRITICAL SELECTED NODE) -->
+<div class="absolute left-[700px] top-[230px] w-40 p-3 rounded-lg bg-surface-container shadow-2xl cursor-pointer ring-2 ring-error animate-pulse transition-transform hover:scale-105" onclick="selectNode('payment-service')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-error"></span>
+</span>
+<span class="font-code-sm text-code-sm text-error font-bold tracking-wider">CRITICAL P1</span>
+</div>
+<span class="font-code-sm text-code-sm px-1 rounded bg-error-container text-error">Tier-0</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary font-bold mt-1 tracking-tight">payment-service</div>
+<div class="flex items-center justify-between mt-2 pt-1.5 bg-surface-container-low px-2 py-1 rounded">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface-variant leading-none">p95 Lat</span>
+<span class="font-code-md text-code-md text-error font-bold mt-0.5">340ms</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-code-sm text-code-sm text-on-surface-variant leading-none">Error</span>
+<span class="font-code-md text-code-md text-error font-bold mt-0.5">4.12%</span>
+</div>
+</div>
+<div class="mt-2 text-center">
+<span class="font-code-sm text-code-sm text-primary-fixed uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[12px]">search</span>
+              Active Target
+            </span>
+</div>
+</div>
+<!-- Node 7: Postgres DB (Degraded Saturation) -->
+<div class="absolute left-[960px] top-[140px] w-40 p-2.5 rounded-lg bg-surface-container shadow-md cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5" onclick="selectNode('postgres-primary-db')">
+<div class="flex items-center justify-between">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span class="font-code-sm text-code-sm text-secondary-fixed">Pool Saturation</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-semibold mt-1">postgres-primary-db</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary-fixed">120ms p95</span>
+<span class="text-error font-semibold">98% pool</span>
+</div>
+</div>
+<!-- Node 8: Redis Cache (Healthy) -->
+<div class="absolute left-[960px] top-[265px] w-40 p-2.5 rounded-lg bg-surface-container shadow-md cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5" onclick="selectNode('redis-cache')">
+<div class="flex items-center justify-between">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Cluster (x6)</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-semibold mt-1">redis-cache-cluster</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-code-sm text-code-sm">
+<span>1.9ms p95</span>
+<span class="text-primary-fixed font-medium">94% hit rate</span>
+</div>
+</div>
+<!-- Node 9: Stripe External API -->
+<div class="absolute left-[960px] top-[390px] w-40 p-2.5 rounded-lg bg-surface-container shadow-md cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5" onclick="selectNode('stripe-gateway')">
+<div class="flex items-center justify-between">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">External 3rd</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-semibold mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">cloud</span>
+<span>stripe-gateway</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-code-sm text-code-sm">
+<span>210ms p95</span>
+<span class="text-primary font-medium">100% nominal</span>
+</div>
+</div>
+<!-- Node 10: Notification Worker (Async Consumer) -->
+<div class="absolute left-[700px] top-[460px] w-36 p-2.5 rounded-lg bg-surface-container shadow-md cursor-pointer hover:bg-surface-container-high transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Kafka Topic</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-semibold mt-1">notification-worker</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-code-sm text-code-sm">
+<span>Consumer lag: 0</span>
+<span class="text-primary font-medium">45k msg/s</span>
+</div>
+</div>
+<!-- Floating Critical Edge Badge Callout -->
+<div class="absolute left-[865px] top-[195px] px-2 py-0.5 rounded bg-error-container text-error font-code-sm text-code-sm font-bold shadow-lg flex items-center gap-1 cursor-pointer" onclick="toggleEdgeModal()">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+<span>340ms • 4.1% err</span>
+</div>
+<!-- Interactive Edge Detail Modal Popover -->
+<div class="absolute left-[780px] top-[80px] z-30 w-72 bg-surface-container-high rounded-xl p-space-md shadow-2xl" id="edge-detail-popover">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-error font-semibold">
+<span class="material-symbols-outlined text-[16px]">emergency_heat</span>
+<span>Critical Edge Telemetry</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary" onclick="toggleEdgeModal()">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface mb-2">
+            payment-service <span class="text-error">→</span> postgres-primary-db
+          </div>
+<div class="grid grid-cols-2 gap-2 bg-surface-container-lowest p-2 rounded-lg font-code-sm text-code-sm mb-2">
+<div>
+<span class="text-on-surface-variant block">Throughput:</span>
+<span class="text-primary font-medium">3,850 qps</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">Protocol:</span>
+<span class="text-primary font-medium">PostgreSQL/TCP</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">p95 Latency:</span>
+<span class="text-error font-bold">120ms (+310%)</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">Error Rate:</span>
+<span class="text-error font-bold">4.12% err</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span>Sampled 2s ago</span>
+<a class="text-primary-fixed hover:underline" href="#">View Trace Spans →</a>
+</div>
+</div>
+</div>
+<!-- Floating Controls: Bottom Toolbar (Zoom, Fit, Legend Toggle) -->
+<div class="relative z-10 flex items-center justify-between p-space-md pointer-events-none">
+<div class="pointer-events-auto flex items-center gap-1 bg-surface-container-low/90 backdrop-blur-md p-1 rounded-lg shadow-md">
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Zoom Out">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<div class="h-4 w-px bg-surface-container-highest"></div>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Reset Zoom">
+<span class="material-symbols-outlined text-[18px]">center_focus_strong</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Fit to Screen">
+<span class="material-symbols-outlined text-[18px]">fit_screen</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Fullscreen">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+<div class="pointer-events-auto flex items-center gap-space-sm bg-surface-container-low/90 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-md">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Hover over an edge to inspect live telemetry envelope.</span>
+</div>
+</div>
+</div>
+<!-- Selected Node Detail Drawer (payment-service) -->
+<div class="w-96 min-w-[380px] bg-surface-container-low rounded-xl p-space-md shadow-xl flex flex-col gap-space-md" id="node-drawer">
+<!-- Drawer Header -->
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-error-container text-error font-bold">CRITICAL</span>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant">Tier-0 Core</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">v2.14.1</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">payment-service</h2>
+<div class="flex items-center gap-2 mt-0.5">
+<a class="font-code-sm text-code-sm text-primary-fixed hover:underline flex items-center gap-0.5" href="#">
+<span>Open Service Deep Dive</span>
+<span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Quick Health KPI Bento -->
+<div class="grid grid-cols-3 gap-2">
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Error Rate</span>
+<span class="font-headline-md text-headline-md text-error font-bold mt-1">4.12%</span>
+<span class="font-code-sm text-code-sm text-error">Critical &gt; 0.5%</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface-variant">p95 Latency</span>
+<span class="font-headline-md text-headline-md text-error font-bold mt-1">340ms</span>
+<span class="font-code-sm text-code-sm text-error">SLA Breach</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Throughput</span>
+<span class="font-headline-md text-headline-md text-primary font-bold mt-1">4.1k</span>
+<span class="font-code-sm text-code-sm text-primary-fixed">Nominal rps</span>
+</div>
+</div>
+<!-- AI Anomaly Diagnostic Banner -->
+<div class="p-3 rounded-lg bg-error-container text-on-error-container shadow-md">
+<div class="flex items-center gap-1.5 font-label-md text-label-md font-bold text-error mb-1">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+<span>AI Root-Cause Attribution</span>
+</div>
+<p class="font-body-sm text-body-sm leading-snug text-on-error-container">
+<strong class="text-primary font-semibold">HikariCP Connection Pool Exhaustion (92% confidence)</strong>. 
+          Correlated with canary rollout <span class="font-code-sm text-code-sm font-semibold text-primary">v2.14.1</span> deployed 32 minutes ago. Max connections (50) clamped.
+        </p>
+</div>
+<!-- Dependency Breakdown -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<span>Inbound Callers (Upstream)</span>
+<span class="font-code-sm text-code-sm">2 nodes</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest font-code-sm text-code-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span class="text-on-surface font-medium">order-service</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span>8.4k rps</span>
+<span class="text-secondary-fixed font-medium">185ms</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest font-code-sm text-code-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="text-on-surface font-medium">api-gateway</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span>120 rps fallback</span>
+<span class="text-on-surface">14ms</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-2">
+<span>Outbound Dependencies (Downstream)</span>
+<span class="font-code-sm text-code-sm">3 nodes</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest font-code-sm text-code-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="text-primary font-medium">postgres-primary-db</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-error font-medium">98% pool</span>
+<span class="text-error font-bold">120ms</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest font-code-sm text-code-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="text-on-surface">stripe-external-gateway</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span>nominal</span>
+<span class="text-on-surface">210ms</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest font-code-sm text-code-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="text-on-surface">redis-cache-cluster</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span>94% hit</span>
+<span class="text-on-surface">1.2ms</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Anomalous Trace Stream -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<span>Failed Traces Excerpt</span>
+<a class="font-code-sm text-code-sm text-primary-fixed hover:underline" href="#">View in Explorer →</a>
+</div>
+<div class="flex flex-col gap-1">
+<div class="p-2 rounded bg-surface-container-lowest font-code-sm text-code-sm flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="text-error font-semibold">504 Gateway Timeout</span>
+<span class="text-on-surface-variant">trace_9a8f2c</span>
+</div>
+<span class="text-on-surface truncate">POST /v2/charge/auth-capture</span>
+<span class="text-on-surface-variant text-[10px]">HikariPool-1 - Connection is not available, request timed out after 30002ms.</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest font-code-sm text-code-sm flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="text-error font-semibold">500 Internal Error</span>
+<span class="text-on-surface-variant">trace_3b7d1e</span>
+</div>
+<span class="text-on-surface truncate">POST /v2/tokens/generate</span>
+<span class="text-on-surface-variant text-[10px]">PSQLException: Connection reset by peer during transaction pool acquisition.</span>
+</div>
+</div>
+</div>
+<!-- Triage & Mitigation Action Group -->
+<div class="flex flex-col gap-2 mt-auto pt-2">
+<button class="w-full py-2 px-3 rounded-lg bg-primary-fixed text-on-primary-container font-headline-md text-headline-md font-bold shadow hover:bg-primary-fixed-dim transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">emergency</span>
+<span>Start Incident Investigation</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-1.5 px-2.5 rounded-lg bg-surface-container-highest text-primary font-label-md text-label-md hover:bg-surface-bright transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>Rollback v2.14.0</span>
+</button>
+<button class="py-1.5 px-2.5 rounded-lg bg-surface-container-highest text-primary font-label-md text-label-md hover:bg-surface-bright transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">speed</span>
+<span>Golden Signals</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Secondary Metric Strip -->
+<div class="grid grid-cols-4 gap-space-md mt-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+</div>
+<div>
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-wider block">Global p95 Latency</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">28.4ms</span>
+<span class="font-code-sm text-code-sm text-error block">+18.2% vs 1h ago</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">traffic</span>
+</div>
+<div>
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-wider block">Mesh Ingress Volume</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">142.8k rps</span>
+<span class="font-code-sm text-code-sm text-primary-fixed block">Nominal saturation</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div>
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-wider block">Active Circuit Breakers</span>
+<span class="font-headline-md text-headline-md text-error font-bold">1 Open</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant block">payment-service (Postgres)</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+</div>
+<div>
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-wider block">Topology Sync Latency</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">240ms</span>
+<span class="font-code-sm text-code-sm text-primary-fixed block">eBPF Sensor Healthy</span>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

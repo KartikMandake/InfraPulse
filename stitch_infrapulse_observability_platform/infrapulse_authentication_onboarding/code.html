@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfraPulse — Authentication & Guided Telemetry Onboarding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#121318',
+              dim: '#0c0e13',
+              card: '#1a1b20',
+              container: '#212228',
+              border: '#2a2b33',
+              hover: '#31333d'
+            },
+            accent: {
+              lime: '#d4ff24',
+              limeDim: '#a6cc18',
+              cobalt: '#3b82f6',
+              cobaltGlow: '#2563eb',
+            },
+            status: {
+              success: '#10b981',
+              warning: '#f59e0b',
+              danger: '#ef4444',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0c0e13;
+      color: #e2e8f0;
+      font-family: 'Geist', sans-serif;
+      overflow-x: hidden;
+    }
+    .grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .glow-lime {
+      box-shadow: 0 0 25px -5px rgba(212, 255, 36, 0.25);
+    }
+    .glow-cobalt {
+      box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.2);
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+    .pulse-node {
+      animation: pulse-subtle 4s ease-in-out infinite;
+    }
+    @keyframes radar-scan {
+      0% { stroke-dashoffset: 600; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .scanning-line {
+      stroke-dasharray: 600;
+      animation: radar-scan 3s linear infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#d4ff24] selection:text-black">
+
+  <!-- Top System Header Bar -->
+  <header class="w-full border-b border-[#22242c] bg-[#121318]/90 backdrop-blur-md px-6 py-3 flex items-center justify-between z-30 sticky top-0">
+    <div class="flex items-center gap-3">
+      <!-- InfraPulse Brand Icon -->
+      <div class="w-8 h-8 rounded-lg bg-black border border-[#2a2b33] flex items-center justify-center p-1.5 shadow-inner">
+        <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-[#d4ff24]" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+      <div class="flex items-baseline gap-2">
+        <span class="font-bold text-base tracking-tight text-white font-sans">InfraPulse</span>
+        <span class="text-xs font-mono text-[#8e909a] tracking-wider px-1.5 py-0.5 rounded bg-[#1a1b20] border border-[#2a2b33]">v2.4-GATEWAY</span>
+      </div>
+      <span class="text-[#3b82f6] text-xs font-mono font-medium hidden sm:inline-flex items-center gap-1.5 ml-3 pl-3 border-l border-[#2a2b33]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-ping"></span>
+        Zero-Trust Secure Auth Gateway
+      </span>
+    </div>
+
+    <!-- Quick Environment & View Controller for Interactive Review -->
+    <div class="flex items-center gap-3">
+      <div class="hidden md:flex items-center gap-1 bg-[#1a1b20] p-1 rounded-lg border border-[#2a2b33] text-xs font-mono">
+        <span class="text-[#8e909a] px-2">Flow Mode:</span>
+        <button id="btn-tab-auth" onclick="switchMainTab('auth')" class="px-2.5 py-1 rounded bg-[#2a2b33] text-[#d4ff24] font-semibold transition">
+          1. Authentication
+        </button>
+        <button id="btn-tab-onboarding" onclick="switchMainTab('onboarding')" class="px-2.5 py-1 rounded text-[#8e909a] hover:text-white transition">
+          2. Guided Onboarding
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1.5 text-xs font-mono text-[#a0a2ad] bg-[#1a1b20] border border-[#2a2b33] px-2.5 py-1 rounded-md">
+          <svg class="w-3.5 h-3.5 text-[#3b82f6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span class="hidden lg:inline">FIPS 140-2 / SOC2 Type II</span>
+        </div>
+        <a href="#docs" class="text-xs text-[#8e909a] hover:text-white font-mono px-2 py-1">Telemetry Docs ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SPLIT WORKSPACE -->
+  <main class="flex-1 w-full grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-100px)]">
+
+    <!-- LEFT SPLIT: Product Narrative, Visual Architecture & Live Telemetry Topology -->
+    <div class="lg:col-span-5 bg-[#0f1015] border-r border-[#22242c] p-8 lg:p-12 flex flex-col justify-between relative overflow-hidden grid-pattern">
+      <!-- Glow ambient backdrops -->
+      <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#3b82f6]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-[#d4ff24]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Top Branding Statement -->
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a1b20] border border-[#2a2b33] text-xs font-mono text-[#d4ff24] mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#d4ff24]"></span>
+          Next-Gen AI Incident Intelligence
+        </div>
+        <h1 class="text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight font-sans">
+          Observability from first trace to root-cause synthesis.
+        </h1>
+        <p class="mt-4 text-sm text-[#9da0af] leading-relaxed max-w-md font-sans">
+          Deploy automated eBPF sensors, correlate Prometheus metrics with OpenTelemetry spans in under 90 seconds, and eliminate alert fatigue with causal graph intelligence.
+        </p>
+
+        <!-- Metric highlights -->
+        <div class="grid grid-cols-3 gap-3 mt-8 pt-6 border-t border-[#22242c]">
+          <div class="bg-[#14151c]/90 border border-[#22242c] rounded-lg p-3">
+            <div class="text-[11px] font-mono text-[#7e818f] uppercase">Setup Time</div>
+            <div class="text-lg font-bold font-mono text-[#d4ff24] mt-0.5">&lt; 90s</div>
+            <div class="text-[10px] text-[#5e6170]">Automated OTel daemon</div>
+          </div>
+          <div class="bg-[#14151c]/90 border border-[#22242c] rounded-lg p-3">
+            <div class="text-[11px] font-mono text-[#7e818f] uppercase">Detection MTTR</div>
+            <div class="text-lg font-bold font-mono text-[#3b82f6] mt-0.5">-74%</div>
+            <div class="text-[10px] text-[#5e6170]">Causal correlation</div>
+          </div>
+          <div class="bg-[#14151c]/90 border border-[#22242c] rounded-lg p-3">
+            <div class="text-[11px] font-mono text-[#7e818f] uppercase">Data Privacy</div>
+            <div class="text-lg font-bold font-mono text-[#10b981] mt-0.5">100%</div>
+            <div class="text-[10px] text-[#5e6170]">Zero Raw Secret Ingest</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: Subtle Microservice Topology Vector Illustration -->
+      <div class="relative z-10 my-8 py-4 bg-[#14151c]/80 rounded-xl border border-[#22242c] p-5 shadow-2xl backdrop-blur-sm">
+        <div class="flex items-center justify-between text-xs font-mono text-[#7e818f] mb-3">
+          <span class="flex items-center gap-1.5 text-white">
+            <span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+            Target Architecture Mesh Topology
+          </span>
+          <span class="text-[#d4ff24] bg-[#d4ff24]/10 px-1.5 py-0.5 rounded border border-[#d4ff24]/20 text-[10px]">eBPF Linked</span>
+        </div>
+
+        <div class="w-full h-48 relative flex items-center justify-center">
+          <svg class="w-full h-full" viewBox="0 0 460 180" fill="none">
+            <!-- Grid Lines and Connection Bus -->
+            <path d="M 60 90 L 150 90 L 230 45 L 330 45 M 150 90 L 230 135 L 330 135 M 330 45 L 400 90 M 330 135 L 400 90" 
+                  stroke="#2a2d39" stroke-width="2" stroke-dasharray="4 4" />
+            
+            <!-- Active Pulses along paths -->
+            <path d="M 60 90 L 150 90 L 230 45 L 330 45" stroke="#3b82f6" stroke-width="2" opacity="0.6" class="scanning-line" />
+            <path d="M 150 90 L 230 135 L 330 135" stroke="#d4ff24" stroke-width="2" opacity="0.6" class="scanning-line" />
+
+            <!-- Edge Proxy / Ingress Node -->
+            <g transform="translate(40, 72)" class="cursor-pointer">
+              <rect width="36" height="36" rx="8" fill="#1a1b24" stroke="#3b82f6" stroke-width="1.5" />
+              <text x="18" y="22" font-size="9" font-family="monospace" fill="#3b82f6" text-anchor="middle" font-weight="bold">ING</text>
+            </g>
+
+            <!-- API Gateway -->
+            <g transform="translate(132, 72)">
+              <rect width="36" height="36" rx="8" fill="#1a1b24" stroke="#e2e8f0" stroke-width="1.5" />
+              <text x="18" y="22" font-size="9" font-family="monospace" fill="#ffffff" text-anchor="middle" font-weight="bold">GW</text>
+            </g>
+
+            <!-- Payment Service (Top cluster) -->
+            <g transform="translate(212, 27)" class="pulse-node">
+              <rect width="36" height="36" rx="8" fill="#1a1b24" stroke="#d4ff24" stroke-width="2" />
+              <circle cx="30" cy="8" r="3" fill="#d4ff24" />
+              <text x="18" y="22" font-size="8" font-family="monospace" fill="#d4ff24" text-anchor="middle" font-weight="bold">PAY</text>
+            </g>
+
+            <!-- Order / Ledger Service (Bottom cluster) -->
+            <g transform="translate(212, 117)">
+              <rect width="36" height="36" rx="8" fill="#1a1b24" stroke="#60a5fa" stroke-width="1.5" />
+              <circle cx="30" cy="8" r="3" fill="#10b981" />
+              <text x="18" y="22" font-size="8" font-family="monospace" fill="#60a5fa" text-anchor="middle" font-weight="bold">ORD</text>
+            </g>
+
+            <!-- PostgreSQL RDS / Kafka Cluster -->
+            <g transform="translate(312, 27)">
+              <rect width="36" height="36" rx="8" fill="#1a1b24" stroke="#7e818f" stroke-width="1.5" />
+              <text x="18" y="22" font-size="8" font-family="monospace" fill="#cbd5e1" text-anchor="middle">RDS</text>
+            </g>
+
+            <g transform="translate(312, 117)">
+              <rect width="36" height="36" rx="8" fill="#1a1b24" stroke="#7e818f" stroke-width="1.5" />
+              <text x="18" y="22" font-size="8" font-family="monospace" fill="#cbd5e1" text-anchor="middle">KAF</text>
+            </g>
+
+            <!-- InfraPulse AI Synthesis Kernel -->
+            <g transform="translate(390, 72)">
+              <circle cx="18" cy="18" r="18" fill="#141926" stroke="#3b82f6" stroke-width="2" />
+              <circle cx="18" cy="18" r="10" fill="#2563eb" fill-opacity="0.3" />
+              <text x="18" y="22" font-size="8" font-family="monospace" fill="#93c5fd" text-anchor="middle" font-weight="bold">AI</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] font-mono border-t border-[#22242c] pt-2 text-[#7e818f]">
+          <span>payment-service: <span class="text-[#d4ff24]">Ready for auto-instrumentation</span></span>
+          <span class="text-[#10b981]">eBPF Probe v2.4 Active</span>
+        </div>
+      </div>
+
+      <!-- Bottom Trust & Compliance Footnote -->
+      <div class="relative z-10 flex items-center justify-between text-xs text-[#676a79] font-mono border-t border-[#22242c] pt-4">
+        <span>KMS Envelope: <code class="text-[#9ca0b0]">aws:kms:us-east-1:infra-9402</code></span>
+        <span>Org-level SSO & MFA Enforced</span>
+      </div>
+    </div>
+
+
+    <!-- RIGHT SPLIT: Interactive Authentication & Onboarding Panels -->
+    <div class="lg:col-span-7 bg-[#121318] p-6 lg:p-12 flex items-center justify-center relative">
+      <div class="w-full max-w-2xl">
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 1: AUTHENTICATION FLOWS (Sign In, Register, Forgot, Reset, Org Invite) -->
+        <!-- ========================================================================= -->
+        <div id="section-auth" class="space-y-6">
+
+          <!-- Auth View Switcher Tab Pill -->
+          <div class="flex items-center justify-between pb-4 border-b border-[#22242c]">
+            <div class="flex items-center gap-1 bg-[#1a1b20] p-1 rounded-lg border border-[#2a2b33] text-xs font-mono">
+              <button onclick="setAuthSubView('signin')" id="tab-auth-signin" class="px-3 py-1.5 rounded bg-[#2a2b33] text-white font-medium transition">
+                Sign In
+              </button>
+              <button onclick="setAuthSubView('signup')" id="tab-auth-signup" class="px-3 py-1.5 rounded text-[#8e909a] hover:text-white transition">
+                Create Account
+              </button>
+              <button onclick="setAuthSubView('forgot')" id="tab-auth-forgot" class="px-3 py-1.5 rounded text-[#8e909a] hover:text-white transition">
+                Forgot Password
+              </button>
+              <button onclick="setAuthSubView('invite')" id="tab-auth-invite" class="px-3 py-1.5 rounded text-[#8e909a] hover:text-white transition flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#d4ff24]"></span>
+                Invite (INC-Org)
+              </button>
+            </div>
+            
+            <span class="text-xs font-mono text-[#676a79] hidden sm:inline">Prod Auth Realm</span>
+          </div>
+
+          <!-- SUB-VIEW: SIGN IN -->
+          <div id="auth-sub-signin" class="space-y-5">
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight text-white font-sans">Sign in to InfraPulse</h2>
+              <p class="text-sm text-[#8e909a] mt-1 font-sans">Access your infrastructure telemetry, incident war rooms, and real-time causal graphs.</p>
+            </div>
+
+            <!-- Single Sign-On Providers -->
+            <div class="grid grid-cols-2 gap-3 pt-2">
+              <button type="button" onclick="showDemoToast('Redirecting to Okta / SAML 2.0 Identity Provider...')" class="flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-lg bg-[#1a1b20] border border-[#2a2b33] text-xs font-mono text-white hover:bg-[#212229] hover:border-[#3b82f6] transition">
+                <svg class="w-4 h-4 text-[#3b82f6]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                Sign in with Okta / SSO
+              </button>
+              <button type="button" onclick="showDemoToast('Redirecting to GitHub Enterprise OAuth...')" class="flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-lg bg-[#1a1b20] border border-[#2a2b33] text-xs font-mono text-white hover:bg-[#212229] hover:border-[#e2e8f0] transition">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Enterprise
+              </button>
+            </div>
+
+            <div class="relative flex items-center justify-center my-4">
+              <div class="border-t border-[#22242c] w-full"></div>
+              <span class="bg-[#121318] px-3 text-xs font-mono text-[#676a79] uppercase">Or corporate credentials</span>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="handleAuthSubmit(event, 'signin')" class="space-y-4">
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Work Email Address</label>
+                <div class="relative">
+                  <input type="email" required value="sarah.chen@infrapulse.io" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-[#d4ff24] focus:ring-1 focus:ring-[#d4ff24] transition placeholder-[#4b4d58]">
+                  <div class="absolute right-3 top-2.5 text-xs font-mono text-[#10b981] flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    SRE Domain
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <label class="text-xs font-mono text-[#a0a2ad]">Password</label>
+                  <button type="button" onclick="setAuthSubView('forgot')" class="text-xs text-[#3b82f6] hover:underline font-mono">Forgot password?</button>
+                </div>
+                <input type="password" required value="••••••••••••••••••••" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-[#d4ff24] focus:ring-1 focus:ring-[#d4ff24] transition">
+              </div>
+
+              <!-- Hardware Key / MFA Pill -->
+              <div class="p-3 bg-[#1a1b20] border border-[#2a2b33] rounded-lg flex items-center justify-between">
+                <div class="flex items-center gap-2 text-xs font-mono text-[#a0a2ad]">
+                  <svg class="w-4 h-4 text-[#d4ff24]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                  <span>MFA Token: <strong class="text-white">FIDO2 / YubiKey Ready</strong></span>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20">Enforced</span>
+              </div>
+
+              <button type="submit" id="btn-submit-signin" class="w-full py-2.5 px-4 rounded-lg bg-[#d4ff24] hover:bg-[#c2ed15] text-black font-semibold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-[#d4ff24]/10">
+                <span>Sign In & Open Workspace</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </form>
+
+            <div class="text-center text-xs text-[#7e818f] font-mono">
+              Don't have an enterprise account? 
+              <button onclick="setAuthSubView('signup')" class="text-[#d4ff24] hover:underline font-semibold ml-1">Create organization</button>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW: CREATE ACCOUNT -->
+          <div id="auth-sub-signup" class="space-y-5 hidden">
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight text-white font-sans">Create your InfraPulse Account</h2>
+              <p class="text-sm text-[#8e909a] mt-1 font-sans">Start monitoring microservices, trace distributed spans, and correlate regressions.</p>
+            </div>
+
+            <form onsubmit="handleAuthSubmit(event, 'signup')" class="space-y-4">
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">First Name</label>
+                  <input type="text" required placeholder="Alex" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-sans focus:outline-none focus:border-[#d4ff24]">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Last Name</label>
+                  <input type="text" required placeholder="Rivera" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-sans focus:outline-none focus:border-[#d4ff24]">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Work Email (SRE / Platform Team)</label>
+                <input type="email" required placeholder="alex.rivera@company.internal" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-[#d4ff24]">
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Password</label>
+                <input type="password" required placeholder="Min 12 characters + symbols" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-[#d4ff24]">
+                <div class="flex items-center gap-2 mt-2">
+                  <div class="h-1 flex-1 bg-[#10b981] rounded-full"></div>
+                  <div class="h-1 flex-1 bg-[#10b981] rounded-full"></div>
+                  <div class="h-1 flex-1 bg-[#10b981] rounded-full"></div>
+                  <div class="h-1 flex-1 bg-[#2a2b33] rounded-full"></div>
+                  <span class="text-[10px] font-mono text-[#10b981]">Strong Password</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2 pt-1 text-xs text-[#8e909a]">
+                <input type="checkbox" required checked class="mt-0.5 rounded bg-[#1a1b20] border-[#2a2b33] text-[#d4ff24] focus:ring-0">
+                <span>I agree to the Enterprise Service Agreement, Telemetry Processing Terms, and SOC2 Security Policies.</span>
+              </div>
+
+              <button type="submit" class="w-full py-2.5 px-4 rounded-lg bg-[#d4ff24] hover:bg-[#c2ed15] text-black font-semibold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-[#d4ff24]/10">
+                <span>Create Account & Continue to Onboarding</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </form>
+
+            <div class="text-center text-xs text-[#7e818f] font-mono">
+              Already have credentials? 
+              <button onclick="setAuthSubView('signin')" class="text-[#3b82f6] hover:underline font-semibold ml-1">Sign in here</button>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW: FORGOT PASSWORD -->
+          <div id="auth-sub-forgot" class="space-y-5 hidden">
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight text-white font-sans">Reset your access credentials</h2>
+              <p class="text-sm text-[#8e909a] mt-1 font-sans">Enter your registered work email to receive a cryptographically signed recovery token.</p>
+            </div>
+
+            <form onsubmit="handleForgotSubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Registered Work Email</label>
+                <input type="email" id="forgot-email" required value="sarah.chen@infrapulse.io" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-[#d4ff24]">
+              </div>
+
+              <div class="p-3 bg-[#1a1b20] border border-[#2a2b33] rounded-lg text-xs font-mono text-[#8e909a] space-y-1">
+                <div class="text-white flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-[#3b82f6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span>Zero-Trust Recovery Procedure:</span>
+                </div>
+                <p>Recovery tokens expire in 15 minutes and require MFA approval from an active hardware key or authorized Org Admin.</p>
+              </div>
+
+              <button type="submit" class="w-full py-2.5 px-4 rounded-lg bg-[#3b82f6] hover:bg-[#2563eb] text-white font-semibold text-sm transition flex items-center justify-center gap-2">
+                <span>Dispatch Password Reset Link</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </button>
+            </form>
+
+            <div class="text-center text-xs text-[#7e818f] font-mono">
+              Remembered your password? 
+              <button onclick="setAuthSubView('signin')" class="text-[#d4ff24] hover:underline font-semibold ml-1">Back to login</button>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW: ORG INVITATION ACCEPTANCE -->
+          <div id="auth-sub-invite" class="space-y-5 hidden">
+            <div class="p-4 bg-[#1a1b20] border border-[#2a2b33] rounded-xl flex items-start gap-3">
+              <div class="w-10 h-10 rounded-lg bg-[#d4ff24]/10 border border-[#d4ff24]/30 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-[#d4ff24]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+              <div class="space-y-1">
+                <div class="text-xs font-mono uppercase text-[#d4ff24] font-semibold tracking-wider">Workspace Invitation</div>
+                <h3 class="text-base font-bold text-white font-sans">You've been invited to join <span class="text-[#d4ff24]">Acme Financial Core Ops</span></h3>
+                <p class="text-xs text-[#8e909a] font-sans">Invited by <strong class="text-white">Sarah Chen (Lead SRE)</strong> as <span class="text-[#3b82f6] font-mono">Service Owner / Responder</span>.</p>
+              </div>
+            </div>
+
+            <div class="space-y-3 bg-[#16171e] p-4 rounded-lg border border-[#22242c] text-xs font-mono">
+              <div class="flex justify-between py-1 border-b border-[#22242c]">
+                <span class="text-[#7e818f]">Organization ID:</span>
+                <span class="text-white">ORG-9821-INFRA</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-[#22242c]">
+                <span class="text-[#7e818f]">Assigned Scope:</span>
+                <span class="text-white font-semibold">payment-service &amp; ledger-db</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-[#22242c]">
+                <span class="text-[#7e818f]">Active Incidents:</span>
+                <span class="text-[#ef4444]">INC-4921 (P1 Critical - In War Room)</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="text-[#7e818f]">Role Privileges:</span>
+                <span class="text-[#10b981]">View Traces, Run Diagnostic Runbooks</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <button onclick="acceptOrgInvite()" class="flex-1 py-2.5 px-4 rounded-lg bg-[#d4ff24] hover:bg-[#c2ed15] text-black font-semibold text-sm transition flex items-center justify-center gap-2">
+                <span>Accept Invite & Join Workspace</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </button>
+              <button onclick="setAuthSubView('signin')" class="px-4 py-2.5 rounded-lg bg-[#1a1b20] border border-[#2a2b33] text-xs font-mono text-[#8e909a] hover:text-white transition">
+                Decline
+              </button>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW: PASSWORD RESET COMPLETION (Mocked for direct inspection) -->
+          <div id="auth-sub-reset" class="space-y-5 hidden">
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight text-white font-sans">Set New Password</h2>
+              <p class="text-sm text-[#8e909a] mt-1 font-sans">Create a secure cryptographic secret for your SRE credentials.</p>
+            </div>
+
+            <form onsubmit="handleResetComplete(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">New Password</label>
+                <input type="password" required placeholder="Enter new password" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-[#d4ff24]">
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Confirm New Password</label>
+                <input type="password" required placeholder="Repeat new password" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-[#d4ff24]">
+              </div>
+              <button type="submit" class="w-full py-2.5 px-4 rounded-lg bg-[#d4ff24] text-black font-semibold text-sm">
+                Update Password & Return to Login
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 2: GUIDED ONBOARDING STEPPER (Org -> Env -> Connect -> Verify -> Complete) -->
+        <!-- ========================================================================= -->
+        <div id="section-onboarding" class="space-y-6 hidden">
+
+          <!-- Stepper Indicator -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-[#d4ff24] font-semibold" id="stepper-label">Step 1 of 4: Organization &amp; Workspace</span>
+              <span class="text-[#676a79]">Guided Service Setup</span>
+            </div>
+            <!-- Progress Bar -->
+            <div class="w-full h-1.5 bg-[#1a1b20] rounded-full overflow-hidden border border-[#2a2b33]">
+              <div id="onboarding-progress-bar" class="h-full bg-gradient-to-r from-[#3b82f6] to-[#d4ff24] transition-all duration-500" style="width: 25%;"></div>
+            </div>
+            
+            <!-- Step pills -->
+            <div class="grid grid-cols-4 gap-2 pt-1 text-[11px] font-mono text-center">
+              <div id="step-pill-1" class="text-[#d4ff24] font-semibold">1. Organization</div>
+              <div id="step-pill-2" class="text-[#676a79]">2. Environment</div>
+              <div id="step-pill-3" class="text-[#676a79]">3. Telemetry Ingest</div>
+              <div id="step-pill-4" class="text-[#676a79]">4. Service Verification</div>
+            </div>
+          </div>
+
+          <!-- STEP 1: CREATE OR JOIN ORG & WORKSPACE NAME -->
+          <div id="onboarding-step-1" class="space-y-5 bg-[#16171e] p-6 rounded-xl border border-[#22242c]">
+            <div>
+              <h3 class="text-xl font-bold text-white font-sans">Name your Organization &amp; Workspace</h3>
+              <p class="text-xs text-[#8e909a] mt-1 font-sans">Set the top-level isolation boundary for your clusters, teams, and SLO budgets.</p>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Organization Name</label>
+                <input type="text" id="input-org-name" value="Acme Financial Technologies" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-white font-sans focus:outline-none focus:border-[#d4ff24]">
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Primary Workspace Identifier</label>
+                <div class="flex items-center">
+                  <span class="bg-[#212228] border border-r-0 border-[#2a2b33] px-3 py-2.5 rounded-l-lg text-xs font-mono text-[#8e909a]">app.infrapulse.io/</span>
+                  <input type="text" id="input-workspace-slug" value="acme-core-banking" class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-r-lg px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-[#d4ff24]">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1.5">Primary SRE Lead Email</label>
+                <input type="email" readonly value="sarah.chen@infrapulse.io" class="w-full bg-[#1a1b20]/60 border border-[#2a2b33] rounded-lg px-3.5 py-2.5 text-sm text-[#8e909a] font-mono cursor-not-allowed">
+              </div>
+            </div>
+
+            <div class="flex items-center justify-end gap-3 pt-3 border-t border-[#22242c]">
+              <button onclick="goToOnboardingStep(2)" class="px-5 py-2.5 rounded-lg bg-[#d4ff24] hover:bg-[#c2ed15] text-black font-semibold text-xs font-mono transition flex items-center gap-1.5">
+                <span>Continue to Environment</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: SELECT INITIAL ENVIRONMENT & REGION -->
+          <div id="onboarding-step-2" class="space-y-5 bg-[#16171e] p-6 rounded-xl border border-[#22242c] hidden">
+            <div>
+              <h3 class="text-xl font-bold text-white font-sans">Select Initial Environment</h3>
+              <p class="text-xs text-[#8e909a] mt-1 font-sans">Choose where your first monitored services and collectors will register.</p>
+            </div>
+
+            <!-- Environment Selection Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <!-- Production Card -->
+              <div onclick="selectEnvCard('prod')" id="env-card-prod" class="cursor-pointer p-4 rounded-xl bg-[#1a1b20] border-2 border-[#d4ff24] space-y-2 transition relative">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-[#d4ff24]">PROD-US-EAST-1</span>
+                  <span class="w-2 h-2 rounded-full bg-[#d4ff24]"></span>
+                </div>
+                <div class="text-sm font-bold text-white font-sans">Production Fleet</div>
+                <p class="text-[11px] text-[#8e909a]">Tier-0 mission critical services, full 2-man rule safety guardrails.</p>
+                <div class="text-[10px] font-mono text-[#a0a2ad] pt-2 border-t border-[#2a2b33]">AWS EKS Cluster • 64 Nodes</div>
+              </div>
+
+              <!-- Staging Card -->
+              <div onclick="selectEnvCard('staging')" id="env-card-staging" class="cursor-pointer p-4 rounded-xl bg-[#1a1b20] border border-[#2a2b33] hover:border-[#3b82f6] space-y-2 transition">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-white">SANDBOX-STAGING</span>
+                  <span class="w-2 h-2 rounded-full bg-[#7e818f]"></span>
+                </div>
+                <div class="text-sm font-bold text-white font-sans">Staging &amp; Chaos</div>
+                <p class="text-[11px] text-[#8e909a]">Ephemeral testbed with Chaos &amp; Fault Lab simulation enabled.</p>
+                <div class="text-[10px] font-mono text-[#a0a2ad] pt-2 border-t border-[#2a2b33]">GKE Cluster • 16 Nodes</div>
+              </div>
+
+              <!-- Dev Card -->
+              <div onclick="selectEnvCard('dev')" id="env-card-dev" class="cursor-pointer p-4 rounded-xl bg-[#1a1b20] border border-[#2a2b33] hover:border-[#3b82f6] space-y-2 transition">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-white">DEV-LOCAL</span>
+                  <span class="w-2 h-2 rounded-full bg-[#7e818f]"></span>
+                </div>
+                <div class="text-sm font-bold text-white font-sans">Developer Preview</div>
+                <p class="text-[11px] text-[#8e909a]">PR preview environments and local Kind / Minikube meshes.</p>
+                <div class="text-[10px] font-mono text-[#a0a2ad] pt-2 border-t border-[#2a2b33]">Localhost / ephemeral</div>
+              </div>
+            </div>
+
+            <!-- Region & Cloud selector -->
+            <div class="grid grid-cols-2 gap-3 pt-2">
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1">Primary Cloud Provider</label>
+                <select class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-[#d4ff24]">
+                  <option selected>Amazon Web Services (AWS)</option>
+                  <option>Google Cloud Platform (GCP)</option>
+                  <option>Microsoft Azure</option>
+                  <option>Bare Metal / Kubernetes Native</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-[#a0a2ad] mb-1">Telemetry Retention Region</label>
+                <select class="w-full bg-[#1a1b20] border border-[#2a2b33] rounded-lg px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-[#d4ff24]">
+                  <option selected>us-east-1 (N. Virginia, USA)</option>
+                  <option>eu-west-1 (Dublin, Ireland)</option>
+                  <option>ap-southeast-1 (Singapore)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-[#22242c]">
+              <button onclick="goToOnboardingStep(1)" class="px-4 py-2 rounded-lg bg-[#1a1b20] border border-[#2a2b33] text-xs font-mono text-[#8e909a] hover:text-white">
+                Back
+              </button>
+              <button onclick="goToOnboardingStep(3)" class="px-5 py-2.5 rounded-lg bg-[#d4ff24] hover:bg-[#c2ed15] text-black font-semibold text-xs font-mono transition flex items-center gap-1.5">
+                <span>Configure Telemetry Ingest</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: CONNECT TELEMETRY (OTel Collector & Prometheus Instructions) -->
+          <div id="onboarding-step-3" class="space-y-5 bg-[#16171e] p-6 rounded-xl border border-[#22242c] hidden">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-white font-sans">Connect Telemetry Ingest</h3>
+                <p class="text-xs text-[#8e909a] mt-1 font-sans">Deploy the OpenTelemetry Collector daemonset or stream Prometheus metrics.</p>
+              </div>
+              <button onclick="skipTelemetryStep()" class="text-xs font-mono text-[#8e909a] hover:text-[#d4ff24] underline">
+                Skip for now ↗
+              </button>
+            </div>
+
+            <!-- Ingest Method Selector Tabs -->
+            <div class="flex items-center gap-2 border-b border-[#22242c] pb-2 text-xs font-mono">
+              <button onclick="setIngestTab('otel')" id="tab-ingest-otel" class="px-3 py-1.5 rounded-lg bg-[#2a2b33] text-[#d4ff24] font-semibold transition flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-[#d4ff24]"></span>
+                Method A: OpenTelemetry Collector (Recommended)
+              </button>
+              <button onclick="setIngestTab('prom')" id="tab-ingest-prom" class="px-3 py-1.5 rounded-lg text-[#8e909a] hover:text-white transition flex items-center gap-1.5">
+                Method B: Prometheus Remote Write
+              </button>
+            </div>
+
+            <!-- TAB CONTENT: OTEL COLLECTOR -->
+            <div id="content-ingest-otel" class="space-y-4">
+              <div class="p-3 bg-[#121318] border border-[#2a2b33] rounded-lg text-xs font-mono space-y-2">
+                <div class="flex items-center justify-between text-[#8e909a]">
+                  <span>Kubernetes Helm Quickstart (DaemonSet)</span>
+                  <button onclick="copyCodeSnippet('helm-cmd')" class="text-[#3b82f6] hover:underline flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    Copy
+                  </button>
+                </div>
+                <div id="helm-cmd" class="text-[#d4ff24] bg-black/60 p-3 rounded font-mono text-[11px] overflow-x-auto select-all">
+                  helm repo add infrapulse https://charts.infrapulse.io<br>
+                  helm install infrapulse-agent infrapulse/otel-daemonset \<br>
+                  &nbsp;&nbsp;--set endpoint="ingest.us-east-1.infrapulse.io:4317" \<br>
+                  &nbsp;&nbsp;--set token="otlp_sec_9f82••••••••••••••••34a1" \<br>
+                  &nbsp;&nbsp;--set ebpf.enabled=true
+                </div>
+              </div>
+
+              <!-- Masked Ingestion Endpoint Details -->
+              <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+                <div class="bg-[#121318] p-3 rounded-lg border border-[#2a2b33]">
+                  <span class="text-[#7e818f] block text-[10px]">gRPC OTLP Endpoint</span>
+                  <span class="text-white font-semibold">ingest.us-east-1.infrapulse.io:4317</span>
+                </div>
+                <div class="bg-[#121318] p-3 rounded-lg border border-[#2a2b33]">
+                  <span class="text-[#7e818f] block text-[10px]">Ingest Token (Secret)</span>
+                  <span class="text-[#3b82f6] font-semibold">otlp_sec_9f82••••••••34a1</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB CONTENT: PROMETHEUS -->
+            <div id="content-ingest-prom" class="space-y-4 hidden">
+              <div class="p-3 bg-[#121318] border border-[#2a2b33] rounded-lg text-xs font-mono space-y-2">
+                <div class="flex items-center justify-between text-[#8e909a]">
+                  <span>prometheus.yml (Remote Write Config)</span>
+                  <button onclick="copyCodeSnippet('prom-cmd')" class="text-[#3b82f6] hover:underline flex items-center gap-1">Copy</button>
+                </div>
+                <div id="prom-cmd" class="text-[#3b82f6] bg-black/60 p-3 rounded font-mono text-[11px] overflow-x-auto select-all">
+                  remote_write:<br>
+                  &nbsp;&nbsp;- url: "https://prometheus-thanos.internal.infrapulse.io:9090/api/v1/write"<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;bearer_token: "prom_live_9f82••••34a1"<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;queue_config:<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_samples_per_send: 1000
+                </div>
+              </div>
+            </div>
+
+            <!-- Probe Status Ping -->
+            <div class="flex items-center justify-between p-3 bg-[#14151c] rounded-lg border border-[#2a2b33] text-xs font-mono">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-pulse"></span>
+                <span class="text-white">Listening on port 4317 / 4318 for incoming telemetry spans...</span>
+              </div>
+              <span class="text-[#10b981] font-semibold">Ready</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-[#22242c]">
+              <button onclick="goToOnboardingStep(2)" class="px-4 py-2 rounded-lg bg-[#1a1b20] border border-[#2a2b33] text-xs font-mono text-[#8e909a] hover:text-white">
+                Back
+              </button>
+              <button onclick="goToOnboardingStep(4)" class="px-5 py-2.5 rounded-lg bg-[#d4ff24] hover:bg-[#c2ed15] text-black font-semibold text-xs font-mono transition flex items-center gap-1.5">
+                <span>Check First Service Detection</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 4: VERIFY FIRST SERVICE DETECTED & FINISH ONBOARDING -->
+          <div id="onboarding-step-4" class="space-y-5 bg-[#16171e] p-6 rounded-xl border border-[#22242c] hidden">
+            <div>
+              <h3 class="text-xl font-bold text-white font-sans">First Service Detection &amp; Verification</h3>
+              <p class="text-xs text-[#8e909a] mt-1 font-sans">Real-time eBPF handshake and distributed trace payload verification.</p>
+            </div>
+
+            <!-- Verification Progress Box -->
+            <div class="space-y-3 bg-[#121318] p-4 rounded-xl border border-[#2a2b33]">
+              <!-- Service 1: payment-service -->
+              <div class="p-3 bg-[#1a1b20] rounded-lg border border-[#10b981]/40 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded bg-[#10b981]/10 border border-[#10b981]/30 flex items-center justify-center text-[#10b981]">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-xs font-mono font-bold text-white flex items-center gap-2">
+                      payment-service (Tier-0)
+                      <span class="text-[10px] text-[#10b981] bg-[#10b981]/10 px-1.5 py-0.5 rounded font-mono">CONNECTED</span>
+                    </div>
+                    <div class="text-[11px] text-[#8e909a] font-mono mt-0.5">
+                      Ingesting: 142 spans/sec • eBPF TCP handshake verified • 8 pods registered
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right text-xs font-mono">
+                  <span class="text-[#d4ff24] font-bold">14ms latency</span>
+                  <div class="text-[10px] text-[#676a79]">Sample: tr_9a8f2c01e</div>
+                </div>
+              </div>
+
+              <!-- Service 2: api-gateway (Auxiliary detection) -->
+              <div class="p-3 bg-[#1a1b20] rounded-lg border border-[#2a2b33] flex items-center justify-between opacity-80">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded bg-[#3b82f6]/10 border border-[#3b82f6]/30 flex items-center justify-center text-[#3b82f6]">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-xs font-mono font-bold text-white flex items-center gap-2">
+                      api-gateway-ingress
+                      <span class="text-[10px] text-[#3b82f6] bg-[#3b82f6]/10 px-1.5 py-0.5 rounded font-mono">DISCOVERED</span>
+                    </div>
+                    <div class="text-[11px] text-[#8e909a] font-mono mt-0.5">
+                      HTTP routes mapped: /v2/charge, /orders, /auth
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right text-xs font-mono">
+                  <span class="text-[#3b82f6]">Auto-correlated</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Complete Verification Checklist -->
+            <div class="grid grid-cols-2 gap-2 text-xs font-mono text-[#a0a2ad]">
+              <div class="flex items-center gap-2">
+                <span class="text-[#10b981]">✓</span>
+                <span>Distributed trace propagation verified</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[#10b981]">✓</span>
+                <span>PromQL scrape targets confirmed (482)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[#10b981]">✓</span>
+                <span>Zero-Trust token signature validated</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[#10b981]">✓</span>
+                <span>Causal graph engine initialized</span>
+              </div>
+            </div>
+
+            <!-- Finish Onboarding CTA -->
+            <div class="pt-4 border-t border-[#22242c] flex items-center justify-between">
+              <button onclick="goToOnboardingStep(3)" class="px-4 py-2 rounded-lg bg-[#1a1b20] border border-[#2a2b33] text-xs font-mono text-[#8e909a] hover:text-white">
+                Back
+              </button>
+              
+              <button onclick="finishOnboardingToDashboard()" class="px-6 py-3 rounded-lg bg-[#d4ff24] hover:bg-[#c2ed15] text-black font-bold text-sm font-sans transition flex items-center gap-2 shadow-lg shadow-[#d4ff24]/20">
+                <span>Finish Onboarding &amp; Open Overview Dashboard</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-banner" class="fixed bottom-6 right-6 max-w-md bg-[#1a1b20] border border-[#d4ff24] text-white p-4 rounded-xl shadow-2xl z-50 flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+    <div class="w-7 h-7 rounded-full bg-[#d4ff24]/20 flex items-center justify-center shrink-0">
+      <svg class="w-4 h-4 text-[#d4ff24]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <div class="text-xs font-mono text-[#d4ff24]" id="toast-text">
+      Message
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Controller -->
+  <script>
+    function showDemoToast(msg) {
+      const toast = document.getElementById('toast-banner');
+      const text = document.getElementById('toast-text');
+      text.innerText = msg;
+      toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+      }, 3500);
+    }
+
+    function switchMainTab(mode) {
+      const authSec = document.getElementById('section-auth');
+      const onbSec = document.getElementById('section-onboarding');
+      const btnAuth = document.getElementById('btn-tab-auth');
+      const btnOnb = document.getElementById('btn-tab-onboarding');
+
+      if (mode === 'auth') {
+        authSec.classList.remove('hidden');
+        onbSec.classList.add('hidden');
+        btnAuth.className = "px-2.5 py-1 rounded bg-[#2a2b33] text-[#d4ff24] font-semibold transition";
+        btnOnb.className = "px-2.5 py-1 rounded text-[#8e909a] hover:text-white transition";
+      } else {
+        authSec.classList.add('hidden');
+        onbSec.classList.remove('hidden');
+        btnOnb.className = "px-2.5 py-1 rounded bg-[#2a2b33] text-[#d4ff24] font-semibold transition";
+        btnAuth.className = "px-2.5 py-1 rounded text-[#8e909a] hover:text-white transition";
+      }
+    }
+
+    function setAuthSubView(view) {
+      const views = ['signin', 'signup', 'forgot', 'invite', 'reset'];
+      views.forEach(v => {
+        const el = document.getElementById(`auth-sub-${v}`);
+        const tab = document.getElementById(`tab-auth-${v}`);
+        if (el) el.classList.add('hidden');
+        if (tab) {
+          tab.classList.remove('bg-[#2a2b33]', 'text-white', 'text-[#d4ff24]', 'font-semibold');
+          tab.classList.add('text-[#8e909a]');
+        }
+      });
+
+      const activeEl = document.getElementById(`auth-sub-${view}`);
+      const activeTab = document.getElementById(`tab-auth-${view}`);
+      if (activeEl) activeEl.classList.remove('hidden');
+      if (activeTab) {
+        activeTab.classList.remove('text-[#8e909a]');
+        activeTab.classList.add('bg-[#2a2b33]', 'text-white', 'font-semibold');
+      }
+    }
+
+    function handleAuthSubmit(e, type) {
+      e.preventDefault();
+      if (type === 'signin') {
+        showDemoToast("Authentication Verified (FIDO2 / KMS OK) → Transitioning to Workspace...");
+        setTimeout(() => {
+          switchMainTab('onboarding');
+        }, 1200);
+      } else if (type === 'signup') {
+        showDemoToast("Account created successfully. Initiating organization onboarding...");
+        setTimeout(() => {
+          switchMainTab('onboarding');
+        }, 1000);
+      }
+    }
+
+    function handleForgotSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgot-email').value;
+      showDemoToast(`Recovery link sent to ${email}. Token valid for 15m.`);
+      setTimeout(() => {
+        setAuthSubView('reset');
+      }, 1500);
+    }
+
+    function handleResetComplete(e) {
+      e.preventDefault();
+      showDemoToast("Password updated successfully. Please sign in with your new credentials.");
+      setTimeout(() => {
+        setAuthSubView('signin');
+      }, 1200);
+    }
+
+    function acceptOrgInvite() {
+      showDemoToast("Workspace Invitation Accepted! Routing to Workspace Overview...");
+      setTimeout(() => {
+        switchMainTab('onboarding');
+        goToOnboardingStep(4);
+      }, 1200);
+    }
+
+    function goToOnboardingStep(step) {
+      for (let i = 1; i <= 4; i++) {
+        const stepEl = document.getElementById(`onboarding-step-${i}`);
+        const pillEl = document.getElementById(`step-pill-${i}`);
+        if (stepEl) stepEl.classList.add('hidden');
+        if (pillEl) {
+          pillEl.className = "text-[#676a79]";
+        }
+      }
+
+      const activeStep = document.getElementById(`onboarding-step-${step}`);
+      const activePill = document.getElementById(`step-pill-${step}`);
+      if (activeStep) activeStep.classList.remove('hidden');
+      if (activePill) {
+        activePill.className = "text-[#d4ff24] font-semibold";
+      }
+
+      // Progress bar percentage
+      const bar = document.getElementById('onboarding-progress-bar');
+      const label = document.getElementById('stepper-label');
+      const percentages = { 1: '25%', 2: '50%', 3: '75%', 4: '100%' };
+      const labels = {
+        1: 'Step 1 of 4: Organization & Workspace',
+        2: 'Step 2 of 4: Environment & Fleet Target',
+        3: 'Step 3 of 4: Telemetry Ingestion (OTel & Prom)',
+        4: 'Step 4 of 4: Service Detection Verification'
+      };
+      if (bar) bar.style.width = percentages[step];
+      if (label) label.innerText = labels[step];
+    }
+
+    function selectEnvCard(env) {
+      ['prod', 'staging', 'dev'].forEach(e => {
+        const card = document.getElementById(`env-card-${e}`);
+        if (card) {
+          card.className = "cursor-pointer p-4 rounded-xl bg-[#1a1b20] border border-[#2a2b33] hover:border-[#3b82f6] space-y-2 transition";
+        }
+      });
+      const selected = document.getElementById(`env-card-${env}`);
+      if (selected) {
+        selected.className = "cursor-pointer p-4 rounded-xl bg-[#1a1b20] border-2 border-[#d4ff24] space-y-2 transition relative";
+      }
+    }
+
+    function setIngestTab(tab) {
+      const otelBtn = document.getElementById('tab-ingest-otel');
+      const promBtn = document.getElementById('tab-ingest-prom');
+      const otelContent = document.getElementById('content-ingest-otel');
+      const promContent = document.getElementById('content-ingest-prom');
+
+      if (tab === 'otel') {
+        otelBtn.className = "px-3 py-1.5 rounded-lg bg-[#2a2b33] text-[#d4ff24] font-semibold transition flex items-center gap-1.5";
+        promBtn.className = "px-3 py-1.5 rounded-lg text-[#8e909a] hover:text-white transition flex items-center gap-1.5";
+        otelContent.classList.remove('hidden');
+        promContent.classList.add('hidden');
+      } else {
+        promBtn.className = "px-3 py-1.5 rounded-lg bg-[#2a2b33] text-[#3b82f6] font-semibold transition flex items-center gap-1.5";
+        otelBtn.className = "px-3 py-1.5 rounded-lg text-[#8e909a] hover:text-white transition flex items-center gap-1.5";
+        promContent.classList.remove('hidden');
+        otelContent.classList.add('hidden');
+      }
+    }
+
+    function skipTelemetryStep() {
+      showDemoToast("Skipped telemetry collector configuration. Proceeding to service detection...");
+      goToOnboardingStep(4);
+    }
+
+    function copyCodeSnippet(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showDemoToast("Code snippet copied to clipboard!");
+      });
+    }
+
+    function finishOnboardingToDashboard() {
+      showDemoToast("Onboarding complete! Redirecting to System Overview (/overview)...");
+      setTimeout(() => {
+        window.location.hash = "/overview";
+      }, 1500);
+    }
+  </script>
+</body>
+</html>

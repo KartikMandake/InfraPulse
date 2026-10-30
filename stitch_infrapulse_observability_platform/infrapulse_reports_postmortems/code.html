@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-low":"#1a1b20","on-secondary-fixed":"#001946","error":"#ffb4ab","surface-container":"#1e1f24","on-background":"#e2e2e9","background":"#121318","on-tertiary-fixed":"#121c28","surface-dim":"#121318","on-error-container":"#ffdad6","surface-container-lowest":"#0c0e13","surface-variant":"#33353a","on-tertiary-container":"#5b6573","on-primary-fixed":"#171e00","inverse-surface":"#e2e2e9","on-error":"#690005","surface-bright":"#38393e","surface-tint":"#afd500","on-surface":"#e2e2e9","outline":"#8f9379","primary-container":"#c8f30c","on-primary-fixed-variant":"#3e4c00","secondary-fixed-dim":"#b1c5ff","tertiary":"#ffffff","on-primary-container":"#586c00","surface":"#121318","secondary-container":"#0050c0","surface-container-high":"#282a2f","secondary":"#b1c5ff","secondary-fixed":"#dae2ff","inverse-on-surface":"#2f3035","on-primary":"#2a3500","primary":"#ffffff","on-tertiary-fixed-variant":"#3d4854","on-secondary":"#002c71","on-secondary-fixed-variant":"#00419f","surface-container-highest":"#33353a","tertiary-fixed-dim":"#bcc7d7","on-tertiary":"#27313d","outline-variant":"#444933","on-surface-variant":"#c5c9ad","primary-fixed":"#c8f30c","tertiary-container":"#d8e3f3","on-secondary-container":"#bbccff","tertiary-fixed":"#d8e3f3","error-container":"#93000a","inverse-primary":"#536600","primary-fixed-dim":"#afd500"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xl":"1.5rem","space-lg":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter-desktop":"1rem","gutter":"0.75rem","space-md":"0.75rem","space-2xl":"2rem","margin-desktop":"1.5rem","margin":"1rem"},fontFamily:{"headline-md":["Geist"],"headline-lg":["Geist"],"code-md":["JetBrains Mono"],"headline-xl-mobile":["Geist"],"label-sm":["Geist"],"label-md":["Geist"],"body-sm":["Geist"],"code-sm":["JetBrains Mono"],"headline-xl":["Geist"],"code-lg":["JetBrains Mono"],"body-md":["Geist"],"body-lg":["Geist"]},fontSize:{"headline-md":["1.125rem",{"lineHeight":"1.375rem","letterSpacing":"-0.015em","fontWeight":"500"}],"headline-lg":["1.5rem",{"lineHeight":"1.75rem","letterSpacing":"-0.02em","fontWeight":"600"}],"code-md":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-xl-mobile":["1.5rem",{"lineHeight":"1.75rem","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"500"}],"body-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0em","fontWeight":"400"}],"code-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0em","fontWeight":"400"}],"headline-xl":["2rem",{"lineHeight":"2.25rem","letterSpacing":"-0.025em","fontWeight":"600"}],"code-lg":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"-0.01em","fontWeight":"500"}],"body-md":["0.8125rem",{"lineHeight":"1.125rem","letterSpacing":"0em","fontWeight":"400"}],"body-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"-0.005em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-low z-50 flex flex-col justify-between border-r border-outline-variant/30 select-none"><div class="flex flex-col min-h-0"><div class="h-14 px-space-md flex items-center justify-between border-b border-outline-variant/20"><div class="flex items-center gap-space-sm"><img alt="InfraPulse Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XDr9zKIal4OkK8Qx4PJGu378Ye3fYTLQea4-Qm9W-HVg6rpporZLMQSPnfYcmlOD4iFhGMBZ0h1gY8Xwly1lYvdNwteAm3FWOhleMVkHAEA6nRs7KJX0SVNS1yb-w7zxznDfbl6Gf0oKF9xrFCPPxuuWcfNbY1kzVFO05_5IPmUf2vIxxu4i-18riGrBLoJm1nAZK2Q6UzxVqIjsq1Aq99USc5gfJs-uA-87PW52ycsw"/><div class="flex flex-col"><span class="font-headline-md text-headline-md font-semibold tracking-tight text-primary leading-none">InfraPulse</span><span class="font-code-sm text-code-sm text-on-surface-variant font-mono mt-0.5 tracking-tight">v2.4 • DEMO-SANDBOX</span></div></div></div><nav class="flex-1 overflow-y-auto px-space-xs py-space-sm flex flex-col gap-0.5" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold shadow-sm"><div class="px-space-sm py-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant/70">Platform Telemetry</div><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="font-body-sm text-body-sm">Overview</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="services-and-topology" href="#"><span class="font-body-sm text-body-sm">Services &amp; Topology</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="incidents" href="#"><span class="font-body-sm text-body-sm">Incidents</span><span class="px-1.5 py-0.5 rounded font-code-sm text-code-sm bg-error-container text-on-error-container font-semibold">1 Crit / 2 High</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="alerts" href="#"><span class="font-body-sm text-body-sm">Alerts</span><span class="px-1.5 py-0.5 rounded font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant font-mono font-medium">14</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="telemetry-explorer" href="#"><span class="font-body-sm text-body-sm">Telemetry Explorer</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="deployments" href="#"><span class="font-body-sm text-body-sm">Deployments</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="slos-and-budgets" href="#"><span class="font-body-sm text-body-sm">SLOs &amp; Budgets</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="runbooks" href="#"><span class="font-body-sm text-body-sm">Runbooks</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-secondary-container text-on-secondary-container font-semibold shadow-sm" data-path="reports" href="#"><span class="font-body-sm text-body-sm">Reports &amp; Postmortems</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="fault-lab" href="#"><span class="font-body-sm text-body-sm">Fault Injection Lab</span><span class="px-1.5 py-0.5 rounded font-code-sm text-code-sm bg-primary-fixed/20 text-primary-fixed font-mono font-semibold text-[10px]">LIVE</span></a><div class="mt-space-sm pt-space-xs border-t border-outline-variant/20"><div class="px-space-sm py-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant/70">Configuration</div><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="integrations" href="#"><span class="font-body-sm text-body-sm">Integrations</span><span class="px-1.5 py-0.5 rounded font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant font-mono">AWS•OTel</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="team-and-access" href="#"><span class="font-body-sm text-body-sm">Team &amp; Access</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="font-body-sm text-body-sm">Settings</span></a></div></nav></div><div class="p-space-sm border-t border-outline-variant/20 bg-surface-container-lowest"><div class="flex items-center justify-between p-space-xs rounded bg-surface-container px-2 py-1.5 border border-outline-variant/30"><div class="flex items-center gap-1.5"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-fixed"></span></span><span class="font-code-sm text-code-sm text-on-surface font-mono">99.98% • 24ms</span></div><span class="font-label-sm text-label-sm uppercase font-mono text-primary-fixed font-semibold tracking-wide">MESH OK</span></div></div></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-14 bg-surface-container-low/95 backdrop-blur-md border-b border-outline-variant/30 z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container text-on-surface border border-outline-variant/30 font-code-sm text-code-sm font-mono cursor-pointer hover:border-outline-variant transition-colors"><span>demo-sandbox</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></div><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center gap-1.5 font-code-sm text-code-sm font-mono text-on-surface-variant"><span class="text-on-surface-variant/70">prod-simulation</span><span class="text-outline-variant">/</span><span class="text-on-surface-variant/70">telemetry</span><span class="text-outline-variant">/</span><span class="text-primary font-medium">reports</span></div></div><div class="flex-1 max-w-md mx-space-lg"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-[18px] text-on-surface-variant">search</span><input class="w-full bg-surface-container pl-9 pr-14 py-1.5 rounded text-on-surface placeholder:text-on-surface-variant/60 font-code-sm text-code-sm border border-outline-variant/30 focus:border-primary-fixed focus:outline-none transition-colors" placeholder="Search chaos experiments, injected faults, blasts, services..." type="text"/><div class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/40 text-on-surface-variant font-code-sm text-code-sm font-mono text-[10px]">⌘K</div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high border border-primary-fixed/30"><span class="material-symbols-outlined text-[14px] text-primary-fixed">smart_toy</span><span class="font-label-sm text-label-sm font-semibold text-primary-fixed tracking-wide">AI Copilot Active</span></div><div class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container border border-outline-variant/30 font-code-sm text-code-sm font-mono text-on-surface cursor-pointer hover:border-outline-variant transition-colors"><span class="material-symbols-outlined text-[14px] text-on-surface-variant">schedule</span><span>Last 15m</span><span class="text-outline-variant">•</span><span class="text-primary-fixed text-[10px]">10s live</span></div><button class="relative p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-low"></span></button><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-1 cursor-pointer"><img alt="Sarah Chen" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAedGX_PKDtIayCEVl4hCuxyA45OOqbVjxiLf6pszKUKdyDl_hYchdD0Iy_clIgob3_UlC0jnH8GOAaXy2sD_EfOik3NB0IhsJVoO6SOiTqA6Fnj7EE1ktcET7IVz0VJ9X1V77-vdRaOdxnbJFJR-m4G6ibgOQ_kMQDySLTtpWQS-fq5EY14pg6tZ59SrDpSXw_S5Q-SHTRWuirvXgFPYOSJBc5J0Lu4oV3LeAuDzV4"/><div class="hidden xl:flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Sarah Chen</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono leading-none">Lead SRE</span></div><span class="relative flex h-2 w-2"><span class="inline-flex rounded-full h-2 w-2 bg-primary-fixed"></span></span></div></div></header><main class="relative pt-14 w-full px-space-lg bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Operational Control Ribbon -->
+<section class="flex flex-col gap-space-sm mb-space-lg">
+<!-- Breadcrumb & Scope Status -->
+<div class="flex flex-wrap items-center justify-between gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-lg">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">prod-us-east-1</span>
+<span class="font-code-sm text-code-sm text-outline-variant font-mono">/</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">reliability</span>
+<span class="font-code-sm text-code-sm text-outline-variant font-mono">/</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">postmortems</span>
+<span class="font-code-sm text-code-sm text-outline-variant font-mono">/</span>
+<span class="font-code-sm text-code-sm text-primary-fixed font-mono font-semibold">INC-4921-POSTMORTEM</span>
+<span class="ml-2 px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider uppercase bg-error-container text-on-error-container">P1 CRITICAL</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider uppercase bg-surface-container-high text-primary-fixed">STATUS: SIGNED-OFF</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider uppercase bg-surface-container-high text-on-surface-variant">REVIEW: COMPLETED</span>
+</div>
+<!-- Action Controls -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="inline-flex p-0.5 rounded bg-surface-container-lowest">
+<button class="px-2.5 py-1 rounded text-label-sm font-label-sm font-semibold transition-colors bg-surface-container-high text-primary-fixed" id="viewModeExec" onclick="setDocMode('exec')">Executive Dossier</button>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-sm transition-colors text-on-surface-variant hover:text-on-surface" id="viewModeEditor" onclick="setDocMode('editor')">Interactive Editor</button>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-sm transition-colors text-on-surface-variant hover:text-on-surface" id="viewModeClean" onclick="setDocMode('clean')">Print Ready</button>
+</div>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="triggerToast('PDF generated and cryptographic seal verified')">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">picture_as_pdf</span>
+<span>Export PDF</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="copyMarkdownAction()">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">content_copy</span>
+<span id="copyMdLabel">Copy Markdown</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="triggerToast('Share URL copied with v2.2 immutable snapshot hash')">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">share</span>
+<span>Share</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded font-label-sm text-label-sm font-semibold text-surface-container-lowest bg-primary-fixed hover:bg-primary-fixed-dim transition-all shadow-sm" onclick="openTemplateModal()">
+<span class="material-symbols-outlined text-[16px]">add_box</span>
+<span>+ New from Template</span>
+</button>
+</div>
+</div>
+<!-- KPI / Incident Duration Metrics Ribbon -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-mono">Detection (MTTD)</span>
+<span class="material-symbols-outlined text-[14px] text-primary-fixed">radar</span>
+</div>
+<div class="my-1">
+<span class="font-headline-lg text-headline-lg font-mono font-bold text-on-surface">1m 10s</span>
+</div>
+<p class="font-code-sm text-code-sm font-mono text-on-surface-variant/80 truncate">Prometheus AL-4921 +70s post-deploy</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-mono">Ack Time (MTTA)</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">notifications_active</span>
+</div>
+<div class="my-1">
+<span class="font-headline-lg text-headline-lg font-mono font-bold text-on-surface">2m 15s</span>
+</div>
+<p class="font-code-sm text-code-sm font-mono text-on-surface-variant/80 truncate">Acked by @sarah-chen (PD-992)</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-mono">Mitigation (MTTM)</span>
+<span class="material-symbols-outlined text-[14px] text-primary-fixed">build_circle</span>
+</div>
+<div class="my-1">
+<span class="font-headline-lg text-headline-lg font-mono font-bold text-primary-fixed">22m 30s</span>
+</div>
+<p class="font-code-sm text-code-sm font-mono text-on-surface-variant/80 truncate">Consul KV max-pool: 60 (#RB-PAY-04)</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-mono">Full MTTR</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">check_circle</span>
+</div>
+<div class="my-1">
+<span class="font-headline-lg text-headline-lg font-mono font-bold text-on-surface">46m 12s</span>
+</div>
+<p class="font-code-sm text-code-sm font-mono text-on-surface-variant/80 truncate">Rollback v2.14.0 drain stabilized</p>
+</div>
+<div class="col-span-2 md:col-span-1 lg:col-span-1 p-space-sm rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-mono text-error">Blast &amp; Impact</span>
+<span class="material-symbols-outlined text-[14px] text-error">local_fire_department</span>
+</div>
+<div class="my-1 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-mono font-bold text-error">$42.8k</span>
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant">delayed</span>
+</div>
+<p class="font-code-sm text-code-sm font-mono text-error/90 truncate">1,840 504 errors • 0.00% 30d SLO</p>
+</div>
+</div>
+</section>
+<!-- Split Workspace Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<!-- Left Column / Archive Directory (320px responsive clamp) -->
+<aside class="lg:col-span-4 xl:col-span-3 flex flex-col gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">folder_special</span>
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">Archive Explorer</span>
+</div>
+<span class="font-code-sm text-code-sm font-mono px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">42 Docs</span>
+</div>
+<!-- Search Input -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[16px] text-on-surface-variant/70">search</span>
+<input class="w-full bg-surface-container-lowest pl-8 pr-7 py-1.5 rounded font-code-sm text-code-sm text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none" id="postmortemSearch" oninput="filterPostmortems()" placeholder="Filter ID, service, tag... (/)" type="text"/>
+<span class="absolute right-2 top-2 text-[10px] font-mono text-on-surface-variant/50">/</span>
+</div>
+<!-- Quick Toggles -->
+<div class="flex items-center gap-1 flex-wrap">
+<button class="px-2 py-0.5 rounded text-[11px] font-mono bg-surface-container-high text-primary-fixed" onclick="toggleTagFilter('all')">All</button>
+<button class="px-2 py-0.5 rounded text-[11px] font-mono bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="toggleTagFilter('P1')">P0/P1 only</button>
+<button class="px-2 py-0.5 rounded text-[11px] font-mono bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="toggleTagFilter('Tier0')">Tier-0</button>
+<button class="px-2 py-0.5 rounded text-[11px] font-mono bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="toggleTagFilter('90d')">Last 90d</button>
+</div>
+<!-- Postmortem Directory List -->
+<div class="flex flex-col gap-1.5 max-h-[580px] overflow-y-auto pr-0.5" id="postmortemList">
+<!-- Selected Item INC-4921 -->
+<div class="p-space-sm rounded bg-surface-container cursor-pointer transition-colors" onclick="selectDoc('INC-4921')">
+<div class="flex items-center justify-between mb-1">
+<span class="font-code-sm text-code-sm font-mono font-bold text-primary-fixed">INC-4921</span>
+<span class="font-code-sm text-code-sm font-mono px-1 py-0.2 rounded text-error bg-error-container/30">P1</span>
+</div>
+<p class="font-body-sm text-body-sm font-medium text-on-surface line-clamp-2">Payment Service HikariCP Database Pool Saturation &amp; Cascade</p>
+<div class="mt-2 flex items-center justify-between font-code-sm text-code-sm text-on-surface-variant font-mono">
+<span>payment-service</span>
+<span>Oct 24 • @sarah-chen</span>
+</div>
+</div>
+<!-- INC-4899 -->
+<div class="p-space-sm rounded bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors" onclick="selectDoc('INC-4899')">
+<div class="flex items-center justify-between mb-1">
+<span class="font-code-sm text-code-sm font-mono font-medium text-on-surface">INC-4899</span>
+<span class="font-code-sm text-code-sm font-mono px-1 py-0.2 rounded text-error bg-error-container/30">P1</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Stripe Webhook Gateway Timeout &amp; Circuit Breaker Tripping</p>
+<div class="mt-2 flex items-center justify-between font-code-sm text-code-sm text-on-surface-variant font-mono">
+<span>payment-service</span>
+<span>Oct 20 • @marcus-dev</span>
+</div>
+</div>
+<!-- INC-4842 -->
+<div class="p-space-sm rounded bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors" onclick="selectDoc('INC-4842')">
+<div class="flex items-center justify-between mb-1">
+<span class="font-code-sm text-code-sm font-mono font-medium text-on-surface">INC-4842</span>
+<span class="font-code-sm text-code-sm font-mono px-1 py-0.2 rounded text-secondary bg-surface-container-high">P2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Kafka Notification Consumer Group Partition Rebalance Stalls</p>
+<div class="mt-2 flex items-center justify-between font-code-sm text-code-sm text-on-surface-variant font-mono">
+<span>notification-worker</span>
+<span>Oct 12 • @priya-k</span>
+</div>
+</div>
+<!-- INC-4790 -->
+<div class="p-space-sm rounded bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors" onclick="selectDoc('INC-4790')">
+<div class="flex items-center justify-between mb-1">
+<span class="font-code-sm text-code-sm font-mono font-medium text-on-surface">INC-4790</span>
+<span class="font-code-sm text-code-sm font-mono px-1 py-0.2 rounded text-secondary bg-surface-container-high">P2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Redis Sentinel Split-Brain Failover Latency Spike in Session Store</p>
+<div class="mt-2 flex items-center justify-between font-code-sm text-code-sm text-on-surface-variant font-mono">
+<span>auth-service</span>
+<span>Sep 29 • @david-r</span>
+</div>
+</div>
+</div>
+<!-- Quick Template Library Drawer -->
+<div class="pt-space-xs mt-space-xs bg-surface-container-lowest p-space-sm rounded">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm uppercase font-mono text-on-surface-variant">SRE Scaffold Presets</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">auto_stories</span>
+</div>
+<select class="w-full bg-surface-container px-2 py-1.5 rounded font-code-sm text-code-sm text-on-surface focus:outline-none" id="templateSelector" onchange="applyTemplatePreset(this.value)">
+<option value="blameless">SRE Blameless RCA (Default)</option>
+<option value="security">Quick Security Incident (SOC2)</option>
+<option value="slo">SLO Exhaustion &amp; Freeze Review</option>
+<option value="hardware">AWS Infrastructure / Hardware Degrade</option>
+</select>
+<p class="font-code-sm text-code-sm text-on-surface-variant/70 mt-1">Pre-fills epistemic bounds, CAPA schema &amp; timeline parsers.</p>
+</div>
+</aside>
+<!-- Right Column / Main Report Dossier (Interactive Canvas) -->
+<main class="lg:col-span-8 xl:col-span-9 flex flex-col gap-space-md">
+<!-- Postmortem Header Card -->
+<div class="bg-surface-container-low p-space-md rounded-lg relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary-fixed/5 rounded-full pointer-events-none"></div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-sm">
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant uppercase tracking-wider">Formal Incident Dossier</span>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm font-mono text-primary-fixed">SHA: 9e4f2b18c0</span>
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant">•</span>
+<span class="font-code-sm text-code-sm font-mono px-2 py-0.5 rounded bg-surface-container text-on-surface">v2.2 Approved</span>
+</div>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight mb-space-sm leading-snug">
+          POSTMORTEM DOSSIER: INC-4921 — Payment Service Connection Starvation Under Flash Surge
+        </h1>
+<!-- Metadata Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm bg-surface-container-lowest p-space-sm rounded font-mono text-code-sm">
+<div>
+<span class="text-on-surface-variant block text-[10px] uppercase">Incident Commander</span>
+<span class="text-primary-fixed font-semibold">@sarah-chen (Lead SRE)</span>
+</div>
+<div>
+<span class="text-on-surface-variant block text-[10px] uppercase">Scribe / Documentation</span>
+<span class="text-on-surface">@marcus-dev (Core Ops)</span>
+</div>
+<div>
+<span class="text-on-surface-variant block text-[10px] uppercase">Service Owner</span>
+<span class="text-on-surface">@alex-m (Billing Pod)</span>
+</div>
+<div>
+<span class="text-on-surface-variant block text-[10px] uppercase">Tech Lead Sign-off</span>
+<span class="text-secondary font-semibold">@dan-infra (VP Arch)</span>
+</div>
+</div>
+</div>
+<!-- Section A: Executive Summary & Root Cause Breakdown -->
+<section class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface flex items-center gap-2">
+<span class="text-primary-fixed font-mono text-sm">01</span>
+            Executive Summary &amp; Root Cause Analysis
+          </h2>
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant">Class: Resource Saturation Cascade</span>
+</div>
+<div class="prose max-w-none text-on-surface leading-relaxed text-body-md font-body-md bg-surface-container-lowest p-space-md rounded">
+<p class="mb-space-sm">
+            On Thursday, October 24, 2024, at 14:35 UTC, <code class="font-mono text-code-sm text-primary-fixed bg-surface-container px-1 py-0.5 rounded">payment-service</code> experienced severe thread starvation across its primary checkout ingress path, leading to an immediate drop in order processing and returning HTTP 504 Gateway Timeouts to 1,840 customer sessions.
+          </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container p-space-sm rounded">
+<span class="font-label-sm text-label-sm uppercase font-mono text-error block mb-1">Ground Truth Mechanism</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Canary deployment <code class="text-on-surface font-mono">v2.14.1</code> merged an unverified application configuration PR (#841) that intentionally lowered HikariCP <code class="text-on-surface font-mono">maximumPoolSize</code> from 80 to 20 under the assumption of reducing idle PostgreSQL worker processes.
+              </p>
+</div>
+<div class="bg-surface-container p-space-sm rounded">
+<span class="font-label-sm text-label-sm uppercase font-mono text-primary-fixed block mb-1">Contributing Multiplier</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Traffic coincided with a scheduled promotional blast at 14:35 UTC (+310% QPS). With pool clamped at 20, active worker threads blocked waiting on available database sockets, cascading upstream to API gateway circuit trips within 70 seconds.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section B: Tri-Partite Epistemic Confidence Matrix -->
+<section class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface flex items-center gap-2">
+<span class="text-primary-fixed font-mono text-sm">02</span>
+              Tri-Partite Epistemic Confidence Matrix
+            </h2>
+<p class="font-code-sm text-code-sm text-on-surface-variant font-mono mt-0.5">Formal separation of confirmed telemetry truth, rejected hypotheses, and persistent uncertainties.</p>
+</div>
+<span class="font-label-sm text-label-sm uppercase font-mono px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Empirical Grade A</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<!-- Confirmed Findings -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-2">
+<div class="flex items-center justify-between pb-1">
+<span class="font-label-sm text-label-sm uppercase font-mono font-bold text-primary-fixed">1. Confirmed Findings</span>
+<span class="material-symbols-outlined text-[16px] text-primary-fixed">verified</span>
+</div>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-1.5">
+<span class="text-primary-fixed font-mono">•</span>
+<span>HikariCP connection pool hit 20/20 max clamp at 14:35:10 UTC on canary pods.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-primary-fixed font-mono">•</span>
+<span>Active wait queue peaked at 84 threads waiting on <code class="text-on-surface font-mono">getConnection()</code>.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-primary-fixed font-mono">•</span>
+<span>Diff between v2.14.0 and v2.14.1 confirms direct config reduction in <code class="text-on-surface font-mono">application.yml</code>.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-primary-fixed font-mono">•</span>
+<span>Immediate recovery observed once Consul KV dynamically scaled pool to 60.</span>
+</li>
+</ul>
+</div>
+<!-- Plausible Hypotheses (Investigated & Ruled Out) -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-2">
+<div class="flex items-center justify-between pb-1">
+<span class="font-label-sm text-label-sm uppercase font-mono font-bold text-secondary">2. Ruled Out Hypotheses</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">flaky</span>
+</div>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-1.5">
+<span class="text-secondary font-mono">✕</span>
+<span><strong>Postgres Row Lock Contention:</strong> RDS <code class="font-mono">pg_locks</code> showed zero row-level deadlocks during 14:35-14:50 UTC.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-secondary font-mono">✕</span>
+<span><strong>RDS CPU Throttling:</strong> Writer node CPU remained at 34%, ruling out database engine starvation.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-secondary font-mono">✕</span>
+<span><strong>External PSP Downtime:</strong> Stripe API p95 roundtrip was nominal at 182ms.</span>
+</li>
+</ul>
+</div>
+<!-- Open Unknowns & Follow-ups -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-2">
+<div class="flex items-center justify-between pb-1">
+<span class="font-label-sm text-label-sm uppercase font-mono font-bold text-on-surface-variant">3. Open Unknowns</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">help</span>
+</div>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-1.5">
+<span class="text-outline font-mono">?</span>
+<span><strong>Consul Watcher Latency:</strong> Dynamic config change took 45s to propagate to pod-2 and pod-4 instead of expected &lt;500ms.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-outline font-mono">?</span>
+<span><strong>Canary Admission Gate:</strong> Why did the automated canary deployment gate not reject PR #841 during synthetic load verification?</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Section C: Time-Synchronized Incident Timeline -->
+<section class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface flex items-center gap-2">
+<span class="text-primary-fixed font-mono text-sm">03</span>
+              Synchronized Telemetry Chronology
+            </h2>
+<p class="font-code-sm text-code-sm text-on-surface-variant font-mono mt-0.5">High-resolution event stream correlated across Prometheus, GitHub Actions, and PagerDuty.</p>
+</div>
+<button class="px-2 py-1 rounded bg-surface-container font-code-sm text-code-sm font-mono text-primary-fixed hover:bg-surface-container-high transition-colors" id="btnTimelineToggle" onclick="toggleTimelineFilter()">
+            Highlight Actionable Events
+          </button>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded flex flex-col gap-space-sm">
+<div class="relative pl-6 space-y-4">
+<div class="absolute left-2 top-2 bottom-2 w-0.5 bg-surface-container-high"></div>
+<!-- T1 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-[1.35rem] top-1 h-2.5 w-2.5 rounded-full bg-on-surface-variant"></span>
+<div class="w-24 font-mono text-code-sm text-on-surface-variant shrink-0">14:34:00 UTC</div>
+<div class="flex-1 bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono font-semibold text-on-surface">Canary Deploy v2.14.1 (PR #841)</span>
+<span class="text-[10px] font-mono px-1.5 rounded bg-surface-container-high text-on-surface-variant">CI/CD Pipeline</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Alex M deployed canary pods. <code class="font-mono text-code-sm text-error">maximumPoolSize: 20</code> applied to 2 out of 8 replicas.</p>
+</div>
+</div>
+<!-- T2 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-[1.35rem] top-1 h-2.5 w-2.5 rounded-full bg-error"></span>
+<div class="w-24 font-mono text-code-sm text-error font-semibold shrink-0">14:35:10 UTC</div>
+<div class="flex-1 bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono font-semibold text-error">HikariCP Pool Clamps at 20/20</span>
+<span class="text-[10px] font-mono px-1.5 rounded bg-error-container text-on-error-container font-bold">ANOMALY SPIKE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Flash promo traffic hits. Active threads spike to 84; 504 Gateway timeouts start emitting from payment gateway.</p>
+</div>
+</div>
+<!-- T3 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-[1.35rem] top-1 h-2.5 w-2.5 rounded-full bg-error"></span>
+<div class="w-24 font-mono text-code-sm text-error font-semibold shrink-0">14:35:22 UTC</div>
+<div class="flex-1 bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono font-semibold text-on-surface">Alert AL-4921 Fired (p99 &gt; 3,000ms)</span>
+<span class="text-[10px] font-mono px-1.5 rounded bg-surface-container-high text-on-surface-variant">Prometheus Alertmanager</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Burn-rate threshold triggered for Tier-0 payment-service endpoint <code class="font-mono text-code-sm">/v2/charge</code>.</p>
+</div>
+</div>
+<!-- T4 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-[1.35rem] top-1 h-2.5 w-2.5 rounded-full bg-secondary"></span>
+<div class="w-24 font-mono text-code-sm text-secondary font-semibold shrink-0">14:36:35 UTC</div>
+<div class="flex-1 bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono font-semibold text-on-surface">P1 Declared; War Room Established</span>
+<span class="text-[10px] font-mono px-1.5 rounded bg-secondary-container text-on-secondary-container">PagerDuty Incident</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Sarah Chen acknowledged page and assumed IC role. Slack channel <code class="font-mono text-code-sm text-primary-fixed">#inc-4921-payments</code> instantiated.</p>
+</div>
+</div>
+<!-- T5 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-[1.35rem] top-1 h-2.5 w-2.5 rounded-full bg-primary-fixed"></span>
+<div class="w-24 font-mono text-code-sm text-primary-fixed font-semibold shrink-0">14:48:09 UTC</div>
+<div class="flex-1 bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono font-semibold text-on-surface">Runbook #RB-PAY-04 Step 3 Executed</span>
+<span class="text-[10px] font-mono px-1.5 rounded bg-primary-fixed/20 text-primary-fixed font-bold">MITIGATION PATH</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Consul dynamic override command authorized by IC to inject <code class="font-mono text-code-sm">payment/hikari/max-pool=60</code> without restart.</p>
+</div>
+</div>
+<!-- T6 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-[1.35rem] top-1 h-2.5 w-2.5 rounded-full bg-primary-fixed"></span>
+<div class="w-24 font-mono text-code-sm text-primary-fixed font-semibold shrink-0">14:52:10 UTC</div>
+<div class="flex-1 bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono font-semibold text-primary-fixed">Pool Expansion Propagates (24ms Latency)</span>
+<span class="text-[10px] font-mono px-1.5 rounded bg-surface-container-high text-primary-fixed">TRAFFIC RECOVERY</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Thread wait time dropped to 0ms. Upstream 504 error rate dropped from 28.4% to 0.01% immediately.</p>
+</div>
+</div>
+<!-- T7 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-[1.35rem] top-1 h-2.5 w-2.5 rounded-full bg-on-surface-variant"></span>
+<div class="w-24 font-mono text-code-sm text-on-surface-variant shrink-0">15:20:12 UTC</div>
+<div class="flex-1 bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono font-semibold text-on-surface">Canary Rollback Complete &amp; Incident Resolved</span>
+<span class="text-[10px] font-mono px-1.5 rounded bg-surface-container-high text-on-surface-variant">RESOLVED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">v2.14.0 images restored across all pods. Stand-down called in war room.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section D: Deep Evidence Cross-References -->
+<section class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface flex items-center gap-2">
+<span class="text-primary-fixed font-mono text-sm">04</span>
+            Deep Telemetry &amp; Artifact Cross-References
+          </h2>
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant">4 Linked Artifacts</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Metric Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase font-mono text-primary-fixed">Metric Snapshot</span>
+<span class="font-mono text-code-sm text-on-surface-variant">PromQL</span>
+</div>
+<div class="font-code-sm text-code-sm font-mono bg-surface-container p-1.5 rounded text-on-surface overflow-x-auto">
+                hikari_active_connections{app="payment-service"} == 20
+              </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Correlates exact saturation timestamp at 14:35:10 UTC with thread queue buildup.</p>
+</div>
+<div class="mt-3 pt-2 flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant">Grafana / Prometheus</span>
+<a class="font-label-sm text-label-sm font-mono text-primary-fixed group-hover:underline flex items-center gap-1" href="#">
+                Inspect in Explorer <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Trace Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase font-mono text-error">Distributed Trace</span>
+<span class="font-mono text-code-sm text-error">Span Duration: 30,142ms</span>
+</div>
+<div class="font-code-sm text-code-sm font-mono bg-surface-container p-1.5 rounded text-on-surface">
+                Trace ID: <span class="text-secondary">tr_9a8f2c01e_timeout_v2charge</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Client request timeout at 30s while blocked at <code class="font-mono text-code-sm">getConnection()</code> in HikariCP.</p>
+</div>
+<div class="mt-3 pt-2 flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant">OpenTelemetry Jaeger</span>
+<a class="font-label-sm text-label-sm font-mono text-primary-fixed group-hover:underline flex items-center gap-1" href="#">
+                Inspect Waterfall <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Log Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase font-mono text-secondary">LogQL Event Stream</span>
+<span class="font-mono text-code-sm text-on-surface-variant">542 occurrences</span>
+</div>
+<div class="font-code-sm text-code-sm font-mono bg-surface-container p-1.5 rounded text-error truncate">
+                java.sql.SQLTransientConnectionException: Connection is not available, request timed out after 30000ms.
+              </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Originating inside <code class="font-mono text-code-sm">pod-payment-service-k9x1z</code> during pool lock.</p>
+</div>
+<div class="mt-3 pt-2 flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant">Loki Telemetry Cluster</span>
+<a class="font-label-sm text-label-sm font-mono text-primary-fixed group-hover:underline flex items-center gap-1" href="#">
+                View LogQL Stream <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Deployment Diff Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase font-mono text-on-surface">Git Commit Diff</span>
+<span class="font-mono text-code-sm text-on-surface-variant">PR #841</span>
+</div>
+<div class="font-code-sm text-code-sm font-mono bg-surface-container p-1.5 rounded text-on-surface">
+                Commit <span class="text-primary-fixed">9e4f2b1</span> by @alex-m: "tune idle db connections"
+              </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">- maximumPoolSize: 80 → + maximumPoolSize: 20 without load envelope check.</p>
+</div>
+<div class="mt-3 pt-2 flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-mono text-on-surface-variant">GitHub Enterprise</span>
+<a class="font-label-sm text-label-sm font-mono text-primary-fixed group-hover:underline flex items-center gap-1" href="#">
+                Inspect PR Diff <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section E: Corrective & Preventive Action Items (CAPA Table) -->
+<section class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface flex items-center gap-2">
+<span class="text-primary-fixed font-mono text-sm">05</span>
+              Corrective &amp; Preventive Actions (CAPA)
+            </h2>
+<p class="font-code-sm text-code-sm text-on-surface-variant font-mono mt-0.5">SRE accountability commitments with assigned owners and automated completion verification.</p>
+</div>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="triggerToast('Added new action item draft to Jira Reliability board')">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed">add</span>
+<span>Add Action Item</span>
+</button>
+</div>
+<div class="overflow-x-auto bg-surface-container-lowest rounded">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container font-mono text-code-sm text-on-surface-variant uppercase">
+<tr>
+<th class="px-space-sm py-2">ID</th>
+<th class="px-space-sm py-2">Action Description</th>
+<th class="px-space-sm py-2">Category</th>
+<th class="px-space-sm py-2">Prio</th>
+<th class="px-space-sm py-2">Owner</th>
+<th class="px-space-sm py-2">Target</th>
+<th class="px-space-sm py-2">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container/60 font-mono text-code-sm">
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-space-sm py-2.5 text-primary-fixed font-bold">CAPA-101</td>
+<td class="px-space-sm py-2.5 text-on-surface font-sans">
+                  Enforce CI/CD lint check blocking pool size reductions below baseline (80) without SRE approval.
+                </td>
+<td class="px-space-sm py-2.5 text-on-surface-variant">Guardrail</td>
+<td class="px-space-sm py-2.5 text-error font-bold">P0</td>
+<td class="px-space-sm py-2.5 text-on-surface">@alex-m</td>
+<td class="px-space-sm py-2.5 text-on-surface-variant">Oct 26</td>
+<td class="px-space-sm py-2.5"><span class="px-2 py-0.5 rounded text-[10px] bg-primary-fixed/20 text-primary-fixed font-bold">COMPLETED</span></td>
+</tr>
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-space-sm py-2.5 text-primary-fixed font-bold">CAPA-102</td>
+<td class="px-space-sm py-2.5 text-on-surface font-sans">
+                  Automate Runbook #RB-PAY-04 Step 3 via eBPF thread queue detection for instant auto-expansion.
+                </td>
+<td class="px-space-sm py-2.5 text-on-surface-variant">Automation</td>
+<td class="px-space-sm py-2.5 text-primary-fixed font-bold">P1</td>
+<td class="px-space-sm py-2.5 text-on-surface">@sarah-chen</td>
+<td class="px-space-sm py-2.5 text-on-surface-variant">Nov 02</td>
+<td class="px-space-sm py-2.5"><span class="px-2 py-0.5 rounded text-[10px] bg-surface-container text-secondary font-bold">IN PROGRESS</span></td>
+</tr>
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-space-sm py-2.5 text-primary-fixed font-bold">CAPA-103</td>
+<td class="px-space-sm py-2.5 text-on-surface font-sans">
+                  Tune Alertmanager multi-window multi-burn-rate for Tier-0 services to page under 10x burn.
+                </td>
+<td class="px-space-sm py-2.5 text-on-surface-variant">Monitoring</td>
+<td class="px-space-sm py-2.5 text-primary-fixed font-bold">P1</td>
+<td class="px-space-sm py-2.5 text-on-surface">@marcus-dev</td>
+<td class="px-space-sm py-2.5 text-on-surface-variant">Oct 28</td>
+<td class="px-space-sm py-2.5"><span class="px-2 py-0.5 rounded text-[10px] bg-primary-fixed/20 text-primary-fixed font-bold">COMPLETED</span></td>
+</tr>
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-space-sm py-2.5 text-primary-fixed font-bold">CAPA-104</td>
+<td class="px-space-sm py-2.5 text-on-surface font-sans">
+                  Execute Fault Lab experiment EXP-8842 with 1,200 rps traffic simulation against pool exhaustion.
+                </td>
+<td class="px-space-sm py-2.5 text-on-surface-variant">Chaos Test</td>
+<td class="px-space-sm py-2.5 text-on-surface-variant font-bold">P2</td>
+<td class="px-space-sm py-2.5 text-on-surface">@qa-team</td>
+<td class="px-space-sm py-2.5 text-on-surface-variant">Nov 10</td>
+<td class="px-space-sm py-2.5"><span class="px-2 py-0.5 rounded text-[10px] bg-surface-container-high text-on-surface-variant font-bold">SCHEDULED</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section F: Audit History & Approvals Log -->
+<section class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm mb-space-xl">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface flex items-center gap-2">
+<span class="text-primary-fixed font-mono text-sm">06</span>
+            Audit History &amp; Cryptographic Sign-Off Chain
+          </h2>
+<span class="font-code-sm text-code-sm font-mono text-primary-fixed">Immutable Record</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-lowest p-space-sm rounded font-mono text-code-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="text-primary-fixed font-bold">v2.2 (Final)</span>
+<span>16:15 UTC</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">Signed off by Dan Infrastructure (@dan-infra). Approved for public status page synthesis.</p>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded font-mono text-code-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="text-on-surface font-bold">v2.1</span>
+<span>15:45 UTC</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">Financial blast radius quantified ($42.8k) by Finance Ops &amp; added to dossier.</p>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded font-mono text-code-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="text-on-surface font-bold">v1.0 (Draft)</span>
+<span>15:05 UTC</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">Initial baseline timeline parsed by AI Copilot + Sarah Chen right after mitigation.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Interactive Bottom State Switcher Bar -->
+<div class="sticky bottom-3 z-30 mx-auto bg-surface-container-high/90 backdrop-blur-md px-space-md py-space-xs rounded-full shadow-xl flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-fixed"></span>
+</span>
+<span class="font-code-sm text-code-sm font-mono text-on-surface">Active Mode: <strong class="text-primary-fixed" id="activeModeLabel">Polished Executive Preview</strong></span>
+</div>
+<div class="h-3.5 w-px bg-outline-variant/40"></div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-0.5 rounded text-label-sm font-label-sm text-primary-fixed font-semibold" onclick="setDocMode('exec')">Preview</button>
+<button class="px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" onclick="setDocMode('editor')">Editor</button>
+<button class="px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" onclick="openTemplateModal()">Templates</button>
+<button class="px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" onclick="setDocMode('clean')">Clean Print</button>
+</div>
+</div>
+<!-- Template Selection Modal (Hidden by default) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-sm p-4" id="templateModal">
+<div class="bg-surface-container-low max-w-xl w-full p-space-md rounded-lg shadow-2xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary-fixed">post_add</span>
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">Select Postmortem Template</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="closeTemplateModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Initialize a new incident review document backed by verified blameless post-mortem taxonomies.
+      </p>
+<div class="grid grid-cols-1 gap-2 my-2">
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer transition-colors flex items-center justify-between" onclick="createFromTemplate('Blameless SRE')">
+<div>
+<span class="font-headline-md text-headline-md font-semibold text-on-surface block text-sm">Blameless Root Cause Analysis (Standard)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">Includes Epistemic Confidence, Timeline, CAPA tables.</span>
+</div>
+<span class="text-primary-fixed font-mono text-sm">Select →</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer transition-colors flex items-center justify-between" onclick="createFromTemplate('Security Incident')">
+<div>
+<span class="font-headline-md text-headline-md font-semibold text-on-surface block text-sm">SOC2 / ISO Security Breach Dossier</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">Forensics attribution, vector classification, blast mitigation.</span>
+</div>
+<span class="text-primary-fixed font-mono text-sm">Select →</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer transition-colors flex items-center justify-between" onclick="createFromTemplate('SLO Exhaustion')">
+<div>
+<span class="font-headline-md text-headline-md font-semibold text-on-surface block text-sm">Error Budget Depletion &amp; Deploy Freeze</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">Quarterly burn rates, recovery plan, deploy thaw criteria.</span>
+</div>
+<span class="text-primary-fixed font-mono text-sm">Select →</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="px-3 py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" onclick="closeTemplateModal()">Cancel</button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed top-16 right-6 z-50 transform transition-all duration-300 translate-y-[-20px] opacity-0 pointer-events-none" id="toastNotification">
+<div class="bg-surface-container-high px-4 py-2 rounded shadow-2xl flex items-center gap-2 font-code-sm text-code-sm font-mono text-primary-fixed">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span id="toastMessage">Success</span>
+</div>
+</div>
+</div>
+<script>
+  function triggerToast(msg) {
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+    if (!toast || !toastMsg) return;
+    toastMsg.textContent = msg;
+    toast.classList.remove('translate-y-[-20px]', 'opacity-0', 'pointer-events-none');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toast.classList.add('translate-y-[-20px]', 'opacity-0', 'pointer-events-none');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 2800);
+  }
+
+  function setDocMode(mode) {
+    const label = document.getElementById('activeModeLabel');
+    const btnExec = document.getElementById('viewModeExec');
+    const btnEditor = document.getElementById('viewModeEditor');
+    const btnClean = document.getElementById('viewModeClean');
+
+    [btnExec, btnEditor, btnClean].forEach(btn => {
+      btn.className = 'px-2.5 py-1 rounded text-label-sm font-label-sm transition-colors text-on-surface-variant hover:text-on-surface';
+    });
+
+    if (mode === 'exec') {
+      label.textContent = 'Polished Executive Preview';
+      btnExec.className = 'px-2.5 py-1 rounded text-label-sm font-label-sm font-semibold transition-colors bg-surface-container-high text-primary-fixed';
+      triggerToast('Switched to Executive Presentation Mode');
+    } else if (mode === 'editor') {
+      label.textContent = 'Interactive Markdown / YAML Editor';
+      btnEditor.className = 'px-2.5 py-1 rounded text-label-sm font-label-sm font-semibold transition-colors bg-surface-container-high text-primary-fixed';
+      triggerToast('Live Editor unlocked: Double click any block to modify');
+    } else if (mode === 'clean') {
+      label.textContent = 'Clean Print Viewport';
+      btnClean.className = 'px-2.5 py-1 rounded text-label-sm font-label-sm font-semibold transition-colors bg-surface-container-high text-primary-fixed';
+      triggerToast('Optimized for PDF / Print Output rendering');
+    }
+  }
+
+  function copyMarkdownAction() {
+    const sampleMarkdown = `# POSTMORTEM: INC-4921 Payment Service Saturation\\n\\n- **Date:** 2024-10-24\\n- **Severity:** P1\\n- **IC:** @sarah-chen\\n- **Root Cause:** PR #841 lowered HikariCP maximumPoolSize from 80 to 20 during 14:35 UTC flash promo.\\n- **MTTD:** 1m 10s | **MTTR:** 46m 12s`;
+    navigator.clipboard?.writeText(sampleMarkdown).catch(() => {});
+    const lbl = document.getElementById('copyMdLabel');
+    if (lbl) {
+      lbl.textContent = 'Copied!';
+      setTimeout(() => { lbl.textContent = 'Copy Markdown'; }, 2000);
+    }
+    triggerToast('Postmortem markdown payload copied to clipboard');
+  }
+
+  function selectDoc(docId) {
+    triggerToast('Loaded ' + docId + ' dossier telemetry bindings');
+  }
+
+  function filterPostmortems() {
+    const query = document.getElementById('postmortemSearch').value.toLowerCase();
+    const items = document.querySelectorAll('#postmortemList > div');
+    items.forEach(item => {
+      const text = item.innerText.toLowerCase();
+      item.style.display = text.includes(query) ? 'block' : 'none';
+    });
+  }
+
+  function toggleTagFilter(tag) {
+    triggerToast('Filtered archive by: ' + tag);
+  }
+
+  function applyTemplatePreset(val) {
+    triggerToast('Applied scaffolding preset: ' + val);
+  }
+
+  function openTemplateModal() {
+    const modal = document.getElementById('templateModal');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeTemplateModal() {
+    const modal = document.getElementById('templateModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function createFromTemplate(name) {
+    closeTemplateModal();
+    triggerToast('Instantiated new draft: ' + name + ' (INC-4922)');
+  }
+
+  let timelineFiltered = false;
+  function toggleTimelineFilter() {
+    timelineFiltered = !timelineFiltered;
+    const btn = document.getElementById('btnTimelineToggle');
+    if (timelineFiltered) {
+      btn.textContent = 'Show All Events (7)';
+      triggerToast('Filtered to 3 critical path inflection points');
+    } else {
+      btn.textContent = 'Highlight Actionable Events';
+      triggerToast('Showing complete 7-node incident telemetry timeline');
+    }
+  }
+</script></main></div></body></html>

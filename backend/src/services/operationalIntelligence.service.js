@@ -11,6 +11,7 @@ import { detectRecurringPatterns } from '../engine/failurePatternEngine.js';
 import { rankServicesByRisk } from '../engine/serviceRiskEngine.js';
 import { detectEarlyWarnings } from '../engine/earlyWarningEngine.js';
 import { initialServices } from '../data/services.js';
+import {tenantContext} from '../security/tenantContext.js';
 import { ApiError } from '../utils/ApiError.js';
 
 export const operationalIntelligenceService = {
@@ -85,7 +86,7 @@ export const operationalIntelligenceService = {
     const sloRes = await query('SELECT * FROM slos');
     const alertRes = await query('SELECT * FROM alerts WHERE status IN (\'firing\', \'acknowledged\')');
 
-    const services = svcRes.rows.length > 0 ? svcRes.rows : initialServices;
+    const services = svcRes.rows.length > 0 ? svcRes.rows : tenantContext()?[]:initialServices;
 
     // Group telemetry by service
     const telemetryMap = {};
@@ -114,7 +115,7 @@ export const operationalIntelligenceService = {
     const alertRes = await query('SELECT * FROM alerts WHERE status IN (\'firing\', \'acknowledged\')');
     const patterns = await operationalIntelligenceRepository.getPatterns({ tenantId });
 
-    const services = svcRes.rows.length > 0 ? svcRes.rows : initialServices;
+    const services = svcRes.rows.length > 0 ? svcRes.rows : tenantContext()?[]:initialServices;
 
     const detected = detectEarlyWarnings({
       services,

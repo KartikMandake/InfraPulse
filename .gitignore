@@ -11,12 +11,15 @@ frontend/dist/
 .env
 .env.*
 !.env.example
+!.env.staging.example
 backend/.env
 backend/.env.*
 !backend/.env.example
+!backend/.env.staging.example
 frontend/.env
 frontend/.env.*
 !frontend/.env.example
+!frontend/.env.staging.example
 
 # Test coverage
 coverage/
@@ -52,3 +55,7 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Release packaging
+/release/
+release/

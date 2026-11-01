@@ -1,0 +1,36 @@
+{
+  "status": 200,
+  "ms": 106.68590000000006,
+  "data": {
+    "success": true,
+    "data": {
+      "incidentId": "INC-8959",
+      "summary": {
+        "totalNodes": 29,
+        "totalEdges": 57,
+        "earliestObservedSignal": {
+          "id": "evt-5d1a92708033ea03a03caa10e4452105dc02b8e65133be08e7b8c75d",
+          "type": "trace_anomaly",
+          "timestamp": "2026-10-31T19:24:08.121Z",
+          "serviceId": "phase23m-pay-mvwshylf",
+          "title": "OTel Span: Controlled failure (500ms)"
+        },
+        "mostAffectedServices": [
+          {
+            "serviceId": "phase23m-pay-mvwshylf",
+            "eventCount": 5
+          }
+        ],
+        "deploymentAssociations": [],
+        "sloImpact": [],
+        "disconnectedCount": 0,
+        "confidence": "high",
+        "limitations": [
+          "Deterministic graph correlates observed telemetry and topology.",
+          "Temporal correlation is evidence of association, not proof of causation without trace stack evidence."
+        ]
+      },
+      "disconnectedGroups": []
+    }
+  }
+}

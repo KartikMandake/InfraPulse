@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "workflows": [
+    {
+      "file": "benchmark.yml",
+      "name": "Isolated performance benchmark",
+      "jobs": 1
+    },
+    {
+      "file": "ci.yml",
+      "name": "InfraPulse CI Quality Gates",
+      "jobs": 5
+    },
+    {
+      "file": "deployment-plan.yml",
+      "name": "Reusable deployment plan only",
+      "jobs": 2
+    },
+    {
+      "file": "production.yml",
+      "name": "InfraPulse production deploy plan",
+      "jobs": 1
+    },
+    {
+      "file": "release.yml",
+      "name": "InfraPulse release preparation",
+      "jobs": 2
+    },
+    {
+      "file": "rollback.yml",
+      "name": "InfraPulse rollback rollback plan",
+      "jobs": 1
+    },
+    {
+      "file": "staging.yml",
+      "name": "InfraPulse staging deploy plan",
+      "jobs": 1
+    }
+  ],
+  "syntaxFiles": 254,
+  "version": "2.4.0",
+  "lint": "No ESLint configuration present; Node syntax, workflow policy/actionlint and Vite JSX compilation are distinct checks."
+}

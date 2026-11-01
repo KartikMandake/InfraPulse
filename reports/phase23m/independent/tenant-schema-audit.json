@@ -1,0 +1,294 @@
+[
+  {
+    "table_name": "alert_rules",
+    "columns": "{id,name,description,type,target_service_id,metric,operator,threshold,window_minutes,severity,enabled,cooldown_minutes,created_at,updated_at}"
+  },
+  {
+    "table_name": "alerts",
+    "columns": "{id,rule_id,title,severity,status,state,service_id,service_name,region,metric,operator,threshold,current_value,observed_value,fired_at,triggered_at,acknowledged_at,resolved_at,silence_duration,incident_id,occurrence_count,source,evidence_refs,created_at,updated_at}"
+  },
+  {
+    "table_name": "assistant_conversations",
+    "columns": "{id,incident_id,user_id,title,provider,model,created_at,updated_at}"
+  },
+  {
+    "table_name": "assistant_messages",
+    "columns": "{id,conversation_id,sender_role,content,structured_response,referenced_evidence,supporting_signals,contradictory_signals,uncertainties,suggested_diagnostics,requires_human_verification,created_at}"
+  },
+  {
+    "table_name": "audit_logs",
+    "columns": "{id,actor_user_id,actor_email,actor_role,action,resource_type,resource_id,outcome,metadata,correlation_id,ip_address,created_at}"
+  },
+  {
+    "table_name": "change_assessments",
+    "columns": "{id,change_id,service_id,environment,target_version,risk_score,risk_category,recommendation,factor_breakdowns,blast_radius_summary,supporting_evidence,missing_evidence,recommended_verifications,confidence,tenant_id,assessed_by,assessed_at}"
+  },
+  {
+    "table_name": "change_events",
+    "columns": "{id,service_id,service_name,previous_version,new_version,environment,deployment_strategy,commit_sha,commit_message,actor,status,change_type,changed_components,idempotency_key,telemetry_source,is_simulated,evidence_quality,metadata,tenant_id,deployed_at,created_at,updated_at}"
+  },
+  {
+    "table_name": "change_impact_services",
+    "columns": "{id,change_id,assessment_id,service_id,service_name,relationship_type,dependency_path,criticality,has_active_incident,has_slo,confidence,explanation,created_at}"
+  },
+  {
+    "table_name": "change_outcomes",
+    "columns": "{id,change_id,observed_outcome,incident_id,rollback_performed,time_to_recovery_minutes,post_deployment_notes,recorded_at}"
+  },
+  {
+    "table_name": "change_risk_evidence",
+    "columns": "{id,change_id,assessment_id,evidence_type,title,description,metric_ref,impact_points,is_contradictory,metadata,created_at}"
+  },
+  {
+    "table_name": "cloud_aws_discovery_runs",
+    "columns": "{id,region,status,account_id_masked,caller_arn_masked,ec2_count,ebs_count,elastic_ip_count,rds_count,total_resources,estimated_monthly_cost,free_tier_status,duration_ms,error_message,triggered_by,created_at}"
+  },
+  {
+    "table_name": "cloud_cost_estimates",
+    "columns": "{id,environment,total_hourly_compute,total_hourly_storage,total_hourly_ipv4,total_hourly_networking,total_hourly_managed,estimated_daily_total,estimated_monthly_total,estimated_monthly_savings,ongoing_monthly_storage_cost,currency,is_simulated,calculated_at}"
+  },
+  {
+    "table_name": "cloud_desired_state_baselines",
+    "columns": "{id,tenant_id,organization_id,environment,name,version,is_active,resource_configurations,configuration_hash,created_by,created_at,updated_at}"
+  },
+  {
+    "table_name": "cloud_drift_events",
+    "columns": "{id,tenant_id,organization_id,environment,resource_id,resource_name,provider,resource_type,drift_type,status,severity,severity_reason,severity_evidence,expected_configuration,actual_configuration,changed_fields,dependency_impact,baseline_id,baseline_version,snapshot_id,observation_count,first_detected_at,last_observed_at,resolved_at,resolved_by}"
+  },
+  {
+    "table_name": "cloud_lifecycle_operations",
+    "columns": "{id,resource_id,action,status,is_dry_run,safety_checks,requested_by,requester_role,approved_by,approved_at,executed_at,completed_at,execution_logs,idempotency_key,rejection_reason,created_at}"
+  },
+  {
+    "table_name": "cloud_reconciliation_plans",
+    "columns": "{id,tenant_id,organization_id,environment,drift_id,resource_id,status,proposed_actions,field_diffs,affected_dependencies,risk_assessment,eligibility_result,operation_id,requested_by,approved_by,created_at,executed_at,execution_result}"
+  },
+  {
+    "table_name": "cloud_resources",
+    "columns": "{id,name,provider,resource_type,region,environment,current_state,estimated_hourly_cost,cost_breakdown,dependencies,persistence_requirements,is_critical_dependency,metadata,last_lifecycle_operation,last_operation_at,last_health_check_status,last_health_check_at,created_at,updated_at}"
+  },
+  {
+    "table_name": "cloud_schedules",
+    "columns": "{id,resource_id,name,action,cron_expression,timezone,enabled,is_paused,days_of_week,time_of_day,last_run_at,next_run_at,missed_execution_recovery,created_by,created_at,updated_at}"
+  },
+  {
+    "table_name": "cloud_state_snapshots",
+    "columns": "{id,tenant_id,organization_id,environment,provider,resource_type,resource_id,resource_configuration,configuration_hash,snapshot_version,collection_status,source_provider,observed_at}"
+  },
+  {
+    "table_name": "deployment_regressions",
+    "columns": "{id,change_id,service_id,metric_name,baseline_value,current_value,delta_percent,regression_severity,observation_window_minutes,temporal_association,causality_status,evidence_quality,related_incidents,related_alerts,explanation,detected_at}"
+  },
+  {
+    "table_name": "deployments",
+    "columns": "{id,service_name,version,environment,author,commit_sha,commit_message,timestamp,status,aca_score,canary_traffic_percent,p99_canary_vs_stable,error_rate_canary_vs_stable,created_at,updated_at}"
+  },
+  {
+    "table_name": "early_warning_events",
+    "columns": "{id,category,service_id,service_name,severity,indicators,historical_comparison,window_minutes,confidence,recommended_investigation,tenant_id,detected_at}"
+  },
+  {
+    "table_name": "event_correlations",
+    "columns": "{id,source_event_id,target_event_id,relationship_type,correlation_score,supporting_reasons,contradictory_evidence,time_difference_ms,dependency_path,confidence,tenant_id,created_at}"
+  },
+  {
+    "table_name": "event_normalization_failures",
+    "columns": "{id,source_system,raw_payload,error_reason,tenant_id,failed_at}"
+  },
+  {
+    "table_name": "fault_simulations",
+    "columns": "{id,scenario_id,target_service_id,target_service_name,fault_type,severity,expected_root_cause_service_id,expected_downstream_affected,propagated_services,simulated_incident,evaluation,baseline_metrics,created_at}"
+  },
+  {
+    "table_name": "incident_events",
+    "columns": "{id,incident_id,type,time,title,description,source,is_key_milestone,evidence_ref,created_at}"
+  },
+  {
+    "table_name": "incidents",
+    "columns": "{id,title,summary,severity,status,service_id,service_name,lead,lead_role,channel,started_at,duration_minutes,drop_rate_percent,estimated_cost_per_min,slo_breached,slo_current,slo_target,ai_confidence_percent,ai_hypothesis,ai_remediation_recommendation,canary_version,stable_version,created_at,updated_at,rca_confidence_level,rca_hypotheses,correlated_resource_ids,correlation_rationale}"
+  },
+  {
+    "table_name": "infra_remediation_approvals",
+    "columns": "{id,plan_id,plan_version,tenant_id,requester_email,requester_role,approver_email,approver_role,second_approver_email,second_approver_role,approval_status,rejection_reason,revocation_reason,requested_at,approved_at,expires_at,created_at,updated_at}"
+  },
+  {
+    "table_name": "integration_credentials",
+    "columns": "{id,integration_id,key_version,encrypted_data,iv,auth_tag,redacted_preview,tenant_id,created_at,updated_at}"
+  },
+  {
+    "table_name": "integration_health_events",
+    "columns": "{id,integration_id,provider,previous_status,new_status,reason,latency_ms,metadata,tenant_id,recorded_at}"
+  },
+  {
+    "table_name": "integration_sync_state",
+    "columns": "{id,integration_id,cursor,last_event_id,metadata,tenant_id,updated_at}"
+  },
+  {
+    "table_name": "integration_telemetry_stats",
+    "columns": "{id,integration_id,provider,environment,tenant_id,organization_id,metrics_ingested_count,logs_ingested_count,traces_ingested_count,events_ingested_count,bytes_ingested,last_ingested_at,error_count,last_error_message,last_error_at,created_at,updated_at,events_rejected_count,duplicate_events_count,avg_processing_latency_ms,last_successful_ingestion_at,last_failed_ingestion_at}"
+  },
+  {
+    "table_name": "integration_webhook_deliveries",
+    "columns": "{id,integration_id,provider,delivery_id,event_type,status,retry_count,payload_preview,error_details,processed_at,tenant_id,created_at}"
+  },
+  {
+    "table_name": "integrations",
+    "columns": "{id,provider,name,description,status,enabled,config,last_sync_at,last_success_at,error_message,tenant_id,created_at,updated_at,environment,organization_id}"
+  },
+  {
+    "table_name": "investigation_graph_snapshots",
+    "columns": "{id,incident_id,nodes,edges,correlation_summary,window_start,window_end,tenant_id,created_at}"
+  },
+  {
+    "table_name": "investigation_runs",
+    "columns": "{id,incident_id,executed_at,candidate_count,top_candidate_service_id,top_candidate_score,hypotheses,correlated_traces,weights,created_at}"
+  },
+  {
+    "table_name": "normalized_events",
+    "columns": "{id,event_type,source_system,source_ref_id,tenant_id,service_id,service_name,environment,event_timestamp,ingestion_timestamp,severity,title,summary,correlation_ids,related_incident_id,related_deployment_id,telemetry_mode,evidence_quality,normalized_attributes,original_source_ref,created_at}"
+  },
+  {
+    "table_name": "notification_channels",
+    "columns": "{id,name,type,enabled,config,created_at,updated_at}"
+  },
+  {
+    "table_name": "notification_deliveries",
+    "columns": "{id,idempotency_key,channel_id,channel_type,event_type,incident_id,recipient,payload,status,attempt_count,max_attempts,next_retry_at,last_error,sent_at,created_at,updated_at}"
+  },
+  {
+    "table_name": "notification_preferences",
+    "columns": "{id,channel_id,event_type,min_severity,enabled,created_at,updated_at}"
+  },
+  {
+    "table_name": "operational_patterns",
+    "columns": "{id,category,title,description,affected_services,occurrence_count,first_observed_at,last_observed_at,trend_direction,common_signals,related_incidents,confidence,sample_size,tenant_id,created_at,updated_at}"
+  },
+  {
+    "table_name": "operational_trend_snapshots",
+    "columns": "{id,window_start,window_end,sample_size,metrics,category_breakdown,service_risk_rankings,tenant_id,created_at}"
+  },
+  {
+    "table_name": "pattern_evidence",
+    "columns": "{id,pattern_id,evidence_type,source_ref_id,title,description,observed_at,metadata,created_at}"
+  },
+  {
+    "table_name": "phase23m_restore_sentinel",
+    "columns": "{id,payload}"
+  },
+  {
+    "table_name": "preventive_recommendations",
+    "columns": "{id,title,explanation,service_id,service_name,priority,status,owner_role,owner_user_id,expected_benefit,benefit_type,supporting_pattern_ids,supporting_evidence_refs,relevant_runbook_ids,verification_method,verification_notes,dismissed_reason,linked_issue_ref,tenant_id,created_at,updated_at}"
+  },
+  {
+    "table_name": "remediation_action_logs",
+    "columns": "{id,execution_id,step_id,action,adapter_type,target_service_id,parameters,result,outcome,executed_by,created_at}"
+  },
+  {
+    "table_name": "remediation_approvals",
+    "columns": "{id,execution_id,runbook_id,runbook_version,plan_hash,risk_level,required_role,requested_by,approver_id,status,approval_notes,two_factor_confirmed,requested_at,decided_at}"
+  },
+  {
+    "table_name": "remediation_execution_events",
+    "columns": "{id,execution_id,tenant_id,event_type,severity,message,details,timestamp}"
+  },
+  {
+    "table_name": "remediation_executions",
+    "columns": "{id,plan_id,approval_id,tenant_id,environment,resource_id,idempotency_key,status,is_dry_run,executed_by,pre_execution_state,post_execution_state,provider_response,verification_result,verification_details,rollback_executed,rollback_result,error_message,started_at,completed_at,duration_ms}"
+  },
+  {
+    "table_name": "remediation_plans",
+    "columns": "{id,recommendation_id,tenant_id,version,action,target_resource_id,target_resource_name,provider,parameters,preconditions,verification_criteria,rollback_plan,plan_hash,is_current_version,created_at}"
+  },
+  {
+    "table_name": "remediation_policy_rules",
+    "columns": "{id,tenant_id,environment,provider,resource_type,allowed_actions,denied_actions,max_risk_level,requires_two_person_approval,execution_window_start,execution_window_end,cooldown_minutes,max_retries,enabled,created_at,updated_at}"
+  },
+  {
+    "table_name": "remediation_recommendations",
+    "columns": "{id,incident_id,tenant_id,environment,service_id,resource_id,detected_problem,proposed_action,expected_outcome,supporting_evidence,risk_level,risk_score,risk_rationale,confidence_score,blast_radius,eligibility_result,blocking_reasons,rollback_strategy,status,created_at,updated_at}"
+  },
+  {
+    "table_name": "runbook_execution_steps",
+    "columns": "{id,execution_id,step_number,name,adapter_action,is_remediation,status,parameters,result,started_at,completed_at,error_message}"
+  },
+  {
+    "table_name": "runbook_executions",
+    "columns": "{id,runbook_id,runbook_version,incident_id,target_service_id,execution_mode,risk_level,status,idempotency_key,plan_hash,dry_run_plan,preconditions_met,precondition_details,requested_by,requested_at,started_at,completed_at,error_message,compensation_status,created_at,updated_at}"
+  },
+  {
+    "table_name": "runbook_versions",
+    "columns": "{id,runbook_id,version,definition,changelog,created_by,created_at}"
+  },
+  {
+    "table_name": "runbooks",
+    "columns": "{id,title,description,risk_level,execution_mode,supported_incident_types,applicable_services,preconditions,expected_outcome,verification_procedure,rollback_procedure,required_approval_role,version,enabled,created_at,updated_at}"
+  },
+  {
+    "table_name": "schema_migrations",
+    "columns": "{id,migration_name,applied_at}"
+  },
+  {
+    "table_name": "service_observed_dependencies",
+    "columns": "{id,tenant_id,environment,source_service_id,target_service_id,relationship_type,detection_source,confidence,first_observed_at,last_observed_at,observation_count,metadata}"
+  },
+  {
+    "table_name": "service_reliability_snapshots",
+    "columns": "{id,service_id,calculated_at,reliability_score,status,trend_direction,contributing_factors,recommendations,data_quality,slos_evaluated_count,slos_breached_count,total_budget_consumed_percent}"
+  },
+  {
+    "table_name": "service_risk_profiles",
+    "columns": "{id,service_id,service_name,risk_score,risk_category,contributing_factors,mttr_minutes,incident_count,change_failure_rate_percent,slo_attainment_percent,remaining_error_budget_percent,trend_direction,sample_size,confidence,tenant_id,evaluated_at}"
+  },
+  {
+    "table_name": "services",
+    "columns": "{id,name,tier,protocol,status,latency_p99,latency_baseline,error_rate,rps,pod_count,region,namespace,cpu_percent,memory_percent,dependencies,tags,endpoints,pods,created_at,updated_at}"
+  },
+  {
+    "table_name": "sessions",
+    "columns": "{id,user_id,expires_at,ip_address,user_agent,created_at}"
+  },
+  {
+    "table_name": "slo_alert_events",
+    "columns": "{id,slo_id,policy_id,incident_id,alert_type,severity,burn_rate,budget_remaining_percent,triggered_at,resolved_at,status,message}"
+  },
+  {
+    "table_name": "slo_alert_policies",
+    "columns": "{id,slo_id,fast_burn_threshold,slow_burn_threshold,exhaustion_threshold,min_events_required,cooldown_minutes,enabled,created_at}"
+  },
+  {
+    "table_name": "slo_error_budget_history",
+    "columns": "{id,slo_id,timestamp,budget_remaining_percent,burn_rate,bad_events_delta}"
+  },
+  {
+    "table_name": "slo_evaluations",
+    "columns": "{id,slo_id,evaluated_at,window_start,window_end,total_events,good_events,bad_events,sli_value,target_percent,error_budget_percent,allowed_bad_events,remaining_budget_percent,budget_consumed_percent,burn_rate_1h,burn_rate_6h,burn_rate_24h,status,data_quality,is_simulated,telemetry_source}"
+  },
+  {
+    "table_name": "slos",
+    "columns": "{id,name,description,service_id,sli_type,sli_definition,target_percent,latency_threshold_ms,rolling_window_days,evaluation_interval_minutes,owner,enabled,created_at,updated_at}"
+  },
+  {
+    "table_name": "sre_capacity_insights",
+    "columns": "{id,tenant_id,environment,resource_id,service_id,provider,resource_type,current_allocation,actual_utilization,underutilization_percent,estimated_monthly_waste_usd,optimization_category,recommended_governed_action,confidence,justification,created_at,status}"
+  },
+  {
+    "table_name": "sre_health_snapshots",
+    "columns": "{id,tenant_id,environment,overall_score,health_status,telemetry_status,confidence_level,services_health,resources_health,risk_indicators,supporting_evidence,evaluated_at}"
+  },
+  {
+    "table_name": "sre_operational_recommendations",
+    "columns": "{id,tenant_id,environment,recommendation_code,title,affected_resource,affected_service,evidence,priority,risk,confidence,expected_benefit,suggested_action,potential_operational_impact,required_approval,status,assigned_to,actioned_at,resolution_notes,created_at,updated_at}"
+  },
+  {
+    "table_name": "sre_risk_predictions",
+    "columns": "{id,tenant_id,environment,risk_type,target_resource_id,target_service_id,trend_direction,current_value,projected_value,rate_of_change_per_hour,observed_window_hours,forecast_horizon_hours,time_to_exhaustion_hours,risk_level,confidence,methodology,supporting_observations,recommended_investigation,detected_at,status}"
+  },
+  {
+    "table_name": "telemetry_dead_letter",
+    "columns": "{id,integration_id,tenant_id,environment,provider,telemetry_type,payload,error_reason,error_code,retry_count,rejected_at}"
+  },
+  {
+    "table_name": "users",
+    "columns": "{id,name,email,password_hash,role,status,created_at,updated_at}"
+  }
+]

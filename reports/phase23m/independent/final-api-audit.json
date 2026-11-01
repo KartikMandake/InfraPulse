@@ -1,0 +1,125 @@
+[
+  {
+    "name": "stored-plan-tampering-with-unchanged-hash",
+    "oldParameters": {
+      "containerName": "phase23m-payment-service-container"
+    },
+    "editedParameters": {
+      "containerName": "phase23m-different-synthetic-target"
+    },
+    "approvalStatus": 200,
+    "approvalData": {
+      "success": true,
+      "data": {
+        "id": "rem_app_6dd7fac6af48",
+        "plan_id": "rem_plan_a4338ba7b31b",
+        "plan_version": 1,
+        "tenant_id": "default_tenant",
+        "requester_email": "marcus.v@infrapulse.io",
+        "requester_role": "responder",
+        "approver_email": "sarah.chen@infrapulse.io",
+        "approver_role": "admin",
+        "second_approver_email": null,
+        "second_approver_role": null,
+        "approval_status": "APPROVED",
+        "rejection_reason": null,
+        "revocation_reason": null,
+        "requested_at": "2026-10-31T18:32:15.445Z",
+        "approved_at": "2026-10-31T18:32:15.487Z",
+        "expires_at": "2026-10-31T19:32:15.442Z",
+        "created_at": "2026-10-31T18:32:15.445Z",
+        "updated_at": "2026-10-31T18:32:15.487Z"
+      }
+    },
+    "executionAttempted": false
+  },
+  {
+    "name": "final-health",
+    "live": {
+      "status": 200,
+      "ms": 7.337200000000166,
+      "data": {
+        "status": "LIVE",
+        "timestamp": "2026-10-31T18:32:15.503Z",
+        "uptimeSeconds": 53,
+        "pid": 12640
+      }
+    },
+    "ready": {
+      "status": 200,
+      "ms": 11.334700000000112,
+      "data": {
+        "status": "READY",
+        "timestamp": "2026-10-31T18:32:15.515Z",
+        "uptimeSeconds": 53,
+        "dependencies": {
+          "database": "CONNECTED",
+          "latencyMs": 1
+        }
+      }
+    },
+    "diagnostics": {
+      "status": 200,
+      "ms": 48.55520000000024,
+      "data": {
+        "success": true,
+        "data": {
+          "service": "infrapulse-backend",
+          "timestamp": "2026-10-31T18:32:15.563Z",
+          "uptimeSeconds": 53,
+          "nodeVersion": "v26.4.0",
+          "pid": 12640,
+          "process": {
+            "memoryMb": {
+              "rss": 91,
+              "heapUsed": 32,
+              "heapTotal": 35,
+              "external": 8
+            },
+            "cpuUsageUserMicroseconds": 2156000,
+            "cpuUsageSystemMicroseconds": 562000
+          },
+          "database": {
+            "connected": true,
+            "latencyMs": 1,
+            "pool": {
+              "totalCount": 1,
+              "idleCount": 1,
+              "waitingCount": 0,
+              "activeCount": 0
+            }
+          },
+          "telemetryPipeline": {
+            "totalIngestedEvents": 6,
+            "deadLetterQueueCount": 0,
+            "status": "HEALTHY"
+          }
+        }
+      }
+    },
+    "cloudAudit": {
+      "status": 200,
+      "ms": 26.983299999999872,
+      "data": {
+        "success": true,
+        "count": 1,
+        "data": [
+          {
+            "id": "aud_mvwl1qjq_on9q7",
+            "actor_user_id": null,
+            "actor_email": null,
+            "actor_role": null,
+            "action": "CLOUD_BASELINE_CREATED",
+            "resource_type": "cloud_baseline",
+            "resource_id": "base_5c1d471908af",
+            "outcome": "success",
+            "metadata": {},
+            "correlation_id": "corr_cb78cac3dde38dd6",
+            "ip_address": null,
+            "created_at": "2026-10-31T15:55:33.158Z"
+          }
+        ]
+      }
+    }
+  }
+]

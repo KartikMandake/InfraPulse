@@ -1,5 +1,7 @@
 # InfraPulse — Database Disaster Recovery & Migration Integrity Report
 
+> Historical Phase 20 report. Its schema-bootstrap test is not a backup restore or archival PITR test. Do not execute its database-drop/recreation commands against an existing database. Current recovery uses a new empty target and preserves the source: [Phase 24 rollback plan](../PRODUCTION_ROLLBACK_PLAN.md). Logical `pg_dump` restoration does not provide PITR.
+
 **Phase 20 Release Engineering Deliverable**  
 **Execution Timestamp**: 2026-10-31T03:20:10+05:30  
 **Verification Script**: `tests/release/verifyDatabaseRecovery.js`  

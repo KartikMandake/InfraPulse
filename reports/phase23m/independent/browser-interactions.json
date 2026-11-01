@@ -1,0 +1,2242 @@
+[
+  {
+    "route": "/",
+    "actions": [
+      {
+        "pattern": "/^Inspect$/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/services/auth-gateway-v2",
+        "text": "arrow_back\nServices & Topology\n/\nauth-gateway-v2\nhub\nauth-gateway-v2\nDEGRADED\nTier-0 • HTTP\n\nNamespace: security-edge • Cluster: prod-k8s-mesh • Region: us-east-1\n\ntroubleshoot\nInvestigate INC-6400\nspeed\nInject Traffic Burst\nP99 LATENCY\n+1,616% surge\n285ms\nNominal baseline: 18ms\nERROR RATE\nSLO Breached\n2.45%\nTarget: < 0.05%\nTHROUGHPUT\nActive\n42.1k rps\n24 Pods active in mesh\nRESOURCE SATURATION\nCPU: 91%\n82.5% Mem\neBPF runtime metrics\nEndpoints & Routes (3)\nPod Instances (2)\nLinked Alerts (2)\nDependencies (2)\nMETHOD & ROUTE\tRPS\tP50\tP99\tERROR %\tSTATUS\n\nPOST\n/oauth/v2/token\n22.0k/s\t14ms\t285ms\t2.45%\tDEGRADED\n\nGET\n/oauth/v2/introspect\n18.0k/s\t6ms\t18ms\t0.01%\tHEALTHY\n\nGET\n/.well-known/jwks.json\n2.1k/s\t3ms\t8ms\t0%\tHEALTHY"
+      }
+    ],
+    "body": "arrow_back\nServices & Topology\n/\nauth-gateway-v2\nhub\nauth-gateway-v2\nDEGRADED\nTier-0 • HTTP\n\nNamespace: security-edge • Cluster: prod-k8s-mesh • Region: us-east-1\n\ntroubleshoot\nInvestigate INC-6400\nspeed\nInject Traffic Burst\nP99 LATENCY\n+1,616% surge\n285ms\nNominal baseline: 18ms\nERROR RATE\nSLO Breached\n2.45%\nTarget: < 0.05%\nTHROUGHPUT\nActive\n42.1k rps\n24 Pods active in mesh\nRESOURCE SATURATION\nCPU: 91%\n82.5% Mem\neBPF runtime metrics\nEndpoints & Routes (3)\nPod Instances (2)\nLinked Alerts (2)\nDependencies (2)\nMETHOD & ROUTE\tRPS\tP50\tP99\tERROR %\tSTATUS\n\nPOST\n/oauth/v2/token\n22.0k/s\t14ms\t285ms\t2.45%\tDEGRADED\n\nGET\n/oauth/v2/introspect\n18.0k/s\t6ms\t18ms\t0.01%\tHEALTHY\n\nGET\n/.well-known/jwks.json\n2.1k/s\t3ms\t8ms\t0%\tHEALTHY",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/system-overview",
+    "actions": [
+      {
+        "pattern": "/^Staging$/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/system-overview",
+        "text": "System Overview\nREALTIME STREAMING\n|\nLast telemetry sync 4s ago\n\nContinuous cross-cluster observability, automated correlation, and anomaly attribution engine.\n\nProduction\nStaging\nCanary\n15m\n1h\n6h\n24h\nautorenew\n10s\nbolt\nRun Diagnostic\nwarning\nIncident INC-6400 Active\nSEV-1\nAutomated incident declared from critical alert ALT-1097 (Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)).\ntroubleshoot\nInvestigate INC-6400\nclose\nLATENCY PERCENTILES\n+18ms p99 drift\n38.4ms (p99)\np50: 12.1ms\np95: 28.4ms\nTRAFFIC VOLUME\nNominal Peak\n1.84M req/sec\nHTTP: 62%\ngRPC: 31%\nKafka: 7%\nMESH ERRORS (5XX)\nPayment Hotspot\n0.042%\n504 Gateway Timeout (checkout handoff)\nCLUSTER SATURATION\n68.2% avg\n68.2% node load\nCPU: 64%\nMemory: 72%\nCLOUD REGION MESH\n3 Active\nus-east-1 (N. Virginia)\n1.14M\n412ms\neu-west-1 (Ireland)\n520k\n28ms\nap-southeast-1 (Singapore)\n180k\n34ms\nK8S NODE POOL HEALTH\n48 Nodes\npool-compute-c5.4xlarge\n24 nodes\nCPU: 62%\nMem: 71%\npool-memory-r5.2xlarge\n16 nodes\nCPU: 54%\nMem: 84%\npool-ingress-m5.xlarge\n8 nodes\nCPU: 48%\nMem: 52%\nOPERATOR TRIAGE ACTIONS\nQuick Links\nhub\nInspect payment-service Pods\narrow_forward\nterminal\nQuery Error Spans (OTel)\narrow_forward\nplay_circle\nExecute Runbook RB-402\narrow_forward\nSimulated local state engine • 0 external dependencies"
+      },
+      {
+        "pattern": "/^1h$/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/system-overview",
+        "text": "System Overview\nREALTIME STREAMING\n|\nLast telemetry sync 4s ago\n\nContinuous cross-cluster observability, automated correlation, and anomaly attribution engine.\n\nProduction\nStaging\nCanary\n15m\n1h\n6h\n24h\nautorenew\n10s\nbolt\nRun Diagnostic\nwarning\nIncident INC-6400 Active\nSEV-1\nAutomated incident declared from critical alert ALT-1097 (Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)).\ntroubleshoot\nInvestigate INC-6400\nclose\nLATENCY PERCENTILES\n+18ms p99 drift\n38.4ms (p99)\np50: 12.1ms\np95: 28.4ms\nTRAFFIC VOLUME\nNominal Peak\n1.84M req/sec\nHTTP: 62%\ngRPC: 31%\nKafka: 7%\nMESH ERRORS (5XX)\nPayment Hotspot\n0.042%\n504 Gateway Timeout (checkout handoff)\nCLUSTER SATURATION\n68.2% avg\n68.2% node load\nCPU: 64%\nMemory: 72%\nCLOUD REGION MESH\n3 Active\nus-east-1 (N. Virginia)\n1.14M\n412ms\neu-west-1 (Ireland)\n520k\n28ms\nap-southeast-1 (Singapore)\n180k\n34ms\nK8S NODE POOL HEALTH\n48 Nodes\npool-compute-c5.4xlarge\n24 nodes\nCPU: 62%\nMem: 71%\npool-memory-r5.2xlarge\n16 nodes\nCPU: 54%\nMem: 84%\npool-ingress-m5.xlarge\n8 nodes\nCPU: 48%\nMem: 52%\nOPERATOR TRIAGE ACTIONS\nQuick Links\nhub\nInspect payment-service Pods\narrow_forward\nterminal\nQuery Error Spans (OTel)\narrow_forward\nplay_circle\nExecute Runbook RB-402\narrow_forward\nSimulated local state engine • 0 external dependencies"
+      },
+      {
+        "pattern": "/Run Diagnostic/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/system-overview",
+        "text": "System Overview\nREALTIME STREAMING\n|\nLast telemetry sync 4s ago\n\nContinuous cross-cluster observability, automated correlation, and anomaly attribution engine.\n\nProduction\nStaging\nCanary\n15m\n1h\n6h\n24h\nautorenew\n10s\nbolt\nSampling...\nwarning\nIncident INC-6400 Active\nSEV-1\nAutomated incident declared from critical alert ALT-1097 (Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)).\ntroubleshoot\nInvestigate INC-6400\nclose\nLATENCY PERCENTILES\n+18ms p99 drift\n38.4ms (p99)\np50: 12.1ms\np95: 28.4ms\nTRAFFIC VOLUME\nNominal Peak\n1.84M req/sec\nHTTP: 62%\ngRPC: 31%\nKafka: 7%\nMESH ERRORS (5XX)\nPayment Hotspot\n0.042%\n504 Gateway Timeout (checkout handoff)\nCLUSTER SATURATION\n68.2% avg\n68.2% node load\nCPU: 64%\nMemory: 72%\nCLOUD REGION MESH\n3 Active\nus-east-1 (N. Virginia)\n1.14M\n412ms\neu-west-1 (Ireland)\n520k\n28ms\nap-southeast-1 (Singapore)\n180k\n34ms\nK8S NODE POOL HEALTH\n48 Nodes\npool-compute-c5.4xlarge\n24 nodes\nCPU: 62%\nMem: 71%\npool-memory-r5.2xlarge\n16 nodes\nCPU: 54%\nMem: 84%\npool-ingress-m5.xlarge\n8 nodes\nCPU: 48%\nMem: 52%\nOPERATOR TRIAGE ACTIONS\nQuick Links\nhub\nInspect payment-service Pods\narrow_forward\nterminal\nQuery Error Spans (OTel)\narrow_forward\nplay_circle\nExecute Runbook RB-402\narrow_forward\nSimulated local state engine • 0 external dependencies"
+      }
+    ],
+    "body": "System Overview\nREALTIME STREAMING\n|\nLast telemetry sync 4s ago\n\nContinuous cross-cluster observability, automated correlation, and anomaly attribution engine.\n\nProduction\nStaging\nCanary\n15m\n1h\n6h\n24h\nautorenew\n10s\nbolt\nSampling...\nwarning\nIncident INC-6400 Active\nSEV-1\nAutomated incident declared from critical alert ALT-1097 (Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)).\ntroubleshoot\nInvestigate INC-6400\nclose\nLATENCY PERCENTILES\n+18ms p99 drift\n38.4ms (p99)\np50: 12.1ms\np95: 28.4ms\nTRAFFIC VOLUME\nNominal Peak\n1.84M req/sec\nHTTP: 62%\ngRPC: 31%\nKafka: 7%\nMESH ERRORS (5XX)\nPayment Hotspot\n0.042%\n504 Gateway Timeout (checkout handoff)\nCLUSTER SATURATION\n68.2% avg\n68.2% node load\nCPU: 64%\nMemory: 72%\nCLOUD REGION MESH\n3 Active\nus-east-1 (N. Virginia)\n1.14M\n412ms\neu-west-1 (Ireland)\n520k\n28ms\nap-southeast-1 (Singapore)\n180k\n34ms\nK8S NODE POOL HEALTH\n48 Nodes\npool-compute-c5.4xlarge\n24 nodes\nCPU: 62%\nMem: 71%\npool-memory-r5.2xlarge\n16 nodes\nCPU: 54%\nMem: 84%\npool-ingress-m5.xlarge\n8 nodes\nCPU: 48%\nMem: 52%\nOPERATOR TRIAGE ACTIONS\nQuick Links\nhub\nInspect payment-service Pods\narrow_forward\nterminal\nQuery Error Spans (OTel)\narrow_forward\nplay_circle\nExecute Runbook RB-402\narrow_forward\nSimulated local state engine • 0 external dependencies",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/services",
+    "actions": [
+      {
+        "pattern": "/Inventory/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/services",
+        "text": "account_tree\nServices & Topology Correlation\nDegraded Mesh (2 Critical)\n\nTopological service dependency graph, bidirectional causal impact propagation, and live telemetry signals.\n\nbubble_chart\nGraph\ntable_rows\nInventory\nfilter_alt\nAll (8)\nNominal (4)\nDegraded (2)\nCritical (2)\nOVERLAYS:\nreport\nHighlight Unhealthy\nhub\nDownstream Cascade Path\nbolt\nHigh Latency (>150ms)\nSERVICE NAME\tTIER\tPROTOCOL\tNAMESPACE\tTHROUGHPUT\tP99 LATENCY\tERROR RATE\tSTATUS\tACTIONS\n\nauth-gateway-v2\nTier-0\tHTTP\tsecurity-edge\t42.1k/s\t285ms\t2.45%\tDEGRADED\tDeep Dive\n\ncheckout-api\nTier-0\tgRPC\tcommerce\t12.2k/s\t340ms\t3.1%\tDEGRADED\tDeep Dive\n\npayment-service\nTier-0\tgRPC\tpayments-core\t18.4k/s\t2000ms\t0.4%\tCRITICAL\tDeep Dive\n\ncart-service\nTier-1\tHTTP\tcommerce\t14.3k/s\t18ms\t0.02%\tNOMINAL\tDeep Dive\n\nfraud-evaluator\nTier-1\tgRPC\trisk-engine\t7.8k/s\t38ms\t0.04%\tNOMINAL\tDeep Dive\n\ninventory-mesh\nTier-1\tgRPC\tcommerce\t8.9k/s\t22ms\t0.01%\tNOMINAL\tDeep Dive\n\nledger-db-proxy\nTier-1\tgRPC\tfinance-data\t9.2k/s\t395ms\t5.8%\tCRITICAL\tDeep Dive\n\nnotification-worker\nTier-2\tKafka\tmessaging\t6.5k/s\t14ms\t0%\tNOMINAL\tDeep Dive"
+      },
+      {
+        "pattern": "/^Critical/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/services",
+        "text": "account_tree\nServices & Topology Correlation\nDegraded Mesh (2 Critical)\n\nTopological service dependency graph, bidirectional causal impact propagation, and live telemetry signals.\n\nbubble_chart\nGraph\ntable_rows\nInventory\nfilter_alt\nAll (8)\nNominal (4)\nDegraded (2)\nCritical (2)\nOVERLAYS:\nreport\nHighlight Unhealthy\nhub\nDownstream Cascade Path\nbolt\nHigh Latency (>150ms)\nSERVICE NAME\tTIER\tPROTOCOL\tNAMESPACE\tTHROUGHPUT\tP99 LATENCY\tERROR RATE\tSTATUS\tACTIONS\n\npayment-service\nTier-0\tgRPC\tpayments-core\t18.4k/s\t2000ms\t0.4%\tCRITICAL\tDeep Dive\n\nledger-db-proxy\nTier-1\tgRPC\tfinance-data\t9.2k/s\t395ms\t5.8%\tCRITICAL\tDeep Dive"
+      },
+      {
+        "pattern": "/Graph/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/services",
+        "text": "account_tree\nServices & Topology Correlation\nDegraded Mesh (2 Critical)\n\nTopological service dependency graph, bidirectional causal impact propagation, and live telemetry signals.\n\nbubble_chart\nGraph\ntable_rows\nInventory\nfilter_alt\nAll (8)\nNominal (4)\nDegraded (2)\nCritical (2)\nOVERLAYS:\nreport\nHighlight Unhealthy\nhub\nDownstream Cascade Path\nbolt\nHigh Latency (>150ms)\nNominal\nDegraded\nCritical\nSelected / Cascade\nClick node to trace causal downstream dependencies & live metrics\nTIER-0\ngRPC\npayment-service\np99: 2000ms\nerr: 0.4%\nTIER-1\nDEP\nledger-db-proxy\np99: 395ms\nerr: 5.8%\nActive Mesh:\n2 Nodes visible\n•\n7 Dependency edges mapped\nTopological Correlation Active\npayment-service\nTier-0 • payments-core • us-east-1\nDeep Dive →\nP99 LATENCY\n412ms\nbaseline: 24ms\nERROR RATE\n4.12%\ntarget: <0.05%\nTHROUGHPUT\n18.4k/s\n16 Pods Active\nCPU / MEMORY\n88.4%\nMemory: 94.2%\nTopological Call Neighbors\nGraph Edge Trace\nDirect Downstream Callers (1) [Clients]:\n← checkout-api\nUpstream Dependencies (3) [Servers]:\n→ ledger-db-proxy\n→ fraud-evaluator\n→ stripe-bridge\nACTIVE FIRING ALERTS (2)\nService Health Status Failure: payment-service (status == critical)\ncritical\nHikariCP Connection Pool Exhaustion (>95% active)\n2000\nRECENT GIT DEPLOYMENTS (1)\nv1.8.3 (canary)\n7f4a29c\nfeat(payments): add idempotency token check with distributed cache lock"
+      }
+    ],
+    "body": "account_tree\nServices & Topology Correlation\nDegraded Mesh (2 Critical)\n\nTopological service dependency graph, bidirectional causal impact propagation, and live telemetry signals.\n\nbubble_chart\nGraph\ntable_rows\nInventory\nfilter_alt\nAll (8)\nNominal (4)\nDegraded (2)\nCritical (2)\nOVERLAYS:\nreport\nHighlight Unhealthy\nhub\nDownstream Cascade Path\nbolt\nHigh Latency (>150ms)\nNominal\nDegraded\nCritical\nSelected / Cascade\nClick node to trace causal downstream dependencies & live metrics\nTIER-0\ngRPC\npayment-service\np99: 2000ms\nerr: 0.4%\nTIER-1\nDEP\nledger-db-proxy\np99: 395ms\nerr: 5.8%\nActive Mesh:\n2 Nodes visible\n•\n7 Dependency edges mapped\nTopological Correlation Active\npayment-service\nTier-0 • payments-core • us-east-1\nDeep Dive →\nP99 LATENCY\n412ms\nbaseline: 24ms\nERROR RATE\n4.12%\ntarget: <0.05%\nTHROUGHPUT\n18.4k/s\n16 Pods Active\nCPU / MEMORY\n88.4%\nMemory: 94.2%\nTopological Call Neighbors\nGraph Edge Trace\nDirect Downstream Callers (1) [Clients]:\n← checkout-api\nUpstream Dependencies (3) [Servers]:\n→ ledger-db-proxy\n→ fraud-evaluator\n→ stripe-bridge\nACTIVE FIRING ALERTS (2)\nService Health Status Failure: payment-service (status == critical)\ncritical\nHikariCP Connection Pool Exhaustion (>95% active)\n2000\nRECENT GIT DEPLOYMENTS (1)\nv1.8.3 (canary)\n7f4a29c\nfeat(payments): add idempotency token check with distributed cache lock",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/services/auth-gateway-v2",
+    "actions": [
+      {
+        "pattern": "/Pod Instances/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/services/auth-gateway-v2",
+        "text": "arrow_back\nServices & Topology\n/\nauth-gateway-v2\nhub\nauth-gateway-v2\nDEGRADED\nTier-0 • HTTP\n\nNamespace: security-edge • Cluster: prod-k8s-mesh • Region: us-east-1\n\ntroubleshoot\nInvestigate INC-6400\nspeed\nInject Traffic Burst\nP99 LATENCY\n+1,616% surge\n285ms\nNominal baseline: 18ms\nERROR RATE\nSLO Breached\n2.45%\nTarget: < 0.05%\nTHROUGHPUT\nActive\n42.1k rps\n24 Pods active in mesh\nRESOURCE SATURATION\nCPU: 91%\n82.5% Mem\neBPF runtime metrics\nEndpoints & Routes (3)\nPod Instances (2)\nLinked Alerts (2)\nDependencies (2)\nauth-gateway-v2-55a1-0\nv2.4.1\nCPU: 89%\nMem: 81%\nRestarts: 0\nRUNNING\nauth-gateway-v2-55a1-1\nv2.4.1\nCPU: 93%\nMem: 84%\nRestarts: 1\nRUNNING"
+      },
+      {
+        "pattern": "/Linked Alerts/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/services/auth-gateway-v2",
+        "text": "arrow_back\nServices & Topology\n/\nauth-gateway-v2\nhub\nauth-gateway-v2\nDEGRADED\nTier-0 • HTTP\n\nNamespace: security-edge • Cluster: prod-k8s-mesh • Region: us-east-1\n\ntroubleshoot\nInvestigate INC-6400\nspeed\nInject Traffic Burst\nP99 LATENCY\n+1,616% surge\n285ms\nNominal baseline: 18ms\nERROR RATE\nSLO Breached\n2.45%\nTarget: < 0.05%\nTHROUGHPUT\nActive\n42.1k rps\n24 Pods active in mesh\nRESOURCE SATURATION\nCPU: 91%\n82.5% Mem\neBPF runtime metrics\nEndpoints & Routes (3)\nPod Instances (2)\nLinked Alerts (2)\nDependencies (2)\nElevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)\nThreshold: 2 • Current: 2.45\nCRITICAL\nJWT Token Validation Latency Elevation (p99 > 250ms)\nThreshold: 250 • Current: 285ms\nWARNING"
+      },
+      {
+        "pattern": "/Dependencies/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/services/auth-gateway-v2",
+        "text": "arrow_back\nServices & Topology\n/\nauth-gateway-v2\nhub\nauth-gateway-v2\nDEGRADED\nTier-0 • HTTP\n\nNamespace: security-edge • Cluster: prod-k8s-mesh • Region: us-east-1\n\ntroubleshoot\nInvestigate INC-6400\nspeed\nInject Traffic Burst\nP99 LATENCY\n+1,616% surge\n285ms\nNominal baseline: 18ms\nERROR RATE\nSLO Breached\n2.45%\nTarget: < 0.05%\nTHROUGHPUT\nActive\n42.1k rps\n24 Pods active in mesh\nRESOURCE SATURATION\nCPU: 91%\n82.5% Mem\neBPF runtime metrics\nEndpoints & Routes (3)\nPod Instances (2)\nLinked Alerts (2)\nDependencies (2)\nDOWNSTREAM SERVICE CALL GRAPH\naccount_tree\nredis-session-cache\nInspect →\naccount_tree\nvault-cluster\nInspect →"
+      },
+      {
+        "pattern": "/Endpoints/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/services/auth-gateway-v2",
+        "text": "arrow_back\nServices & Topology\n/\nauth-gateway-v2\nhub\nauth-gateway-v2\nDEGRADED\nTier-0 • HTTP\n\nNamespace: security-edge • Cluster: prod-k8s-mesh • Region: us-east-1\n\ntroubleshoot\nInvestigate INC-6400\nspeed\nInject Traffic Burst\nP99 LATENCY\n+1,616% surge\n285ms\nNominal baseline: 18ms\nERROR RATE\nSLO Breached\n2.45%\nTarget: < 0.05%\nTHROUGHPUT\nActive\n42.1k rps\n24 Pods active in mesh\nRESOURCE SATURATION\nCPU: 91%\n82.5% Mem\neBPF runtime metrics\nEndpoints & Routes (3)\nPod Instances (2)\nLinked Alerts (2)\nDependencies (2)\nMETHOD & ROUTE\tRPS\tP50\tP99\tERROR %\tSTATUS\n\nPOST\n/oauth/v2/token\n22.0k/s\t14ms\t285ms\t2.45%\tDEGRADED\n\nGET\n/oauth/v2/introspect\n18.0k/s\t6ms\t18ms\t0.01%\tHEALTHY\n\nGET\n/.well-known/jwks.json\n2.1k/s\t3ms\t8ms\t0%\tHEALTHY"
+      }
+    ],
+    "body": "arrow_back\nServices & Topology\n/\nauth-gateway-v2\nhub\nauth-gateway-v2\nDEGRADED\nTier-0 • HTTP\n\nNamespace: security-edge • Cluster: prod-k8s-mesh • Region: us-east-1\n\ntroubleshoot\nInvestigate INC-6400\nspeed\nInject Traffic Burst\nP99 LATENCY\n+1,616% surge\n285ms\nNominal baseline: 18ms\nERROR RATE\nSLO Breached\n2.45%\nTarget: < 0.05%\nTHROUGHPUT\nActive\n42.1k rps\n24 Pods active in mesh\nRESOURCE SATURATION\nCPU: 91%\n82.5% Mem\neBPF runtime metrics\nEndpoints & Routes (3)\nPod Instances (2)\nLinked Alerts (2)\nDependencies (2)\nMETHOD & ROUTE\tRPS\tP50\tP99\tERROR %\tSTATUS\n\nPOST\n/oauth/v2/token\n22.0k/s\t14ms\t285ms\t2.45%\tDEGRADED\n\nGET\n/oauth/v2/introspect\n18.0k/s\t6ms\t18ms\t0.01%\tHEALTHY\n\nGET\n/.well-known/jwks.json\n2.1k/s\t3ms\t8ms\t0%\tHEALTHY",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/incidents",
+    "actions": [
+      {
+        "pattern": "/^SEV-2$/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/incidents",
+        "text": "emergency\nIncident Management & War Rooms\n3 ACTIVE\n\nReal-time causal graph diagnosis, responder triage coordination, and automatic postmortem tracking.\n\nadd_alert\nDeclare Incident\nACTIVE CRITICAL INCIDENTS\n2\nImmediate SRE Page active\nMEAN TIME TO DETECT (MTTD)\n42s\nAI telemetry anomaly attribution\nMEAN TIME TO MITIGATE (MTTM)\n12.4m\nTrailing 30-day baseline\nEST. REVENUE AT RISK\n$14.2k/min\n4.12% checkout drop rate\nSTATUS:\nALL\nACTIVE\nRESOLVED\nSEVERITY:\nall\nSEV-1\nSEV-2\nSEV-3\nSEV-2\nINC-4919\n•\nKafka Consumer Lag Breach on order-events-pipeline\nnotifications_active\n1 Linked Alert\n\nConsumer group analytics-worker lag exceeded 250,000 offsets during peak traffic interval in us-east-1.\n\nInvestigate\nResolve\nLead: Marcus Vance (Staff SRE)\nRoom: #inc-4919-kafka-lag\nStarted: 13:10:05 UTC\nAI Confidence: 92%\nMITIGATING"
+      },
+      {
+        "pattern": "/^all$/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/incidents",
+        "text": "tic postmortem tracking.\n\nadd_alert\nDeclare Incident\nACTIVE CRITICAL INCIDENTS\n2\nImmediate SRE Page active\nMEAN TIME TO DETECT (MTTD)\n42s\nAI telemetry anomaly attribution\nMEAN TIME TO MITIGATE (MTTM)\n12.4m\nTrailing 30-day baseline\nEST. REVENUE AT RISK\n$14.2k/min\n4.12% checkout drop rate\nSTATUS:\nALL\nACTIVE\nRESOLVED\nSEVERITY:\nall\nSEV-1\nSEV-2\nSEV-3\nSEV-1\nINC-6400\n•\nIncident: Cascading anomaly detected on auth-gateway-v2\nnotifications_active\n1 Linked Alert\n\nAutomated incident declared from critical alert ALT-1097 (Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)).\n\nInvestigate\nMark Mitigating\nResolve\nLead: Automated Copilot (Incident Commander)\nRoom: #inc-inc-6400-auto\nStarted: 15:55:32 UTC\nAI Confidence: 63%\nINVESTIGATING\nSEV-2\nINC-4919\n•\nKafka Consumer Lag Breach on order-events-pipeline\nnotifications_active\n1 Linked Alert\n\nConsumer group analytics-worker lag exceeded 250,000 offsets during peak traffic interval in us-east-1.\n\nInvestigate\nResolve\nLead: Marcus Vance (Staff SRE)\nRoom: #inc-4919-kafka-lag\nStarted: 13:10:05 UTC\nAI Confidence: 92%\nMITIGATING\nSEV-3\nINC-4912\n•\nRedis Cluster Memory Fragmentation Warning (Node 03)\n\nMemory fragmentation ratio reached 1.82 on session cache shard 3.\n\nInvestigate\nLead: David Kim (Platform Lead)\nRoom: #inc-4912-redis-defrag\nStarted: 09:45:00 UTC\nAI Confidence: 99%\nRESOLVED\nSEV-1\nINC-4921\n•\nCascading 504 Gateway Timeouts in Order & Payment Flow following Deployment v1.8.3\nnotifications_active\n8 Linked Alerts\n\nPayment Service HTTP 504 Timeout Surge correlated with deployment v1.8.3 (35m ago). Connection pool exhaustion at 98.4% causing cascading timeouts in checkout API.\n\nInvestigate\nMark Mitigating\nResolve\nLead: Sarah Chen (Principal SRE)\nRoom: #inc-4921-pool-exhaustion\nStarted: 14:34:12 UTC\nAI Confidence: 85%\nINVESTIGATING"
+      },
+      {
+        "pattern": "/^Investigate$/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/incidents/INC-6400",
+        "text": "arrow_back\nAll Incidents\n/\nINC-6400\n/\nauth-gateway-v2\nterminal\nRunbook Orchestration\nrefresh\nRe-Run Unified Correlation\nINC-6400\n•\nauth-gateway-v2\n•\nAwaiting telemetry evaluation\nIncident: Cascading anomaly detected on auth-gateway-v2\n\nAutomated incident declared from critical alert ALT-1097 (Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)).\n\nperson\nCommander: Automated Copilot (Incident Commander)\n•\nforum\nRoom: #inc-inc-6400-auto\n•\nschedule\nDeclared: 15:55:32 UTC\ndescription\nExport Postmortem Draft\nREST: /api/incidents/INC-6400/investigation-graph\npsychology\nDeterministic Root-Cause Analysis\nhub\nUnified Investigation Graph\nroute\nCausal Sequence & Propagation\nbuild_circle\nGoverned Infrastructure Remediation\npsychology\nRanked Root-Cause Hypotheses\n0 Candidates Evaluated\nAuthoritative Deterministic Engine\nsmart_toy\nAI Investigation Assistant\nEvidence-Grounded Diagnostic Reasoning\nRCA GROUNDED\nInquire:\nWhy is this service ranked first?\nWhich signals support this hypothesis?\nWhat evidence contradicts this hypothesis?\nCould the recent deployment be related?\nWhat should I investigate next?\nchat\n\nAsk questions about this incident\n\nThe AI assistant analyzes deterministic hypotheses, cross-references telemetry, evaluates contradictory signals, and recommends safe diagnostic steps.\n\nAsk\nsend\ntimeline\nUNIFIED EVENT TIMELINE\n0 Events\nAll\npre incident_signal\ndeployment change\nalert generation\nincident declaration\nrunbook execution"
+      }
+    ],
+    "body": "arrow_back\nAll Incidents\n/\nINC-6400\n/\nauth-gateway-v2\nterminal\nRunbook Orchestration\nrefresh\nRe-Run Unified Correlation\nINC-6400\n•\nauth-gateway-v2\n•\nAwaiting telemetry evaluation\nIncident: Cascading anomaly detected on auth-gateway-v2\n\nAutomated incident declared from critical alert ALT-1097 (Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)).\n\nperson\nCommander: Automated Copilot (Incident Commander)\n•\nforum\nRoom: #inc-inc-6400-auto\n•\nschedule\nDeclared: 15:55:32 UTC\ndescription\nExport Postmortem Draft\nREST: /api/incidents/INC-6400/investigation-graph\npsychology\nDeterministic Root-Cause Analysis\nhub\nUnified Investigation Graph\nroute\nCausal Sequence & Propagation\nbuild_circle\nGoverned Infrastructure Remediation\npsychology\nRanked Root-Cause Hypotheses\n0 Candidates Evaluated\nAuthoritative Deterministic Engine\nsmart_toy\nAI Investigation Assistant\nEvidence-Grounded Diagnostic Reasoning\nRCA GROUNDED\nInquire:\nWhy is this service ranked first?\nWhich signals support this hypothesis?\nWhat evidence contradicts this hypothesis?\nCould the recent deployment be related?\nWhat should I investigate next?\nchat\n\nAsk questions about this incident\n\nThe AI assistant analyzes deterministic hypotheses, cross-references telemetry, evaluates contradictory signals, and recommends safe diagnostic steps.\n\nAsk\nsend\ntimeline\nUNIFIED EVENT TIMELINE\n0 Events\nAll\npre incident_signal\ndeployment change\nalert generation\nincident declaration\nrunbook execution",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/assistant/conversations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/assistant/conversations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/investigation",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/investigation",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notifications?incidentId=INC-6400",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notifications?incidentId=INC-6400",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/unified-timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/unified-timeline",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/incidents/INC-6400",
+    "actions": [
+      {
+        "pattern": "/Inspect Evidence/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/incidents/INC-6400",
+        "text": "nominal baseline of 18ms.\n\nanomaly\nSevere Resource Saturation (CPU: 91%, Mem: 82.5%)\n\nCompute capacity saturated on service pods.\n\nanomaly\nCritical Alert: Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)\n\nAlert active: errorRate > 2.\n\nanomaly\nPrimary Incident Target Service\n\nService \"auth-gateway-v2\" is directly declared as the primary impacted component.\n\ncausal_topology\n#3\ncheckout-api\nunrelated\nATTRIBUTION SCORE\n45.8/100\n\nSevere P99 latency surge (7.6x baseline) detected. Correlated error logs confirm cascading failures.\n\nexpand_more\nInspect Evidence (7 signals)\n#4\nledger-db-proxy\nunrelated\nATTRIBUTION SCORE\n41.5/100\n\nSevere P99 latency surge (49.4x baseline) detected. Correlated error logs confirm cascading failures.\n\nexpand_more\nInspect Evidence (9 signals)\n#5\ninventory-mesh\npeer_consumer\nATTRIBUTION SCORE\n35/100\n\nService \"inventory-mesh\" exhibits moderate anomaly indicators (diagnostic score: 7.5/100).\n\nexpand_more\nInspect Evidence (1 signals)\n#6\nnotification-worker\nunrelated\nATTRIBUTION SCORE\n35/100\n\nService \"notification-worker\" exhibits moderate anomaly indicators (diagnostic score: 2.5/100).\n\nexpand_more\nInspect Evidence (0 signals)\nsmart_toy\nAI Investigation Assistant\nEvidence-Grounded Diagnostic Reasoning\nRCA GROUNDED\nInquire:\nWhy is this service ranked first?\nWhich signals support this hypothesis?\nWhat evidence contradicts this hypothesis?\nCould the recent deployment be related?\nWhat should I investigate next?\nchat\n\nAsk questions about this incident\n\nThe AI assistant analyzes deterministic hypotheses, cross-references telemetry, evaluates contradictory signals, and recommends safe diagnostic steps.\n\nAsk\nsend\ntimeline\nUNIFIED EVENT TIMELINE\n0 Events\nAll\npre incident_signal\ndeployment change\nalert generation\nincident declaration\nrunbook execution"
+      },
+      {
+        "pattern": "/deployment change/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/incidents/INC-6400",
+        "text": "nominal baseline of 18ms.\n\nanomaly\nSevere Resource Saturation (CPU: 91%, Mem: 82.5%)\n\nCompute capacity saturated on service pods.\n\nanomaly\nCritical Alert: Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)\n\nAlert active: errorRate > 2.\n\nanomaly\nPrimary Incident Target Service\n\nService \"auth-gateway-v2\" is directly declared as the primary impacted component.\n\ncausal_topology\n#3\ncheckout-api\nunrelated\nATTRIBUTION SCORE\n45.8/100\n\nSevere P99 latency surge (7.6x baseline) detected. Correlated error logs confirm cascading failures.\n\nexpand_more\nInspect Evidence (7 signals)\n#4\nledger-db-proxy\nunrelated\nATTRIBUTION SCORE\n41.5/100\n\nSevere P99 latency surge (49.4x baseline) detected. Correlated error logs confirm cascading failures.\n\nexpand_more\nInspect Evidence (9 signals)\n#5\ninventory-mesh\npeer_consumer\nATTRIBUTION SCORE\n35/100\n\nService \"inventory-mesh\" exhibits moderate anomaly indicators (diagnostic score: 7.5/100).\n\nexpand_more\nInspect Evidence (1 signals)\n#6\nnotification-worker\nunrelated\nATTRIBUTION SCORE\n35/100\n\nService \"notification-worker\" exhibits moderate anomaly indicators (diagnostic score: 2.5/100).\n\nexpand_more\nInspect Evidence (0 signals)\nsmart_toy\nAI Investigation Assistant\nEvidence-Grounded Diagnostic Reasoning\nRCA GROUNDED\nInquire:\nWhy is this service ranked first?\nWhich signals support this hypothesis?\nWhat evidence contradicts this hypothesis?\nCould the recent deployment be related?\nWhat should I investigate next?\nchat\n\nAsk questions about this incident\n\nThe AI assistant analyzes deterministic hypotheses, cross-references telemetry, evaluates contradictory signals, and recommends safe diagnostic steps.\n\nAsk\nsend\ntimeline\nUNIFIED EVENT TIMELINE\n0 Events\nAll\npre incident_signal\ndeployment change\nalert generation\nincident declaration\nrunbook execution"
+      },
+      {
+        "pattern": "/Why is this service ranked first/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/incidents/INC-6400",
+        "text": "on Assistant\nEvidence-Grounded Diagnostic Reasoning\nRCA GROUNDED\nInquire:\nWhy is this service ranked first?\nWhich signals support this hypothesis?\nWhat evidence contradicts this hypothesis?\nCould the recent deployment be related?\nWhat should I investigate next?\nperson\nResponder\n09:31 PM\n\nWhy is this service ranked first?\n\nsmart_toy\nInfraPulse Assistant\n09:31 PM\n\nService \"payment-service\" is ranked #1 with a deterministic attribution score of 62.8/100. The evidence demonstrates a unrelated role: Recent deployment v1.8.3 (14:22:04 UTC (35m ago)) exhibits strong temporal correlation. Severe P99 latency surge (83.3x baseline) detected. Correlated error logs confirm cascading failures.\n\ncheck_circle\nSUPPORTING TELEMETRY SIGNALS:\nExtreme Latency Surge (83.3x baseline)\nSevere Resource Saturation (CPU: 98%, Mem: 94.2%)\n1 Failing Pod(s)\nCritical Alert: Service Health Status Failure: payment-service (status == critical)\nCritical Alert: HikariCP Connection Pool Exhaustion (>95% active)\nDeployment v1.8.3 (canary)\nError Log [payment-service]\nTrace Span Error: AuthorizePaymentCharge(txn_77921)\nhelp_outline\nUNCERTAINTIES & DATA GAPS:\nNo topological connection discovered between \"payment-service\" and \"auth-gateway-v2\".\nbiotech\nSUGGESTED READ-ONLY DIAGNOSTIC CHECKS:\nInspect deployment diff for v1.8.3 and evaluate instant canary rollback via Deployments console.\npayment-service\n\nMotivated by rank #1 attribution score (62.8/100)\n\nExpected gain: Confirmation of underlying cause before executing mitigation\nReferenced Evidence:\n#anom-lat-ext-payment-service\n#anom-res-payment-service\n#anom-pods-payment-service\n#anom-alt-ALT-3971\n#anom-alt-ALT-1092\nAsk\nsend\ntimeline\nUNIFIED EVENT TIMELINE\n0 Events\nAll\npre incident_signal\ndeployment change\nalert generation\nincident declaration\nrunbook execution"
+      }
+    ],
+    "body": "arrow_back\nAll Incidents\n/\nINC-6400\n/\nauth-gateway-v2\nterminal\nRunbook Orchestration\nrefresh\nRe-Run Unified Correlation\nINC-6400\n•\nauth-gateway-v2\n•\nDeterministic RCA confidence: 62.8%\nIncident: Cascading anomaly detected on auth-gateway-v2\n\nAutomated incident declared from critical alert ALT-1097 (Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)).\n\nperson\nCommander: Automated Copilot (Incident Commander)\n•\nforum\nRoom: #inc-inc-6400-auto\n•\nschedule\nDeclared: 15:55:32 UTC\ndescription\nExport Postmortem Draft\nREST: /api/incidents/INC-6400/investigation-graph\npsychology\nDeterministic Root-Cause Analysis\nhub\nUnified Investigation Graph\nroute\nCausal Sequence & Propagation\nbuild_circle\nGoverned Infrastructure Remediation\npsychology\nRanked Root-Cause Hypotheses\n6 Candidates Evaluated\nAuthoritative Deterministic Engine\n#1\npayment-service\nunrelated\nATTRIBUTION SCORE\n62.8/100\n\nRecent deployment v1.8.3 (14:22:04 UTC (35m ago)) exhibits strong temporal correlation. Severe P99 latency surge (83.3x baseline) detected. Correlated error logs confirm cascading failures.\n\nexpand_more\nInspect Evidence (8 signals)\n#2\nauth-gateway-v2\nself\nATTRIBUTION SCORE\n57/100\n\nSevere P99 latency surge (15.8x baseline) detected.\n\nexpand_less\nHide Evidence (4 signals)\nExtreme Latency Surge (15.8x baseline)\n\nP99 latency surged to 285ms against nominal baseline of 18ms.\n\nanomaly\nSevere Resource Saturation (CPU: 91%, Mem: 82.5%)\n\nCompute capacity saturated on service pods.\n\nanomaly\nCritical Alert: Elevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)\n\nAlert active: errorRate > 2.\n\nanomaly\nPrimary Incident Target Service\n\nService \"auth-gateway-v2\" is directly declared as the primary impacted component.\n\ncausal_topology\n#3\ncheckout-api\nunrelated\nATTRIBUTION SCORE\n45.8/100\n\nSevere P99 latency surge (7.6x baseline) detected. Correlated error logs confirm cascading failures.\n\nexpand_more\nInspect Evidence (7 signals)\n#4\nledger-db-proxy\nunrelated\nATTRIBUTION SCORE\n41.5/100\n\nSevere P99 latency surge (49.4x baseline) detected. Correlated error logs confirm cascading failures.\n\nexpand_more\nInspect Evidence (9 signals)\n#5\ninventory-mesh\npeer_consumer\nATTRIBUTION SCORE\n35/100\n\nService \"inventory-mesh\" exhibits moderate anomaly indicators (diagnostic score: 7.5/100).\n\nexpand_more\nInspect Evidence (1 signals)\n#6\nnotification-worker\nunrelated\nATTRIBUTION SCORE\n35/100\n\nService \"notification-worker\" exhibits moderate anomaly indicators (diagnostic score: 2.5/100).\n\nexpand_more\nInspect Evidence (0 signals)\nsmart_toy\nAI Investigation Assistant\nEvidence-Grounded Diagnostic Reasoning\nRCA GROUNDED\nInquire:\nWhy is this service ranked first?\nWhich signals support this hypothesis?\nWhat evidence contradicts this hypothesis?\nCould the recent deployment be related?\nWhat should I investigate next?\nperson\nResponder\n09:31 PM\n\nWhy is this service ranked first?\n\nsmart_toy\nInfraPulse Assistant\n09:31 PM\n\nService \"payment-service\" is ranked #1 with a deterministic attribution score of 62.8/100. The evidence demonstrates a unrelated role: Recent deployment v1.8.3 (14:22:04 UTC (35m ago)) exhibits strong temporal correlation. Severe P99 latency surge (83.3x baseline) detected. Correlated error logs confirm cascading failures.\n\ncheck_circle\nSUPPORTING TELEMETRY SIGNALS:\nExtreme Latency Surge (83.3x baseline)\nSevere Resource Saturation (CPU: 98%, Mem: 94.2%)\n1 Failing Pod(s)\nCritical Alert: Service Health Status Failure: payment-service (status == critical)\nCritical Alert: HikariCP Connection Pool Exhaustion (>95% active)\nDeployment v1.8.3 (canary)\nError Log [payment-service]\nTrace Span Error: AuthorizePaymentCharge(txn_77921)\nhelp_outline\nUNCERTAINTIES & DATA GAPS:\nNo topological connection discovered between \"payment-service\" and \"auth-gateway-v2\".\nbiotech\nSUGGESTED READ-ONLY DIAGNOSTIC CHECKS:\nInspect deployment diff for v1.8.3 and evaluate instant canary rollback via Deployments console.\npayment-service\n\nMotivated by rank #1 attribution score (62.8/100)\n\nExpected gain: Confirmation of underlying cause before executing mitigation\nReferenced Evidence:\n#anom-lat-ext-payment-service\n#anom-res-payment-service\n#anom-pods-payment-service\n#anom-alt-ALT-3971\n#anom-alt-ALT-1092\nAsk\nsend\ntimeline\nUNIFIED EVENT TIMELINE\n0 Events\nAll\npre incident_signal\ndeployment change\nalert generation\nincident declaration\nrunbook execution",
+    "events": [
+      {
+        "type": "console",
+        "text": "[API Error] GET /api/incidents/INC-6400/investigation-graph: Failed to fetch"
+      },
+      {
+        "type": "console",
+        "text": "[API Error] GET /api/incidents/INC-6400/investigation-graph: Failed to fetch"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/investigation",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notifications?incidentId=INC-6400",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/assistant/conversations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/unified-timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/investigation",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/assistant/conversations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notifications?incidentId=INC-6400",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/investigation-graph",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/investigation-graph",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/unified-timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-6400/assistant/chat",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/alerts",
+    "actions": [
+      {
+        "filter": 0,
+        "value": "auth-gateway-v2"
+      },
+      {
+        "pattern": "/^Acknowledge$/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/alerts",
+        "text": "ledger-db-proxy (latencyP99 > 300)\nALT-6362\nlink\nLinked INC-4921\nTarget: ledger-db-proxy\nThreshold: > 300\nCurrent: 395\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value 395 breached threshold (> 300)\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nCritical Request Latency Spike: checkout-api (latencyP99 > 300)\nALT-8758\nlink\nLinked INC-4921\nTarget: checkout-api\nThreshold: > 300\nCurrent: 340\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value 340 breached threshold (> 300)\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nHTTP 504 Gateway Timeout Rate Spike (>2.0%)\nALT-1093\n⚡ Deduplicated (3x)\nlink\nLinked INC-4921\nTarget: checkout-api\nThreshold: > 0.02\nCurrent: 3.1\nFired: 15:55:32 UTC\nfact_check\nEvidence: Upstream gRPC invocation failed status=DEADLINE_EXCEEDED\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nHikariCP Connection Pool Exhaustion (>95% active)\nALT-1092\n⚡ Deduplicated (4x)\nlink\nLinked INC-4921\nTarget: payment-service\nThreshold: >= 0.95\nCurrent: 2000\nFired: 15:55:32 UTC\nfact_check\nEvidence: Connection timeout after 5002ms\nAcknowledge\nResolve\nSilence\nInspect Service\nWARNING\nJWT Token Validation Latency Elevation (p99 > 250ms)\nALT-1088\nTarget: auth-gateway-v2\nThreshold: > 250\nCurrent: 285ms\nFired: 14:26:40 UTC\nfact_check\nEvidence: JWT public key rotation timeout against vault-cluster\nAcknowledge\nResolve\nSilence\nInspect Service\nWARNING\nKafka Consumer Lag High (Topic: checkout.orders)\nALT-1075\n⚡ Deduplicated (4x)\nlink\nLinked INC-4919\nTarget: notification-worker\nThreshold: > 100000\nCurrent: 254820\nFired: 13:10:05 UTC\nAcknowledged\nResolve\nInspect Service\nINFO\nKubernetes Memory Limit Pressure (>85% limit)\nALT-1050\nTarget: inventory-mesh\nThreshold: > 0.85\nCurrent: 0.862\nFired: 12:00:10 UTC\nAcknowledge\nResolve\nSilence\n2h remaining\nInspect Service"
+      }
+    ],
+    "body": "notifications_active\nAlerts Center & Intelligent Correlation\n10 FIRING\n\nIntelligent anomaly thresholds, topological correlation, and automated incident routing.\n\nbolt\nEvaluate Alerts\nspeed\nSLO Burn Rates\nACTIVE FIRING ALERTS\n10\n8 Critical • 1 Warning\nFATIGUE SUPPRESSION INDEX\n94.2%\n3 alert rules deduplicated\nSILENCED & RESOLVED\n1\n0 Resolved • 1 Silenced\nACTIVE ON-CALL ESCALATION\nSarah Chen\nPrimary Tier-0 Rotation\nFILTER STATE:\nALL\nFIRING\nACK\nRESOLVED\nSILENCED\nSEVERITY:\nALL\nCRITICAL\nWARNING\nINFO\nSERVICE:\nAll Monitored Services\nauth-gateway-v2\ncheckout-api\npayment-service\ncart-service\nfraud-evaluator\ninventory-mesh\nledger-db-proxy\nnotification-worker\nWARNING\nDownstream Dependency Timeout: checkout-api (latencyP99 >= 250)\nALT-9867\nlink\nLinked INC-4921\nTarget: checkout-api\nThreshold: >= 250\nCurrent: 340\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value 340 breached threshold (>= 250)\nAcknowledged\nResolve\nInspect Service\nCRITICAL\nService Health Status Failure: ledger-db-proxy (status == critical)\nALT-6536\nlink\nLinked INC-4921\nTarget: ledger-db-proxy\nThreshold: == critical\nCurrent: critical\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value critical breached threshold (== critical)\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nService Health Status Failure: payment-service (status == critical)\nALT-3971\nlink\nLinked INC-4921\nTarget: payment-service\nThreshold: == critical\nCurrent: critical\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value critical breached threshold (== critical)\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nElevated HTTP 5xx Error Rate: ledger-db-proxy (errorRate > 2)\nALT-9379\nlink\nLinked INC-4921\nTarget: ledger-db-proxy\nThreshold: > 2\nCurrent: 5.8\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value 5.8 breached threshold (> 2)\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nElevated HTTP 5xx Error Rate: auth-gateway-v2 (errorRate > 2)\nALT-1097\nlink\nLinked INC-6400\nTarget: auth-gateway-v2\nThreshold: > 2\nCurrent: 2.45\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value 2.45 breached threshold (> 2)\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nCritical Request Latency Spike: ledger-db-proxy (latencyP99 > 300)\nALT-6362\nlink\nLinked INC-4921\nTarget: ledger-db-proxy\nThreshold: > 300\nCurrent: 395\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value 395 breached threshold (> 300)\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nCritical Request Latency Spike: checkout-api (latencyP99 > 300)\nALT-8758\nlink\nLinked INC-4921\nTarget: checkout-api\nThreshold: > 300\nCurrent: 340\nFired: 15:55:32 UTC\nfact_check\nEvidence: Observed value 340 breached threshold (> 300)\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nHTTP 504 Gateway Timeout Rate Spike (>2.0%)\nALT-1093\n⚡ Deduplicated (3x)\nlink\nLinked INC-4921\nTarget: checkout-api\nThreshold: > 0.02\nCurrent: 3.1\nFired: 15:55:32 UTC\nfact_check\nEvidence: Upstream gRPC invocation failed status=DEADLINE_EXCEEDED\nAcknowledge\nResolve\nSilence\nInspect Service\nCRITICAL\nHikariCP Connection Pool Exhaustion (>95% active)\nALT-1092\n⚡ Deduplicated (4x)\nlink\nLinked INC-4921\nTarget: payment-service\nThreshold: >= 0.95\nCurrent: 2000\nFired: 15:55:32 UTC\nfact_check\nEvidence: Connection timeout after 5002ms\nAcknowledge\nResolve\nSilence\nInspect Service\nWARNING\nJWT Token Validation Latency Elevation (p99 > 250ms)\nALT-1088\nTarget: auth-gateway-v2\nThreshold: > 250\nCurrent: 285ms\nFired: 14:26:40 UTC\nfact_check\nEvidence: JWT public key rotation timeout against vault-cluster\nAcknowledge\nResolve\nSilence\nInspect Service\nWARNING\nKafka Consumer Lag High (Topic: checkout.orders)\nALT-1075\n⚡ Deduplicated (4x)\nlink\nLinked INC-4919\nTarget: notification-worker\nThreshold: > 100000\nCurrent: 254820\nFired: 13:10:05 UTC\nAcknowledged\nResolve\nInspect Service\nINFO\nKubernetes Memory Limit Pressure (>85% limit)\nALT-1050\nTarget: inventory-mesh\nThreshold: > 0.85\nCurrent: 0.862\nFired: 12:00:10 UTC\nAcknowledge\nResolve\nSilence\n2h remaining\nInspect Service",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts/ALT-9867/acknowledge",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/telemetry",
+    "actions": [
+      {
+        "pattern": "/Structured Logs/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/telemetry",
+        "text": "terminal\nTelemetry Explorer (OTel / ClickHouse)\nMOCK DEMO MODE\n\nUnified machine telemetry: distributed traces (Tempo), structured logs (Loki), and Prometheus metrics.\n\nDemo Mode\nLive Local Mode\nrefresh\nLOCAL OBSERVABILITY DATASOURCES:\nPrometheus\n(:9090)\nTempo\n(:3200)\nLoki\n(:3100)\nOTel Collector\n(:4318)\nDemo Mesh\n(:4001)\nLocal Docker stack offline • Operating in safe fallback\nQUERY:\nsearch\nRun Query\nPresets:\nPayment 5xx Spikes\nPool Lock Contention\nAuth Gateway Spans\nReset Filters\nDistributed Traces (1)\nStructured Logs (2)\nTime-Series Metrics (PromQL)\nLIVE OTLP LOG STREAM (2 EVENTS)\n14:41:59.204\nERROR\npayment-service\nHikariPool-1 - Connection is not available, request timed out after 5002ms (active=100, idle=0, waiting=48)\npayment-service-canary-88a2\n14:41:58.891\nERROR\ncheckout-api\nUpstream gRPC invocation failed status=DEADLINE_EXCEEDED (method=AuthorizePaymentCharge target=payment-service:8080)\ncheckout-api-7db94f-0"
+      },
+      {
+        "pattern": "/Time-Series Metrics/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/telemetry",
+        "text": "terminal\nTelemetry Explorer (OTel / ClickHouse)\nMOCK DEMO MODE\n\nUnified machine telemetry: distributed traces (Tempo), structured logs (Loki), and Prometheus metrics.\n\nDemo Mode\nLive Local Mode\nrefresh\nLOCAL OBSERVABILITY DATASOURCES:\nPrometheus\n(:9090)\nTempo\n(:3200)\nLoki\n(:3100)\nOTel Collector\n(:4318)\nDemo Mesh\n(:4001)\nLocal Docker stack offline • Operating in safe fallback\nQUERY:\nsearch\nRun Query\nPresets:\nPayment 5xx Spikes\nPool Lock Contention\nAuth Gateway Spans\nReset Filters\nDistributed Traces (1)\nStructured Logs (2)\nTime-Series Metrics (PromQL)\nPROMQL TIME-SERIES METRICS\nhikaricp_active_connections{service=\"payment-service\"}\n100 / 100 connections\nPool saturation 100% since 14:32 UTC\nhttp_requests_total{status=~\"5..\"}\n760 errors/sec\n504 Gateway Timeout spike"
+      },
+      {
+        "pattern": "/Distributed Traces/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/telemetry",
+        "text": "terminal\nTelemetry Explorer (OTel / ClickHouse)\nMOCK DEMO MODE\n\nUnified machine telemetry: distributed traces (Tempo), structured logs (Loki), and Prometheus metrics.\n\nDemo Mode\nLive Local Mode\nrefresh\nLOCAL OBSERVABILITY DATASOURCES:\nPrometheus\n(:9090)\nTempo\n(:3200)\nLoki\n(:3100)\nOTel Collector\n(:4318)\nDemo Mesh\n(:4001)\nLocal Docker stack offline • Operating in safe fallback\nQUERY:\nsearch\nRun Query\nPresets:\nPayment 5xx Spikes\nPool Lock Contention\nAuth Gateway Spans\nReset Filters\nDistributed Traces (1)\nStructured Logs (2)\nTime-Series Metrics (PromQL)\nSAMPLED TRACES MATCHING QUERY (1 RESULTS)\npayment-service: AuthorizePaymentCharge(txn_77921)\n365ms\ntrace_id: 9f81a72049b1\nHTTP 504\nRAW SPAN JSON PAYLOAD\n{\n  \"id\": \"span-001\",\n  \"traceId\": \"9f81a72049b1\",\n  \"service\": \"checkout-api\",\n  \"operation\": \"POST /v2/orders/checkout\",\n  \"durationMs\": 412,\n  \"offsetMs\": 0,\n  \"status\": \"error\",\n  \"httpStatus\": 504,\n  \"attributes\": {\n    \"http.method\": \"POST\",\n    \"user.tier\": \"enterprise\",\n    \"cart.items\": 3\n  },\n  \"isCriticalPath\": true\n}"
+      },
+      {
+        "pattern": "/Run Query/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/telemetry",
+        "text": "terminal\nTelemetry Explorer (OTel / ClickHouse)\nMOCK DEMO MODE\n\nUnified machine telemetry: distributed traces (Tempo), structured logs (Loki), and Prometheus metrics.\n\nDemo Mode\nLive Local Mode\nrefresh\nLOCAL OBSERVABILITY DATASOURCES:\nPrometheus\n(:9090)\nTempo\n(:3200)\nLoki\n(:3100)\nOTel Collector\n(:4318)\nDemo Mesh\n(:4001)\nLocal Docker stack offline • Operating in safe fallback\nQUERY:\nsearch\nExecuting...\nPresets:\nPayment 5xx Spikes\nPool Lock Contention\nAuth Gateway Spans\nReset Filters\nDistributed Traces (1)\nStructured Logs (2)\nTime-Series Metrics (PromQL)\nSAMPLED TRACES MATCHING QUERY (1 RESULTS)\npayment-service: AuthorizePaymentCharge(txn_77921)\n365ms\ntrace_id: 9f81a72049b1\nHTTP 504\nRAW SPAN JSON PAYLOAD\n{\n  \"id\": \"span-001\",\n  \"traceId\": \"9f81a72049b1\",\n  \"service\": \"checkout-api\",\n  \"operation\": \"POST /v2/orders/checkout\",\n  \"durationMs\": 412,\n  \"offsetMs\": 0,\n  \"status\": \"error\",\n  \"httpStatus\": 504,\n  \"attributes\": {\n    \"http.method\": \"POST\",\n    \"user.tier\": \"enterprise\",\n    \"cart.items\": 3\n  },\n  \"isCriticalPath\": true\n}"
+      }
+    ],
+    "body": "terminal\nTelemetry Explorer (OTel / ClickHouse)\nMOCK DEMO MODE\n\nUnified machine telemetry: distributed traces (Tempo), structured logs (Loki), and Prometheus metrics.\n\nDemo Mode\nLive Local Mode\nrefresh\nLOCAL OBSERVABILITY DATASOURCES:\nPrometheus\n(:9090)\nTempo\n(:3200)\nLoki\n(:3100)\nOTel Collector\n(:4318)\nDemo Mesh\n(:4001)\nLocal Docker stack offline • Operating in safe fallback\nQUERY:\nsearch\nExecuting...\nPresets:\nPayment 5xx Spikes\nPool Lock Contention\nAuth Gateway Spans\nReset Filters\nDistributed Traces (1)\nStructured Logs (2)\nTime-Series Metrics (PromQL)\nSAMPLED TRACES MATCHING QUERY (1 RESULTS)\npayment-service: AuthorizePaymentCharge(txn_77921)\n365ms\ntrace_id: 9f81a72049b1\nHTTP 504\nRAW SPAN JSON PAYLOAD\n{\n  \"id\": \"span-001\",\n  \"traceId\": \"9f81a72049b1\",\n  \"service\": \"checkout-api\",\n  \"operation\": \"POST /v2/orders/checkout\",\n  \"durationMs\": 412,\n  \"offsetMs\": 0,\n  \"status\": \"error\",\n  \"httpStatus\": 504,\n  \"attributes\": {\n    \"http.method\": \"POST\",\n    \"user.tier\": \"enterprise\",\n    \"cart.items\": 3\n  },\n  \"isCriticalPath\": true\n}",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry/status",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry/status",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/deployments",
+    "actions": [
+      {
+        "pattern": "/Pre-Deployment Risk Assessor/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/deployments",
+        "text": "deployed_code\nDeployments & Change Intelligence\n1 CANARY ANOMALY\n\nDeterministic change risk scoring (0–100), dependency blast radius, post-deployment regression detection & ACA.\n\nSimulated Demo Adapter\nwebhook\nWebhook Ingestion Ready\nspeed\nDeployments & ACA\npsychology\nPre-Deployment Risk Assessor\naccount_tree\nDependency Blast Radius\ntrending_down\nPost-Deployment Regressions\nanalytics\nHistorical Change Intelligence\nverified_user\nPRE-DEPLOYMENT PROPOSAL\n\nEvaluate empirical risk before promoting code to production. Non-blocking.\n\nTarget Service\npayment-service (Tier-0 Critical)\nauth-gateway-v2 (Tier-0 Edge)\ncheckout-api (Tier-0 Commerce)\ninventory-mesh (Tier-1)\nPrevious Version\nTarget Version\nEnvironment\nproduction\ncanary\nstaging\nStrategy\nCanary (Gradual Ramp)\nRolling Update\nBlue-Green\nRecreate (Outage Risk)\nIncludes Database Schema Migration or Stateful DDL\ncalculate\nAssess Deployment Risk\nassessment\nASSESSMENT REPORT\nrule\n\nNo active assessment. Select parameters and click \"Assess Deployment Risk\"."
+      },
+      {
+        "pattern": "/Dependency Blast Radius/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/deployments",
+        "text": "deployed_code\nDeployments & Change Intelligence\n1 CANARY ANOMALY\n\nDeterministic change risk scoring (0–100), dependency blast radius, post-deployment regression detection & ACA.\n\nSimulated Demo Adapter\nwebhook\nWebhook Ingestion Ready\nspeed\nDeployments & ACA\npsychology\nPre-Deployment Risk Assessor\naccount_tree\nDependency Blast Radius\ntrending_down\nPost-Deployment Regressions\nanalytics\nHistorical Change Intelligence\nhub\nDEPENDENCY BLAST RADIUS & TOPOLOGY PROPAGATION\n\nDirectional caller analysis: Identifies services that call the changed service and suffer cascading failures.\n\nRefresh Topology Graph\nTARGET CHANGED SERVICE\npayment-service\nTier-0 Critical (Core)\nDIRECT DOWNSTREAM CALLERS\n1 Direct Caller\ncheckout-api (1-hop)\nCRITICAL TIER-0 IN BLAST PATH\n2 Services\ncheckout-api, payment-service\nACTIVE SLO IMPACT\n2 SLOs Monitored\nError Budget Monitored\narrow_downward\nDIRECTIONAL IMPACT PROPAGATION FLOW\nTARGET REVISION\npayment-service\nv1.8.3 Canary\neast\n1-Hop Direct\nDIRECT CALLER\ncheckout-api\nTier-0 (Active Incident)\neast\n2-Hop Transitive\nTRANSITIVE CALLER\nauth-gateway-v2\nEdge Ingress Gateway"
+      },
+      {
+        "pattern": "/Post-Deployment Regressions/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/deployments",
+        "text": "deployed_code\nDeployments & Change Intelligence\n1 CANARY ANOMALY\n\nDeterministic change risk scoring (0–100), dependency blast radius, post-deployment regression detection & ACA.\n\nSimulated Demo Adapter\nwebhook\nWebhook Ingestion Ready\nspeed\nDeployments & ACA\npsychology\nPre-Deployment Risk Assessor\naccount_tree\nDependency Blast Radius\ntrending_down\nPost-Deployment Regressions\nanalytics\nHistorical Change Intelligence\ntroubleshoot\nPOST-DEPLOYMENT TELEMETRY REGRESSIONS\n\nCompares pre-deployment baseline against observation window. Distinguishes temporal correlation from causation.\n\nsync\nEvaluate Regressions Now\nCRITICAL\nLATENCY_P99\ncorrelated_temporal\n\nObserved p99 latency regression (24ms -> 412ms, +1616.7%) in \"payment-service\" 12m post-deployment. Represents strong temporal correlation.\n\nWindow: 30m\nRelated Incident: INC-4921\nTemporal Association: Confirmed\nSHIFT DELTA\n+1616.67%\n24.00 → 412.00\nCRITICAL\nERROR_RATE\ncorrelated_temporal\n\nObserved error rate spike (0.02% -> 4.12%, +20500.0%) post-deployment. Canary traffic failure rate elevated.\n\nWindow: 30m\nRelated Incident: INC-4921\nTemporal Association: Confirmed\nSHIFT DELTA\n+20500.00%\n0.02 → 4.12"
+      },
+      {
+        "pattern": "/Historical Change Intelligence/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/deployments",
+        "text": "deployed_code\nDeployments & Change Intelligence\n1 CANARY ANOMALY\n\nDeterministic change risk scoring (0–100), dependency blast radius, post-deployment regression detection & ACA.\n\nSimulated Demo Adapter\nwebhook\nWebhook Ingestion Ready\nspeed\nDeployments & ACA\npsychology\nPre-Deployment Risk Assessor\naccount_tree\nDependency Blast Radius\ntrending_down\nPost-Deployment Regressions\nanalytics\nHistorical Change Intelligence\nmonitoring\nHISTORICAL CHANGE ANALYTICS & DORA METRICS\n\nEmpirical delivery reliability metrics computed across deployment events.\n\nRecalculate\nSample Status: SUFFICIENT_SAMPLE (Observed: 3 deployments, Minimum required: 3)\nTimespan: Last 23 hours\nCHANGE FAILURE RATE\n33.3%\n1 of 3 failed\nMEAN TIME TO RECOVERY (MTTR)\n18m\nRollback drain time\nTOTAL EVALUATED DEPLOYMENTS\n3\nAcross all environments\nRISK TIERING ACCURACY\n100%\nHigh-risk changes flagged correctly"
+      }
+    ],
+    "body": "deployed_code\nDeployments & Change Intelligence\n1 CANARY ANOMALY\n\nDeterministic change risk scoring (0–100), dependency blast radius, post-deployment regression detection & ACA.\n\nSimulated Demo Adapter\nwebhook\nWebhook Ingestion Ready\nspeed\nDeployments & ACA\npsychology\nPre-Deployment Risk Assessor\naccount_tree\nDependency Blast Radius\ntrending_down\nPost-Deployment Regressions\nanalytics\nHistorical Change Intelligence\nmonitoring\nHISTORICAL CHANGE ANALYTICS & DORA METRICS\n\nEmpirical delivery reliability metrics computed across deployment events.\n\nRecalculate\nSample Status: SUFFICIENT_SAMPLE (Observed: 3 deployments, Minimum required: 3)\nTimespan: Last 23 hours\nCHANGE FAILURE RATE\n33.3%\n1 of 3 failed\nMEAN TIME TO RECOVERY (MTTR)\n18m\nRollback drain time\nTOTAL EVALUATED DEPLOYMENTS\n3\nAcross all environments\nRISK TIERING ACCURACY\n100%\nHigh-risk changes flagged correctly",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/changes/chg-1094/blast-radius",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/changes/chg-1094/regressions",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/reliability/change-intelligence",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/slos",
+    "actions": [
+      {
+        "pattern": "/^Evaluate$/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/slos",
+        "text": "get Intelligence\nPHASE 15\n\nDeterministic error budgets, multi-window burn-rate alerts (Google SRE standard), and service reliability scores.\n\nadd\nDefine SLO\nSLO evaluation re-computed successfully.\n✕\nPLATFORM RELIABILITY SCORE\n88/100\nDeterministic weighted attainment\nBUDGET EXHAUSTED SLOS\n2\nImmediate freeze recommended\nPEAK BURN RATE MULTIPLIER\n14.4x\n1h fast-burn window peak\nEVALUATED EVENTS (30D)\n23314.2M\nTelemetry: Simulated Demo Profile\nFilters:\nAll Services\nauth-gateway-v2\ncheckout-api\npayment-service\ncart-service\nfraud-evaluator\ninventory-mesh\nledger-db-proxy\nnotification-worker\nAll Statuses\nNominal\nBurn Warning\nBudget Exhausted\nZero Traffic\nAll SLI Types\nAvailability\nLatency\nError Rate\nThroughput\n4 of 4 SLOs\nNOMINAL\nInventory Stock Reservation Availability\n(inventory-mesh)\nAVAILABILITY\n\nSuccessful gRPC ReserveStock response code OK\n\nTarget: 99.9%\nAttainment: 99.99%\nEvaluate\nRemaining Error Budget:\n90%\n1h Burn: 0.15x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBURNING FAST\nOAuth Token Introspection Latency (< 25ms)\n(auth-gateway-v2)\nLATENCY\n\nHTTP GET /oauth/v2/introspect latency <= 25ms\n\nTarget: 99.99%\nAttainment: 99.1%\nEvaluate\nRemaining Error Budget:\n42%\n1h Burn: 3.2x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBUDGET EXHAUSTED\nOrder Checkout Latency (< 150ms)\n(checkout-api)\nLATENCY\n\nSuccessful HTTP POST /orders completed with latency <= 150ms\n\nTarget: 99.9%\nAttainment: 95.88%\nEvaluate\nRemaining Error Budget:\n0%\n1h Burn: 14.4x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBUDGET EXHAUSTED\nPayment Authorization Success Rate\n(payment-service)\nAVAILABILITY\n\nSuccessful gRPC AuthorizePaymentCharge responses excluding client 4xx errors\n\nTarget: 99.95%\nAttainment: 96.12%\nEvaluate\nRemaining Error Budget:\n0%\n1h Burn: 12.8x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]"
+      },
+      {
+        "pattern": "/Define SLO/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/slos",
+        "text": "commended\nPEAK BURN RATE MULTIPLIER\n14.4x\n1h fast-burn window peak\nEVALUATED EVENTS (30D)\n23314.2M\nTelemetry: Simulated Demo Profile\nFilters:\nAll Services\nauth-gateway-v2\ncheckout-api\npayment-service\ncart-service\nfraud-evaluator\ninventory-mesh\nledger-db-proxy\nnotification-worker\nAll Statuses\nNominal\nBurn Warning\nBudget Exhausted\nZero Traffic\nAll SLI Types\nAvailability\nLatency\nError Rate\nThroughput\n4 of 4 SLOs\nNOMINAL\nInventory Stock Reservation Availability\n(inventory-mesh)\nAVAILABILITY\n\nSuccessful gRPC ReserveStock response code OK\n\nTarget: 99.9%\nAttainment: 99.99%\nEvaluate\nRemaining Error Budget:\n90%\n1h Burn: 0.15x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBURNING FAST\nOAuth Token Introspection Latency (< 25ms)\n(auth-gateway-v2)\nLATENCY\n\nHTTP GET /oauth/v2/introspect latency <= 25ms\n\nTarget: 99.99%\nAttainment: 99.1%\nEvaluate\nRemaining Error Budget:\n42%\n1h Burn: 3.2x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBUDGET EXHAUSTED\nOrder Checkout Latency (< 150ms)\n(checkout-api)\nLATENCY\n\nSuccessful HTTP POST /orders completed with latency <= 150ms\n\nTarget: 99.9%\nAttainment: 95.88%\nEvaluate\nRemaining Error Budget:\n0%\n1h Burn: 14.4x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBUDGET EXHAUSTED\nPayment Authorization Success Rate\n(payment-service)\nAVAILABILITY\n\nSuccessful gRPC AuthorizePaymentCharge responses excluding client 4xx errors\n\nTarget: 99.95%\nAttainment: 96.12%\nEvaluate\nRemaining Error Budget:\n0%\n1h Burn: 12.8x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nspeed\nDefine New Service Level Objective\n✕\nSLO Name\nTarget Service\nauth-gateway-v2\ncheckout-api\npayment-service\ncart-service\nfraud-evaluator\ninventory-mesh\nledger-db-proxy\nnotification-worker\nSLI Type\nAvailability\nLatency\nError Rate\nThroughput\nTarget Percentage (%)\nSLI Specification\nCancel\nSave & Evaluate SLO"
+      }
+    ],
+    "body": "speed\nSLO & Error Budget Intelligence\nPHASE 15\n\nDeterministic error budgets, multi-window burn-rate alerts (Google SRE standard), and service reliability scores.\n\nadd\nDefine SLO\nSLO evaluation re-computed successfully.\n✕\nPLATFORM RELIABILITY SCORE\n88/100\nDeterministic weighted attainment\nBUDGET EXHAUSTED SLOS\n2\nImmediate freeze recommended\nPEAK BURN RATE MULTIPLIER\n14.4x\n1h fast-burn window peak\nEVALUATED EVENTS (30D)\n23314.2M\nTelemetry: Simulated Demo Profile\nFilters:\nAll Services\nauth-gateway-v2\ncheckout-api\npayment-service\ncart-service\nfraud-evaluator\ninventory-mesh\nledger-db-proxy\nnotification-worker\nAll Statuses\nNominal\nBurn Warning\nBudget Exhausted\nZero Traffic\nAll SLI Types\nAvailability\nLatency\nError Rate\nThroughput\n4 of 4 SLOs\nNOMINAL\nInventory Stock Reservation Availability\n(inventory-mesh)\nAVAILABILITY\n\nSuccessful gRPC ReserveStock response code OK\n\nTarget: 99.9%\nAttainment: 99.99%\nEvaluate\nRemaining Error Budget:\n90%\n1h Burn: 0.15x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBURNING FAST\nOAuth Token Introspection Latency (< 25ms)\n(auth-gateway-v2)\nLATENCY\n\nHTTP GET /oauth/v2/introspect latency <= 25ms\n\nTarget: 99.99%\nAttainment: 99.1%\nEvaluate\nRemaining Error Budget:\n42%\n1h Burn: 3.2x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBUDGET EXHAUSTED\nOrder Checkout Latency (< 150ms)\n(checkout-api)\nLATENCY\n\nSuccessful HTTP POST /orders completed with latency <= 150ms\n\nTarget: 99.9%\nAttainment: 95.88%\nEvaluate\nRemaining Error Budget:\n0%\n1h Burn: 14.4x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nBUDGET EXHAUSTED\nPayment Authorization Success Rate\n(payment-service)\nAVAILABILITY\n\nSuccessful gRPC AuthorizePaymentCharge responses excluding client 4xx errors\n\nTarget: 99.95%\nAttainment: 96.12%\nEvaluate\nRemaining Error Budget:\n0%\n1h Burn: 12.8x\nRolling Window: 30 days\n[SIMULATED TELEMETRY]\nspeed\nDefine New Service Level Objective\n✕\nSLO Name\nTarget Service\nauth-gateway-v2\ncheckout-api\npayment-service\ncart-service\nfraud-evaluator\ninventory-mesh\nledger-db-proxy\nnotification-worker\nSLI Type\nAvailability\nLatency\nError Rate\nThroughput\nTarget Percentage (%)\nSLI Specification\nCancel\nSave & Evaluate SLO",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/reliability/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/reliability/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/slos",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/slos",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/slos/slo-inventory-availability/evaluate",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/slos",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/reliability/overview",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/runbooks",
+    "actions": [
+      {
+        "pattern": "/Generate Dry-Run Execution Plan/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/runbooks",
+        "text": "ogs.\n\nLogged in as:\nSarah Chen\nADMIN\nshield\nSafety Enforced: All remediation actions are dispatched to allowlisted simulation adapters. No arbitrary shell execution, SQL, or unapproved mutations.\nDeterministic RCA Integration\nDry-run plan generated and preconditions verified successfully.\n✕\nRUNBOOK CATALOG\n6 Available\nAll Modes\nDiagnostic\nRemediation\nAll Risks\nLow Risk\nMedium Risk\nHigh Risk\nRB-ROLLBACK-01\nHIGH RISK\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION\n3 Steps\nRB-TIMEOUT-01\nLOW RISK\nDownstream Dependency Timeout Diagnostic\nDIAGNOSTIC\n3 Steps\nRB-5XX-01\nLOW RISK\nHTTP 5xx Server Error Surge Investigation\nDIAGNOSTIC\n3 Steps\nRB-LATENCY-01\nLOW RISK\nHigh API Latency Diagnostic & Investigation\nDIAGNOSTIC\n3 Steps\nRB-DB-01\nMEDIUM RISK\nDatabase Connection Pool Exhaustion Mitigation\nREMEDIATION\n3 Steps\nRB-RESTART-01\nMEDIUM RISK\nGraceful Rolling Service Restart Remediation\nREMEDIATION\n3 Steps\nRB-ROLLBACK-01\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION (SIMULATED)\nHIGH RISK\n\nHigh-risk automated remediation to instantly depromote a regressed canary release (e.g. v1.8.3), shift 100% of traffic back to stable baseline (v1.8.2), and verify error rate restoration.\n\nTARGET INCIDENT CONTEXT\nINC-6400: auth-gateway-v2\nINC-4919: notification-worker\nINC-4912: auth-gateway-v2\nINC-4921: payment-service\n1. Steps & Procedures\n2. Dry-Run & Approval\n3. Execution Progress & Audit\nDRY-RUN EXECUTION PLAN PREVIEW\nHash: 8fd1656cae14e6be...\nPRECONDITION EVALUATION:\nIncident is correlated with a recent deployment (ACA score < 70 or error spike)\nPASSED\nPrevious stable deployment artifact is available in registry\nPASSED\nAdmin role approval AND secondary confirmation confirmed\nPASSED\nPreconditions evaluated. Ready to initiate execution workflow.\nRequest Execution Plan"
+      },
+      {
+        "pattern": "/Dry-Run & Approval/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/runbooks",
+        "text": "ogs.\n\nLogged in as:\nSarah Chen\nADMIN\nshield\nSafety Enforced: All remediation actions are dispatched to allowlisted simulation adapters. No arbitrary shell execution, SQL, or unapproved mutations.\nDeterministic RCA Integration\nDry-run plan generated and preconditions verified successfully.\n✕\nRUNBOOK CATALOG\n6 Available\nAll Modes\nDiagnostic\nRemediation\nAll Risks\nLow Risk\nMedium Risk\nHigh Risk\nRB-ROLLBACK-01\nHIGH RISK\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION\n3 Steps\nRB-TIMEOUT-01\nLOW RISK\nDownstream Dependency Timeout Diagnostic\nDIAGNOSTIC\n3 Steps\nRB-5XX-01\nLOW RISK\nHTTP 5xx Server Error Surge Investigation\nDIAGNOSTIC\n3 Steps\nRB-LATENCY-01\nLOW RISK\nHigh API Latency Diagnostic & Investigation\nDIAGNOSTIC\n3 Steps\nRB-DB-01\nMEDIUM RISK\nDatabase Connection Pool Exhaustion Mitigation\nREMEDIATION\n3 Steps\nRB-RESTART-01\nMEDIUM RISK\nGraceful Rolling Service Restart Remediation\nREMEDIATION\n3 Steps\nRB-ROLLBACK-01\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION (SIMULATED)\nHIGH RISK\n\nHigh-risk automated remediation to instantly depromote a regressed canary release (e.g. v1.8.3), shift 100% of traffic back to stable baseline (v1.8.2), and verify error rate restoration.\n\nTARGET INCIDENT CONTEXT\nINC-6400: auth-gateway-v2\nINC-4919: notification-worker\nINC-4912: auth-gateway-v2\nINC-4921: payment-service\n1. Steps & Procedures\n2. Dry-Run & Approval\n3. Execution Progress & Audit\nDRY-RUN EXECUTION PLAN PREVIEW\nHash: 8fd1656cae14e6be...\nPRECONDITION EVALUATION:\nIncident is correlated with a recent deployment (ACA score < 70 or error spike)\nPASSED\nPrevious stable deployment artifact is available in registry\nPASSED\nAdmin role approval AND secondary confirmation confirmed\nPASSED\nPreconditions evaluated. Ready to initiate execution workflow.\nRequest Execution Plan"
+      },
+      {
+        "pattern": "/Execution Progress/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/runbooks",
+        "text": "terminal\nRunbook Orchestrator & Safe Remediation\nPHASE 14\n\nHuman-approved operational procedures, controlled simulation adapters, and immutable audit logs.\n\nLogged in as:\nSarah Chen\nADMIN\nshield\nSafety Enforced: All remediation actions are dispatched to allowlisted simulation adapters. No arbitrary shell execution, SQL, or unapproved mutations.\nDeterministic RCA Integration\nDry-run plan generated and preconditions verified successfully.\n✕\nRUNBOOK CATALOG\n6 Available\nAll Modes\nDiagnostic\nRemediation\nAll Risks\nLow Risk\nMedium Risk\nHigh Risk\nRB-ROLLBACK-01\nHIGH RISK\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION\n3 Steps\nRB-TIMEOUT-01\nLOW RISK\nDownstream Dependency Timeout Diagnostic\nDIAGNOSTIC\n3 Steps\nRB-5XX-01\nLOW RISK\nHTTP 5xx Server Error Surge Investigation\nDIAGNOSTIC\n3 Steps\nRB-LATENCY-01\nLOW RISK\nHigh API Latency Diagnostic & Investigation\nDIAGNOSTIC\n3 Steps\nRB-DB-01\nMEDIUM RISK\nDatabase Connection Pool Exhaustion Mitigation\nREMEDIATION\n3 Steps\nRB-RESTART-01\nMEDIUM RISK\nGraceful Rolling Service Restart Remediation\nREMEDIATION\n3 Steps\nRB-ROLLBACK-01\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION (SIMULATED)\nHIGH RISK\n\nHigh-risk automated remediation to instantly depromote a regressed canary release (e.g. v1.8.3), shift 100% of traffic back to stable baseline (v1.8.2), and verify error rate restoration.\n\nTARGET INCIDENT CONTEXT\nINC-6400: auth-gateway-v2\nINC-4919: notification-worker\nINC-4912: auth-gateway-v2\nINC-4921: payment-service\n1. Steps & Procedures\n2. Dry-Run & Approval\n3. Execution Progress & Audit\nNo active execution running. Generate a dry run plan and approve execution to track progress."
+      }
+    ],
+    "body": "terminal\nRunbook Orchestrator & Safe Remediation\nPHASE 14\n\nHuman-approved operational procedures, controlled simulation adapters, and immutable audit logs.\n\nLogged in as:\nSarah Chen\nADMIN\nshield\nSafety Enforced: All remediation actions are dispatched to allowlisted simulation adapters. No arbitrary shell execution, SQL, or unapproved mutations.\nDeterministic RCA Integration\nDry-run plan generated and preconditions verified successfully.\n✕\nRUNBOOK CATALOG\n6 Available\nAll Modes\nDiagnostic\nRemediation\nAll Risks\nLow Risk\nMedium Risk\nHigh Risk\nRB-ROLLBACK-01\nHIGH RISK\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION\n3 Steps\nRB-TIMEOUT-01\nLOW RISK\nDownstream Dependency Timeout Diagnostic\nDIAGNOSTIC\n3 Steps\nRB-5XX-01\nLOW RISK\nHTTP 5xx Server Error Surge Investigation\nDIAGNOSTIC\n3 Steps\nRB-LATENCY-01\nLOW RISK\nHigh API Latency Diagnostic & Investigation\nDIAGNOSTIC\n3 Steps\nRB-DB-01\nMEDIUM RISK\nDatabase Connection Pool Exhaustion Mitigation\nREMEDIATION\n3 Steps\nRB-RESTART-01\nMEDIUM RISK\nGraceful Rolling Service Restart Remediation\nREMEDIATION\n3 Steps\nRB-ROLLBACK-01\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION (SIMULATED)\nHIGH RISK\n\nHigh-risk automated remediation to instantly depromote a regressed canary release (e.g. v1.8.3), shift 100% of traffic back to stable baseline (v1.8.2), and verify error rate restoration.\n\nTARGET INCIDENT CONTEXT\nINC-6400: auth-gateway-v2\nINC-4919: notification-worker\nINC-4912: auth-gateway-v2\nINC-4921: payment-service\n1. Steps & Procedures\n2. Dry-Run & Approval\n3. Execution Progress & Audit\nNo active execution running. Generate a dry run plan and approve execution to track progress.",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/runbooks",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/runbooks",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents/INC-4921/runbooks/RB-ROLLBACK-01/dry-run",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/fault-injection",
+    "actions": [
+      {
+        "type": "scenario-selection",
+        "value": "scenario-dependency-timeout",
+        "executionRequested": false
+      }
+    ],
+    "body": "science\nFault Injection Lab & RCA Benchmark\nPHASE 3 CONTROLLED BENCHMARK\n\nInject deterministic fault scenarios into isolated mock telemetry, propagate downstream cascades, and validate backend RCA attribution accuracy.\n\nTOP-1 ATTRIBUTION ACCURACY\n100%\n0 / 1 correct top-rank isolates\nTOP-3 CANDIDATE ACCURACY\n100%\n0 / 1 in candidate rank\nMEAN RCA LATENCY\n4ms\nDeterministic heuristic execution\nCONTROLLED EXPERIMENTS\n0\nIsolated in-memory test passes\nEXPERIMENT PARAMETERS\nCONTROLLED INPUT\nPredefined Scenario Preset\nIdempotency Cache Miss Latency Surge\nAuth Gateway JWKS Validation HTTP 5xx Surge\nFraud Evaluator CrashLoop Service Unavailable\nLedger DB Proxy Connection Pool Lockup\nInventory Mesh Catalog Timeout\nTarget Service\nauth-gateway-v2 (security-edge)\ncheckout-api (commerce)\npayment-service (payments-core)\ncart-service (commerce)\nfraud-evaluator (risk-engine)\ninventory-mesh (commerce)\nledger-db-proxy (finance-data)\nnotification-worker (messaging)\nSeverity Tier\nLow (0.5x)\nMedium (1.0x)\nHigh (1.75x)\nCritical (2.5x)\nFault Archetype\nLatency Spike\nElevated HTTP 5xx Error Rate\nService Unavailable (CrashLoop)\nDatabase Slowdown / Lockup\nDependency Client Timeout\nplay_arrow\nInject Fault Scenario\nSIMULATION STATE & TELEMETRY DELTAS\nscience\nNo Active Fault Simulation\n\nSelect an archetype or preset scenario on the left, then click 'Inject Fault Scenario' to run an isolated benchmark.\n\nPREDEFINED BENCHMARK CATALOG (5 SCENARIOS)\nlatency_spike\nCRITICAL\nIdempotency Cache Miss Latency Surge\n\nSimulates a critical latency surge in the payment authorization pathway due to cache lock contention.\n\nTarget: payment-service\nGround Truth\nhttp_5xx_surge\nHIGH\nAuth Gateway JWKS Validation HTTP 5xx Surge\n\nSimulates a surge in HTTP 500/502 errors when verifying external identity tokens at the ingress gateway.\n\nTarget: auth-gateway-v2\nGround Truth\nservice_unavailable\nCRITICAL\nFraud Evaluator CrashLoop Service Unavailable\n\nSimulates complete pod crashlooping and connection refusal in the real-time risk scoring engine.\n\nTarget: fraud-evaluator\nGround Truth\ndatabase_slowdown\nCRITICAL\nLedger DB Proxy Connection Pool Lockup\n\nSimulates severe PostgreSQL connection pool saturation and query queuing on the ledger proxy layer.\n\nTarget: ledger-db-proxy\nGround Truth\ndependency_timeout\nHIGH\nInventory Mesh Catalog Timeout\n\nSimulates upstream gRPC client timeouts while evaluating warehouse inventory reservations during checkout.\n\nTarget: inventory-mesh\nGround Truth",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/fault-lab/scenarios",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/fault-lab/scenarios",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/reports",
+    "actions": [
+      {
+        "pattern": "/^COMPLETED$/",
+        "result": "NOT VERIFIED: control not found"
+      },
+      {
+        "pattern": "/Export Postmortem/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/reports",
+        "text": "description\nReports & Blameless Postmortems\n\nAutomated timeline reconstruction, causal factor attribution, and prevention action items tracking.\n\ncontent_copy\nCopied Markdown!\nPOSTMORTEM DRAFTS (3)\nBENCH-PHASE11\n2026-10-30\nPhase 11 Benchmark & Reliability Audit: Performance & RCA Evaluation\nPerformance & Reliability Team • Impact: Continuous Baseline\nPOST-4921\n2026-10-30\nPostmortem: Cascading 504 Gateway Timeouts in Payment Flow (Deploy v1.8.3)\nSarah Chen (Lead SRE) • Impact: 42 minutes\nPOST-4919\n2026-10-29\nPostmortem: Kafka Consumer Lag Breach on Analytics Worker\nMarcus Vance (Staff SRE) • Impact: 126 minutes\nBENCH-PHASE11\nPhase 11 Benchmark & Reliability Audit: Performance & RCA Evaluation\nAuthor: Performance & Reliability Team\n•\nIncident: SYS-PERF-AUDIT\n•\nImpact Duration: Continuous Baseline\nROOT CAUSE ANALYSIS\n\nSystem audit across 8 labeled RCA scenarios (71.4% Top-1, 85.7% Top-3 accuracy, 0% false positives, 100% insufficient evidence detection) and load testing (Core API: 782 RPS health, 410 RPS services, 389 RPS incidents, 356 RPS alerts at 0% error rate).\n\nPREVENTATIVE ACTION ITEMS (CLICK BADGE TO CYCLE STATUS)\nP1\nInvestigate JSONB decompression overhead on POST /api/incidents/:id/investigation/run (p99 542ms)\nOwner: Backend Engineering\nOPEN\nP0\nMaintain isolated holdout scenario dataset to prevent scoring weight calibration overfitting\nOwner: RCA Core Team\nCOMPLETED\nP0\nEnforce non-blocking notification dispatch worker and SKIP LOCKED queue semantics\nOwner: Reliability SRE\nCOMPLETED"
+      }
+    ],
+    "body": "description\nReports & Blameless Postmortems\n\nAutomated timeline reconstruction, causal factor attribution, and prevention action items tracking.\n\ncontent_copy\nCopied Markdown!\nPOSTMORTEM DRAFTS (3)\nBENCH-PHASE11\n2026-10-30\nPhase 11 Benchmark & Reliability Audit: Performance & RCA Evaluation\nPerformance & Reliability Team • Impact: Continuous Baseline\nPOST-4921\n2026-10-30\nPostmortem: Cascading 504 Gateway Timeouts in Payment Flow (Deploy v1.8.3)\nSarah Chen (Lead SRE) • Impact: 42 minutes\nPOST-4919\n2026-10-29\nPostmortem: Kafka Consumer Lag Breach on Analytics Worker\nMarcus Vance (Staff SRE) • Impact: 126 minutes\nBENCH-PHASE11\nPhase 11 Benchmark & Reliability Audit: Performance & RCA Evaluation\nAuthor: Performance & Reliability Team\n•\nIncident: SYS-PERF-AUDIT\n•\nImpact Duration: Continuous Baseline\nROOT CAUSE ANALYSIS\n\nSystem audit across 8 labeled RCA scenarios (71.4% Top-1, 85.7% Top-3 accuracy, 0% false positives, 100% insufficient evidence detection) and load testing (Core API: 782 RPS health, 410 RPS services, 389 RPS incidents, 356 RPS alerts at 0% error rate).\n\nPREVENTATIVE ACTION ITEMS (CLICK BADGE TO CYCLE STATUS)\nP1\nInvestigate JSONB decompression overhead on POST /api/incidents/:id/investigation/run (p99 542ms)\nOwner: Backend Engineering\nOPEN\nP0\nMaintain isolated holdout scenario dataset to prevent scoring weight calibration overfitting\nOwner: RCA Core Team\nCOMPLETED\nP0\nEnforce non-blocking notification dispatch worker and SKIP LOCKED queue semantics\nOwner: Reliability SRE\nCOMPLETED",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "pageerror",
+        "text": "Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      }
+    ]
+  },
+  {
+    "route": "/operations",
+    "actions": [
+      {
+        "pattern": "/Recurring Failure Patterns/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/operations",
+        "text": "trending_up\nReliability Trends & Forecasting\nShowing 4 verified recurring patterns with sample size ≥ 2.\nDATABASE POOL SATURATION\n4 Occurrences\nDatabase Connection Pool Saturation on payment-service\n\nRepeated database connection acquisition timeouts and thread exhaustion during traffic surges between payment-service and ledger-db-proxy.\n\nCommon Observable Signals:\n●\nConnection lease timeout after 5000ms\n●\nDatabase connection pool utilization sustained >= 95%\nServices: payment-service, ledger-db-proxy\nInspect Evidence (4)\narrow_forward\nDEPLOYMENT ASSOCIATED REGRESSION\n3 Occurrences\nPost-Deployment Regressions on payment-service\n\nDegraded P99 latency and 5xx error spikes observed within 45 minutes following canary deployment rollouts.\n\nCommon Observable Signals:\n●\nCanary pod error rate divergence > 8% relative to stable baseline\n●\nPost-deployment regression alert triggered within 30m window\nServices: payment-service\nInspect Evidence (3)\narrow_forward\nREPEATED SLO EXHAUSTION\n3 Occurrences\nPersistent Error Budget Burn on payment-service\n\nMulti-window burn-rate alerts triggered consecutively, rapidly consuming monthly availability and latency error budgets.\n\nCommon Observable Signals:\n●\nFast burn rate (14.4x) triggered on 1h window\n●\nMonthly error budget consumed > 75% before mid-cycle\nServices: payment-service\nInspect Evidence (3)\narrow_forward\nDEPENDENCY TIMEOUT PROPAGATION\n3 Occurrences\nCascading Timeout Propagation affecting auth-gateway-v2\n\nRedis cache latency spikes cause cascading HTTP 504 Gateway Timeouts across auth-gateway-v2 token validation endpoints.\n\nCommon Observable Signals:\n●\nRedis connection pool wait timeout > 250ms\n●\nCascading 504 Gateway Timeout returned to upstream callers\nServices: auth-gateway-v2, redis-session-cache\nInspect Evidence (3)\narrow_forward"
+      },
+      {
+        "pattern": "/Preventive Recommendations Inbox/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/operations",
+        "text": "om 20 to 50 on payment-service and configure aggressive lease timeouts (1500ms) with idle connection reaping.\n\nExpected Benefit: Eliminates thread starvation during settlement surges, reducing P99 latency spikes by estimated 65%.\nVerification Method: Execute load test simulating 25,000 req/sec; confirm pool lease wait times remain < 50ms and zero connection timeouts occur over 7-day monitoring window.\nOwner: SRE Reliability Team\nRunbooks: RB-DB-01\nAcknowledge\nDismiss...\nP1\nACKNOWLEDGED\ndns\nauth-gateway-v2\nJIRA-SEC-891\nDeploy Circuit Breaker with Local Fallback Cache for Auth Tokens\n\nIntroduce fail-open localized memory caching for valid JWT claims in auth-gateway-v2 to decouple incoming authentication from remote Redis latency.\n\nExpected Benefit: Prevents cascading 504 timeouts when Redis undergoes cluster rebalancing or high load.\nVerification Method: Simulate downstream Redis 2000ms latency injection via Fault Injection Lab; verify auth gateway serves authenticated requests within 45ms using local cache.\nOwner: Security Edge Team\nRunbooks: RB-TIMEOUT-01\nStart Fix\nDismiss...\nP2\nVERIFIED\ndns\nauth-gateway-v2\nJIRA-PLAT-334\nAuth Gateway Session Cache Memory Quotas and Connection Limits\n\nApply strict concurrency limits and connection timeouts on auth-gateway-v2 session cache clients to prevent thread pool exhaustion.\n\nExpected Benefit: Guarantees auth gateway remains resilient under token verification pressure without service degradation.\nVerification Method: Inspect session client memory info metrics under 95% load and verify requests are serviced without process restarts.\nVerified Result: Verified in production on Oct 29. Client timeouts verified functioning under stress test with 0 pod restarts.\nOwner: Platform Infrastructure\nRunbooks: RB-RESTART-01\nClose Task\nDismiss..."
+      },
+      {
+        "pattern": "/Reliability Trends/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/operations",
+        "text": "psychology\nOperational Intelligence & Predictive Prevention\nPhase 18\n\nDeterministic analysis of recurring failure patterns, early-warning signals, explainable service risk profiles, and preventive engineering recommendations.\n\nsync\nSync Patterns\nwarning\nScan Warnings\nadd\nNew Recommendation\nRECURRING PATTERNS\n4\n≥2 occurrences\nVerified failure signatures\nHIGH-RISK SERVICES\n0\nScore > 50\nRequiring proactive SRE attention\nEARLY-WARNING SIGNALS\n2\nActive\nDeterministic leading indicators\nPREVENTIVE RECS\n3\nOpen / In-Prog\nEvidence-backed engineering tasks\nRECURRENCE RATE\n100%\n30d window\nIncidents with known pattern\nspeed\nExecutive Overview & Early Warnings\npattern\nRecurring Failure Patterns\ntask_alt\nPreventive Recommendations Inbox\ntrending_up\nReliability Trends & Forecasting\nEvaluation Window:\n7 Days\n30 Days\n90 Days\nsave\nCapture Snapshot\ninfo\nAnalytical Sample Size Disclosure: 4 incidents analyzed\nAnalyzed 4 historical incidents within 30-day window. Confidence Level: MEDIUM.\nINCIDENT RECURRENCE RATE\n50%\n\nPortion of incidents associated with recurrent operational failure patterns.\n\nAVERAGE MTTR EVOLUTION\n0 min\n\nMean time to recovery across resolved incidents in 30d window.\n\nDEPLOYMENT REGRESSIONS\n2\n\nCorrelated post-deployment latency or error rate regressions.\n\nHISTORICAL FAILURE CATEGORY DISTRIBUTION\nDatabase Pool Saturation\n4 occurrences\nDeployment Associated Regression\n3 occurrences\nRepeated Slo Exhaustion\n3 occurrences\nDependency Timeout Propagation\n3 occurrences"
+      },
+      {
+        "pattern": "/Sync Patterns/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/operations",
+        "text": "psychology\nOperational Intelligence & Predictive Prevention\nPhase 18\n\nDeterministic analysis of recurring failure patterns, early-warning signals, explainable service risk profiles, and preventive engineering recommendations.\n\nsync\nSync Patterns\nwarning\nScan Warnings\nadd\nNew Recommendation\nerror\nAccess denied. Action requires one of the following roles: [responder].\nDismiss\nRECURRING PATTERNS\n4\n≥2 occurrences\nVerified failure signatures\nHIGH-RISK SERVICES\n0\nScore > 50\nRequiring proactive SRE attention\nEARLY-WARNING SIGNALS\n2\nActive\nDeterministic leading indicators\nPREVENTIVE RECS\n3\nOpen / In-Prog\nEvidence-backed engineering tasks\nRECURRENCE RATE\n100%\n30d window\nIncidents with known pattern\nspeed\nExecutive Overview & Early Warnings\npattern\nRecurring Failure Patterns\ntask_alt\nPreventive Recommendations Inbox\ntrending_up\nReliability Trends & Forecasting\nEvaluation Window:\n7 Days\n30 Days\n90 Days\nsave\nCapture Snapshot\ninfo\nAnalytical Sample Size Disclosure: 4 incidents analyzed\nAnalyzed 4 historical incidents within 30-day window. Confidence Level: MEDIUM.\nINCIDENT RECURRENCE RATE\n50%\n\nPortion of incidents associated with recurrent operational failure patterns.\n\nAVERAGE MTTR EVOLUTION\n0 min\n\nMean time to recovery across resolved incidents in 30d window.\n\nDEPLOYMENT REGRESSIONS\n2\n\nCorrelated post-deployment latency or error rate regressions.\n\nHISTORICAL FAILURE CATEGORY DISTRIBUTION\nDatabase Pool Saturation\n4 occurrences\nDeployment Associated Regression\n3 occurrences\nRepeated Slo Exhaustion\n3 occurrences\nDependency Timeout Propagation\n3 occurrences"
+      },
+      {
+        "pattern": "/Scan Warnings/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/operations",
+        "text": "psychology\nOperational Intelligence & Predictive Prevention\nPhase 18\n\nDeterministic analysis of recurring failure patterns, early-warning signals, explainable service risk profiles, and preventive engineering recommendations.\n\nsync\nSync Patterns\nwarning\nScan Warnings\nadd\nNew Recommendation\nerror\nAccess denied. Action requires one of the following roles: [responder].\nDismiss\nRECURRING PATTERNS\n4\n≥2 occurrences\nVerified failure signatures\nHIGH-RISK SERVICES\n0\nScore > 50\nRequiring proactive SRE attention\nEARLY-WARNING SIGNALS\n2\nActive\nDeterministic leading indicators\nPREVENTIVE RECS\n3\nOpen / In-Prog\nEvidence-backed engineering tasks\nRECURRENCE RATE\n100%\n30d window\nIncidents with known pattern\nspeed\nExecutive Overview & Early Warnings\npattern\nRecurring Failure Patterns\ntask_alt\nPreventive Recommendations Inbox\ntrending_up\nReliability Trends & Forecasting\nEvaluation Window:\n7 Days\n30 Days\n90 Days\nsave\nCapture Snapshot\ninfo\nAnalytical Sample Size Disclosure: 4 incidents analyzed\nAnalyzed 4 historical incidents within 30-day window. Confidence Level: MEDIUM.\nINCIDENT RECURRENCE RATE\n50%\n\nPortion of incidents associated with recurrent operational failure patterns.\n\nAVERAGE MTTR EVOLUTION\n0 min\n\nMean time to recovery across resolved incidents in 30d window.\n\nDEPLOYMENT REGRESSIONS\n2\n\nCorrelated post-deployment latency or error rate regressions.\n\nHISTORICAL FAILURE CATEGORY DISTRIBUTION\nDatabase Pool Saturation\n4 occurrences\nDeployment Associated Regression\n3 occurrences\nRepeated Slo Exhaustion\n3 occurrences\nDependency Timeout Propagation\n3 occurrences"
+      }
+    ],
+    "body": "psychology\nOperational Intelligence & Predictive Prevention\nPhase 18\n\nDeterministic analysis of recurring failure patterns, early-warning signals, explainable service risk profiles, and preventive engineering recommendations.\n\nsync\nSync Patterns\nwarning\nScan Warnings\nadd\nNew Recommendation\nerror\nAccess denied. Action requires one of the following roles: [responder].\nDismiss\nRECURRING PATTERNS\n4\n≥2 occurrences\nVerified failure signatures\nHIGH-RISK SERVICES\n0\nScore > 50\nRequiring proactive SRE attention\nEARLY-WARNING SIGNALS\n2\nActive\nDeterministic leading indicators\nPREVENTIVE RECS\n3\nOpen / In-Prog\nEvidence-backed engineering tasks\nRECURRENCE RATE\n100%\n30d window\nIncidents with known pattern\nspeed\nExecutive Overview & Early Warnings\npattern\nRecurring Failure Patterns\ntask_alt\nPreventive Recommendations Inbox\ntrending_up\nReliability Trends & Forecasting\nEvaluation Window:\n7 Days\n30 Days\n90 Days\nsave\nCapture Snapshot\ninfo\nAnalytical Sample Size Disclosure: 4 incidents analyzed\nAnalyzed 4 historical incidents within 30-day window. Confidence Level: MEDIUM.\nINCIDENT RECURRENCE RATE\n50%\n\nPortion of incidents associated with recurrent operational failure patterns.\n\nAVERAGE MTTR EVOLUTION\n0 min\n\nMean time to recovery across resolved incidents in 30d window.\n\nDEPLOYMENT REGRESSIONS\n2\n\nCorrelated post-deployment latency or error rate regressions.\n\nHISTORICAL FAILURE CATEGORY DISTRIBUTION\nDatabase Pool Saturation\n4 occurrences\nDeployment Associated Regression\n3 occurrences\nRepeated Slo Exhaustion\n3 occurrences\nDependency Timeout Propagation\n3 occurrences",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/trends?days=30",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/trends?days=30",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/service-risks",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/service-risks",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns/sync",
+        "status": 403
+      },
+      {
+        "type": "console",
+        "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      },
+      {
+        "type": "console",
+        "text": "[API Error] POST /api/operations/intelligence/patterns/sync: Access denied. Action requires one of the following roles: [responder]."
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "console",
+        "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      },
+      {
+        "type": "console",
+        "text": "[API Error] POST /api/operations/intelligence/early-warnings/sync: Access denied. Action requires one of the following roles: [responder]."
+      }
+    ]
+  },
+  {
+    "route": "/cloud-lifecycle",
+    "actions": [
+      {
+        "pattern": "/Infrastructure Drift/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/cloud-lifecycle",
+        "text": "NETES\nk8s_deployment\n\t\nCONFIGURATION DRIFT\n1 field delta(s)\tLOW\tDETECTED\t\nView Diff\nReconcile\nTOTAL DRIFTS\n6\nLifetime events\nACTIVE UNRESOLVED\n6\nPending action\nCRITICAL SEVERITY\n2\nDB & host affected\nHIGH SEVERITY\n1\nDownstream callers\nMEDIUM & LOW\n3\nConfig & replicas\nAFFECTED RESOURCES\n6\nUnique workloads\nrule\nDesired-State Baseline: Phase 23M isolated baseline\nVERSION 1\n\nConfig Hash: 548d367aba5c0aa1... • Authorized by: sarah.chen@infrapulse.io • Environment: staging\n\nbookmark_add\nInitialize Golden Baseline\nsearch_check\nRun Drift Scan\nAll Severities\nCritical\nHigh\nMedium\nLow\nAll Statuses\nDetected (Unresolved)\nAcknowledged\nReconciling\nReconciled\nIgnored\nDRIFT ID / DETECTED\tTARGET RESOURCE\tPROVIDER / TYPE\tDRIFT TYPE\tSEVERITY\tSTATUS\tGOVERNED ACTIONS\n\ndrift_0d10a41c2037\n9:25:33 PM\n\t\nbackend-deployment\nres-k8s-dep-backend\n\tKUBERNETES\nk8s_deployment\n\t\nCONFIGURATION DRIFT\n1 field delta(s)\tCRITICAL\tDETECTED\t\nView Diff\nReconcile\n\n\ndrift_fc2b6a280fa5\n9:25:33 PM\n\t\ninfrapulse-staging-ec2\nres-aws-ec2-staging\n\tAWS\nec2_instance\n\t\nCONFIGURATION DRIFT\n3 field delta(s)\tCRITICAL\tDETECTED\t\nView Diff\nReconcile\n\n\ndrift_2b04771d73d8\n9:25:33 PM\n\t\npostgres-statefulset\nres-k8s-sts-postgres\n\tKUBERNETES\nk8s_statefulset\n\t\nCONFIGURATION DRIFT\n1 field delta(s)\tHIGH\tDETECTED\t\nView Diff\nReconcile\n\n\ndrift_b1177f95b2e7\n9:25:33 PM\n\t\nphase23m-api\nk8s-phase23m-phase23m-api\n\tKUBERNETES\ndeployment\n\t\nWORKLOAD STATE DRIFT\n3 field delta(s)\tMEDIUM\tDETECTED\t\nView Diff\nReconcile\n\n\ndrift_42ba9b919c4b\n9:25:33 PM\n\t\nphase23m-api-1\nk8s-pod-phase23m-phase23m-api-1\n\tKUBERNETES\npod\n\t\nCONFIGURATION DRIFT\n2 field delta(s)\tLOW\tDETECTED\t\nView Diff\nReconcile\n\n\ndrift_39dd5c626824\n9:25:33 PM\n\t\nfrontend-deployment\nres-k8s-dep-frontend\n\tKUBERNETES\nk8s_deployment\n\t\nCONFIGURATION DRIFT\n1 field delta(s)\tLOW\tDETECTED\t\nView Diff\nReconcile"
+      },
+      {
+        "pattern": "/Operations & Approvals/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/cloud-lifecycle",
+        "text": "Cloud Resource Lifecycle & Cost Governance\nAWS EC2 GOVERNED LIFECYCLE\nTWO-PERSON APPROVAL\n\nControlled EC2 start/stop management, strict eligibility guardrails, two-person approvals & persistent storage defense.\n\nrefresh\nRefresh\nemergency_home\nKILL SWITCH ENGAGED\ncloud_sync\nAWS Integration (ap-south-1 Mumbai)\nCREDENTIAL PROVIDER PENDING\nRegion: ap-south-1\nLive Discovered: 0 workloads\nap-south-1 (Mumbai)\ntravel_explore\nDiscover AWS Resources\nverified_user\nGoverned EC2 mutations require allowlisting, non-production tags, dry-run evaluation, two-person approval, and explicit confirmation.\nAWS_LIFECYCLE_MUTATIONS_ENABLED: False (Default)\nwarning\nGLOBAL CLOUD LIFECYCLE KILL SWITCH IS ACTIVE: All start, stop, restart, and scaling operations are suspended by Administrator (sarah.chen@infrapulse.io).\nInventoried Workloads\ndns\n11\n0 Live AWS\n/ 11 Sim\n10 Running\n•\n1 Stopped\nEstimated Hourly Burn\npayments\n$0.0901\n/ hr\nDaily: $2.16 (ap-south-1 rates)\nMonthly Run-Rate (730h)\ncalendar_month\n$65.77\n/ mo\nStorage baseline: $17.01/mo\nFree Tier & Savings\nsavings\n$31.40\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\n11\ncompare_arrows\nInfrastructure Drift\n6\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\n2\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nOP ID / ACTION\tTARGET RESOURCE\tREQUESTED BY\tSTATUS\tCREATED\tGOVERNANCE ACTIONS\nNo cloud lifecycle operations recorded."
+      },
+      {
+        "pattern": "/Automated Schedules/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/cloud-lifecycle",
+        "text": "PERSON APPROVAL\n\nControlled EC2 start/stop management, strict eligibility guardrails, two-person approvals & persistent storage defense.\n\nrefresh\nRefresh\nemergency_home\nKILL SWITCH ENGAGED\ncloud_sync\nAWS Integration (ap-south-1 Mumbai)\nCREDENTIAL PROVIDER PENDING\nRegion: ap-south-1\nLive Discovered: 0 workloads\nap-south-1 (Mumbai)\ntravel_explore\nDiscover AWS Resources\nverified_user\nGoverned EC2 mutations require allowlisting, non-production tags, dry-run evaluation, two-person approval, and explicit confirmation.\nAWS_LIFECYCLE_MUTATIONS_ENABLED: False (Default)\nwarning\nGLOBAL CLOUD LIFECYCLE KILL SWITCH IS ACTIVE: All start, stop, restart, and scaling operations are suspended by Administrator (sarah.chen@infrapulse.io).\nInventoried Workloads\ndns\n11\n0 Live AWS\n/ 11 Sim\n10 Running\n•\n1 Stopped\nEstimated Hourly Burn\npayments\n$0.0901\n/ hr\nDaily: $2.16 (ap-south-1 rates)\nMonthly Run-Rate (730h)\ncalendar_month\n$65.77\n/ mo\nStorage baseline: $17.01/mo\nFree Tier & Savings\nsavings\n$31.40\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\n11\ncompare_arrows\nInfrastructure Drift\n6\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\n2\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nAutomated Weekday & Overnight Schedules\n\nAutomated stop and start schedules minimize staging compute burn outside active development hours. Configured for Asia/Kolkata timezone.\n\nOvernight Staging Compute Shutdown\nACTIVE\nAction: STOP\nTarget Resource: infrapulse-staging-ec2\nTime & Zone: 20:00 (Asia/Kolkata)\nCron: 0 20 * * 1-5\nCreated by admin@infrapulse.io\nPause Schedule\nMorning Staging Compute Resume\nACTIVE\nAction: START\nTarget Resource: infrapulse-staging-ec2\nTime & Zone: 08:00 (Asia/Kolkata)\nCron: 0 8 * * 1-5\nCreated by admin@infrapulse.io\nPause Schedule"
+      },
+      {
+        "pattern": "/Cost & Free Tier/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/cloud-lifecycle",
+        "text": "telligence\nhistory\nLifecycle Audit\nCost Visibility & Distinction Framework\n\nTransparent differentiation between API-retrieved facts, published rate assumptions, billing data, and calculated projections.\n\nAP-SOUTH-1 MUMBAI\nfact_check\n1. API-Retrieved Facts\nLive Workloads: 0\nAttached Volumes: 0\nPublic IPv4: 1\nRetrieved via EC2/RDS read-only descriptors.\nsell\n2. Pricing Assumptions\nt4g.small: $0.0168/hr\ngp3 Storage: $0.08/GB-mo\nPublic IPv4: $0.005/hr\nPublished AWS ap-south-1 On-Demand rates.\ncalculate\n3. Calculated Estimates\nHourly: $0.0901\nMonthly (730h): $65.77\nPotential Savings: $31.40\nCalculated projections (not actual invoice).\nreceipt_long\n4. AWS Billing Data\nActual Invoices: Not connected\nCost Explorer: Disabled\nStatus: Safe & Isolated\nPaid billing APIs disabled to guarantee zero cost.\nverified\nAWS Free Tier Transparency & Policy Breakdown\nSTATUS: NOT VERIFIED\n\nInfraPulse does not infer Free Tier credit eligibility from instance type alone. Account usage information cannot be verified without billing credentials. To preserve strict security and zero out-of-pocket budget, we report Free Tier as \"Not verified\" rather than fabricating balances.\n\n1. Amazon EC2\n\n750 Hours/Month of t2.micro or t3.micro Linux instances within 12-month free tier window. t4g.small free trial applies where eligible.\n\n2. Amazon EBS Storage\n\n30 GB of General Purpose (gp3/gp2) or Magnetic storage + 2,000,000 I/Os and 1 GB snapshot storage. Storage beyond 30GB incurs standard $0.08/GB-mo.\n\n3. Amazon RDS Database\n\n750 Hours/Month of db.t4g.micro or db.t3.micro Single-AZ + 20 GB database storage and 20 GB automated backup storage.\n\n4. Public IPv4 Addresses\n\nEffective Feb 1, 2024, all public IPv4 addresses incur $0.005/hour ($3.65/mo each). EC2 Free Tier includes 750h/mo on eligible micro instances."
+      },
+      {
+        "pattern": "/Lifecycle Audit/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/cloud-lifecycle",
+        "text": "Cloud Resource Lifecycle & Cost Governance\nAWS EC2 GOVERNED LIFECYCLE\nTWO-PERSON APPROVAL\n\nControlled EC2 start/stop management, strict eligibility guardrails, two-person approvals & persistent storage defense.\n\nrefresh\nRefresh\nemergency_home\nKILL SWITCH ENGAGED\ncloud_sync\nAWS Integration (ap-south-1 Mumbai)\nCREDENTIAL PROVIDER PENDING\nRegion: ap-south-1\nLive Discovered: 0 workloads\nap-south-1 (Mumbai)\ntravel_explore\nDiscover AWS Resources\nverified_user\nGoverned EC2 mutations require allowlisting, non-production tags, dry-run evaluation, two-person approval, and explicit confirmation.\nAWS_LIFECYCLE_MUTATIONS_ENABLED: False (Default)\nwarning\nGLOBAL CLOUD LIFECYCLE KILL SWITCH IS ACTIVE: All start, stop, restart, and scaling operations are suspended by Administrator (sarah.chen@infrapulse.io).\nInventoried Workloads\ndns\n11\n0 Live AWS\n/ 11 Sim\n10 Running\n•\n1 Stopped\nEstimated Hourly Burn\npayments\n$0.0901\n/ hr\nDaily: $2.16 (ap-south-1 rates)\nMonthly Run-Rate (730h)\ncalendar_month\n$65.77\n/ mo\nStorage baseline: $17.01/mo\nFree Tier & Savings\nsavings\n$31.40\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\n11\ncompare_arrows\nInfrastructure Drift\n6\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\n2\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nTIMESTAMP\tACTION\tACTOR\tRESOURCE TARGET\tDETAILS\nInvalid Date\tCLOUD_BASELINE_CREATED\tsystem\tbase_5c1d471908af\t{}"
+      }
+    ],
+    "body": "Cloud Resource Lifecycle & Cost Governance\nAWS EC2 GOVERNED LIFECYCLE\nTWO-PERSON APPROVAL\n\nControlled EC2 start/stop management, strict eligibility guardrails, two-person approvals & persistent storage defense.\n\nrefresh\nRefresh\nemergency_home\nKILL SWITCH ENGAGED\ncloud_sync\nAWS Integration (ap-south-1 Mumbai)\nCREDENTIAL PROVIDER PENDING\nRegion: ap-south-1\nLive Discovered: 0 workloads\nap-south-1 (Mumbai)\ntravel_explore\nDiscover AWS Resources\nverified_user\nGoverned EC2 mutations require allowlisting, non-production tags, dry-run evaluation, two-person approval, and explicit confirmation.\nAWS_LIFECYCLE_MUTATIONS_ENABLED: False (Default)\nwarning\nGLOBAL CLOUD LIFECYCLE KILL SWITCH IS ACTIVE: All start, stop, restart, and scaling operations are suspended by Administrator (sarah.chen@infrapulse.io).\nInventoried Workloads\ndns\n11\n0 Live AWS\n/ 11 Sim\n10 Running\n•\n1 Stopped\nEstimated Hourly Burn\npayments\n$0.0901\n/ hr\nDaily: $2.16 (ap-south-1 rates)\nMonthly Run-Rate (730h)\ncalendar_month\n$65.77\n/ mo\nStorage baseline: $17.01/mo\nFree Tier & Savings\nsavings\n$31.40\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\n11\ncompare_arrows\nInfrastructure Drift\n6\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\n2\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nTIMESTAMP\tACTION\tACTOR\tRESOURCE TARGET\tDETAILS\nInvalid Date\tCLOUD_BASELINE_CREATED\tsystem\tbase_5c1d471908af\t{}",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "console",
+        "text": "Failed to load resource: net::ERR_INSUFFICIENT_RESOURCES"
+      },
+      {
+        "type": "console",
+        "text": "[API Error] GET /api/cloud/operations: Failed to fetch"
+      },
+      {
+        "type": "console",
+        "text": "Failed to load resource: net::ERR_INSUFFICIENT_RESOURCES"
+      },
+      {
+        "type": "console",
+        "text": "[API Error] GET /api/alerts: Failed to fetch"
+      },
+      {
+        "type": "console",
+        "text": "Failed to load resource: net::ERR_INSUFFICIENT_RESOURCES"
+      },
+      {
+        "type": "console",
+        "text": "[API Error] GET /api/cloud/audit?limit=25: Failed to fetch"
+      }
+    ]
+  },
+  {
+    "route": "/sre-intelligence",
+    "actions": [
+      {
+        "pattern": "/Predictive Risks/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/sre-intelligence",
+        "text": "insights\nAutonomous SRE Intelligence\nPhase 23K\n\nProactive infrastructure health, statistical risk forecasting, error budget burn rates, and governed SRE recommendations.\n\nsync\nRefresh State\nINFRASTRUCTURE HEALTH\nDEGRADED\n46%\nScore\nData Freshness:\nSTALE (358s ago)\nAT-RISK SERVICES\nwarning\n3\nof 4 monitored\nCompliance Rate:\n50%\nPREDICTIVE RISKS\ntrending_up\n0\nActive Forecasts\nMethodology:\nOLS Regression (Linear)\nEST. MONTHLY WASTE\nsavings\n$0.00\nUSD/mo\nUnderutilized Compute:\n0 workloads\nUnified Health & Topology\nPredictive Risks (0)\nSLOs & Burn Rates\nCapacity & Cost Optimization\nSRE Recommendations (0)\nIdentifies trend trajectories (memory growth, disk fill, latency degradation) using transparent OLS regression.\nForecast Horizon: 24h - 48h\ncheck_circle\n\nNo critical predictive risk conditions detected across telemetry series."
+      },
+      {
+        "pattern": "/SLOs & Burn Rates/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/sre-intelligence",
+        "text": "insights\nAutonomous SRE Intelligence\nPhase 23K\n\nProactive infrastructure health, statistical risk forecasting, error budget burn rates, and governed SRE recommendations.\n\nsync\nRefresh State\nINFRASTRUCTURE HEALTH\nDEGRADED\n46%\nScore\nData Freshness:\nSTALE (358s ago)\nAT-RISK SERVICES\nwarning\n3\nof 4 monitored\nCompliance Rate:\n50%\nPREDICTIVE RISKS\ntrending_up\n0\nActive Forecasts\nMethodology:\nOLS Regression (Linear)\nEST. MONTHLY WASTE\nsavings\n$0.00\nUSD/mo\nUnderutilized Compute:\n0 workloads\nUnified Health & Topology\nPredictive Risks (0)\nSLOs & Burn Rates\nCapacity & Cost Optimization\nSRE Recommendations (0)\nService Level Objectives & Error Budget Burn Rates\n\nCalculated following Google SRE Workbook standards with multi-window burn rate alerts (1h fast burn, 6h slow burn).\n\nSLO Name\tService\tSLI Type\tTarget %\tCurrent SLI\tRemaining Budget\tBurn Rate (1h)\tStatus\nInventory Stock Reservation Availability\tinventory-mesh\tAVAILABILITY\t99.9%\t99.99%\t\n90%\n\t0.15x\tHEALTHY\nOAuth Token Introspection Latency (< 25ms)\tauth-gateway-v2\tLATENCY\t99.99%\t99.1%\t\n42%\n\t3.2x\tDEGRADED\nOrder Checkout Latency (< 150ms)\tcheckout-api\tLATENCY\t99.9%\t95.88%\t\n0%\n\t14.4x\tCRITICAL\nPayment Authorization Success Rate\tpayment-service\tAVAILABILITY\t99.95%\t96.12%\t\n0%\n\t12.8x\tCRITICAL"
+      },
+      {
+        "pattern": "/Capacity & Cost/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/sre-intelligence",
+        "text": "insights\nAutonomous SRE Intelligence\nPhase 23K\n\nProactive infrastructure health, statistical risk forecasting, error budget burn rates, and governed SRE recommendations.\n\nsync\nRefresh State\nINFRASTRUCTURE HEALTH\nDEGRADED\n46%\nScore\nData Freshness:\nSTALE (358s ago)\nAT-RISK SERVICES\nwarning\n3\nof 4 monitored\nCompliance Rate:\n50%\nPREDICTIVE RISKS\ntrending_up\n0\nActive Forecasts\nMethodology:\nOLS Regression (Linear)\nEST. MONTHLY WASTE\nsavings\n$0.00\nUSD/mo\nUnderutilized Compute:\n0 workloads\nUnified Health & Topology\nPredictive Risks (0)\nSLOs & Burn Rates\nCapacity & Cost Optimization\nSRE Recommendations (0)\nIdentifies underutilized instances, stopped compute accumulating storage fees, and over-provisioned limits.\nTotal Monthly Waste: $0/mo"
+      },
+      {
+        "pattern": "/SRE Recommendations/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/sre-intelligence",
+        "text": "insights\nAutonomous SRE Intelligence\nPhase 23K\n\nProactive infrastructure health, statistical risk forecasting, error budget burn rates, and governed SRE recommendations.\n\nsync\nRefresh State\nINFRASTRUCTURE HEALTH\nDEGRADED\n46%\nScore\nData Freshness:\nSTALE (358s ago)\nAT-RISK SERVICES\nwarning\n3\nof 4 monitored\nCompliance Rate:\n50%\nPREDICTIVE RISKS\ntrending_up\n0\nActive Forecasts\nMethodology:\nOLS Regression (Linear)\nEST. MONTHLY WASTE\nsavings\n$0.00\nUSD/mo\nUnderutilized Compute:\n0 workloads\nUnified Health & Topology\nPredictive Risks (0)\nSLOs & Burn Rates\nCapacity & Cost Optimization\nSRE Recommendations (0)\nFilter by status:\nALL\nOPEN\nACKNOWLEDGED\nRESOLVED\nTotal: 0"
+      },
+      {
+        "pattern": "/Refresh State/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/sre-intelligence",
+        "text": "insights\nAutonomous SRE Intelligence\nPhase 23K\n\nProactive infrastructure health, statistical risk forecasting, error budget burn rates, and governed SRE recommendations.\n\nsync\nRefresh State\nINFRASTRUCTURE HEALTH\nDEGRADED\n46%\nScore\nData Freshness:\nSTALE (360s ago)\nAT-RISK SERVICES\nwarning\n3\nof 4 monitored\nCompliance Rate:\n50%\nPREDICTIVE RISKS\ntrending_up\n0\nActive Forecasts\nMethodology:\nOLS Regression (Linear)\nEST. MONTHLY WASTE\nsavings\n$0.00\nUSD/mo\nUnderutilized Compute:\n0 workloads\nUnified Health & Topology\nPredictive Risks (0)\nSLOs & Burn Rates\nCapacity & Cost Optimization\nSRE Recommendations (0)\nFilter by status:\nALL\nOPEN\nACKNOWLEDGED\nRESOLVED\nTotal: 0"
+      }
+    ],
+    "body": "insights\nAutonomous SRE Intelligence\nPhase 23K\n\nProactive infrastructure health, statistical risk forecasting, error budget burn rates, and governed SRE recommendations.\n\nsync\nRefresh State\nINFRASTRUCTURE HEALTH\nDEGRADED\n46%\nScore\nData Freshness:\nSTALE (360s ago)\nAT-RISK SERVICES\nwarning\n3\nof 4 monitored\nCompliance Rate:\n50%\nPREDICTIVE RISKS\ntrending_up\n0\nActive Forecasts\nMethodology:\nOLS Regression (Linear)\nEST. MONTHLY WASTE\nsavings\n$0.00\nUSD/mo\nUnderutilized Compute:\n0 workloads\nUnified Health & Topology\nPredictive Risks (0)\nSLOs & Burn Rates\nCapacity & Cost Optimization\nSRE Recommendations (0)\nFilter by status:\nALL\nOPEN\nACKNOWLEDGED\nRESOLVED\nTotal: 0",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/sre-intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/sre-intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/sre-intelligence/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/sre-intelligence/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/sre-intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/sre-intelligence/overview",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/integrations",
+    "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('main').getByRole('button', { name: /Connect Provider/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"px-3 py-1 bg-[#d4ff24] hover:bg-[#e1ff59] text-[#030407] font-bold rounded text-[11px] flex items-center gap-1\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"p-6 text-center text-[#6b7280]\">No webhook deliveries recorded yet for this integ…</div> from <div class=\"fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div class=\"p-6 text-center text-[#6b7280]\">No webhook deliveries recorded yet for this integ…</div> from <div class=\"fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  2 × retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  2 × retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"p-6 text-center text-[#6b7280]\">No webhook deliveries recorded yet for this integ…</div> from <div class=\"fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  2 × retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div class=\"p-6 text-center text-[#6b7280]\">No webhook deliveries recorded yet for this integ…</div> from <div class=\"fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations/catalog",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notification-settings",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notifications?limit=50",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations/catalog",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notification-settings",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notifications?limit=50",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations/int-kubernetes-8f0a7de2/deliveries",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/team",
+    "actions": [
+      {
+        "pattern": "/Security Audit Trail/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/team",
+        "text": "frapulse.io\nADMIN\tauth.login\tsession (usr_admin_001)\tSUCCESS\t::ffff:127.0.0.1\n9:25:33 PM\t\nSystem / Unauth\n\tREMEDIATION_PLAN_APPROVED\tremediation_approval (rem_app_55af25d88984)\tSUCCESS\t127.0.0.1\n9:25:33 PM\t\nSystem / Unauth\n\tREMEDIATION_APPROVAL_REQUESTED\tremediation_approval (rem_app_55af25d88984)\tSUCCESS\t127.0.0.1\n9:25:33 PM\t\nSystem / Unauth\n\tCLOUD_BASELINE_CREATED\tcloud_baseline (base_5c1d471908af)\tSUCCESS\t127.0.0.1\n9:25:32 PM\t\nsarah.chen@infrapulse.io\nADMIN\tINTEGRATION_CREATED\tintegration (int-opentelemetry-7ccfb946)\tSUCCESS\t127.0.0.1\n9:25:32 PM\t\nsarah.chen@infrapulse.io\nADMIN\tINTEGRATION_UPDATED\tintegration (int-kubernetes-8f0a7de2)\tSUCCESS\t127.0.0.1\n9:25:32 PM\t\nmarcus.v@infrapulse.io\nRESPONDER\tINTEGRATION_SYNCED\tintegration (int-kubernetes-8f0a7de2)\tSUCCESS\t127.0.0.1\n9:25:32 PM\t\nsarah.chen@infrapulse.io\nADMIN\tINTEGRATION_UPDATED\tintegration (int-kubernetes-8f0a7de2)\tSUCCESS\t127.0.0.1\n9:25:32 PM\t\nmarcus.v@infrapulse.io\nRESPONDER\tINTEGRATION_SYNCED\tintegration (int-kubernetes-8f0a7de2)\tSUCCESS\t127.0.0.1\n9:25:32 PM\t\nmarcus.v@infrapulse.io\nRESPONDER\tINTEGRATION_SYNCED\tintegration (int-kubernetes-8f0a7de2)\tSUCCESS\t127.0.0.1\n9:25:32 PM\t\nsarah.chen@infrapulse.io\nADMIN\tINTEGRATION_SYNCED\tintegration (int-kubernetes-8f0a7de2)\tSUCCESS\t127.0.0.1\n9:25:32 PM\t\nsarah.chen@infrapulse.io\nADMIN\tINTEGRATION_CREATED\tintegration (int-kubernetes-8f0a7de2)\tSUCCESS\t127.0.0.1\n9:25:31 PM\t\nalex.ross@infrapulse.io\nVIEWER\tauth.permission_denied\t/api/auth/users\tDENIED\t::ffff:127.0.0.1\n9:25:31 PM\t\nalex.ross@infrapulse.io\nVIEWER\tauth.login\tsession (usr_viewer_003)\tSUCCESS\t::ffff:127.0.0.1\n9:25:31 PM\t\nmarcus.v@infrapulse.io\nRESPONDER\tauth.login\tsession (usr_responder_002)\tSUCCESS\t::ffff:127.0.0.1\n9:25:31 PM\t\nsarah.chen@infrapulse.io\nADMIN\tauth.login\tsession (usr_admin_001)\tSUCCESS\t::ffff:127.0.0.1"
+      },
+      {
+        "pattern": "/API Service Tokens/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/team",
+        "text": "admin_panel_settings\nIdentity, RBAC & Security Audit\nACTIVE ROLE: ADMIN\n\nRole-Based Access Control, persistent PostgreSQL sessions, and immutable security audit logging.\n\nSwitch:\nADMIN\nRESPONDER\nVIEWER\nTeam Members & RBAC (3)\nhistory_edu\nSecurity Audit Trail\nAPI Service Tokens (2)\nActive Service Tokens\n\nUse service tokens for CI/CD webhook deployments and telemetry collectors.\n\nGenerate New Token\nArgo-Rollout-Webhook\nip_live_88a...\nCreated: 2026-10-12\nLast used: 4m ago\nPrometheus-Remote-Write\nip_live_41b...\nCreated: 2026-09-01\nLast used: 1s ago"
+      }
+    ],
+    "body": "admin_panel_settings\nIdentity, RBAC & Security Audit\nACTIVE ROLE: ADMIN\n\nRole-Based Access Control, persistent PostgreSQL sessions, and immutable security audit logging.\n\nSwitch:\nADMIN\nRESPONDER\nVIEWER\nTeam Members & RBAC (3)\nhistory_edu\nSecurity Audit Trail\nAPI Service Tokens (2)\nActive Service Tokens\n\nUse service tokens for CI/CD webhook deployments and telemetry collectors.\n\nGenerate New Token\nArgo-Rollout-Webhook\nip_live_88a...\nCreated: 2026-10-12\nLast used: 4m ago\nPrometheus-Remote-Write\nip_live_41b...\nCreated: 2026-09-01\nLast used: 1s ago",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/users",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/audit-logs?limit=50",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/auth",
+    "actions": [
+      {
+        "pattern": "/Cluster Agent Setup/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/auth",
+        "text": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\n1\nCluster Identity\n\nConfigure namespace & region metadata\n\n2\nDeploy OTel Helm Agent\n\nInject sidecars and eBPF kernel probes\n\n3\nMesh Verification\n\n142 services automatically discovered\n\nStep 2: Deploy InfraPulse Helm Agent\ncontent_copy\nCopy Script\nhelm repo add infrapulse https://charts.infrapulse.io\nhelm upgrade --install infrapulse infrapulse/agent --set cluster.name=prod-k8s-mesh\nCapabilities Installed:\n• eBPF kernel network latency profiler\n• OpenTelemetry collector DaemonSet on all 48 nodes\n• Instant Envoy service mesh auto-discovery\nNext: Verify Mesh Telemetry →"
+      },
+      {
+        "pattern": "/User Session & Credentials/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/auth",
+        "text": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nName:\nSarah Chen\nEmail:\nsarah.chen@infrapulse.io\nRBAC Role:\nADMIN\nStatus:\nactive\nSession stored in PostgreSQL sessions table with HTTP-only cookie.\nlogout\nEnd Session (Logout)\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nWork Email\nPassword (min 8 chars)\nSign In →"
+      },
+      {
+        "pattern": "/Sign In/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/auth",
+        "text": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nName:\nSarah Chen\nEmail:\nsarah.chen@infrapulse.io\nRBAC Role:\nADMIN\nStatus:\nactive\nSession stored in PostgreSQL sessions table with HTTP-only cookie.\nlogout\nEnd Session (Logout)\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nWork Email\nPassword (min 8 chars)\nProcessing..."
+      },
+      {
+        "pattern": "/Sign In/",
+        "result": "NOT VERIFIED: control not found"
+      },
+      {
+        "pattern": "/End Session/",
+        "result": "clicked",
+        "url": "http://127.0.0.1:5180/auth",
+        "text": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nGuest\nVIEWER\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nNo active session found. Please sign in or register below.\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nInvalid email or password.\nWork Email\nPassword (min 8 chars)\nSign In →"
+      },
+      {
+        "type": "reload-after-logout",
+        "text": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nName:\nSarah Chen\nEmail:\nsarah.chen@infrapulse.io\nRBAC Role:\nADMIN\nStatus:\nactive\nSession stored in PostgreSQL sessions table with HTTP-only cookie.\nlogout\nEnd Session (Logout)\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nWork Email\nPassword (min 8 chars)\nSign In →"
+      }
+    ],
+    "body": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nName:\nSarah Chen\nEmail:\nsarah.chen@infrapulse.io\nRBAC Role:\nADMIN\nStatus:\nactive\nSession stored in PostgreSQL sessions table with HTTP-only cookie.\nlogout\nEnd Session (Logout)\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nWork Email\nPassword (min 8 chars)\nSign In →",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "console",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      },
+      {
+        "type": "console",
+        "text": "[API Error] POST /api/auth/login: Invalid email or password."
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/logout",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "console",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      },
+      {
+        "type": "console",
+        "text": "[API Error] GET /api/auth/me: Authentication required. Please log in."
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "console",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "console",
+        "text": "[API Error] GET /api/auth/me: Authentication required. Please log in."
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 200
+      }
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "status": 0,
+  "signal": null,
+  "ms": 180016.1992,
+  "stdout": "waiting for server to start.... done\r\nserver started\r\n",
+  "stderr": "",
+  "error": "spawnSync C:/Program Files/PostgreSQL/16/bin/pg_ctl.exe ETIMEDOUT"
+}

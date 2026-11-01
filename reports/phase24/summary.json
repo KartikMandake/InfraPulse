@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-11-01T02:23:37.091Z",
+  "productionReadiness": "NO-GO",
+  "node24": "v24.22.2",
+  "existingTests": {
+    "tests": 323,
+    "pass": 318,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 5
+  },
+  "productionRegressions": {
+    "tests": 18,
+    "pass": 18,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "frontend": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "status": 0
+  },
+  "runtime": {
+    "checks": 12,
+    "pass": 12,
+    "fail": 0
+  },
+  "phase23NOpenDefects": 19,
+  "phase23NP0": [
+    "N01",
+    "N02",
+    "N03",
+    "N09",
+    "N11"
+  ],
+  "newConfirmedProductionRoleBlocker": "P24-01",
+  "awsAccountCalls": "NONE in Phase 24; anonymous public pricing downloads only",
+  "cloudMutations": false,
+  "gitCommandsExecuted": false
+}

@@ -1,0 +1,15 @@
+{
+  "source": "https://nodejs.org/dist/v24.22.2/win-x64/node.exe",
+  "release": "v24.22.2",
+  "lts": "Krypton",
+  "sha256": "1c331340fa6cac5e4294725959070a143fa0507195a78ad77eed7943f719aac9",
+  "checksumMatches": true,
+  "signatureVerification": "Not performed; HTTPS official release + published SHA-256 verified.",
+  "executable": "D:/Projects/.infrapulse-phase24/node24/node.exe",
+  "version": {
+    "status": 0,
+    "ms": 2621.7062000000005,
+    "stdout": "v24.22.2\r\n",
+    "stderr": ""
+  }
+}

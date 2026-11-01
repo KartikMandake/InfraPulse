@@ -1,7 +1,9 @@
 import * as authService from '../services/auth.service.js';
 import * as usersRepo from '../repositories/users.repository.js';
+import * as sessionsRepo from '../repositories/sessions.repository.js';
 import { recordAuditEvent } from '../services/audit.service.js';
 import { ApiError } from '../utils/ApiError.js';
+import { config } from '../config/env.js';
 
 const COOKIE_NAME = 'infrapulse_session';
 const COOKIE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
@@ -10,7 +12,7 @@ function setSessionCookie(res, token) {
   res.cookie(COOKIE_NAME, token, {
     httpOnly: true,
     sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
+    secure: config.cookieSecure,
     maxAge: COOKIE_MAX_AGE_MS,
     path: '/'
   });
@@ -128,6 +130,8 @@ export async function updateUserRole(req, res, next) {
     }
 
     const updatedUser = await usersRepo.updateUserRole(id, role);
+    // Invalidate sessions immediately so permission changes take effect
+    await sessionsRepo.deleteUserSessions(id);
 
     await recordAuditEvent({
       actor: req.user,
@@ -152,3 +156,16 @@ export async function updateUserRole(req, res, next) {
   }
 }
 
+
+export async function revokeSessions(req, res, next) {
+  try {
+    const count = await sessionsRepo.deleteUserSessions(req.user.id);
+    res.json({
+      status: 'ok',
+      message: 'All active sessions revoked successfully.',
+      revokedCount: count
+    });
+  } catch (err) {
+    next(err);
+  }
+}

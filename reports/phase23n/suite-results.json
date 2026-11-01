@@ -1,0 +1,112 @@
+[
+  {
+    "name": "backend",
+    "status": 0,
+    "ms": 18377.205,
+    "counts": {
+      "tests": 60,
+      "pass": 60,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "cloudLifecycle",
+    "status": 0,
+    "ms": 2794.6793,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "awsReadOnlyDiscovery",
+    "status": 0,
+    "ms": 2593.629399999998,
+    "counts": {
+      "tests": 13,
+      "pass": 13,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "driftDetectionReconciliation",
+    "status": 0,
+    "ms": 1740.397100000002,
+    "counts": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "realInfrastructureIntegrations",
+    "status": 0,
+    "ms": 2105.859800000002,
+    "counts": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "liveObservabilityIncidentIntelligence",
+    "status": 0,
+    "ms": 1662.983500000002,
+    "counts": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "autonomousSreIntelligence",
+    "status": 0,
+    "ms": 1206.0188999999991,
+    "counts": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "enterpriseProductionHardening",
+    "status": 0,
+    "ms": 1455.5241000000024,
+    "counts": {
+      "tests": 10,
+      "pass": 10,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "enterpriseIntegrations",
+    "status": 0,
+    "ms": 1822.2882000000027,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "runbooks",
+    "status": 0,
+    "ms": 6842.219799999999,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "skipped": 0
+    }
+  }
+]

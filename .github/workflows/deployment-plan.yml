@@ -1,0 +1,124 @@
+# Phase 25: build/validate/plan only. No publication or deployment commands.
+name: Reusable deployment plan only
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        required: true
+      operation:
+        type: string
+        required: true
+      version:
+        type: string
+        required: true
+      commit:
+        type: string
+        required: true
+      release_run_id:
+        type: string
+        required: true
+      current_version:
+        type: string
+        required: true
+      backup_evidence:
+        type: string
+        required: true
+      acknowledgement:
+        type: string
+        required: true
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: plan-${{ inputs.environment }}
+  cancel-in-progress: false
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env: &a1
+      PLAN_ENVIRONMENT: ${{ inputs.environment }}
+      PLAN_OPERATION: ${{ inputs.operation }}
+      RELEASE_VERSION: ${{ inputs.version }}
+      RELEASE_COMMIT: ${{ inputs.commit }}
+      RELEASE_RUN_ID: ${{ inputs.release_run_id }}
+      CURRENT_VERSION: ${{ inputs.current_version }}
+      PLAN_ACKNOWLEDGEMENT: ${{ inputs.acknowledgement }}
+      CI_EVIDENCE_FILE: reports/ci/ci-evidence.json
+      BACKUP_EVIDENCE_FILE: reports/ci/backup-evidence.json
+      BACKUP_EVIDENCE: ${{ inputs.backup_evidence }}
+    outputs:
+      artifact_id: ${{ steps.provenance.outputs.artifact-id }}
+    steps:
+      - &a2
+        name: Checkout reviewed source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - &a3
+        name: Node 24
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: |-
+            package-lock.json
+            backend/package-lock.json
+            frontend/package-lock.json
+      - name: Validate trusted run and existing environment protection
+        id: provenance
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/release/github-evidence.mjs
+      - name: Upload plan-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+        if: ${{ success() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: plan-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: reports/ci/ci-evidence.json
+          if-no-files-found: error
+          retention-days: 7
+          include-hidden-files: false
+  plan:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: ${{ inputs.environment }}
+    env: *a1
+    steps:
+      - *a2
+      - *a3
+      - name: Get verified plan evidence
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: plan-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: reports/ci
+          digest-mismatch: error
+      - name: Download exact trusted candidate artifact
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          artifact-ids: ${{ needs.preflight.outputs.artifact_id }}
+          run-id: ${{ inputs.release_run_id }}
+          github-token: ${{ github.token }}
+          merge-multiple: true
+          digest-mismatch: error
+          path: reports/ci/candidate
+      - name: Verify backup attestation; generate blocked plan without execution
+        run: |-
+          node scripts/release/backup-input.mjs
+          node scripts/release/plan.mjs
+      - name: Upload deployment-plan-${{ inputs.environment }}-${{ github.run_id }}
+        if: ${{ success() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: deployment-plan-${{ inputs.environment }}-${{ github.run_id }}
+          path: reports/ci/deployment-plan.json
+          if-no-files-found: error
+          retention-days: 7
+          include-hidden-files: false
+      - name: Failure guidance
+        if: ${{ failure() }}
+        run: echo "::error::Plan rejected. Keep deployment disabled; inspect CI, approval and backup evidence. See docs/ROLLBACK_AUTOMATION.md."
+      - name: Deployment remains disabled
+        run: 'echo "PLAN ONLY: no deployment or health request performed. Real verification/rollback requires a future authorized implementation." >> "$GITHUB_STEP_SUMMARY"'

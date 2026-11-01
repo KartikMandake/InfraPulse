@@ -6,8 +6,10 @@ import { SimulationNotice } from './SimulationNotice.jsx';
 import { CommandPalette } from './CommandPalette.jsx';
 import { HypothesisModal } from '../common/HypothesisModal.jsx';
 import { ToastContainer } from '../common/ToastContainer.jsx';
+import {useApp} from '../../context/AppContext.jsx';
 
 export const AppLayout = () => {
+  const {backendError}=useApp();
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-[#030407] text-[#e2e2e9]">
       {/* Sidebar Navigation */}
@@ -23,6 +25,7 @@ export const AppLayout = () => {
 
         {/* Dynamic Route Pages */}
         <main className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 bg-[#030407]">
+          {backendError&&<div role="alert" className="mb-3 rounded border border-red-700 bg-red-950 p-3 text-sm text-red-200">{backendError}</div>}
           <div className="max-w-7xl mx-auto w-full">
             <Outlet />
           </div>

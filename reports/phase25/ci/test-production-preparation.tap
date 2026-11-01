@@ -1,0 +1,124 @@
+TAP version 13
+# {"timestamp":"2026-11-01T02:59:44.856Z","severity":"ERROR","service":"infrapulse-backend","correlationId":"corr_test","method":"GET","route":"/api/test","statusCode":500,"message":"HTTP request failed"}
+# {"timestamp":"2026-11-01T02:59:44.857Z","severity":"ERROR","service":"infrapulse-backend","method":"GET","route":"/api/test","statusCode":503,"code":"ECONNREFUSED","message":"HTTP request failed"}
+# {"timestamp":"2026-11-01T02:59:44.864Z","severity":"INFO","service":"infrapulse-backend","signal":"SIGTERM","message":"Graceful shutdown started"}
+# {"timestamp":"2026-11-01T02:59:44.865Z","severity":"INFO","service":"infrapulse-backend","message":"Graceful shutdown completed"}
+# {"timestamp":"2026-11-01T02:59:44.866Z","severity":"INFO","service":"infrapulse-backend","signal":"SIGTERM","message":"Graceful shutdown started"}
+# Subtest: Production configuration accepts verified TLS and explicit secure settings
+ok 1 - Production configuration accepts verified TLS and explicit secure settings
+  ---
+  duration_ms: 11.3056
+  type: 'test'
+  ...
+# Subtest: Production secrets reject absent, fallback, placeholder and low-diversity keys
+ok 2 - Production secrets reject absent, fallback, placeholder and low-diversity keys
+  ---
+  duration_ms: 3.6782
+  type: 'test'
+  ...
+# Subtest: Remote TLS downgrade, invalid CA and URL connection override are rejected
+ok 3 - Remote TLS downgrade, invalid CA and URL connection override are rejected
+  ---
+  duration_ms: 2.7507
+  type: 'test'
+  ...
+# Subtest: Authenticated Unix socket and loopback permit local TLS exemption
+ok 4 - Authenticated Unix socket and loopback permit local TLS exemption
+  ---
+  duration_ms: 0.6137
+  type: 'test'
+  ...
+# Subtest: Missing DB identity, untrusted origins, cookies, proxy and wrong regions fail closed
+ok 5 - Missing DB identity, untrusted origins, cookies, proxy and wrong regions fail closed
+  ---
+  duration_ms: 5.3202
+  type: 'test'
+  ...
+# Subtest: Production forbids startup migrations, seeding, SQL debug and every mutation switch
+ok 6 - Production forbids startup migrations, seeding, SQL debug and every mutation switch
+  ---
+  duration_ms: 2.2192
+  type: 'test'
+  ...
+# Subtest: Configuration bounds and environment separation reject malformed settings
+ok 7 - Configuration bounds and environment separation reject malformed settings
+  ---
+  duration_ms: 2.815
+  type: 'test'
+  ...
+# Subtest: Secret-file loading has no silent precedence and reports no values or paths
+ok 8 - Secret-file loading has no silent precedence and reports no values or paths
+  ---
+  duration_ms: 20.3859
+  type: 'test'
+  ...
+# Subtest: Logger redacts top-level text, nested keys and excessive depth
+ok 9 - Logger redacts top-level text, nested keys and excessive depth
+  ---
+  duration_ms: 4.8834
+  type: 'test'
+  ...
+# Subtest: Request correlation is bounded and query-string credentials never enter request logs
+ok 10 - Request correlation is bounded and query-string credentials never enter request logs
+  ---
+  duration_ms: 1.9902
+  type: 'test'
+  ...
+# Subtest: Production SQL errors expose neither statement, details nor stack; outages return 503
+ok 11 - Production SQL errors expose neither statement, details nor stack; outages return 503
+  ---
+  duration_ms: 2.2328
+  type: 'test'
+  ...
+# Subtest: HTTPS requirement exempts probes and emits HSTS after trusted proxy processing
+ok 12 - HTTPS requirement exempts probes and emits HSTS after trusted proxy processing
+  ---
+  duration_ms: 1.625
+  type: 'test'
+  ...
+# Subtest: Authentication limits isolate clients, expire buckets and bound memory
+ok 13 - Authentication limits isolate clients, expire buckets and bound memory
+  ---
+  duration_ms: 1.8946
+  type: 'test'
+  ...
+# Subtest: Database pool applies limits and CA verification consistently
+ok 14 - Database pool applies limits and CA verification consistently
+  ---
+  duration_ms: 1.6397
+  type: 'test'
+  ...
+# Subtest: Shutdown is idempotent and closes the pool after HTTP and active batches drain
+ok 15 - Shutdown is idempotent and closes the pool after HTTP and active batches drain
+  ---
+  duration_ms: 1.8848
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:59:44.887Z","severity":"ERROR","service":"infrapulse-backend","message":"Graceful shutdown deadline exceeded"}
+# Subtest: Shutdown deadline fails visibly rather than reporting a successful drain
+ok 16 - Shutdown deadline fails visibly rather than reporting a successful drain
+  ---
+  duration_ms: 53.3597
+  type: 'test'
+  ...
+# Subtest: Worker prevents overlapping batches and stop awaits its active batch
+ok 17 - Worker prevents overlapping batches and stop awaits its active batch
+  ---
+  duration_ms: 76.6555
+  type: 'test'
+  ...
+# Subtest: Worker health probe rejects missing, malformed, failed and stale heartbeats
+ok 18 - Worker health probe rejects missing, malformed, failed and stale heartbeats
+  ---
+  duration_ms: 978.1833
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1669.4858

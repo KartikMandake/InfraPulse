@@ -1,0 +1,17 @@
+{
+  "runtimeRole": "infrapulse_tenant_runtime",
+  "auditId": "aud_mvx5lkhy_9mze8",
+  "rejected": false,
+  "temporaryUpdate": {
+    "rowCount": 1,
+    "metadata": {
+      "forged": true
+    }
+  },
+  "afterRollback": {
+    "metadata": {
+      "original": true
+    }
+  },
+  "scope": "Disposable followup database only; modification rolled back"
+}

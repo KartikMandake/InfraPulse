@@ -1,0 +1,275 @@
+[
+  {
+    "name": "backend",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 15287.961599999999,
+    "counts": {
+      "tests": 60,
+      "pass": 60,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "reliability-reliability",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1783.1505000000016,
+    "counts": {
+      "tests": 6,
+      "pass": 6,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "rca-evaluation-rcaEngineEnhancement",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 706.6615999999995,
+    "counts": {
+      "tests": 11,
+      "pass": 11,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "rca-evaluation-aiAssistant",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1455.2105999999985,
+    "counts": {
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "remediation-runbookOrchestration",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 6753.077800000003,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "slo-sloReliability",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 815.6700000000019,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "changes-changeIntelligence",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 966.5666999999994,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "correlation-unifiedCorrelation",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 736.2801,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "operations-operationalIntelligence",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 811.1725000000006,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "integrations-enterpriseIntegrations",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1607.8577000000005,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "release-fullLifecycleE2E",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 7098.999400000004,
+    "counts": {
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "release-failureRecovery",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 2552.265299999999,
+    "counts": {
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "cloud-lifecycle-cloudLifecycle",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 2753.569499999998,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "cloud-lifecycle-awsReadOnlyDiscovery",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 2463.1805999999997,
+    "counts": {
+      "tests": 13,
+      "pass": 13,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "cloud-lifecycle-driftDetectionReconciliation",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1725.2209999999977,
+    "counts": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "cloud-lifecycle-realInfrastructureIntegrations",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1703.2180999999982,
+    "counts": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "cloud-lifecycle-liveObservabilityIncidentIntelligence",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1593.1907000000065,
+    "counts": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "cloud-lifecycle-liveIntegrationAcceptance",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1043.8880999999965,
+    "counts": {
+      "tests": 6,
+      "pass": 1,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 5
+    }
+  },
+  {
+    "name": "cloud-lifecycle-autonomousSreIntelligence",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1124.598199999993,
+    "counts": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "cloud-lifecycle-enterpriseProductionHardening",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1482.520899999996,
+    "counts": {
+      "tests": 10,
+      "pass": 10,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "name": "governed-remediation-safe",
+    "node": "v24.22.2",
+    "status": 0,
+    "ms": 1708.5136000000057,
+    "counts": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  }
+]

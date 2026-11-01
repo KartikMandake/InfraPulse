@@ -1,0 +1,107 @@
+TAP version 13
+# Subtest: Phase 23J: Governed Automated Remediation Intelligence
+    # Subtest: 1. Policy: Strictly blocks prohibited actions (resource/database deletion, arbitrary scripts)
+    ok 1 - 1. Policy: Strictly blocks prohibited actions (resource/database deletion, arbitrary scripts)
+      ---
+      duration_ms: 46.8559
+      type: 'test'
+      ...
+    # Subtest: 2. Production Protection: Automated remediation blocked by default in production
+    ok 2 - 2. Production Protection: Automated remediation blocked by default in production
+      ---
+      duration_ms: 12.2502
+      type: 'test'
+      ...
+    # Subtest: 3. Recommendation: Generates evidence-backed proposal when RCA confirms underlying container failure
+    ok 3 - 3. Recommendation: Generates evidence-backed proposal when RCA confirms underlying container failure
+      ---
+      duration_ms: 167.0364
+      type: 'test'
+      ...
+    # Subtest: 4. Insufficient Evidence: Never generates actionable recommendations from WEAK_HYPOTHESIS
+    ok 4 - 4. Insufficient Evidence: Never generates actionable recommendations from WEAK_HYPOTHESIS
+      ---
+      duration_ms: 25.4532
+      type: 'test'
+      ...
+    # Subtest: 5. Risk Assessment: Accurately scores risk and identifies downstream caller dependencies
+    ok 5 - 5. Risk Assessment: Accurately scores risk and identifies downstream caller dependencies
+      ---
+      duration_ms: 27.5233
+      type: 'test'
+      ...
+    # Subtest: 6. Dry-Run: Evaluates preconditions and blast radius with zero mutations
+    ok 6 - 6. Dry-Run: Evaluates preconditions and blast radius with zero mutations
+      ---
+      duration_ms: 44.2397
+      type: 'test'
+      ...
+    # Subtest: 7. Separation of Duties: Rejects self-approval attempt by the requester
+    ok 7 - 7. Separation of Duties: Rejects self-approval attempt by the requester
+      ---
+      duration_ms: 51.2002
+      type: 'test'
+      ...
+    # Subtest: 8. Multi-Party Approval: Independent administrator successfully approves remediation plan
+    ok 8 - 8. Multi-Party Approval: Independent administrator successfully approves remediation plan
+      ---
+      duration_ms: 71.895
+      type: 'test'
+      ...
+    # Subtest: 9. Expiration: Rejects approval attempt on expired remediation approval request
+    ok 9 - 9. Expiration: Rejects approval attempt on expired remediation approval request
+      ---
+      duration_ms: 36.9486
+      type: 'test'
+      ...
+    # Subtest: 10. Plan Immutability: Rejects approval when provided plan hash does not match immutable version
+    ok 10 - 10. Plan Immutability: Rejects approval when provided plan hash does not match immutable version
+      ---
+      duration_ms: 45.254
+      type: 'test'
+      ...
+    # Subtest: 13. Workload Safety: Blocks remediation on kube-system namespace and database containers
+    ok 11 - 13. Workload Safety: Blocks remediation on kube-system namespace and database containers
+      ---
+      duration_ms: 22.6134
+      type: 'test'
+      ...
+    # Subtest: 14. Verification: Classifies outcome based on container health, error rate, and active alerts
+    ok 12 - 14. Verification: Classifies outcome based on container health, error rate, and active alerts
+      ---
+      duration_ms: 10.3424
+      type: 'test'
+      ...
+    # Subtest: 15. Recovery Strategy: Defines non-destructive compensating actions for all allowlisted mutations
+    ok 13 - 15. Recovery Strategy: Defines non-destructive compensating actions for all allowlisted mutations
+      ---
+      duration_ms: 9.0941
+      type: 'test'
+      ...
+    # Subtest: 16. Isolation: Prevents cross-tenant access to recommendations, approvals, and executions
+    ok 14 - 16. Isolation: Prevents cross-tenant access to recommendations, approvals, and executions
+      ---
+      duration_ms: 15.0398
+      type: 'test'
+      ...
+    # Subtest: 17. Audit Trail: All mutation events and verification milestones are permanently recorded
+    ok 15 - 17. Audit Trail: All mutation events and verification milestones are permanently recorded
+      ---
+      duration_ms: 38.0908
+      type: 'test'
+      ...
+    1..15
+ok 1 - Phase 23J: Governed Automated Remediation Intelligence
+  ---
+  duration_ms: 810.439
+  type: 'suite'
+  ...
+1..1
+# tests 15
+# suites 1
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1616.4226

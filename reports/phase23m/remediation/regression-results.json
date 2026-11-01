@@ -1,0 +1,42 @@
+[
+  {
+    "file": "criticalRemediation23m.test.mjs",
+    "status": 0,
+    "counts": {
+      "tests": 16,
+      "pass": 16,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "file": "pipelineRemediation23m.test.mjs",
+    "status": 0,
+    "counts": {
+      "tests": 14,
+      "pass": 14,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "file": "correctnessRemediation23m.test.mjs",
+    "status": 0,
+    "counts": {
+      "tests": 11,
+      "pass": 11,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "file": "documentationRemediation23m.test.mjs",
+    "status": 0,
+    "counts": {
+      "tests": 3,
+      "pass": 3,
+      "fail": 0,
+      "skipped": 0
+    }
+  }
+]

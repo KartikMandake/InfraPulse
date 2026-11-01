@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-31T19:55:35.937Z",
+  "http": [
+    {
+      "base": "http://127.0.0.1:5020",
+      "route": "/api/health/live",
+      "status": 200
+    },
+    {
+      "base": "http://127.0.0.1:5020",
+      "route": "/api/health/ready",
+      "status": 200
+    },
+    {
+      "base": "http://127.0.0.1:5021",
+      "route": "/api/health/ready",
+      "status": 200
+    },
+    {
+      "route": "/api/health/diagnostics",
+      "authenticated": true,
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5190",
+      "status": 200
+    }
+  ],
+  "reportEmDashPresent": true,
+  "reportMojibakePresent": false,
+  "whitespace": {
+    "status": 0,
+    "ms": 182.5143999999999,
+    "stdout": "",
+    "stderr": "warning: in the working copy of '.env.example', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.github/workflows/benchmark.yml', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.github/workflows/ci.yml', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/app.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/controllers/alerts.controller.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/controllers/auth.controller.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/controllers/change.controller.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/controllers/deployments.controller.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/controllers/integrations.controller.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/db/connection.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/integrations/core/IntegrationRegistry.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/integrations/providers/kubernetes/KubernetesProvider.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/integrations/providers/opentelemetry/OpenTelemetryProvider.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/integrations/providers/prometheus/PrometheusProvider.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/integrations/telemetry/telemetry.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/middleware/csrf.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/repositories/integration.repository.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/routes/health.routes.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/routes/integrations.routes.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/server.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/services/alertRules.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/services/deploymentHistory.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/services/faultLab.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/services/incidents.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/services/integration.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/services/investigation.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/services/services.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/services/slo.service.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'backend/src/worker.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'deploy/docker-compose.yml', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/Dockerfile', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/nginx.conf', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/package.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/App.jsx', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/components/layout/Sidebar.jsx', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/context/AuthContext.jsx', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/pages/IntegrationsPage.jsx', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/services/api.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it\n"
+  }
+}

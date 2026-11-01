@@ -1,0 +1,7 @@
+{
+  "status": 0,
+  "signal": null,
+  "ms": 845.6408999999994,
+  "stdout": "[Seed] Seeding database idempotently...\n[Seed] Database seeded successfully.\n[Seed Complete]\n",
+  "stderr": ""
+}

@@ -1,0 +1,334 @@
+{
+  "results": [
+    {
+      "name": "All 19 production routes render without browser runtime errors",
+      "status": "PASS",
+      "routes": [
+        {
+          "route": "/",
+          "textLength": 8358,
+          "headings": [
+            "System Health & Incident Intelligence"
+          ]
+        },
+        {
+          "route": "/system-overview",
+          "textLength": 1277,
+          "headings": [
+            "System Overview"
+          ]
+        },
+        {
+          "route": "/services",
+          "textLength": 1606,
+          "headings": [
+            "Services & Topology Correlation"
+          ]
+        },
+        {
+          "route": "/services/phase23m-pay-mvwtkhet",
+          "textLength": 596,
+          "headings": [
+            "phase23m-pay-mvwtkhet"
+          ]
+        },
+        {
+          "route": "/incidents",
+          "textLength": 4369,
+          "headings": [
+            "Incident Management & War Rooms"
+          ]
+        },
+        {
+          "route": "/incidents/INC-9170",
+          "textLength": 5415,
+          "headings": [
+            "Incident: Cascading anomaly detected on phase23m-pay-mvwtkhet"
+          ]
+        },
+        {
+          "route": "/alerts",
+          "textLength": 10552,
+          "headings": [
+            "Alerts Center & Intelligent Correlation"
+          ]
+        },
+        {
+          "route": "/telemetry",
+          "textLength": 1040,
+          "headings": [
+            "Telemetry Explorer (OTel / ClickHouse)"
+          ]
+        },
+        {
+          "route": "/deployments",
+          "textLength": 1222,
+          "headings": [
+            "Deployments & Change Intelligence"
+          ]
+        },
+        {
+          "route": "/slos",
+          "textLength": 2054,
+          "headings": [
+            "SLO & Error Budget Intelligence"
+          ]
+        },
+        {
+          "route": "/runbooks",
+          "textLength": 2928,
+          "headings": [
+            "Runbook Orchestrator & Safe Remediation"
+          ]
+        },
+        {
+          "route": "/fault-injection",
+          "textLength": 2862,
+          "headings": [
+            "Fault Injection Lab & RCA Benchmark"
+          ]
+        },
+        {
+          "route": "/reports",
+          "textLength": 1515,
+          "headings": [
+            "Reports & Blameless Postmortems"
+          ]
+        },
+        {
+          "route": "/operations",
+          "textLength": 4065,
+          "headings": [
+            "psychologyOperational Intelligence & Predictive Prevention"
+          ]
+        },
+        {
+          "route": "/cloud-lifecycle",
+          "textLength": 9289,
+          "headings": [
+            "Cloud Resource Lifecycle & Cost Governance"
+          ]
+        },
+        {
+          "route": "/sre-intelligence",
+          "textLength": 2399,
+          "headings": [
+            "Autonomous SRE Intelligence"
+          ]
+        },
+        {
+          "route": "/integrations",
+          "textLength": 2288,
+          "headings": [
+            "Enterprise Integrations & Platform Ecosystem"
+          ]
+        },
+        {
+          "route": "/team",
+          "textLength": 651,
+          "headings": [
+            "Identity, RBAC & Security Audit"
+          ]
+        },
+        {
+          "route": "/auth",
+          "textLength": 616,
+          "headings": [
+            "Authentication & Cluster Onboarding"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "M16 viewer and responder retain cloud inventory without requesting admin audit",
+      "status": "PASS",
+      "roles": [
+        {
+          "role": "viewer",
+          "visibleResource": "phase23m-pay-mvwtkhet",
+          "adminAuditRequests": []
+        },
+        {
+          "role": "responder",
+          "visibleResource": "phase23m-pay-mvwtkhet",
+          "adminAuditRequests": []
+        }
+      ]
+    },
+    {
+      "name": "M17 mobile account controls and all integration tabs stay within 390px",
+      "status": "PASS",
+      "bounds": [
+        {
+          "text": "Toggle Navigation Menu",
+          "left": 12,
+          "right": 44
+        },
+        {
+          "text": "prod-k8s-mesh (us-east-1)eu-k8s-mesh (eu-central-1)staging-mesh (us-west-2)",
+          "left": 64,
+          "right": 194
+        },
+        {
+          "text": "Last 15mLast 1hLast 6hLast 24h",
+          "left": 0,
+          "right": 0
+        },
+        {
+          "text": "Open AI Root-Cause Diagnostic Report",
+          "left": 255,
+          "right": 295
+        },
+        {
+          "text": "Switch User / Role",
+          "left": 303,
+          "right": 378
+        }
+      ],
+      "tabs": [
+        {
+          "text": "Notification Rails",
+          "rect": {
+            "x": 12,
+            "y": 410,
+            "width": 366,
+            "height": 38
+          }
+        },
+        {
+          "text": "Community Connectors",
+          "rect": {
+            "x": 12,
+            "y": 488,
+            "width": 366,
+            "height": 38
+          }
+        },
+        {
+          "text": "Enterprise Ecosystem",
+          "rect": {
+            "x": 12,
+            "y": 364,
+            "width": 366,
+            "height": 38
+          }
+        }
+      ],
+      "fonts": {
+        "status": "loaded",
+        "faces": [
+          {
+            "family": "Geist",
+            "status": "unloaded"
+          },
+          {
+            "family": "Geist",
+            "status": "unloaded"
+          },
+          {
+            "family": "Geist",
+            "status": "unloaded"
+          },
+          {
+            "family": "Geist",
+            "status": "unloaded"
+          },
+          {
+            "family": "Geist",
+            "status": "loaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "unloaded"
+          },
+          {
+            "family": "JetBrains Mono",
+            "status": "loaded"
+          },
+          {
+            "family": "Material Symbols Outlined",
+            "status": "loaded"
+          }
+        ]
+      }
+    },
+    {
+      "name": "M18 incomplete JSON survives typing and invalid submit sends no configuration",
+      "status": "PASS",
+      "partialDraft": "{",
+      "invalidSubmitRequests": [],
+      "validPasteRetained": true
+    },
+    {
+      "name": "M19 denied clipboard shows recoverable feedback without unhandled rejection",
+      "status": "PASS",
+      "recoverableFeedback": true
+    },
+    {
+      "name": "M19 allowed clipboard copies a complete Markdown report",
+      "status": "PASS",
+      "copiedCharacters": 875
+    },
+    {
+      "name": "M25 backend errors display an error instead of seeded service data",
+      "status": "PASS",
+      "outage503Visible": true,
+      "seededPaymentServiceVisible": false
+    },
+    {
+      "name": "M23 admin operational sync controls invoke authorized endpoints",
+      "status": "PASS",
+      "statuses": [
+        {
+          "endpoint": "/patterns/sync",
+          "status": 200
+        },
+        {
+          "endpoint": "/early-warnings/sync",
+          "status": 200
+        }
+      ]
+    }
+  ],
+  "pageErrors": []
+}

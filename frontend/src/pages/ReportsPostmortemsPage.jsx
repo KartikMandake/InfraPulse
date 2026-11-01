@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import {copyText} from '../utils/operatorFeedback.js';
 
 export const ReportsPostmortemsPage = () => {
   const { postmortems, addToast } = useApp();
@@ -9,10 +10,11 @@ export const ReportsPostmortemsPage = () => {
 
   const report = localPostmortems.find(p => p.id === selectedPostId) || localPostmortems[0] || { preventativeActions: [] };
 
-  const handleCopyMarkdown = () => {
+  const handleCopyMarkdown = async () => {
     const md = `# ${report.title}\n\n**Author:** ${report.author}\n**Date:** ${report.createdAt}\n**Impact Duration:** ${report.impactDuration}\n\n## Root Cause\n${report.rootCause}\n\n## Action Items\n` + 
       report.preventativeActions?.map(a => `- [${a.status}] (${a.priority}) ${a.description} - Owner: ${a.owner}`).join('\n');
-    navigator.clipboard.writeText(md);
+    const result=await copyText(md);
+    if(!result.ok){setCopied(false);addToast({type:'error',title:'Export could not be copied',description:result.error});return;}
     setCopied(true);
     addToast({
       type: 'success',

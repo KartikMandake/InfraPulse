@@ -1,0 +1,6 @@
+{
+  "status": 0,
+  "ms": 413.5253,
+  "stdout": "[Migrations] Applying migration: 022_cross_workflow_resource_exclusion.sql...\n[Migrations] Successfully applied: 022_cross_workflow_resource_exclusion.sql\n[Migrations Complete] 1 migration(s) applied.\n",
+  "stderr": ""
+}

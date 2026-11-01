@@ -1,0 +1,409 @@
+TAP version 13
+# [Seed] Seeding database idempotently...
+# [Seed] Database seeded successfully.
+# Subtest: 1. Password Hashing: Plaintext is never stored in DB or returned in API responses
+ok 1 - 1. Password Hashing: Plaintext is never stored in DB or returned in API responses
+  ---
+  duration_ms: 948.3152
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:48.256Z","severity":"ERROR","service":"infrapulse-backend","correlationId":"corr_12c81681e4944ca6","method":"POST","route":"/api/auth/register","statusCode":400,"message":"HTTP request failed"}
+# {"timestamp":"2026-11-01T02:58:48.265Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_12c81681e4944ca6","method":"POST","route":"/api/auth/register","statusCode":400,"durationMs":669,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:48.729Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_8759f805f4460705","method":"POST","route":"/register","statusCode":201,"durationMs":443,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 2. Authentication: User registration creates account with viewer role and rejects invalid data
+ok 2 - 2. Authentication: User registration creates account with viewer role and rejects invalid data
+  ---
+  duration_ms: 1200.224
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:48.935Z","severity":"ERROR","service":"infrapulse-backend","correlationId":"corr_d9a0e27958fb8f64","method":"POST","route":"/api/auth/login","statusCode":401,"message":"HTTP request failed"}
+# {"timestamp":"2026-11-01T02:58:48.936Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_d9a0e27958fb8f64","method":"POST","route":"/api/auth/login","statusCode":401,"durationMs":196,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.152Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_ae860dae7cc9663b","method":"POST","route":"/login","statusCode":200,"durationMs":212,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 3. Authentication: Login validates credentials and issues server-side session
+ok 3 - 3. Authentication: Login validates credentials and issues server-side session
+  ---
+  duration_ms: 427.5199
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:49.364Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_6bca3f075c3a9cda","method":"POST","route":"/login","statusCode":200,"durationMs":196,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.380Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_03aa37c2079843dd","method":"PATCH","route":"/ALT-1092/acknowledge","statusCode":403,"durationMs":12,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.394Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_ca47e733bb36a486","method":"POST","route":"/","statusCode":403,"durationMs":10,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.405Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_78ca4f71b69756de","method":"GET","route":"/","statusCode":403,"durationMs":8,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 4. RBAC: Viewer cannot execute mutating operations (403 Forbidden)
+ok 4 - 4. RBAC: Viewer cannot execute mutating operations (403 Forbidden)
+  ---
+  duration_ms: 242.6881
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:49.612Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_de84b423b52923f1","method":"POST","route":"/login","statusCode":200,"durationMs":200,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.649Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_5c34176c576eef98","method":"PATCH","route":"/ALT-1092/acknowledge","statusCode":200,"durationMs":32,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.659Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_ccfe00f75e5fae87","method":"GET","route":"/","statusCode":403,"durationMs":8,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.670Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_17f90cd21a19fab6","method":"POST","route":"/","statusCode":403,"durationMs":8,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 5. RBAC: Responder can triage/acknowledge alerts but cannot create alert rules or view audit logs
+ok 5 - 5. RBAC: Responder can triage/acknowledge alerts but cannot create alert rules or view audit logs
+  ---
+  duration_ms: 264.131
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:49.898Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_cfe97586e8ed76ee","method":"POST","route":"/login","statusCode":200,"durationMs":223,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.910Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_96b26ce5a32939fa","method":"POST","route":"/","statusCode":201,"durationMs":9,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:49.936Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_6ef53a2586941b2f","method":"GET","route":"/","statusCode":200,"durationMs":24,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 6. RBAC: Admin has full privileged access across alert rules and audit logs
+ok 6 - 6. RBAC: Admin has full privileged access across alert rules and audit logs
+  ---
+  duration_ms: 267.4018
+  type: 'test'
+  ...
+# Subtest: 7. Audit Logging: Permission denials and auth events are recorded with sanitized metadata
+ok 7 - 7. Audit Logging: Permission denials and auth events are recorded with sanitized metadata
+  ---
+  duration_ms: 11.9212
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:49.955Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_f14b8a16bdf0d907","method":"PATCH","route":"/api/alerts/ALT-1092/acknowledge","statusCode":401,"durationMs":1,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 8. Authentication: Unauthenticated mutating requests return 401 Unauthorized
+ok 8 - 8. Authentication: Unauthenticated mutating requests return 401 Unauthorized
+  ---
+  duration_ms: 4.4414
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:50.153Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_dcbeaaf5e428f752","method":"POST","route":"/login","statusCode":200,"durationMs":195,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:50.168Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_b0c583ac5734a176","method":"POST","route":"/logout","statusCode":200,"durationMs":11,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 9. Authentication: Logout terminates active session
+ok 9 - 9. Authentication: Logout terminates active session
+  ---
+  duration_ms: 214.9405
+  type: 'test'
+  ...
+# [Seed] Seeding database idempotently...
+# [Seed] Database seeded successfully.
+# Subtest: 1. Notification Trigger: New incident creation generates persistent notification delivery records
+ok 10 - 1. Notification Trigger: New incident creation generates persistent notification delivery records
+  ---
+  duration_ms: 974.877
+  type: 'test'
+  ...
+# Subtest: 2. Idempotency: Duplicate events for the same incident do not generate duplicate delivery records
+ok 11 - 2. Idempotency: Duplicate events for the same incident do not generate duplicate delivery records
+  ---
+  duration_ms: 71.5181
+  type: 'test'
+  ...
+# Subtest: 3. Slack Content: Block Kit payload formats incident details and AI hypothesis clearly
+ok 12 - 3. Slack Content: Block Kit payload formats incident details and AI hypothesis clearly
+  ---
+  duration_ms: 2.1995
+  type: 'test'
+  ...
+# Subtest: 4. Security & Error Handling: Missing configuration produces explicit error and secrets are never leaked
+ok 13 - 4. Security & Error Handling: Missing configuration produces explicit error and secrets are never leaked
+  ---
+  duration_ms: 14.8142
+  type: 'test'
+  ...
+# Subtest: 5. Delivery Retries & Bounded Backoff: Failed attempts back off exponentially and track count
+ok 14 - 5. Delivery Retries & Bounded Backoff: Failed attempts back off exponentially and track count
+  ---
+  duration_ms: 16.4162
+  type: 'test'
+  ...
+# Subtest: 6. Decoupling: Provider timeouts or dispatch failures do not block or revert incident creation
+ok 15 - 6. Decoupling: Provider timeouts or dispatch failures do not block or revert incident creation
+  ---
+  duration_ms: 59.7329
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:53.327Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_40125bc085ea88b2","method":"POST","route":"/login","statusCode":200,"durationMs":267,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:53.556Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_701c17893707ed33","method":"POST","route":"/login","statusCode":200,"durationMs":205,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:53.760Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_fcccf18a01032e40","method":"POST","route":"/login","statusCode":200,"durationMs":198,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:53.786Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_c34fe43066ef90ab","method":"GET","route":"/","statusCode":200,"durationMs":22,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:53.803Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_09515bcc131a11c1","method":"POST","route":"/test","statusCode":403,"durationMs":12,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:53.819Z","severity":"WARN","service":"infrapulse-backend","correlationId":"corr_f79f011033508a18","method":"PATCH","route":"/","statusCode":403,"durationMs":9,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:53.846Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_659b6771e749c19e","method":"PATCH","route":"/","statusCode":200,"durationMs":24,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:53.885Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_d9dca37ccc91af50","method":"POST","route":"/test","statusCode":200,"durationMs":36,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 7. RBAC: Role-based permissions protect notification settings, retry, and test endpoints
+ok 16 - 7. RBAC: Role-based permissions protect notification settings, retry, and test endpoints
+  ---
+  duration_ms: 868.4176
+  type: 'test'
+  ...
+# Subtest: 8. Persistence & Restart: Pending notifications persist in PostgreSQL across simulated restart
+ok 17 - 8. Persistence & Restart: Pending notifications persist in PostgreSQL across simulated restart
+  ---
+  duration_ms: 6.6879
+  type: 'test'
+  ...
+# Subtest: 9. Audit Logging: Notification settings modifications and manual retries are audited
+ok 18 - 9. Audit Logging: Notification settings modifications and manual retries are audited
+  ---
+  duration_ms: 15.3298
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:53.913Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_d51ed551019d86ec","method":"GET","route":"/live","statusCode":200,"durationMs":1,"ip":"127.0.0.1","message":"HTTP Request"}
+# {"timestamp":"2026-11-01T02:58:53.919Z","severity":"INFO","service":"infrapulse-backend","correlationId":"corr_314718e4fc46fdb5","method":"GET","route":"/ready","statusCode":200,"durationMs":3,"ip":"127.0.0.1","message":"HTTP Request"}
+# Subtest: 10. Health Endpoints: Liveness and Readiness probes report operational status without leaking credentials
+ok 19 - 10. Health Endpoints: Liveness and Readiness probes report operational status without leaking credentials
+  ---
+  duration_ms: 11.5456
+  type: 'test'
+  ...
+# [Seed] Seeding database idempotently...
+# [Seed] Database seeded successfully.
+# Subtest: 1. Alerts survive simulated backend restart (re-fetched from PostgreSQL)
+ok 20 - 1. Alerts survive simulated backend restart (re-fetched from PostgreSQL)
+  ---
+  duration_ms: 2703.8483
+  type: 'test'
+  ...
+# Subtest: 2. Custom alert rules survive simulated backend restart
+ok 21 - 2. Custom alert rules survive simulated backend restart
+  ---
+  duration_ms: 6.7788
+  type: 'test'
+  ...
+# Subtest: 3. Alert acknowledgement and resolution persist with timestamps
+ok 22 - 3. Alert acknowledgement and resolution persist with timestamps
+  ---
+  duration_ms: 15.9813
+  type: 'test'
+  ...
+# Subtest: 4. Duplicate evaluation does not create duplicate alerts (deduplication persisted)
+ok 23 - 4. Duplicate evaluation does not create duplicate alerts (deduplication persisted)
+  ---
+  duration_ms: 616.8065
+  type: 'test'
+  ...
+# Subtest: 5. Incident creation and alert linking remain consistent within transactions
+ok 24 - 5. Incident creation and alert linking remain consistent within transactions
+  ---
+  duration_ms: 38.8424
+  type: 'test'
+  ...
+# [Seed] Seeding database idempotently...
+# [Seed] Database seeded successfully.
+# Subtest: 6. Seeding can be rerun safely without creating duplicates or overwriting updates
+ok 25 - 6. Seeding can be rerun safely without creating duplicates or overwriting updates
+  ---
+  duration_ms: 557.9807
+  type: 'test'
+  ...
+# Subtest: 7. Investigation runs are saved and retrievable from PostgreSQL
+ok 26 - 7. Investigation runs are saved and retrievable from PostgreSQL
+  ---
+  duration_ms: 11.7971
+  type: 'test'
+  ...
+# Subtest: 8. Fault simulation results can be retrieved after restart
+ok 27 - 8. Fault simulation results can be retrieved after restart
+  ---
+  duration_ms: 11.0346
+  type: 'test'
+  ...
+# {"timestamp":"2026-11-01T02:58:58.531Z","severity":"ERROR","service":"infrapulse-backend","code":"42501","message":"Database query failed"}
+# Subtest: 9. Database errors / constraint conflicts reject cleanly without false success
+ok 28 - 9. Database errors / constraint conflicts reject cleanly without false success
+  ---
+  duration_ms: 11.7283
+  type: 'test'
+  ...
+# Subtest: Fault Lab: Baseline telemetry remains completely unchanged after simulation
+ok 29 - Fault Lab: Baseline telemetry remains completely unchanged after simulation
+  ---
+  duration_ms: 12.3285
+  type: 'test'
+  ...
+# Subtest: Fault Lab: Dependency propagation affects downstream callers appropriately
+ok 30 - Fault Lab: Dependency propagation affects downstream callers appropriately
+  ---
+  duration_ms: 1.1545
+  type: 'test'
+  ...
+# Subtest: Fault Lab: Rejects invalid service IDs and unsupported fault types
+ok 31 - Fault Lab: Rejects invalid service IDs and unsupported fault types
+  ---
+  duration_ms: 1.1211
+  type: 'test'
+  ...
+# Subtest: Fault Lab: Resetting a simulation cleans up state cleanly
+ok 32 - Fault Lab: Resetting a simulation cleans up state cleanly
+  ---
+  duration_ms: 10.5299
+  type: 'test'
+  ...
+# Subtest: Fault Lab: RCA Engine evaluates simulated fault and achieves Top-1 accuracy for all 5 standard scenarios
+ok 33 - Fault Lab: RCA Engine evaluates simulated fault and achieves Top-1 accuracy for all 5 standard scenarios
+  ---
+  duration_ms: 36.8729
+  type: 'test'
+  ...
+# Subtest: Fault Lab: Determinism - Repeated simulation runs yield identical evaluation scores
+ok 34 - Fault Lab: Determinism - Repeated simulation runs yield identical evaluation scores
+  ---
+  duration_ms: 4.1675
+  type: 'test'
+  ...
+# Subtest: Backend RCA Engine: Scenario 1 - Recent Deployment Regression
+ok 35 - Backend RCA Engine: Scenario 1 - Recent Deployment Regression
+  ---
+  duration_ms: 26.6376
+  type: 'test'
+  ...
+# Subtest: Backend RCA Engine: Scenario 2 - Dependency Failure Cascade
+ok 36 - Backend RCA Engine: Scenario 2 - Dependency Failure Cascade
+  ---
+  duration_ms: 1.5796
+  type: 'test'
+  ...
+# Subtest: Backend RCA Engine: Scenario 3 - Latency Anomaly Without Deployment
+ok 37 - Backend RCA Engine: Scenario 3 - Latency Anomaly Without Deployment
+  ---
+  duration_ms: 0.9832
+  type: 'test'
+  ...
+# Subtest: Backend RCA Engine: Scenario 4 - Incomplete Telemetry Coverage
+ok 38 - Backend RCA Engine: Scenario 4 - Incomplete Telemetry Coverage
+  ---
+  duration_ms: 0.7359
+  type: 'test'
+  ...
+# Subtest: Backend RCA Engine: Scenario 5 - No Convincing Candidate (False Alarm)
+ok 39 - Backend RCA Engine: Scenario 5 - No Convincing Candidate (False Alarm)
+  ---
+  duration_ms: 0.5094
+  type: 'test'
+  ...
+# Subtest: Backend RCA Engine: Determinism & Idempotency
+ok 40 - Backend RCA Engine: Determinism & Idempotency
+  ---
+  duration_ms: 3.6049
+  type: 'test'
+  ...
+# Subtest: Backend RCA Engine: Candidate Deduplication
+ok 41 - Backend RCA Engine: Candidate Deduplication
+  ---
+  duration_ms: 0.9697
+  type: 'test'
+  ...
+# Subtest: Backend RCA Engine: Weight Normalization and Bounds
+ok 42 - Backend RCA Engine: Weight Normalization and Bounds
+  ---
+  duration_ms: 0.3212
+  type: 'test'
+  ...
+# Subtest: Telemetry Adapter: Mode switching between demo and live works as expected
+ok 43 - Telemetry Adapter: Mode switching between demo and live works as expected
+  ---
+  duration_ms: 2.7227
+  type: 'test'
+  ...
+# Subtest: Telemetry Adapter: Status reports connectivity accurately without throwing when datasources are down
+ok 44 - Telemetry Adapter: Status reports connectivity accurately without throwing when datasources are down
+  ---
+  duration_ms: 111.4752
+  type: 'test'
+  ...
+# Subtest: Telemetry Adapter: Demo mode returns valid normalized metrics, traces, and logs
+ok 45 - Telemetry Adapter: Demo mode returns valid normalized metrics, traces, and logs
+  ---
+  duration_ms: 1.2265
+  type: 'test'
+  ...
+# Subtest: 1. A latency threshold produces an alert when breached
+ok 46 - 1. A latency threshold produces an alert when breached
+  ---
+  duration_ms: 39.8455
+  type: 'test'
+  ...
+# Subtest: 2. Healthy telemetry does not produce a false alert
+ok 47 - 2. Healthy telemetry does not produce a false alert
+  ---
+  duration_ms: 3.4643
+  type: 'test'
+  ...
+# Subtest: 3. Repeated evaluation does not create duplicate alerts (deduplication)
+ok 48 - 3. Repeated evaluation does not create duplicate alerts (deduplication)
+  ---
+  duration_ms: 423.3257
+  type: 'test'
+  ...
+# Subtest: 4. Acknowledging and resolving alerts updates their lifecycle correctly
+ok 49 - 4. Acknowledging and resolving alerts updates their lifecycle correctly
+  ---
+  duration_ms: 0.9878
+  type: 'test'
+  ...
+# Subtest: 5. Related alerts link to one incident based on dependency topology
+ok 50 - 5. Related alerts link to one incident based on dependency topology
+  ---
+  duration_ms: 2.148
+  type: 'test'
+  ...
+# Subtest: 6. Unrelated alerts remain separate and do not cross-merge
+ok 51 - 6. Unrelated alerts remain separate and do not cross-merge
+  ---
+  duration_ms: 0.6536
+  type: 'test'
+  ...
+# Subtest: 7. Existing incidents are reused where appropriate without creating duplicates
+ok 52 - 7. Existing incidents are reused where appropriate without creating duplicates
+  ---
+  duration_ms: 13.7902
+  type: 'test'
+  ...
+# Subtest: 8. Insufficient or stale telemetry is handled safely without false alerts
+ok 53 - 8. Insufficient or stale telemetry is handled safely without false alerts
+  ---
+  duration_ms: 18.0612
+  type: 'test'
+  ...
+# Subtest: 9. The RCA engine receives the correct evidence from intelligent alerting
+ok 54 - 9. The RCA engine receives the correct evidence from intelligent alerting
+  ---
+  duration_ms: 2.4385
+  type: 'test'
+  ...
+# Subtest: Timeline Service: Builds unified timeline with sorted chronological events
+ok 55 - Timeline Service: Builds unified timeline with sorted chronological events
+  ---
+  duration_ms: 4.8172
+  type: 'test'
+  ...
+# Subtest: Timeline Service: Deduplication prevents identical events from appearing twice
+ok 56 - Timeline Service: Deduplication prevents identical events from appearing twice
+  ---
+  duration_ms: 1.0386
+  type: 'test'
+  ...
+# Subtest: Timeline Service: Accurately identifies preceding deployments before incident detection
+ok 57 - Timeline Service: Accurately identifies preceding deployments before incident detection
+  ---
+  duration_ms: 0.7548
+  type: 'test'
+  ...
+# Subtest: Timeline Service: Downstream impact matches service dependency graph
+ok 58 - Timeline Service: Downstream impact matches service dependency graph
+  ---
+  duration_ms: 0.5711
+  type: 'test'
+  ...
+# Subtest: Timeline Service: Rejects invalid incident ID with 404
+ok 59 - Timeline Service: Rejects invalid incident ID with 404
+  ---
+  duration_ms: 1.1188
+  type: 'test'
+  ...
+# Subtest: Timeline Service: Seamlessly correlates simulated incident events from Fault Lab
+ok 60 - Timeline Service: Seamlessly correlates simulated incident events from Fault Lab
+  ---
+  duration_ms: 9.0659
+  type: 'test'
+  ...
+1..60
+# tests 60
+# suites 0
+# pass 60
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 31616.3574

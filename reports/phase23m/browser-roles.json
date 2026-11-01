@@ -1,0 +1,200 @@
+[
+  {
+    "role": "viewer",
+    "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected (port 5000)\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nAlex Ross\nalex.ross@infrapulse.io\nVIEWER\nexpand_more\nadmin_panel_settings\nIdentity, RBAC & Security Audit\nACTIVE ROLE: VIEWER\n\nRole-Based Access Control, persistent PostgreSQL sessions, and immutable security audit logging.\n\nSwitch:\nADMIN\nRESPONDER\nVIEWER\nTeam Members & RBAC (3)\nhistory_edu\nSecurity Audit Trail\nAdmin Only\nAPI Service Tokens (2)\nNAME & EMAIL\tTITLE\tRBAC ROLE\tSTATUS\tROLE MANAGEMENT\n\nSC\nSarah Chen\nsarah.chen@infrapulse.io\nPrincipal SRE\tADMIN\t\nOnline\n\tAdmin Only\n\nMV\nMarcus Vance\nmarcus.v@infrapulse.io\nStaff SRE\tRESPONDER\t\nOnline\n\tAdmin Only\n\nAR\nAlex Ross\nalex.ross@infrapulse.io\nJunior Observability Analyst\tVIEWER\t\nIdle\n\tAdmin Only",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "role": "responder",
+    "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected (port 5000)\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nMarcus Vance\nmarcus.v@infrapulse.io\nRESPONDER\nexpand_more\nadmin_panel_settings\nIdentity, RBAC & Security Audit\nACTIVE ROLE: RESPONDER\n\nRole-Based Access Control, persistent PostgreSQL sessions, and immutable security audit logging.\n\nSwitch:\nADMIN\nRESPONDER\nVIEWER\nTeam Members & RBAC (3)\nhistory_edu\nSecurity Audit Trail\nAdmin Only\nAPI Service Tokens (2)\nNAME & EMAIL\tTITLE\tRBAC ROLE\tSTATUS\tROLE MANAGEMENT\n\nSC\nSarah Chen\nsarah.chen@infrapulse.io\nPrincipal SRE\tADMIN\t\nOnline\n\tAdmin Only\n\nMV\nMarcus Vance\nmarcus.v@infrapulse.io\nStaff SRE\tRESPONDER\t\nOnline\n\tAdmin Only\n\nAR\nAlex Ross\nalex.ross@infrapulse.io\nJunior Observability Analyst\tVIEWER\t\nIdle\n\tAdmin Only",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "role": "admin",
+    "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected (port 5000)\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\nadmin_panel_settings\nIdentity, RBAC & Security Audit\nACTIVE ROLE: ADMIN\n\nRole-Based Access Control, persistent PostgreSQL sessions, and immutable security audit logging.\n\nSwitch:\nADMIN\nRESPONDER\nVIEWER\nTeam Members & RBAC (3)\nhistory_edu\nSecurity Audit Trail\nAPI Service Tokens (2)\nNAME & EMAIL\tTITLE\tRBAC ROLE\tSTATUS\tROLE MANAGEMENT\n\nMV\nMarcus Vance\nmarcus.v@infrapulse.io\nIncident Commander & SRE\tRESPONDER\t\nOnline\n\t\nadmin\nresponder\nviewer\n\n\nAR\nAlex Ross\nalex.ross@infrapulse.io\nTelemetry Observer\tVIEWER\t\nOnline\n\t\nadmin\nresponder\nviewer\n\n\nSC\nSarah Chen\nsarah.chen@infrapulse.io\nPrincipal SRE / Workspace Admin\tADMIN\t\nOnline\n\t\nadmin\nresponder\nviewer",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/users",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      }
+    ]
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "retrievedAt": "2026-11-01T02:27:47.051Z",
+  "actions": {
+    "actions/checkout": {
+      "version": "v7.0.1",
+      "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1"
+    },
+    "actions/setup-node": {
+      "version": "v7.1.0",
+      "sha": "949feb2413d6458794dcd2491c4babbbce0c15c1"
+    },
+    "actions/upload-artifact": {
+      "version": "v7.0.2",
+      "sha": "cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+    },
+    "actions/download-artifact": {
+      "version": "v8.0.2",
+      "sha": "9000827ccba6bdab643e8b6fd33ac0654aef8333"
+    }
+  },
+  "tools": {
+    "actionlint": {
+      "version": "1.7.12",
+      "platforms": {
+        "linux": {
+          "url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz",
+          "sha256": "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8",
+          "archive": "actionlint_1.7.12_linux_amd64.tar.gz",
+          "binary": "actionlint"
+        },
+        "windows": {
+          "url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_windows_amd64.zip",
+          "sha256": "6e7241b51e6817ea6a047693d8e6fed13b31819c9a0dd6c5a726e1592d22f6e9",
+          "archive": "actionlint_1.7.12_windows_amd64.zip",
+          "binary": "actionlint.exe"
+        }
+      }
+    },
+    "trivy": {
+      "version": "0.76.1",
+      "platforms": {
+        "linux": {
+          "url": "https://github.com/aquasecurity/trivy/releases/download/v0.76.1/trivy_0.76.1_Linux-64bit.tar.gz",
+          "sha256": "c7cbe3137fb8a48a17574bede3dd6beb16742d1e9772929940fc90082c39d9c0",
+          "archive": "trivy_0.76.1_Linux-64bit.tar.gz",
+          "binary": "trivy"
+        },
+        "windows": {
+          "url": "https://github.com/aquasecurity/trivy/releases/download/v0.76.1/trivy_0.76.1_windows-64bit.zip",
+          "sha256": "1051f49cb22d5284f43425f72aad9cda63ca12ceb92e7caa06903490c82dc9bf",
+          "archive": "trivy_0.76.1_windows-64bit.zip",
+          "binary": "trivy.exe"
+        }
+      }
+    }
+  },
+  "bases": {
+    "node": {
+      "tag": "24-alpine",
+      "ref": "node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85"
+    },
+    "node-build": {
+      "tag": "24-bookworm-slim",
+      "ref": "node:24-bookworm-slim@sha256:c86ecead9e55a5210ac1727de38a4ca840bf03dcaf34dc9749addbf383b1920c"
+    },
+    "nginx": {
+      "tag": "stable-alpine",
+      "ref": "nginxinc/nginx-unprivileged:stable-alpine@sha256:f5116ed4606f3eb015dd4a8e28cb9b351476dc0ad4bc6e9f93b19cec130cdf03"
+    },
+    "postgres": {
+      "tag": "16-alpine",
+      "ref": "postgres:16-alpine@sha256:0cefaabd882e42bcb2a2f3dc56d3ce4770560ba62fd7f197f1a2e008fd5731ab"
+    }
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "source": "Actual KubernetesProvider normalization, injected snapshot; no real cluster",
+  "resource": {
+    "id": "k8s-staging-23n-classification-1793495864738",
+    "name": "23n-classification-1793495864738",
+    "provider": "kubernetes",
+    "resource_type": "statefulset",
+    "region": "kubernetes-cluster",
+    "environment": "staging",
+    "current_state": "running",
+    "estimated_hourly_cost": 0.08,
+    "metadata": {
+      "namespace": "staging",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "is_live_k8s": true
+    }
+  },
+  "request": {
+    "status": 201,
+    "data": {
+      "success": true,
+      "data": {
+        "id": "op_cc99f5b27b4d",
+        "resource_id": "k8s-staging-23n-classification-1793495864738",
+        "action": "scale",
+        "status": "pending_approval",
+        "is_dry_run": false,
+        "safety_checks": {
+          "eligibility": {
+            "checks": {
+              "isNonProduction": true,
+              "isNamespaceAllowed": true,
+              "notSystemNamespace": true,
+              "pdbAvailabilityMet": true,
+              "isKubernetesResource": true,
+              "mutationsFlagEnabled": true,
+              "isWorkloadAllowlisted": true,
+              "noActiveRunbookConflict": true,
+              "pvcRetainedAndProtected": true,
+              "noActiveIncidentConflict": true,
+              "isNotControlPlaneWorkload": true,
+              "noDownstreamCallersBlocked": true,
+              "isDatabaseWorkloadProtected": true
+            },
+            "blockers": [],
+            "eligible": true,
+            "warnings": [
+              "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Scaling workloads during open incidents requires Incident Commander sign-off."
+            ]
+          },
+          "targetReplicas": 0,
+          "allowStatefulSetScale": false,
+          "exceptionalAuthorization": false
+        },
+        "requested_by": "marcus.v@infrapulse.io",
+        "requester_role": "responder",
+        "approved_by": null,
+        "approved_at": null,
+        "executed_at": null,
+        "completed_at": null,
+        "execution_logs": [
+          {
+            "message": "Operation 'scale' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+            "timestamp": "2026-11-01T01:17:45.506Z"
+          }
+        ],
+        "idempotency_key": null,
+        "rejection_reason": null,
+        "created_at": "2026-11-01T01:17:45.507Z",
+        "tenant_id": "default_tenant"
+      }
+    }
+  },
+  "approval": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "data": {
+        "id": "op_cc99f5b27b4d",
+        "resource_id": "k8s-staging-23n-classification-1793495864738",
+        "action": "scale",
+        "status": "approved",
+        "is_dry_run": false,
+        "safety_checks": {
+          "eligibility": {
+            "checks": {
+              "isNonProduction": true,
+              "isNamespaceAllowed": true,
+              "notSystemNamespace": true,
+              "pdbAvailabilityMet": true,
+              "isKubernetesResource": true,
+              "mutationsFlagEnabled": true,
+              "isWorkloadAllowlisted": true,
+              "noActiveRunbookConflict": true,
+              "pvcRetainedAndProtected": true,
+              "noActiveIncidentConflict": true,
+              "isNotControlPlaneWorkload": true,
+              "noDownstreamCallersBlocked": true,
+              "isDatabaseWorkloadProtected": true
+            },
+            "blockers": [],
+            "eligible": true,
+            "warnings": [
+              "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Scaling workloads during open incidents requires Incident Commander sign-off."
+            ]
+          },
+          "targetReplicas": 0,
+          "allowStatefulSetScale": false,
+          "exceptionalAuthorization": false
+        },
+        "requested_by": "marcus.v@infrapulse.io",
+        "requester_role": "responder",
+        "approved_by": "sarah.chen@infrapulse.io",
+        "approved_at": "2026-11-01T01:17:45.542Z",
+        "executed_at": null,
+        "completed_at": null,
+        "execution_logs": [
+          {
+            "message": "Operation 'scale' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+            "timestamp": "2026-11-01T01:17:45.506Z"
+          },
+          {
+            "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+            "timestamp": "2026-11-01T01:17:45.542Z"
+          }
+        ],
+        "idempotency_key": null,
+        "rejection_reason": null,
+        "created_at": "2026-11-01T01:17:45.507Z",
+        "tenant_id": "default_tenant"
+      }
+    }
+  },
+  "execution": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "data": {
+        "success": true,
+        "operation": {
+          "id": "op_cc99f5b27b4d",
+          "resource_id": "k8s-staging-23n-classification-1793495864738",
+          "action": "scale",
+          "status": "completed",
+          "is_dry_run": false,
+          "safety_checks": {
+            "eligibility": {
+              "checks": {
+                "isNonProduction": true,
+                "isNamespaceAllowed": true,
+                "notSystemNamespace": true,
+                "pdbAvailabilityMet": true,
+                "isKubernetesResource": true,
+                "mutationsFlagEnabled": true,
+                "isWorkloadAllowlisted": true,
+                "noActiveRunbookConflict": true,
+                "pvcRetainedAndProtected": true,
+                "noActiveIncidentConflict": true,
+                "isNotControlPlaneWorkload": true,
+                "noDownstreamCallersBlocked": true,
+                "isDatabaseWorkloadProtected": true
+              },
+              "blockers": [],
+              "eligible": true,
+              "warnings": [
+                "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Scaling workloads during open incidents requires Incident Commander sign-off."
+              ]
+            },
+            "targetReplicas": 0,
+            "allowStatefulSetScale": false,
+            "exceptionalAuthorization": false
+          },
+          "requested_by": "marcus.v@infrapulse.io",
+          "requester_role": "responder",
+          "approved_by": "sarah.chen@infrapulse.io",
+          "approved_at": "2026-11-01T01:17:45.542Z",
+          "executed_at": "2026-11-01T01:17:45.642Z",
+          "completed_at": "2026-11-01T01:17:45.666Z",
+          "execution_logs": [
+            {
+              "message": "Operation 'scale' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+              "timestamp": "2026-11-01T01:17:45.506Z"
+            },
+            {
+              "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+              "timestamp": "2026-11-01T01:17:45.542Z"
+            },
+            {
+              "result": {
+                "message": "Resource k8s-staging-23n-classification-1793495864738 scaled to 0 replicas.",
+                "success": true,
+                "newState": "scaled_down",
+                "timestamp": "2026-11-01T01:17:45.660Z",
+                "isSimulated": true,
+                "newReplicas": 0,
+                "previousReplicas": 1
+              },
+              "message": "Execution of 'scale' completed successfully via kubernetes simulated provider.",
+              "timestamp": "2026-11-01T01:17:45.666Z"
+            }
+          ],
+          "idempotency_key": null,
+          "rejection_reason": null,
+          "created_at": "2026-11-01T01:17:45.507Z",
+          "tenant_id": "default_tenant"
+        },
+        "result": {
+          "success": true,
+          "previousReplicas": 1,
+          "newReplicas": 0,
+          "newState": "scaled_down",
+          "message": "Resource k8s-staging-23n-classification-1793495864738 scaled to 0 replicas.",
+          "isSimulated": true,
+          "timestamp": "2026-11-01T01:17:45.660Z"
+        }
+      }
+    }
+  },
+  "after": {
+    "id": "k8s-staging-23n-classification-1793495864738",
+    "name": "23n-classification-1793495864738",
+    "provider": "kubernetes",
+    "resource_type": "statefulset",
+    "region": "kubernetes-cluster",
+    "environment": "staging",
+    "current_state": "scaled_down",
+    "estimated_hourly_cost": "0.0800",
+    "cost_breakdown": {},
+    "dependencies": [],
+    "persistence_requirements": {},
+    "is_critical_dependency": false,
+    "metadata": {
+      "replicas": 1,
+      "namespace": "staging",
+      "is_live_k8s": true,
+      "readyReplicas": 1
+    },
+    "last_lifecycle_operation": "scale",
+    "last_operation_at": "2026-11-01T01:17:45.661Z",
+    "last_health_check_status": "healthy",
+    "last_health_check_at": "2026-11-01T01:17:44.801Z",
+    "created_at": "2026-11-01T01:17:44.801Z",
+    "updated_at": "2026-11-01T01:17:45.661Z",
+    "tenant_id": "default_tenant"
+  },
+  "mutationFlags": {
+    "aws": false,
+    "docker": false,
+    "kubernetes": false
+  },
+  "realProviderMutations": 0
+}

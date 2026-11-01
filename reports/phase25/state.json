@@ -1,0 +1,6 @@
+{
+  "database": "infrapulse_phase25_1793500121416",
+  "suiteDatabase": "infrapulse_phase25_1793500121416_suite",
+  "restoreDatabase": "infrapulse_phase25_1793500121416_restore",
+  "ciDatabase": "infrapulse_ci_phase25_1793500388141"
+}

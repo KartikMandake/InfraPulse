@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-10-31T19:55:34.727Z",
+  "criticalAcceptance": "PASS — isolated runtime and regressions",
+  "productionReadiness": "NOT VERIFIED",
+  "originalDefects": 27,
+  "resolvedLocally": 27,
+  "unresolvedOriginalDefectsLocally": 0,
+  "safeSuiteTests": 323,
+  "safeSuitePass": 318,
+  "safeSuiteSkipped": 5,
+  "regressionPass": 44,
+  "backendPackageTests": {
+    "tests": 60,
+    "pass": 60,
+    "fail": 0,
+    "skipped": 0
+  },
+  "frontendPackageTests": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "skipped": 0
+  },
+  "browserChecks": 8,
+  "runtimeWorkflows": 6
+}

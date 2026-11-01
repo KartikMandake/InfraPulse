@@ -1,0 +1,107 @@
+TAP version 13
+# Subtest: Phase 18: Operational Intelligence & Predictive Incident Prevention
+    # Subtest: 1. Failure Pattern Engine: Requires >= 2 occurrences to label recurring pattern
+    ok 1 - 1. Failure Pattern Engine: Requires >= 2 occurrences to label recurring pattern
+      ---
+      duration_ms: 7.2
+      type: 'test'
+      ...
+    # Subtest: 2. Failure Pattern Engine: Detects all 8 canonical failure patterns
+    ok 2 - 2. Failure Pattern Engine: Detects all 8 canonical failure patterns
+      ---
+      duration_ms: 2.0772
+      type: 'test'
+      ...
+    # Subtest: 3. Service Risk Engine: Computes explainable 0-100 score and factor breakdown
+    ok 3 - 3. Service Risk Engine: Computes explainable 0-100 score and factor breakdown
+      ---
+      duration_ms: 1.4874
+      type: 'test'
+      ...
+    # Subtest: 4. Service Risk Engine: Discloses insufficient samples without fabricating scores
+    ok 4 - 4. Service Risk Engine: Discloses insufficient samples without fabricating scores
+      ---
+      duration_ms: 0.4788
+      type: 'test'
+      ...
+    # Subtest: 5. Early-Warning Engine: Detects deterministic leading indicators
+    ok 5 - 5. Early-Warning Engine: Detects deterministic leading indicators
+      ---
+      duration_ms: 1.4912
+      type: 'test'
+      ...
+    # Subtest: 6. Early-Warning Engine: Grounding check enforces bounded deterministic terminology
+    ok 6 - 6. Early-Warning Engine: Grounding check enforces bounded deterministic terminology
+      ---
+      duration_ms: 0.6033
+      type: 'test'
+      ...
+    # Subtest: 7. Preventive Recommendations: Complete Lifecycle State Machine
+    ok 7 - 7. Preventive Recommendations: Complete Lifecycle State Machine
+      ---
+      duration_ms: 277.0864
+      type: 'test'
+      ...
+    # Subtest: 8. Verification Gate: Rejects transition to VERIFIED with empty verification notes
+    ok 8 - 8. Verification Gate: Rejects transition to VERIFIED with empty verification notes
+      ---
+      duration_ms: 26.6326
+      type: 'test'
+      ...
+    # Subtest: 9. Lifecycle Defense: Rejects illegal state jumps (e.g. IN_PROGRESS -> CLOSED)
+    ok 9 - 9. Lifecycle Defense: Rejects illegal state jumps (e.g. IN_PROGRESS -> CLOSED)
+      ---
+      duration_ms: 25.8231
+      type: 'test'
+      ...
+    # Subtest: 10. Dismissal Gate: Rejects DISMISSED without explicit dismissal reason
+    ok 10 - 10. Dismissal Gate: Rejects DISMISSED without explicit dismissal reason
+      ---
+      duration_ms: 9.4112
+      type: 'test'
+      ...
+    # Subtest: 11. Audit Logging: Records durable audit event for every recommendation transition
+    ok 11 - 11. Audit Logging: Records durable audit event for every recommendation transition
+      ---
+      duration_ms: 26.0697
+      type: 'test'
+      ...
+    # Subtest: 12. Operational Trends: Computes recurrence rate and discloses sample transparency
+    ok 12 - 12. Operational Trends: Computes recurrence rate and discloses sample transparency
+      ---
+      duration_ms: 36.5486
+      type: 'test'
+      ...
+    # Subtest: 13. Trend Snapshots: Captures and retrieves immutable trend snapshot
+    ok 13 - 13. Trend Snapshots: Captures and retrieves immutable trend snapshot
+      ---
+      duration_ms: 17.6828
+      type: 'test'
+      ...
+    # Subtest: 14. Database Persistence: Seeded patterns and recommendations survive in PostgreSQL
+    ok 14 - 14. Database Persistence: Seeded patterns and recommendations survive in PostgreSQL
+      ---
+      duration_ms: 4.6795
+      type: 'test'
+      ...
+    # Subtest: 15. Dashboard Summary API: Synthesizes platform-level KPIs and risk profile
+    ok 15 - 15. Dashboard Summary API: Synthesizes platform-level KPIs and risk profile
+      ---
+      duration_ms: 14.1445
+      type: 'test'
+      ...
+    1..15
+ok 1 - Phase 18: Operational Intelligence & Predictive Incident Prevention
+  ---
+  duration_ms: 456.6888
+  type: 'suite'
+  ...
+1..1
+# tests 15
+# suites 1
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 770.351

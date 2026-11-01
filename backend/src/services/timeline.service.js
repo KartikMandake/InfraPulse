@@ -6,6 +6,18 @@ import { getLogs, getTraces } from '../data/telemetry.js';
 import { parseTimeToMinutes } from '../engine/scoring.js';
 import { getSimulation } from './faultLab.service.js';
 import { ApiError } from '../utils/ApiError.js';
+import * as incidentsRepo from '../repositories/incidents.repository.js';
+import * as servicesRepo from '../repositories/services.repository.js';
+import * as alertsRepo from '../repositories/alerts.repository.js';
+import * as deploymentsRepo from '../repositories/deployments.repository.js';
+import * as telemetry from '../integrations/telemetry/telemetry.service.js';
+
+export async function buildTenantIncidentTimeline(incidentId,options={}){
+  if(options.simulationId){const sim=getSimulation(options.simulationId);if(sim.simulatedIncident?.id!==incidentId)throw ApiError.notFound('Simulation incident not found.');return buildIncidentTimeline(incidentId,options);}
+  const incident=await incidentsRepo.findIncidentById(incidentId);if(!incident)throw ApiError.notFound(`Incident "${incidentId}" not found.`);
+  const [services,alerts,deployments,logs,traces]=await Promise.all([servicesRepo.findAllServices(),alertsRepo.findAllAlerts(),deploymentsRepo.findAllDeployments(),telemetry.getLogs(),telemetry.getTraces()]);
+  return buildIncidentTimeline(incidentId,{...options,evidence:{incident,services,alerts,deployments,logs:logs.logs,traces:traces.traces}});
+}
 
 /**
  * Event Types enumeration
@@ -86,12 +98,12 @@ export function buildIncidentTimeline(incidentId, options = {}) {
     simulationId = null
   } = options;
 
-  let incident = null;
-  let services = getServices();
-  let alerts = getAlerts();
-  let deployments = getDeployments();
-  let logs = getLogs();
-  let traces = getTraces();
+  let incident = options.evidence?.incident || null;
+  let services = options.evidence?.services || getServices();
+  let alerts = options.evidence?.alerts || getAlerts();
+  let deployments = options.evidence?.deployments || getDeployments();
+  let logs = options.evidence?.logs || getLogs();
+  let traces = options.evidence?.traces || getTraces();
   let isSimulated = false;
 
   // Check if this incident belongs to an active fault simulation

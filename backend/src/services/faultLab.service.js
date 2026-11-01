@@ -1,3 +1,4 @@
+import {tenantContext} from '../security/tenantContext.js';
 import { FAULT_SCENARIOS } from '../engine/faultScenarios.js';
 import { simulateFault } from '../engine/faultSimulator.js';
 import { runRcaAnalysis } from '../engine/rcaEngine.js';
@@ -62,7 +63,7 @@ export function createSimulation(payload) {
       }
     );
 
-    activeSimulations.set(simulationResult.simulationId, simulationResult);
+    activeSimulations.set(scopeKey(simulationResult.simulationId), simulationResult);
 
     // Persist to PostgreSQL asynchronously
     simulationsRepo.saveSimulationRecord(simulationResult).catch(err => {
@@ -79,13 +80,13 @@ export function createSimulation(payload) {
  * Retrieves a simulation by ID from memory or PostgreSQL.
  */
 export async function getSimulationAsync(simulationId) {
-  const simMem = activeSimulations.get(simulationId);
+  const simMem = activeSimulations.get(scopeKey(simulationId));
   if (simMem) return simMem;
 
   try {
     const simDb = await simulationsRepo.findSimulationById(simulationId);
     if (simDb) {
-      activeSimulations.set(simulationId, simDb);
+      activeSimulations.set(scopeKey(simulationId), simDb);
       return simDb;
     }
   } catch (err) {
@@ -96,7 +97,7 @@ export async function getSimulationAsync(simulationId) {
 }
 
 export function getSimulation(simulationId) {
-  const sim = activeSimulations.get(simulationId);
+  const sim = activeSimulations.get(scopeKey(simulationId));
   if (!sim) {
     throw ApiError.notFound(`Simulation with ID "${simulationId}" was not found or has been reset.`);
   }
@@ -173,10 +174,10 @@ export function investigateSimulation(simulationId, weights = null) {
  * Resets/deletes a simulation from memory and PostgreSQL.
  */
 export function resetSimulation(simulationId) {
-  if (!activeSimulations.has(simulationId)) {
+  if (!activeSimulations.has(scopeKey(simulationId))) {
     throw ApiError.notFound(`Simulation with ID "${simulationId}" does not exist.`);
   }
-  activeSimulations.delete(simulationId);
+  activeSimulations.delete(scopeKey(simulationId));
 
   simulationsRepo.deleteSimulationRecord(simulationId).catch(err => {
     console.warn('[FaultLab] Simulation DB delete warning:', err.message);
@@ -184,3 +185,5 @@ export function resetSimulation(simulationId) {
 
   return { message: `Simulation "${simulationId}" was reset successfully.` };
 }
+
+function scopeKey(id){return (tenantContext()?.tenantId||"internal")+":"+id;}

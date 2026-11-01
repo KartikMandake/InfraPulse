@@ -1,0 +1,22 @@
+[
+  {
+    "target": "backend",
+    "status": 0,
+    "counts": {
+      "tests": 60,
+      "pass": 60,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  {
+    "target": "frontend",
+    "status": 0,
+    "counts": {
+      "tests": 7,
+      "pass": 7,
+      "fail": 0,
+      "skipped": 0
+    }
+  }
+]

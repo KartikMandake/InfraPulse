@@ -1,0 +1,2 @@
+process.env.NODE_ENV='production';
+try{const {validateEnvironment}=await import('../backend/src/config/env.js');validateEnvironment();console.log(JSON.stringify({status:'PASS',scope:'Configuration only; database, TLS edge and release blockers require separate verification.'}));}catch(error){console.error(JSON.stringify({status:'FAIL',message:/^(Environment Configuration Error|Cannot read configured|Configure [A-Z_]+)/.test(error.message)?error.message:'Invalid production configuration.'}));process.exitCode=1;}

@@ -1,0 +1,80 @@
+{
+  "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected (port 5000)\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\naccount_tree\nServices & Topology Correlation\nMesh Nominal\n\nTopological service dependency graph, bidirectional causal impact propagation, and live telemetry signals.\n\nbubble_chart\nGraph\ntable_rows\nInventory\nfilter_alt\nAll (0)\nNominal (0)\nDegraded (0)\nCritical (0)\nOVERLAYS:\nreport\nHighlight Unhealthy\nhub\nDownstream Cascade Path\nbolt\nHigh Latency (>150ms)\nsearch_off\nNo Services Match Query\n\nNo services found with search filter \"\".\n\nClear Filter",
+  "events": [
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5173/api/auth/me",
+      "status": 200
+    }
+  ]
+}

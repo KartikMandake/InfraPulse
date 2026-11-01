@@ -1,0 +1,27 @@
+{
+  "version": [
+    {
+      "version": "PostgreSQL 16.14, compiled by Visual C++ build 1944, 64-bit",
+      "inet_server_addr": "127.0.0.1",
+      "inet_server_port": 5541
+    }
+  ],
+  "settings": [
+    {
+      "name": "archive_command",
+      "setting": "(disabled)"
+    },
+    {
+      "name": "archive_mode",
+      "setting": "off"
+    },
+    {
+      "name": "max_connections",
+      "setting": "20"
+    },
+    {
+      "name": "wal_level",
+      "setting": "replica"
+    }
+  ]
+}

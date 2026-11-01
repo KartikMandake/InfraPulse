@@ -25,6 +25,10 @@ function mapIncidentRow(row, events = []) {
     aiRemediationRecommendation: row.ai_remediation_recommendation,
     canaryVersion: row.canary_version,
     stableVersion: row.stable_version,
+    rcaConfidenceLevel: row.rca_confidence_level || null,
+    rcaHypotheses: typeof row.rca_hypotheses === 'string' ? JSON.parse(row.rca_hypotheses) : (row.rca_hypotheses || []),
+    correlatedResourceIds: row.correlated_resource_ids || [],
+    correlationRationale: row.correlation_rationale || null,
     timeline: events.map(e => ({
       id: e.id,
       time: e.time,
@@ -72,13 +76,18 @@ export async function createIncidentRecord(incidentData, client = null) {
         lead, lead_role, channel, started_at, duration_minutes, drop_rate_percent,
         estimated_cost_per_min, slo_breached, slo_current, slo_target,
         ai_confidence_percent, ai_hypothesis, ai_remediation_recommendation,
-        canary_version, stable_version
+        canary_version, stable_version,
+        rca_confidence_level, rca_hypotheses, correlated_resource_ids, correlation_rationale
       ) VALUES (
-        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26
       )
       ON CONFLICT (id) DO UPDATE SET
         title = EXCLUDED.title,
         status = EXCLUDED.status,
+        rca_confidence_level = COALESCE(EXCLUDED.rca_confidence_level, incidents.rca_confidence_level),
+        rca_hypotheses = COALESCE(EXCLUDED.rca_hypotheses, incidents.rca_hypotheses),
+        correlated_resource_ids = COALESCE(EXCLUDED.correlated_resource_ids, incidents.correlated_resource_ids),
+        correlation_rationale = COALESCE(EXCLUDED.correlation_rationale, incidents.correlation_rationale),
         updated_at = NOW()
       RETURNING *;`,
       [
@@ -103,7 +112,11 @@ export async function createIncidentRecord(incidentData, client = null) {
         incidentData.aiHypothesis || '',
         incidentData.aiRemediationRecommendation || '',
         incidentData.canaryVersion || null,
-        incidentData.stableVersion || null
+        incidentData.stableVersion || null,
+        incidentData.rcaConfidenceLevel || null,
+        JSON.stringify(incidentData.rcaHypotheses || []),
+        incidentData.correlatedResourceIds || [],
+        incidentData.correlationRationale || null
       ]
     );
 

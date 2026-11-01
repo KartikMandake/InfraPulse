@@ -1,0 +1,282 @@
+# ==============================================================================
+# InfraPulse - Staging Environment Docker Compose Configuration
+# Usage: docker compose -f deploy/docker-compose.staging.yml --env-file .env.staging up -d
+# ==============================================================================
+
+services:
+  # ============================================================================
+  # 1. Frontend Web Container (Unprivileged Nginx Reverse Proxy + SPA)
+  # ============================================================================
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    image: infrapulse-frontend:staging
+    container_name: infrapulse-frontend-staging
+    ports:
+      - "${FRONTEND_PORT:-8080}:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8080/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+        reservations:
+          cpus: "0.10"
+          memory: 64M
+    networks:
+      - infrapulse-staging-net
+
+  # ============================================================================
+  # 2. Backend API Server (Node.js Express + RCA Engine)
+  # ============================================================================
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    image: infrapulse-backend:staging
+    container_name: infrapulse-backend-staging
+    environment:
+      - NODE_ENV=production
+      - APP_ENV=staging
+      - AWS_LIFECYCLE_MUTATIONS_ENABLED=false
+      - DOCKER_LIFECYCLE_ENABLED=false
+      - KUBERNETES_LIFECYCLE_ENABLED=false
+      - REMEDIATION_EXECUTION_ENABLED=false
+      - REMEDIATION_PRODUCTION_ENABLED=false
+      - PGSSLMODE=verify-full
+      - PORT=5000
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGDATABASE=${POSTGRES_DB:-infrapulse_staging}
+      - PGUSER=${POSTGRES_USER:-postgres}
+      - PGPASSWORD=${POSTGRES_PASSWORD}
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:8080}
+      - APP_BASE_URL=${APP_BASE_URL:-http://localhost:8080}
+      - CORS_ORIGIN=${CORS_ORIGIN:-http://localhost:8080}
+      - TRUST_PROXY=${TRUST_PROXY:-1}
+      - REQUEST_BODY_LIMIT=${REQUEST_BODY_LIMIT:-2mb}
+      - COOKIE_SECURE=true
+      - AUTO_MIGRATE=false
+      - AUTO_SEED=false
+      - NOTIFICATION_WORKER_ENABLED=false # Handled by dedicated worker container
+      - NOTIFICATION_MOCK_MODE=${NOTIFICATION_MOCK_MODE:-true}
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-}
+      - INTEGRATION_ENCRYPTION_KEY=${INTEGRATION_ENCRYPTION_KEY}
+      - PROMETHEUS_URL=http://prometheus:9090
+      - TEMPO_URL=http://tempo:3200
+      - LOKI_URL=http://loki:3100
+      - OTEL_COLLECTOR_URL=http://otel-collector:4318
+    ports:
+      - "127.0.0.1:${BACKEND_PORT:-5000}:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5000/api/health/ready',{signal:AbortSignal.timeout(3000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "1.00"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 128M
+    networks:
+      - infrapulse-staging-net
+
+  # ============================================================================
+  # 3. Background Notification Queue Worker
+  # ============================================================================
+  worker:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    image: infrapulse-worker:staging
+    container_name: infrapulse-worker-staging
+    command: ["node", "src/entrypoint.js", "worker"]
+    environment:
+      - NODE_ENV=production
+      - APP_ENV=staging
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:8080}
+      - CORS_ORIGIN=${CORS_ORIGIN:-http://localhost:8080}
+      - TRUST_PROXY=1
+      - COOKIE_SECURE=true
+      - AUTO_MIGRATE=false
+      - AUTO_SEED=false
+      - PGSSLMODE=verify-full
+      - WORKER_HEALTH_FILE=/tmp/infrapulse-worker-health.json
+      - AWS_LIFECYCLE_MUTATIONS_ENABLED=false
+      - DOCKER_LIFECYCLE_ENABLED=false
+      - KUBERNETES_LIFECYCLE_ENABLED=false
+      - REMEDIATION_EXECUTION_ENABLED=false
+      - REMEDIATION_PRODUCTION_ENABLED=false
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGDATABASE=${POSTGRES_DB:-infrapulse_staging}
+      - PGUSER=${POSTGRES_USER:-postgres}
+      - PGPASSWORD=${POSTGRES_PASSWORD}
+      - NOTIFICATION_MOCK_MODE=${NOTIFICATION_MOCK_MODE:-true}
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-}
+      - APP_BASE_URL=${APP_BASE_URL:-http://localhost:8080}
+      - INTEGRATION_ENCRYPTION_KEY=${INTEGRATION_ENCRYPTION_KEY}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "src/worker-health.js"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+        reservations:
+          cpus: "0.10"
+          memory: 64M
+    networks:
+      - infrapulse-staging-net
+
+  # ============================================================================
+  # 4. Relational Storage (PostgreSQL 16 with Persistent Volume)
+  # ============================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: infrapulse-postgres-staging
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB:-infrapulse_staging}
+    ports:
+      - "127.0.0.1:${PGPORT:-5432}:5432"
+    volumes:
+      - pgdata-staging:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-infrapulse_staging}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "1.00"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 128M
+    networks:
+      - infrapulse-staging-net
+
+  # ============================================================================
+  # 5. Observability Telemetry Pipeline (OTel, Prometheus, Tempo, Loki)
+  # ============================================================================
+  otel-collector:
+    profiles: ["telemetry", "full"]
+    image: otel/opentelemetry-collector-contrib:0.114.0
+    container_name: infrapulse-otel-collector-staging
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml:ro
+    ports:
+      - "127.0.0.1:4317:4317" # OTLP gRPC
+      - "127.0.0.1:4318:4318" # OTLP HTTP
+      - "127.0.0.1:8889:8889" # Prometheus metrics exporter
+    depends_on:
+      - tempo
+      - loki
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+    networks:
+      - infrapulse-staging-net
+
+  prometheus:
+    profiles: ["telemetry", "full"]
+    image: prom/prometheus:v2.54.1
+    container_name: infrapulse-prometheus-staging
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.enable-lifecycle
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "127.0.0.1:9090:9090"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+    networks:
+      - infrapulse-staging-net
+
+  tempo:
+    profiles: ["telemetry", "full"]
+    image: grafana/tempo:2.6.1
+    container_name: infrapulse-tempo-staging
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes:
+      - ./tempo-config.yaml:/etc/tempo.yaml:ro
+    ports:
+      - "127.0.0.1:3200:3200"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+    networks:
+      - infrapulse-staging-net
+
+  loki:
+    profiles: ["telemetry", "full"]
+    image: grafana/loki:3.2.1
+    container_name: infrapulse-loki-staging
+    command: ["-config.file=/etc/loki/local-config.yaml"]
+    volumes:
+      - ./loki-config.yaml:/etc/loki/local-config.yaml:ro
+    ports:
+      - "127.0.0.1:3100:3100"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+    networks:
+      - infrapulse-staging-net
+
+volumes:
+  pgdata-staging:
+    name: infrapulse_pgdata_staging
+
+networks:
+  infrapulse-staging-net:
+    name: infrapulse-staging-net
+    driver: bridge
+

@@ -1,0 +1,245 @@
+TAP version 13
+# Subtest: Phase 23J: Governed Automated Remediation Intelligence
+    # Subtest: 1. Policy: Strictly blocks prohibited actions (resource/database deletion, arbitrary scripts)
+    ok 1 - 1. Policy: Strictly blocks prohibited actions (resource/database deletion, arbitrary scripts)
+      ---
+      duration_ms: 24.3165
+      type: 'test'
+      ...
+    # Subtest: 2. Production Protection: Automated remediation blocked by default in production
+    ok 2 - 2. Production Protection: Automated remediation blocked by default in production
+      ---
+      duration_ms: 8.8663
+      type: 'test'
+      ...
+# [SQL Error] in query: "
+#       INSERT INTO remediation_recommendations (
+#         id, incident_id, tenant_id, environment, se...": Cross-tenant relation prohibited
+    # Subtest: 3. Recommendation: Generates evidence-backed proposal when RCA confirms underlying container failure
+    not ok 3 - 3. Recommendation: Generates evidence-backed proposal when RCA confirms underlying container failure
+      ---
+      duration_ms: 243.8452
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:127:3'
+      failureType: 'testCodeFailure'
+      error: 'Cross-tenant relation prohibited'
+      code: '42501'
+      name: 'error'
+      stack: |-
+        D:\Projects\InfraPulse\backend\node_modules\pg-pool\index.js:45:11
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:129)
+        async Object.createRecommendation (file:///D:/Projects/InfraPulse/backend/src/repositories/remediation.repository.js:115:17)
+        async Object.generateRecommendationsForIncident (file:///D:/Projects/InfraPulse/backend/src/services/remediation/remediationRecommendation.service.js:118:19)
+        async TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:160:20)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+    # Subtest: 4. Insufficient Evidence: Never generates actionable recommendations from WEAK_HYPOTHESIS
+    ok 4 - 4. Insufficient Evidence: Never generates actionable recommendations from WEAK_HYPOTHESIS
+      ---
+      duration_ms: 56.0882
+      type: 'test'
+      ...
+    # Subtest: 5. Risk Assessment: Accurately scores risk and identifies downstream caller dependencies
+    ok 5 - 5. Risk Assessment: Accurately scores risk and identifies downstream caller dependencies
+      ---
+      duration_ms: 46.0202
+      type: 'test'
+      ...
+# [SQL Error] in query: "
+#       INSERT INTO remediation_recommendations (
+#         id, incident_id, tenant_id, environment, se...": Cross-tenant relation prohibited
+    # Subtest: 6. Dry-Run: Evaluates preconditions and blast radius with zero mutations
+    not ok 6 - 6. Dry-Run: Evaluates preconditions and blast radius with zero mutations
+      ---
+      duration_ms: 160.8008
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:232:3'
+      failureType: 'testCodeFailure'
+      error: 'Cross-tenant relation prohibited'
+      code: '42501'
+      name: 'error'
+      stack: |-
+        D:\Projects\InfraPulse\backend\node_modules\pg-pool\index.js:45:11
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:129)
+        async Object.createRecommendation (file:///D:/Projects/InfraPulse/backend/src/repositories/remediation.repository.js:115:17)
+        async TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:242:17)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+# [SQL Error] in query: "
+#       INSERT INTO remediation_recommendations (
+#         id, incident_id, tenant_id, environment, se...": Cross-tenant relation prohibited
+    # Subtest: 7. Separation of Duties: Rejects self-approval attempt by the requester
+    not ok 7 - 7. Separation of Duties: Rejects self-approval attempt by the requester
+      ---
+      duration_ms: 136.4587
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:281:3'
+      failureType: 'testCodeFailure'
+      error: 'Cross-tenant relation prohibited'
+      code: '42501'
+      name: 'error'
+      stack: |-
+        D:\Projects\InfraPulse\backend\node_modules\pg-pool\index.js:45:11
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:129)
+        async Object.createRecommendation (file:///D:/Projects/InfraPulse/backend/src/repositories/remediation.repository.js:115:17)
+        async createTestPlan (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:26:15)
+        async TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:282:22)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+# [SQL Error] in query: "
+#       INSERT INTO remediation_recommendations (
+#         id, incident_id, tenant_id, environment, se...": Cross-tenant relation prohibited
+    # Subtest: 8. Multi-Party Approval: Independent administrator successfully approves remediation plan
+    not ok 8 - 8. Multi-Party Approval: Independent administrator successfully approves remediation plan
+      ---
+      duration_ms: 117.013
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:309:3'
+      failureType: 'testCodeFailure'
+      error: 'Cross-tenant relation prohibited'
+      code: '42501'
+      name: 'error'
+      stack: |-
+        D:\Projects\InfraPulse\backend\node_modules\pg-pool\index.js:45:11
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:129)
+        async Object.createRecommendation (file:///D:/Projects/InfraPulse/backend/src/repositories/remediation.repository.js:115:17)
+        async createTestPlan (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:26:15)
+        async TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:310:22)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+# [SQL Error] in query: "
+#       INSERT INTO remediation_recommendations (
+#         id, incident_id, tenant_id, environment, se...": Cross-tenant relation prohibited
+    # Subtest: 9. Expiration: Rejects approval attempt on expired remediation approval request
+    not ok 9 - 9. Expiration: Rejects approval attempt on expired remediation approval request
+      ---
+      duration_ms: 139.4685
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:334:3'
+      failureType: 'testCodeFailure'
+      error: 'Cross-tenant relation prohibited'
+      code: '42501'
+      name: 'error'
+      stack: |-
+        D:\Projects\InfraPulse\backend\node_modules\pg-pool\index.js:45:11
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:129)
+        async Object.createRecommendation (file:///D:/Projects/InfraPulse/backend/src/repositories/remediation.repository.js:115:17)
+        async createTestPlan (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:26:15)
+        async TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:335:22)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+# [SQL Error] in query: "
+#       INSERT INTO remediation_recommendations (
+#         id, incident_id, tenant_id, environment, se...": Cross-tenant relation prohibited
+    # Subtest: 10. Plan Immutability: Rejects approval when provided plan hash does not match immutable version
+    not ok 10 - 10. Plan Immutability: Rejects approval when provided plan hash does not match immutable version
+      ---
+      duration_ms: 256.0202
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:362:3'
+      failureType: 'testCodeFailure'
+      error: 'Cross-tenant relation prohibited'
+      code: '42501'
+      name: 'error'
+      stack: |-
+        D:\Projects\InfraPulse\backend\node_modules\pg-pool\index.js:45:11
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:129)
+        async Object.createRecommendation (file:///D:/Projects/InfraPulse/backend/src/repositories/remediation.repository.js:115:17)
+        async createTestPlan (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:26:15)
+        async TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:363:22)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+    # Subtest: 13. Workload Safety: Blocks remediation on kube-system namespace and database containers
+    ok 11 - 13. Workload Safety: Blocks remediation on kube-system namespace and database containers
+      ---
+      duration_ms: 41.6703
+      type: 'test'
+      ...
+    # Subtest: 14. Verification: Classifies outcome based on container health, error rate, and active alerts
+    ok 12 - 14. Verification: Classifies outcome based on container health, error rate, and active alerts
+      ---
+      duration_ms: 8.3117
+      type: 'test'
+      ...
+    # Subtest: 15. Recovery Strategy: Defines non-destructive compensating actions for all allowlisted mutations
+    ok 13 - 15. Recovery Strategy: Defines non-destructive compensating actions for all allowlisted mutations
+      ---
+      duration_ms: 7.8917
+      type: 'test'
+      ...
+# [SQL Error] in query: "
+#       INSERT INTO remediation_recommendations (
+#         id, incident_id, tenant_id, environment, se...": Cross-tenant relation prohibited
+    # Subtest: 16. Isolation: Prevents cross-tenant access to recommendations, approvals, and executions
+    not ok 14 - 16. Isolation: Prevents cross-tenant access to recommendations, approvals, and executions
+      ---
+      duration_ms: 123.9279
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:617:3'
+      failureType: 'testCodeFailure'
+      error: 'Cross-tenant relation prohibited'
+      code: '42501'
+      name: 'error'
+      stack: |-
+        D:\Projects\InfraPulse\backend\node_modules\pg-pool\index.js:45:11
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:129)
+        async Object.createRecommendation (file:///D:/Projects/InfraPulse/backend/src/repositories/remediation.repository.js:115:17)
+        async TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:619:18)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+# [SQL Error] in query: "
+#       INSERT INTO remediation_recommendations (
+#         id, incident_id, tenant_id, environment, se...": Cross-tenant relation prohibited
+    # Subtest: 17. Audit Trail: All mutation events and verification milestones are permanently recorded
+    not ok 15 - 17. Audit Trail: All mutation events and verification milestones are permanently recorded
+      ---
+      duration_ms: 127.8953
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:641:3'
+      failureType: 'testCodeFailure'
+      error: 'Cross-tenant relation prohibited'
+      code: '42501'
+      name: 'error'
+      stack: |-
+        D:\Projects\InfraPulse\backend\node_modules\pg-pool\index.js:45:11
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:129)
+        async Object.createRecommendation (file:///D:/Projects/InfraPulse/backend/src/repositories/remediation.repository.js:115:17)
+        async createTestPlan (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:26:15)
+        async TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/governedRemediationIntelligence.test.js:642:22)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+    1..15
+not ok 1 - Phase 23J: Governed Automated Remediation Intelligence
+  ---
+  duration_ms: 1633.8156
+  type: 'suite'
+  location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js:51:1'
+  failureType: 'subtestsFailed'
+  error: '8 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 15
+# suites 1
+# pass 7
+# fail 8
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2384.8141

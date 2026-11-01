@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-11-01T03:07:15.505Z",
+  "applicationReadiness": "NO-GO",
+  "deploymentEnabled": false,
+  "publicationEnabled": false,
+  "githubExecution": "NOT TESTED",
+  "imageBuildAndImageScan": "BLOCKED: Docker daemon unavailable",
+  "safeBackendAndPhase24": {
+    "tests": 341,
+    "pass": 336,
+    "fail": 0,
+    "skipped": 5
+  },
+  "newReleaseTests": {
+    "tests": 22,
+    "pass": 22,
+    "fail": 0
+  },
+  "frontend": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0
+  },
+  "uniquePassingTests": 365,
+  "workflows": 7,
+  "phase23NOpenDefects": 19,
+  "phase23NP0": 5,
+  "P24_01": "UNRESOLVED",
+  "originalDatabaseTouched": false,
+  "gitCommands": false,
+  "awsMutations": false
+}

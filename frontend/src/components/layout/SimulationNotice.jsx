@@ -18,7 +18,7 @@ export const SimulationNotice = () => {
       <div className="flex items-center gap-3">
         <span className={`text-[10px] flex items-center gap-1 ${backendConnected ? 'text-[#50d890]' : 'text-[#ffb547]'}`}>
           <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
-          <span>{backendConnected ? 'REST API Connected (port 5000)' : 'API Proxy Initializing'}</span>
+          <span>{backendConnected ? 'REST API Connected' : 'API Proxy Initializing'}</span>
         </span>
         <button
           onClick={resetAllDemoData}

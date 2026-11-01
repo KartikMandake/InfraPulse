@@ -1,20 +1,25 @@
 import { config } from '../config/env.js';
+import { logContext } from '../observability/logContext.js';
+import { trace } from '@opentelemetry/api';
 
 const SENSITIVE_KEYS = [
   'password', 'passwordhash', 'token', 'sessiontoken', 'sessionid',
   'secret', 'cookie', 'authorization', 'credential', 'creditcard',
-  'apikey', 'smtp_pass', 'slackwebhookurl'
+  'apikey', 'smtp_pass', 'slackwebhookurl', 'ingestionkey', 'accesskey', 'privatekey', 'connectionstring', 'database_url'
 ];
 
 /**
  * Recursively redacts sensitive values from log metadata objects.
  */
 export function redact(obj, depth = 0) {
-  if (!obj || depth > 5) return obj;
+  if (depth > 5) return '[TRUNCATED]';
+  if (!obj) return obj;
   if (typeof obj !== 'object') {
     if (typeof obj === 'string') {
       return obj
-        .replace(/(bearer\s+)[a-zA-Z0-9_\-\.]{15,}/gi, '$1[REDACTED]')
+        .replace(/(bearer\s+)\S+/gi, '$1[REDACTED]')
+        .replace(/\b(postgres(?:ql)?:\/\/)[^\s/@]+@/gi, '$1[REDACTED]@')
+        .replace(/((?:ingestionkey|accesskeyid|secretaccesskey|token|apikey)\s*[:=]\s*)[^\s,]+/gi, '$1[REDACTED]')
         .replace(/(password\s*[:=]\s*)[^\s,]+/gi, '$1[REDACTED]')
         .replace(/(hooks\.slack\.com\/services\/)[^\s"]+/gi, '$1[REDACTED]');
     }
@@ -43,12 +48,38 @@ function outputLog(severity, message, meta = {}) {
   const service = 'infrapulse-backend';
   const cleanMeta = redact(meta);
 
+  let traceId = cleanMeta?.traceId;
+  let spanId = cleanMeta?.spanId;
+  let correlationId = cleanMeta?.correlationId;
+
+  try {
+    const store = logContext?.getStore?.();
+    if (store) {
+      correlationId = correlationId || store.requestId || store.correlationId;
+      traceId = traceId || store.traceId;
+      spanId = spanId || store.spanId;
+    }
+    if (!traceId || !spanId) {
+      const activeSpan = trace?.getActiveSpan?.();
+      if (activeSpan) {
+        const spanCtx = activeSpan.spanContext();
+        if (spanCtx?.traceId && !/^0+$/.test(spanCtx.traceId)) {
+          traceId = traceId || spanCtx.traceId;
+          spanId = spanId || spanCtx.spanId;
+        }
+      }
+    }
+  } catch {}
+
   const entry = {
     timestamp,
     severity,
     service,
-    message,
-    ...cleanMeta
+    ...(correlationId ? { correlationId } : {}),
+    ...(traceId ? { traceId } : {}),
+    ...(spanId ? { spanId } : {}),
+    ...cleanMeta,
+    message: redact(message)
   };
 
   const jsonStr = JSON.stringify(entry);
@@ -72,4 +103,3 @@ export const logger = {
 };
 
 export default logger;
-

@@ -1,0 +1,4013 @@
+[
+  {
+    "path": "backend\\src\\app.js",
+    "bytes": 3835,
+    "lines": 87,
+    "sha256": "6d6797e12bddaa3e8f0d381d02f5eef43241edc6d78833c235c7929226bec96a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\config\\env.js",
+    "bytes": 6297,
+    "lines": 135,
+    "sha256": "03e8c06a7a1661453e913e46fe3c264ced0d973988a0529850bdc53e963c51b1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\alerts.controller.js",
+    "bytes": 7929,
+    "lines": 274,
+    "sha256": "7cd8679b438f1cfe4db3a8e589128ff9f0ba3c0e4e45b1e5a7fe946455cc984a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\assistant.controller.js",
+    "bytes": 1449,
+    "lines": 50,
+    "sha256": "2721407b2ce05cd64fd2eeb67c24447c9c5638efede7202887c4a2e8195630be",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\audit.controller.js",
+    "bytes": 621,
+    "lines": 30,
+    "sha256": "63c04a3c34866c6b36f384447a9da99e2afd51f254633555b860e6ef6f4efea8",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\auth.controller.js",
+    "bytes": 4008,
+    "lines": 156,
+    "sha256": "6ca02bd1b159c9c15ac51ec1d705f99cc7751dc1e7369be1b6526293acdbeaca",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\change.controller.js",
+    "bytes": 5309,
+    "lines": 155,
+    "sha256": "cbde3a7c4b4344c6e1671c13ab204fb7ffae4d7ffa92a4a154b0452b9b3ce849",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\cloudLifecycle.controller.js",
+    "bytes": 19157,
+    "lines": 570,
+    "sha256": "481e59e86236757a2ce3caa764fabb33e12c79d5d973c0d2a40e2e454985529a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\deployments.controller.js",
+    "bytes": 1392,
+    "lines": 41,
+    "sha256": "4b0d33e5b0e2d744cfe0c113968aa60391f8fc6492e55a292c47ae8bee6bcab5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\events.controller.js",
+    "bytes": 4656,
+    "lines": 131,
+    "sha256": "541dea7e13f9234312fb578bb443ad453ac98361d3a17ab79bebcd6912029292",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\faultLab.controller.js",
+    "bytes": 1465,
+    "lines": 67,
+    "sha256": "968877eccb6fbab4fdeda33058def6f70c1202e392d298553d7003c8d094008c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\incidents.controller.js",
+    "bytes": 1015,
+    "lines": 38,
+    "sha256": "df22e57a1965be52291ca040bfad8cb0d368a1163d549f98041e8cdf0fb8ce8b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\integrations.controller.js",
+    "bytes": 11163,
+    "lines": 325,
+    "sha256": "cf074b47dcbd12b12233e97d9b8128767afbf9d1635eed15849606c7ab7a6a28",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\investigation.controller.js",
+    "bytes": 595,
+    "lines": 20,
+    "sha256": "56ac48c7fdd00939e28995748d02c164c44357149c52a04902b89c6e18df4917",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\notification.controller.js",
+    "bytes": 3756,
+    "lines": 143,
+    "sha256": "b198772ec417c0c8797fea002bb9bb1d565f4e5748d056caec55413e617da398",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\operationalIntelligence.controller.js",
+    "bytes": 6023,
+    "lines": 171,
+    "sha256": "2cc1742e7f0a9a89c5b7b6a996bb6545f006352e45cac01e10d689d9a1863463",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\reliability.controller.js",
+    "bytes": 793,
+    "lines": 30,
+    "sha256": "1409fbd4b11b6f399d0b69c9de5238eb68c03992be3519c45715e29dc78c0d22",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\remediation.controller.js",
+    "bytes": 6531,
+    "lines": 204,
+    "sha256": "0bda99279a7af0fc4b619d593192e5fc4c0f624bcd708838738760209afaf817",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\runbookExecutions.controller.js",
+    "bytes": 2571,
+    "lines": 95,
+    "sha256": "f82f6d41d6f91a44e1b718ef0a3450a02029132cb52cfd19f81bcf04b298aefd",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\runbooks.controller.js",
+    "bytes": 2849,
+    "lines": 95,
+    "sha256": "f4e7378c264475b10811d14e1951185e03406e3c26db9e5cac78f88af3892db1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\services.controller.js",
+    "bytes": 772,
+    "lines": 29,
+    "sha256": "76feb11e5c596cd716b98a09733b4cbb89ecbd4bd4f8505115b77a95fed80438",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\slo.controller.js",
+    "bytes": 2070,
+    "lines": 80,
+    "sha256": "4a1758a1c7a264fa7f213412680cc3111bad44225c76817e1e04b61f873b56c7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\sreIntelligence.controller.js",
+    "bytes": 5846,
+    "lines": 203,
+    "sha256": "62306a0e75bb8e1f7be36a90052fd59fea5a128e826bf1f1e8fb90ef6f6698c8",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\telemetry.controller.js",
+    "bytes": 2183,
+    "lines": 89,
+    "sha256": "285db954c0a99569d85a3b62ff8bb7522e297f5cc423c1ab883690a667b2aff6",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\controllers\\timeline.controller.js",
+    "bytes": 597,
+    "lines": 23,
+    "sha256": "49309d7a061082c0bae65f54c4b4220e5263bce0751b59b2ef255822e42d6554",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\alerts.js",
+    "bytes": 7129,
+    "lines": 215,
+    "sha256": "c8707e46728bd187d766f54b96d1b5e0f5a01eead311630971a585911395c5aa",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\canonicalEvents.js",
+    "bytes": 9915,
+    "lines": 276,
+    "sha256": "45f14def4f9479aae31b204a1a1efefc6af7d9b2845961dc725bde5039dc5a54",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\changes.js",
+    "bytes": 8689,
+    "lines": 220,
+    "sha256": "3b2cb4a6f4657ead1b0787de7a52184837d48cdb34f268cb7c7e007a119ec6ef",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\cloudResources.js",
+    "bytes": 8715,
+    "lines": 277,
+    "sha256": "378a2ba8b7d266747638371d691cddac6d00815732c7c17d4182d5074d4223ed",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\deployments.js",
+    "bytes": 2035,
+    "lines": 69,
+    "sha256": "a7fe2114b726f27f5bc667e751ba8bc6a022c9b487480440f1c1bfee6c0106c0",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\incidents.js",
+    "bytes": 7641,
+    "lines": 144,
+    "sha256": "fbf23a2e6d6fc3c0a232de8a59009473afbb6b19b79636be6efec9a5f4c05efb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\operationalIntelligence.js",
+    "bytes": 11287,
+    "lines": 244,
+    "sha256": "4b28ad94aba9feab8cbf24a4d7d8af7fdbc15037da722b298a0ceb1efc3311f3",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\runbooks.js",
+    "bytes": 13642,
+    "lines": 299,
+    "sha256": "978c1ef8dbcf919189a274c436323f66bf4b04a027c6916d807ca4048cc4f211",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\services.js",
+    "bytes": 9275,
+    "lines": 233,
+    "sha256": "64d4a3036710eb5e08561eba7258a8df96370075cbbfbc3603b40d270ffde317",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\slos.js",
+    "bytes": 4252,
+    "lines": 136,
+    "sha256": "fe47164077d4e0ff1e34f3f56e232b70412ca6075a43000d808ff812b9f45417",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\data\\telemetry.js",
+    "bytes": 3822,
+    "lines": 109,
+    "sha256": "aa34a660375df5017d4c116c08dc9d4ee782b902acb1aa208e8e1556dc36261d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\analyzeQueryPerformance.js",
+    "bytes": 2364,
+    "lines": 57,
+    "sha256": "e9a17cedee2995d1ed501bcdb286a9713f2144eecf8891d7cf316af936fa3674",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\connection.js",
+    "bytes": 5686,
+    "lines": 201,
+    "sha256": "a8b54b01e94cf53d1748ef4a46700e02003e1af613bcd8cdb4d5b81059cfd60a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrate.js",
+    "bytes": 2087,
+    "lines": 79,
+    "sha256": "d6c22d2a3acef5c5b9e67320da14489101088dc2e703c6344cd171f07eb925f8",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\001_initial_schema.sql",
+    "bytes": 6879,
+    "lines": 175,
+    "sha256": "801b78ffbe53ddd1522702b662d32edfe76420e337b307bf6b9f655749232886",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\002_auth_rbac_audit.sql",
+    "bytes": 2054,
+    "lines": 50,
+    "sha256": "2753b39f9da37bce3d9ac0cbb4f93ba235c3480e7e654e4fb51c164fa5545aca",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\003_notifications.sql",
+    "bytes": 2397,
+    "lines": 52,
+    "sha256": "12068c1248d18f94c284bc21f604fe39cb93be42b551b99c1c93f7f3e307a0d4",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\004_ai_assistant.sql",
+    "bytes": 1902,
+    "lines": 38,
+    "sha256": "90405ce1441ff7866df3c43ead171dad9d88fdf20c2b44ef730bf7f5a6f6b746",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\005_runbook_orchestration.sql",
+    "bytes": 6301,
+    "lines": 123,
+    "sha256": "e52c6712e315174224791e6557db3b57528c31bcf989fb061a392ca201d96c4b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\006_slo_reliability.sql",
+    "bytes": 5868,
+    "lines": 114,
+    "sha256": "cbe1ec6ea73731d5c4794683fb99bc31e65bde3b8ab1d69f1b7213aaec089d3f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\007_change_intelligence.sql",
+    "bytes": 7342,
+    "lines": 129,
+    "sha256": "bf1af46625496aa471ae6565854fb640ec593530d3e8ab2fb78c6d823d8f7b13",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\008_unified_correlation.sql",
+    "bytes": 4035,
+    "lines": 80,
+    "sha256": "f61358053f1031a7f59c4302f3dad3a2b3cb48c527d2a878497de19551370e81",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\009_operational_intelligence.sql",
+    "bytes": 5919,
+    "lines": 120,
+    "sha256": "35a5897ae5675dffbb12f3a5294dae184ba3f394f334fae277c1a8fc4c85c7c5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\010_integrations_ecosystem.sql",
+    "bytes": 3898,
+    "lines": 86,
+    "sha256": "28f68aceb69d0c96925c6bcf374b1697ad9e97d0942020cfa56b38936cdf9ee1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\011_cloud_lifecycle_cost_governance.sql",
+    "bytes": 5052,
+    "lines": 100,
+    "sha256": "30dfef78f08732895da948c97c40dabef687fbe16ce339f202948761d708ba3b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\012_aws_discovery_governance.sql",
+    "bytes": 1266,
+    "lines": 27,
+    "sha256": "4755beb42672469189fef9ebce89c48d561515b5d958d1e324aa46b8f7e8694e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\013_infrastructure_drift_governance.sql",
+    "bytes": 5515,
+    "lines": 108,
+    "sha256": "502eb7e4e0f2258c25bc31d8f444e1aafa620c4f69d5d09d02c4622b1ba13060",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\014_real_infrastructure_integrations.sql",
+    "bytes": 2222,
+    "lines": 45,
+    "sha256": "5f47204f81fc2851fb1fdc72bc9a696c273adeff580d05812a7ecbacea24d98d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\015_telemetry_reliability_and_incident_intelligence.sql",
+    "bytes": 3184,
+    "lines": 55,
+    "sha256": "c64bb630cd4ebf2b52ae9de66d96fc20e033c5bae9367889227bf0c74354a777",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\016_governed_remediation_intelligence.sql",
+    "bytes": 6484,
+    "lines": 138,
+    "sha256": "f76758b4f756a92ca5e9a8576b67dda67450d443f7c364335f09b85a80af4b18",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\017_autonomous_sre_intelligence.sql",
+    "bytes": 5508,
+    "lines": 98,
+    "sha256": "72538c809615b0c5b48a4e54da0f629f09c81fd8974f28948f264d5f02805cc5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\migrations\\018_enterprise_hardening_indexes.sql",
+    "bytes": 2259,
+    "lines": 32,
+    "sha256": "f341f047d3cd25f793e6e2cd190e848dde3d4a482f0cf83d783889e6cfd5d505",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\seed.js",
+    "bytes": 26197,
+    "lines": 608,
+    "sha256": "a29af1bde079aa1f260ca41d99cc692d1700b4a8fc7b97b72a0774e9a6e4ff59",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\__tests__\\authRbacAudit.test.js",
+    "bytes": 11025,
+    "lines": 280,
+    "sha256": "5d2fa5a2700284b0e555d44611f5b209e5a65b47b617e4a872a956b94d3c01ba",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\__tests__\\notificationDelivery.test.js",
+    "bytes": 12914,
+    "lines": 322,
+    "sha256": "9a0e89163446d595d0769da9b6f6ae0e5440546ebf6a2db7b9a8adeed849fe15",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\db\\__tests__\\postgresPersistence.test.js",
+    "bytes": 10355,
+    "lines": 274,
+    "sha256": "971bc53f111c39327284b06bb8420b96e54ada19951a925f8123ce2f96b4a732",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\anomalyDetector.js",
+    "bytes": 6417,
+    "lines": 173,
+    "sha256": "35e0a4dfc101afd5fe50f95e719cfedda8f9d705ef8b5a02a08d5966255b21a3",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\blastRadiusEngine.js",
+    "bytes": 8738,
+    "lines": 199,
+    "sha256": "4ab3caece039d52a41cf0566be42c28d627509e97532ac27ff6e020fa8bd5795",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\causalGraph.js",
+    "bytes": 5019,
+    "lines": 130,
+    "sha256": "74d23b9d3ef776927f11e0f153e9dc48bf92cdd40a2a127586179edf6f503c41",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\changeRiskEngine.js",
+    "bytes": 18574,
+    "lines": 469,
+    "sha256": "0281657e24faa22745c920d9a2dcfe31faca4ec66c82486120a9a36e7a93c60b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\correlation.js",
+    "bytes": 2722,
+    "lines": 76,
+    "sha256": "21ac2078811ce1e6bd0a2e25bdbccb97ca6d5215e1fea1773fde6c180e83c994",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\earlyWarningEngine.js",
+    "bytes": 8453,
+    "lines": 168,
+    "sha256": "e5601ddf4fdb42011a3ee8223423afd562d50df7f110f45b68dbf70fbe6431f0",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\eventCorrelationEngine.js",
+    "bytes": 8749,
+    "lines": 196,
+    "sha256": "880a3b13f35788e88aaef39edfeb1c27dce9329c5db6c6ae439b8edc88d74b25",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\evidenceQuality.js",
+    "bytes": 4029,
+    "lines": 119,
+    "sha256": "bc1ef1cb689d182dd622bfd7f9a38b5e5537996a8f2b6636b8c72dc7dce7be7a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\failurePatternEngine.js",
+    "bytes": 13669,
+    "lines": 324,
+    "sha256": "d4f719536994bff8804804fccd1ef2fdeeb52464e253666451e2c3a4fa4917d8",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\faultScenarios.js",
+    "bytes": 3612,
+    "lines": 104,
+    "sha256": "68183fcfa854244d9581927e4c9dea57949369ba765d438c65528188cf47fb81",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\faultSimulator.js",
+    "bytes": 11311,
+    "lines": 302,
+    "sha256": "ce6ea9e7e3ed93c9748b564c823babfa2518c2c71d043900f4119c81f41cd478",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\investigationGraphEngine.js",
+    "bytes": 9769,
+    "lines": 283,
+    "sha256": "79752feca1f6b6c8589161588ce03e9fbd5776512ae09aca36d08e9115cf2008",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\normalizers\\alertEventNormalizer.js",
+    "bytes": 2600,
+    "lines": 61,
+    "sha256": "d98a956a6c89cbea55f15f75a20a3f5761782c2fa962c14514f5c19b62f88bab",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\normalizers\\deploymentEventNormalizer.js",
+    "bytes": 2948,
+    "lines": 65,
+    "sha256": "b77fc0d6de0854e1eae0c234f9afe433157e2468c5f296ad8b97dd93429332c9",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\normalizers\\incidentEventNormalizer.js",
+    "bytes": 2673,
+    "lines": 63,
+    "sha256": "1608f88ac88859283eda2ddddf97ae8293f86fe6597867600b7130f3f5181ff4",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\normalizers\\logEventNormalizer.js",
+    "bytes": 2691,
+    "lines": 60,
+    "sha256": "0be28751b093698fdcdc6da4725fb89ba4a04a76ce47d0387acb53ceb2e2e050",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\normalizers\\metricEventNormalizer.js",
+    "bytes": 2860,
+    "lines": 61,
+    "sha256": "248ba72f4cc6789bdc849864edeab04211cc569b046fb26a6390d4cea67e8608",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\normalizers\\runbookEventNormalizer.js",
+    "bytes": 2741,
+    "lines": 62,
+    "sha256": "38aa8d349bcbc9b1fe0adae5a2e1b234434790720900229e98b67ce3714a3ac2",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\normalizers\\sloEventNormalizer.js",
+    "bytes": 2812,
+    "lines": 64,
+    "sha256": "bef63fbb40b7672c41fd27c3b0aa66617f67b80309090b3a6af9acb02b0a1823",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\normalizers\\traceEventNormalizer.js",
+    "bytes": 2807,
+    "lines": 65,
+    "sha256": "d3ca38eb75cf286dc5fb5ae39e32119481447fda3c8ecfe1048381c655a9c83f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\rcaEngine.js",
+    "bytes": 11120,
+    "lines": 290,
+    "sha256": "f1ce9447cf87720a3ccb9c4c38f010a6e0a6342de2362c0afe70bcfc8c198c49",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\scenarios.js",
+    "bytes": 11605,
+    "lines": 333,
+    "sha256": "de3cc55ddc065688e95607e3bc9155a1db473798c813ac4c626e66e2a7083c74",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\scoring.js",
+    "bytes": 12523,
+    "lines": 354,
+    "sha256": "89c24906bb1296ac79ea994b5d5b2e2e6d59e379d6273116caba18ce5f4f38a7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\serviceRiskEngine.js",
+    "bytes": 8059,
+    "lines": 209,
+    "sha256": "bed69174f560ddd7e3790dc5e658be03a6070fc939adfa30be29fcd93cfe8c4a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\sloEngine.js",
+    "bytes": 15732,
+    "lines": 433,
+    "sha256": "ee461ab55fa41997d36421e2cb8c45db77e03f03f6474a6d823a38fbe52bf90f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\__tests__\\faultLab.test.js",
+    "bytes": 6019,
+    "lines": 147,
+    "sha256": "bf9478fb8b16532ae9a06041e76dbacbf4fd983f7f187e6a16ebbf1965340aa6",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\engine\\__tests__\\rcaEngine.test.js",
+    "bytes": 7698,
+    "lines": 169,
+    "sha256": "25fe01fb9cc4db03391b784f868a8d4129ea3dfb53281cc9aada54b8ad4fed3b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\ai\\aiProvider.js",
+    "bytes": 1037,
+    "lines": 33,
+    "sha256": "a46fa054cf3caa8a264a563983a578885a81edbf1db1ecbba4f7412fd2ae4f9e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\ai\\aiProviderFactory.js",
+    "bytes": 1241,
+    "lines": 42,
+    "sha256": "2554876deac16bea445d9c5679f9a0a4af307cf6e963f3b920c1bdc215e6776c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\ai\\geminiProvider.js",
+    "bytes": 3047,
+    "lines": 80,
+    "sha256": "1037809785244b9e26893474bc3c2ec1b738073e37cf5644f31db212c63db841",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\ai\\mockProvider.js",
+    "bytes": 13838,
+    "lines": 228,
+    "sha256": "319ca7580f3a8e9d9b4d2cbf2d4e9eca10e1c7348a3b4588513bfd95481ff10d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\ai\\openaiProvider.js",
+    "bytes": 3728,
+    "lines": 94,
+    "sha256": "cdbf5670c1b3fd9a3011a844ef9e79851544915a329636dffe9238be145b0163",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\core\\crypto.js",
+    "bytes": 4441,
+    "lines": 135,
+    "sha256": "9f1b9cce8682f70d3155804ef8c03112ce37c3130e8b900845d649696b464d5d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\core\\IntegrationProvider.js",
+    "bytes": 2715,
+    "lines": 87,
+    "sha256": "5b5d006069cf3bda05371496cf40bef690141aa647ce7a4bd2f517c2cef84a38",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\core\\IntegrationRegistry.js",
+    "bytes": 2087,
+    "lines": 61,
+    "sha256": "ccaa6fb3e04862ad51c253dd4075e1f1adb7eb232cce561357928047153e3b3f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\core\\ssrfProtection.js",
+    "bytes": 3113,
+    "lines": 99,
+    "sha256": "5382b16bcc159869eaa61c070fb30bca29bfe97627cdd61d34f93c1173074b07",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\providers\\aws\\AwsIntegrationProvider.js",
+    "bytes": 12028,
+    "lines": 316,
+    "sha256": "718aca4102b694c49b42a8be702efe53d56ad6b5126fa0bbac387a2dda990062",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\providers\\docker\\DockerIntegrationProvider.js",
+    "bytes": 9528,
+    "lines": 266,
+    "sha256": "241b4f80e481fbcbaa08a1ce65421c7ea3c143c53113568d4f10a25f9cb49999",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\providers\\github\\GitHubProvider.js",
+    "bytes": 8543,
+    "lines": 233,
+    "sha256": "995c2a4dd6cbcd420e1f8c72e6c7ef230f38986f976f6c7f315d92511be675df",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\providers\\grafana\\GrafanaProvider.js",
+    "bytes": 3209,
+    "lines": 92,
+    "sha256": "6ad82e19ce2ab48b5b6cb283d738a720376d872b0c127ebc6cb18e65b86afc1d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\providers\\kubernetes\\KubernetesProvider.js",
+    "bytes": 13347,
+    "lines": 389,
+    "sha256": "c5d15db7ce1baf6a9f8818b660d9b1ce7b0c498ed2f2021e86d3e25c52ca7ef7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\providers\\opentelemetry\\OpenTelemetryProvider.js",
+    "bytes": 10336,
+    "lines": 267,
+    "sha256": "86e431913117910871fc7a707e16e29b381e32da0f6d5e1b679a32c4f2319e31",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\providers\\prometheus\\PrometheusProvider.js",
+    "bytes": 8464,
+    "lines": 243,
+    "sha256": "f98fc16737b00b168c657ca7747a2052e763108c37a750d6f2d2d6316efd78ed",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\providers\\slack\\SlackProvider.js",
+    "bytes": 2382,
+    "lines": 72,
+    "sha256": "45c95b9eec862de96f9f8865c4a7e018b465a3f7c94770c9ffb2a6eb32e8397f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\remediation\\remediationAdapter.interface.js",
+    "bytes": 1136,
+    "lines": 36,
+    "sha256": "fbee4b915ed3785f188bd343dd3c63cbf6af6207f00e5a5a5776d183dff6ec45",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\remediation\\simulationAdapter.js",
+    "bytes": 8604,
+    "lines": 238,
+    "sha256": "b2349aec127bf9ea924f9e91aef289b07aea3f1baa47ee0386defd640302ce74",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\telemetry\\logs.adapter.js",
+    "bytes": 1670,
+    "lines": 54,
+    "sha256": "27e4c9790eb267f3995e252bd19bf08905700b6b73e2cb47752ceb43bb696f0b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\telemetry\\metrics.adapter.js",
+    "bytes": 1605,
+    "lines": 55,
+    "sha256": "ade0660cb23345d9e25ff8b6008ed5024f2e116c65c2c76610c1169c4a163c21",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\telemetry\\status.adapter.js",
+    "bytes": 1926,
+    "lines": 70,
+    "sha256": "efa01f42857755b2baf09962d41ffcc7412a21acba5b4abbfcc655ee9d9f90c1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\telemetry\\telemetry.service.js",
+    "bytes": 2871,
+    "lines": 106,
+    "sha256": "e51cfee11c3d148a313dab7a8d44fc02645a1f97a725e43b3946090e682d6c79",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\telemetry\\traces.adapter.js",
+    "bytes": 1528,
+    "lines": 57,
+    "sha256": "eb8ab29e866525961dfc58fb764d473318357bb2e967659ec5502fb8fe640fd3",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\integrations\\telemetry\\__tests__\\telemetryAdapter.test.js",
+    "bytes": 1857,
+    "lines": 60,
+    "sha256": "f75c5f65f38f88510dd51d6d5f7b61aef7be13ad2ab839f90c0d36954bdb49c1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\middleware\\authenticate.js",
+    "bytes": 1563,
+    "lines": 58,
+    "sha256": "27a4e6af2fa0789efb0adf8dd4026f2c55273a605865a89cd78acfedc4844343",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\middleware\\authorize.js",
+    "bytes": 1393,
+    "lines": 48,
+    "sha256": "d87434c884ad376cb00530109d6c82d034552141930dae04c2c8ca1637ad9dcf",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\middleware\\csrf.js",
+    "bytes": 1744,
+    "lines": 60,
+    "sha256": "493efd97025142c0eacf448231c8926363018017a89ac011673a2b63930e53ea",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\middleware\\errorHandler.js",
+    "bytes": 387,
+    "lines": 17,
+    "sha256": "dbab3e42bcbc6d58675cd2bb607b5ad381b35e740da62967ff6e1d624a63bcf5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\middleware\\notFound.js",
+    "bytes": 219,
+    "lines": 11,
+    "sha256": "3cc5b94e6009b2284fedd85bb5d2c5916ff077a1957d455c525c0ef35992ba90",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\middleware\\requestLogger.js",
+    "bytes": 1203,
+    "lines": 39,
+    "sha256": "7c04a8555e167977e0a55fd481fd773ed80ca307e5e012efb9ffe55d4625fa0f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\alertRules.repository.js",
+    "bytes": 3318,
+    "lines": 112,
+    "sha256": "bc105a90fccdec99f763a4a3f1aa085ee35e1854d4a3e88bd4290104389e2bd2",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\alerts.repository.js",
+    "bytes": 6326,
+    "lines": 184,
+    "sha256": "b6cf10dadc80ce90a83a8711bf855bbe3c50a2472351217febbd0a66e629952e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\assistant.repository.js",
+    "bytes": 4276,
+    "lines": 106,
+    "sha256": "d7228dc8d2081e0c4fc4d719fbc6c17a9a2f5156cd52bd1e4c41675639765bc4",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\audit.repository.js",
+    "bytes": 3060,
+    "lines": 105,
+    "sha256": "34b04293b2226c811ed637ca5929d09480f0a80d955b91d1ea8d0e8cee0b783d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\change.repository.js",
+    "bytes": 11583,
+    "lines": 307,
+    "sha256": "4e197e5674ba9324363cd197570e39cd5c12749dc186fcc5ed417b366b8a3acb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\cloudLifecycle.repository.js",
+    "bytes": 11200,
+    "lines": 336,
+    "sha256": "2c6e220912abe79f5fdc5ef7e90f97f9e087aeaf8eac8d57947b90ca637f47af",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\deployments.repository.js",
+    "bytes": 2166,
+    "lines": 66,
+    "sha256": "4a82d0e7454e5e37757665b07d1b6571fd1b8b5d301e38916a3507a84810dfdb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\driftGovernance.repository.js",
+    "bytes": 17113,
+    "lines": 439,
+    "sha256": "cde9bfdaa0450679a6962d538f43b4c120071b3369a1d935ab96f7579e69a700",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\events.repository.js",
+    "bytes": 7082,
+    "lines": 207,
+    "sha256": "ca0273dbd3f5928606509088e49e888a094c9d11e3fafa4ea7e8403a6da04f5d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\incidents.repository.js",
+    "bytes": 10402,
+    "lines": 277,
+    "sha256": "d1189b0e0da0065c9d4d483f5095663661b6227b68b5f5f4ee966dea5de8a0dc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\integration.repository.js",
+    "bytes": 15366,
+    "lines": 386,
+    "sha256": "b59529580437fbf11d1a51ef7d5461e1fe18e6fa74feaa17083d4ce1f1e743fc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\investigations.repository.js",
+    "bytes": 2049,
+    "lines": 57,
+    "sha256": "40d19f2fe4bab016428670841f84e62679cc8503a79bc11bf1a313d7b01b3213",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\notification.repository.js",
+    "bytes": 9135,
+    "lines": 297,
+    "sha256": "7f03c5392d4261bbc42a4fae042607e267cc4b0c359ff278a8d6f9a75dbe3218",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\operationalIntelligence.repository.js",
+    "bytes": 17223,
+    "lines": 448,
+    "sha256": "41da6bef13c017b1c38ed1c41fcef13fb0dc4984e2dc70396dfbf4e7f0fb7f1c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\remediation.repository.js",
+    "bytes": 16202,
+    "lines": 445,
+    "sha256": "ffc709ddea2dbd114fb5826a05ccc3283087ba099ed139be898b4295a06120c7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\runbookExecutions.repository.js",
+    "bytes": 11156,
+    "lines": 346,
+    "sha256": "68ae0c282ac80444b5b960b61582038a03362ec0d76676046fb4de6e90eb2e77",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\runbooks.repository.js",
+    "bytes": 7346,
+    "lines": 220,
+    "sha256": "010af51b20ed53870d2339249267df7ad7bed4007b9c378bbd83d36375122aae",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\services.repository.js",
+    "bytes": 3808,
+    "lines": 123,
+    "sha256": "256440fc08eda697d699defe7ad3a08674d2f0a7338bc8ac5efbf27fee386769",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\sessions.repository.js",
+    "bytes": 2195,
+    "lines": 76,
+    "sha256": "941bf31a9bb6d6b44155a7eb6807f7aabac25e7f823c15d6f6ac25b4e51e01fa",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\simulations.repository.js",
+    "bytes": 2670,
+    "lines": 68,
+    "sha256": "caa8f67253ec62afc4181ece1afad357d7f42f8b18e06d24d9b1b69384df7cde",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\slo.repository.js",
+    "bytes": 14639,
+    "lines": 434,
+    "sha256": "c6ef2432decf8e9ab1e5c601638ca93292532c1c403b3831146f10f64e1afd73",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\sreIntelligence.repository.js",
+    "bytes": 10392,
+    "lines": 332,
+    "sha256": "da8350454e40eaa9c65dd687a5b88d88801fee458bcc2aedce0d3247636338a1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\repositories\\users.repository.js",
+    "bytes": 3158,
+    "lines": 101,
+    "sha256": "352ceb5ed388d8d345f5fc1c45fd370ef448817207eb83d19604fef8a201937b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\alertRules.routes.js",
+    "bytes": 425,
+    "lines": 12,
+    "sha256": "8d6d89dddbf3c56ff22202c03aa032cfedf0acaadb65df5faffa1b6297e2f17c",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', alertsController.getAllAlertRules)"
+      },
+      {
+        "method": "post",
+        "definition": "'/', requireRole('admin'), alertsController.createRule)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:ruleId', requireRole('admin'), alertsController.updateRule)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\alerts.routes.js",
+    "bytes": 1001,
+    "lines": 23,
+    "sha256": "12a326a3e4c4b9b6c1ba580ab81b18814082e0c5078e02b144bb1bcd781fbb55",
+    "routes": [
+      {
+        "method": "post",
+        "definition": "'/evaluate', requireRole('admin', 'responder'), alertsController.evaluateAlerts)"
+      },
+      {
+        "method": "get",
+        "definition": "'/', alertsController.getAllAlerts)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:alertId', alertsController.getAlertDetails)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:alertId/acknowledge', requireRole('admin', 'responder'), alertsController.acknowledgeAlert)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:alertId/resolve', requireRole('admin', 'responder'), alertsController.resolveAlert)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:alertId', requireRole('admin', 'responder'), alertsController.updateAlertState)"
+      },
+      {
+        "method": "get",
+        "definition": "'/rules/all', alertsController.getAllAlertRules)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\assistant.routes.js",
+    "bytes": 472,
+    "lines": 13,
+    "sha256": "1870c00e5dc223b8f1a8373568dc9848a8341fae88a5029015990999962d1fa8",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/conversations/:conversationId', requireAuth, assistantController.getConversationById)"
+      },
+      {
+        "method": "delete",
+        "definition": "'/conversations/:conversationId', requireAuth, assistantController.deleteConversation)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\audit.routes.js",
+    "bytes": 344,
+    "lines": 12,
+    "sha256": "04ba7a674b95ab70250ce271154cc830addead8a8c22055808954008dd084198",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', requireRole('admin'), auditController.getAuditLogs)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\auth.routes.js",
+    "bytes": 730,
+    "lines": 22,
+    "sha256": "a56ea00bd0000f06ff866aa28a5e39ff09e172ba9139a79b870c89d5f97ecb67",
+    "routes": [
+      {
+        "method": "post",
+        "definition": "'/register', authController.register)"
+      },
+      {
+        "method": "post",
+        "definition": "'/login', authController.login)"
+      },
+      {
+        "method": "post",
+        "definition": "'/logout', authController.logout)"
+      },
+      {
+        "method": "get",
+        "definition": "'/me', requireAuth, authController.getMe)"
+      },
+      {
+        "method": "get",
+        "definition": "'/users', requireRole('admin'), authController.listUsers)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/users/:id/role', requireRole('admin'), authController.updateUserRole)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\change.routes.js",
+    "bytes": 1030,
+    "lines": 20,
+    "sha256": "0eead96142782649f2226c80319199ed74fe2ae8903b79859df17bca4616f252",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', authenticate, changeController.listChanges)"
+      },
+      {
+        "method": "post",
+        "definition": "'/', authenticate, requireRole('responder'), changeController.createChange)"
+      },
+      {
+        "method": "post",
+        "definition": "'/assess', authenticate, changeController.assessProposedChange)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:changeId', authenticate, changeController.getChangeById)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:changeId/assessment', authenticate, changeController.getChangeAssessment)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:changeId/blast-radius', authenticate, changeController.getChangeBlastRadius)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:changeId/regressions', authenticate, changeController.getChangeRegressions)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:changeId/evaluate-regression', authenticate, requireRole('responder'), changeController.evaluateChangeRegression)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\cloudLifecycle.routes.js",
+    "bytes": 5000,
+    "lines": 77,
+    "sha256": "960e6e92fa7cfd8a6db708d9ee895162b8e0b4961d4d7d718bf6cf464693f04b",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/resources', cloudLifecycleController.listResources)"
+      },
+      {
+        "method": "get",
+        "definition": "'/resources/:id', cloudLifecycleController.getResource)"
+      },
+      {
+        "method": "get",
+        "definition": "'/resources/:id/eligibility', requireAuth, cloudLifecycleController.checkEc2Eligibility)"
+      },
+      {
+        "method": "get",
+        "definition": "'/workloads/:id/eligibility', requireAuth, cloudLifecycleController.checkWorkloadEligibility)"
+      },
+      {
+        "method": "post",
+        "definition": "'/resources/:id/health', requireAuth, cloudLifecycleController.probeResourceHealth)"
+      },
+      {
+        "method": "get",
+        "definition": "'/docker/containers', requireAuth, cloudLifecycleController.listDockerContainers)"
+      },
+      {
+        "method": "get",
+        "definition": "'/docker/containers/:id/health', requireAuth, cloudLifecycleController.probeDockerContainerHealth)"
+      },
+      {
+        "method": "get",
+        "definition": "'/kubernetes/workloads', requireAuth, cloudLifecycleController.listKubernetesWorkloads)"
+      },
+      {
+        "method": "get",
+        "definition": "'/kubernetes/workloads/:namespace/:name/health', requireAuth, cloudLifecycleController.probeKubernetesWorkloadHealth)"
+      },
+      {
+        "method": "get",
+        "definition": "'/costs/estimate', cloudLifecycleController.getCostEstimate)"
+      },
+      {
+        "method": "get",
+        "definition": "'/operations', cloudLifecycleController.listOperations)"
+      },
+      {
+        "method": "post",
+        "definition": "'/operations/dry-run', requireAuth, cloudLifecycleController.dryRunOperation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/operations', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.requestOperation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/operations/:id/approve', requireAuth, requireRole('admin'), cloudLifecycleController.approveOperation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/operations/:id/execute', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.executeOperation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/operations/:id/cancel', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.cancelOperation)"
+      },
+      {
+        "method": "get",
+        "definition": "'/schedules', cloudLifecycleController.listSchedules)"
+      },
+      {
+        "method": "post",
+        "definition": "'/schedules', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.createSchedule)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/schedules/:id', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.updateSchedule)"
+      },
+      {
+        "method": "get",
+        "definition": "'/kill-switch', cloudLifecycleController.getKillSwitch)"
+      },
+      {
+        "method": "post",
+        "definition": "'/kill-switch', requireAuth, requireRole('admin'), cloudLifecycleController.toggleKillSwitch)"
+      },
+      {
+        "method": "get",
+        "definition": "'/audit', requireAuth, requireRole('admin'), cloudLifecycleController.getAuditTrail)"
+      },
+      {
+        "method": "get",
+        "definition": "'/aws/status', requireAuth, cloudLifecycleController.getAwsConnectionStatus)"
+      },
+      {
+        "method": "post",
+        "definition": "'/aws/discover', requireAuth, requireRole('admin'), cloudLifecycleController.discoverAwsResources)"
+      },
+      {
+        "method": "get",
+        "definition": "'/aws/free-tier', requireAuth, cloudLifecycleController.getAwsFreeTierGuidelines)"
+      },
+      {
+        "method": "get",
+        "definition": "'/drifts', requireAuth, cloudLifecycleController.listDriftEvents)"
+      },
+      {
+        "method": "get",
+        "definition": "'/drifts/stats', requireAuth, cloudLifecycleController.getDriftStats)"
+      },
+      {
+        "method": "get",
+        "definition": "'/drifts/:id', requireAuth, cloudLifecycleController.getDriftDetails)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/drifts/:id', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.acknowledgeOrIgnoreDrift)"
+      },
+      {
+        "method": "post",
+        "definition": "'/drifts/detect', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.triggerDriftDetection)"
+      },
+      {
+        "method": "get",
+        "definition": "'/snapshots', requireAuth, cloudLifecycleController.listSnapshots)"
+      },
+      {
+        "method": "get",
+        "definition": "'/snapshots/:resourceId', requireAuth, cloudLifecycleController.getResourceSnapshotHistory)"
+      },
+      {
+        "method": "get",
+        "definition": "'/baselines/active', requireAuth, cloudLifecycleController.getActiveBaseline)"
+      },
+      {
+        "method": "get",
+        "definition": "'/baselines/history', requireAuth, cloudLifecycleController.getBaselineHistory)"
+      },
+      {
+        "method": "post",
+        "definition": "'/baselines', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.createBaseline)"
+      },
+      {
+        "method": "post",
+        "definition": "'/baselines/init-inventory', requireAuth, requireRole('admin'), cloudLifecycleController.initializeBaselineFromInventory)"
+      },
+      {
+        "method": "post",
+        "definition": "'/reconciliations/preview', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.previewReconciliationPlan)"
+      },
+      {
+        "method": "post",
+        "definition": "'/reconciliations/submit', requireAuth, requireRole('responder', 'admin'), cloudLifecycleController.submitReconciliationRequest)"
+      },
+      {
+        "method": "get",
+        "definition": "'/reconciliations/:id', requireAuth, cloudLifecycleController.getReconciliationPlan)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\deployments.routes.js",
+    "bytes": 394,
+    "lines": 11,
+    "sha256": "702763c2d9c06e3f6b5da120ba422e6988a995df0ffba1fbffd79439f0c65996",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', deploymentsController.getAllDeployments)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:deploymentId', requireRole('admin'), deploymentsController.updateDeploymentRecord)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\events.routes.js",
+    "bytes": 595,
+    "lines": 15,
+    "sha256": "ec27f3432ba34b3fb97fa3f8cc99ec1b21da1d440a6828643ce783a86682cad3",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', authenticate, eventsController.listEvents)"
+      },
+      {
+        "method": "post",
+        "definition": "'/ingest', authenticate, requireRole('responder'), eventsController.ingestEvent)"
+      },
+      {
+        "method": "get",
+        "definition": "'/correlations', authenticate, eventsController.listCorrelations)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:eventId', authenticate, eventsController.getEventById)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\faultLab.routes.js",
+    "bytes": 721,
+    "lines": 14,
+    "sha256": "fa09432c85dcc32a6f4149e14d17c88022e1afaf8bbe71b30ee76a8438c1b3ca",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/scenarios', faultLabController.getScenarios)"
+      },
+      {
+        "method": "post",
+        "definition": "'/simulations', requireRole('admin', 'responder'), faultLabController.createSimulation)"
+      },
+      {
+        "method": "get",
+        "definition": "'/simulations/:simulationId', faultLabController.getSimulation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/simulations/:simulationId/investigate', requireRole('admin', 'responder'), faultLabController.investigateSimulation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/simulations/:simulationId/reset', requireRole('admin', 'responder'), faultLabController.resetSimulation)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\health.routes.js",
+    "bytes": 4167,
+    "lines": 137,
+    "sha256": "1d7797fa175432c485b0a2c9bbf5b794bdbd4ad237f6daac8bf5dd7b23e1801b",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', (req, res) => { res.json({ success: true, data: { status: 'UP', timestamp: new Date().toISOString(), uptimeSeconds: Math.floor(process.uptime()), version: '1.0.0', service: 'InfraPulse Telemetry & RCA Engine Backend' } })"
+      },
+      {
+        "method": "get",
+        "definition": "'/live', (req, res) => { res.status(200).json({ status: 'LIVE', timestamp: new Date().toISOString(), uptimeSeconds: Math.floor(process.uptime()), pid: process.pid })"
+      },
+      {
+        "method": "get",
+        "definition": "'/ready', async (req, res) => { try { const dbStatus = await checkConnection()"
+      },
+      {
+        "method": "get",
+        "definition": "'/diagnostics', async (req, res) => { const mem = process.memoryUsage()"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\incidents.routes.js",
+    "bytes": 2736,
+    "lines": 46,
+    "sha256": "2abc1f90fc6f752ab3e324209d1f00050ba77f29e29b8b3fb2c304d518dc5ac1",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', incidentsController.getAllIncidents)"
+      },
+      {
+        "method": "post",
+        "definition": "'/', requireRole('admin', 'responder'), incidentsController.createIncident)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId', incidentsController.getIncidentById)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:incidentId', requireRole('admin', 'responder'), incidentsController.updateIncident)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/timeline', timelineController.getIncidentTimeline)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/investigation', investigationController.getInvestigation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:incidentId/investigation/run', requireRole('admin', 'responder'), investigationController.runInvestigation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:incidentId/assistant/chat', requireAuth, assistantController.chatWithAssistant)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/assistant/conversations', requireAuth, assistantController.getIncidentConversations)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/runbooks', runbooksController.getIncidentRunbooks)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/executions', runbooksController.listIncidentExecutions)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:incidentId/runbooks/:runbookId/dry-run', requireAuth, requireRole('admin', 'responder'), runbooksController.dryRunIncidentRunbook)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:incidentId/runbooks/:runbookId/executions', requireAuth, requireRole('admin', 'responder'), runbooksController.createIncidentExecution)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/slo-impact', reliabilityController.getIncidentSloImpact)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/unified-timeline', eventsController.getIncidentUnifiedTimeline)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/investigation-graph', eventsController.getIncidentInvestigationGraph)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/correlation-summary', eventsController.getIncidentCorrelationSummary)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:incidentId/evidence', eventsController.getIncidentEvidence)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\integrations.routes.js",
+    "bytes": 2654,
+    "lines": 44,
+    "sha256": "ead43e9fb4691859d1d4873b6e316a1eb0d86dbf4317e488ae9071d2d53ce21a",
+    "routes": [
+      {
+        "method": "post",
+        "definition": "'/deployments/webhook', changeController.handleDeploymentWebhook)"
+      },
+      {
+        "method": "post",
+        "definition": "'/webhooks/github', integrationsController.handleGitHubWebhook)"
+      },
+      {
+        "method": "post",
+        "definition": "'/webhooks/grafana', integrationsController.handleGrafanaWebhook)"
+      },
+      {
+        "method": "post",
+        "definition": "'/otlp/v1/metrics', integrationsController.handleOtlpMetrics)"
+      },
+      {
+        "method": "post",
+        "definition": "'/otlp/v1/traces', integrationsController.handleOtlpTraces)"
+      },
+      {
+        "method": "post",
+        "definition": "'/otlp/v1/logs', integrationsController.handleOtlpLogs)"
+      },
+      {
+        "method": "get",
+        "definition": "'/catalog', authenticate, integrationsController.listCatalog)"
+      },
+      {
+        "method": "get",
+        "definition": "'/dependencies', authenticate, integrationsController.getObservedDependencies)"
+      },
+      {
+        "method": "get",
+        "definition": "'/', authenticate, integrationsController.listIntegrations)"
+      },
+      {
+        "method": "post",
+        "definition": "'/', authenticate, requireRole('admin'), integrationsController.createIntegration)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:id', authenticate, integrationsController.getIntegrationById)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:id', authenticate, requireRole('admin'), integrationsController.updateIntegration)"
+      },
+      {
+        "method": "delete",
+        "definition": "'/:id', authenticate, requireRole('admin'), integrationsController.deleteIntegration)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:id/test', authenticate, requireRole('admin'), integrationsController.testConnection)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:id/sync', authenticate, requireRole('responder', 'admin'), integrationsController.syncIntegration)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:id/stats', authenticate, integrationsController.getTelemetryStats)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:id/freshness', authenticate, integrationsController.getFreshness)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:id/dead-letter', authenticate, integrationsController.getDeadLetters)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:id/health', authenticate, integrationsController.getHealth)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:id/rotate-credentials', authenticate, requireRole('admin'), integrationsController.rotateCredentials)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:id/deliveries', authenticate, integrationsController.getDeliveries)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:id/retry/:deliveryId', authenticate, requireRole('responder'), integrationsController.retryDelivery)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\investigation.routes.js",
+    "bytes": 328,
+    "lines": 11,
+    "sha256": "4ff409a3577ebf3faccdbe2db1b102fb87531e8ea5bb19a6924626d30011f437",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/:incidentId', investigationController.getInvestigation)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:incidentId/run', investigationController.runInvestigation)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\notifications.routes.js",
+    "bytes": 797,
+    "lines": 21,
+    "sha256": "77d4d649441350edd221556f2d30d401b64c5ea247fd7ba454d6f05e99be33dc",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', requireRole('admin', 'responder', 'viewer'), notifController.getNotifications)"
+      },
+      {
+        "method": "post",
+        "definition": "'/test', requireRole('admin'), notifController.sendTest)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:notificationId', requireRole('admin', 'responder', 'viewer'), notifController.getNotificationById)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:notificationId/retry', requireRole('admin', 'responder'), notifController.retryNotification)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\notificationSettings.routes.js",
+    "bytes": 520,
+    "lines": 15,
+    "sha256": "105aa00ef1cef31f2b23a0748f9619157bd704bdc13b208d082795fbeee7f493",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', requireRole('admin', 'responder', 'viewer'), notifController.getSettings)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/', requireRole('admin'), notifController.updateSettings)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\operationalIntelligence.routes.js",
+    "bytes": 2345,
+    "lines": 41,
+    "sha256": "9a835fb96f01d6c8bcb6a80ad9d3ec7c202bd440b5a0098515f5f43b2737c0e2",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/overview', authenticate, operationalIntelligenceController.getOverview)"
+      },
+      {
+        "method": "get",
+        "definition": "'/patterns', authenticate, operationalIntelligenceController.getPatterns)"
+      },
+      {
+        "method": "post",
+        "definition": "'/patterns/sync', authenticate, requireRole('responder', 'admin'), operationalIntelligenceController.syncPatterns)"
+      },
+      {
+        "method": "get",
+        "definition": "'/patterns/:id', authenticate, operationalIntelligenceController.getPatternById)"
+      },
+      {
+        "method": "get",
+        "definition": "'/service-risks', authenticate, operationalIntelligenceController.getServiceRiskProfiles)"
+      },
+      {
+        "method": "post",
+        "definition": "'/service-risks/evaluate', authenticate, requireRole('responder', 'admin'), operationalIntelligenceController.evaluateServiceRiskProfiles)"
+      },
+      {
+        "method": "get",
+        "definition": "'/service-risks/:serviceId', authenticate, operationalIntelligenceController.getServiceRiskProfile)"
+      },
+      {
+        "method": "get",
+        "definition": "'/early-warnings', authenticate, operationalIntelligenceController.getEarlyWarnings)"
+      },
+      {
+        "method": "post",
+        "definition": "'/early-warnings/sync', authenticate, requireRole('responder', 'admin'), operationalIntelligenceController.syncEarlyWarnings)"
+      },
+      {
+        "method": "get",
+        "definition": "'/recommendations', authenticate, operationalIntelligenceController.getRecommendations)"
+      },
+      {
+        "method": "post",
+        "definition": "'/recommendations', authenticate, requireRole('responder', 'admin'), operationalIntelligenceController.createRecommendation)"
+      },
+      {
+        "method": "get",
+        "definition": "'/recommendations/:id', authenticate, operationalIntelligenceController.getRecommendationById)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/recommendations/:id/transition', authenticate, requireRole('responder', 'admin'), operationalIntelligenceController.transitionRecommendationStatus)"
+      },
+      {
+        "method": "get",
+        "definition": "'/trends', authenticate, operationalIntelligenceController.getTrends)"
+      },
+      {
+        "method": "post",
+        "definition": "'/trends/snapshot', authenticate, requireRole('responder', 'admin'), operationalIntelligenceController.captureTrendSnapshot)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\reliability.routes.js",
+    "bytes": 408,
+    "lines": 12,
+    "sha256": "8247ca81ddc2b02f743f3d95df373246327b89564f665bd87d4014e68fa5efd7",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/overview', reliabilityController.getReliabilityOverview)"
+      },
+      {
+        "method": "get",
+        "definition": "'/change-intelligence', changeController.getChangeIntelligenceOverview)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\remediation.routes.js",
+    "bytes": 2031,
+    "lines": 37,
+    "sha256": "729d0c5ecf44c4e5e4619714838d02df12ac61cdacb4aca785c50a520a3bda2a",
+    "routes": [
+      {
+        "method": "post",
+        "definition": "'/incidents/:id/recommendations', requireAuth, remediationController.generateRecommendations)"
+      },
+      {
+        "method": "get",
+        "definition": "'/recommendations', requireAuth, remediationController.listRecommendations)"
+      },
+      {
+        "method": "get",
+        "definition": "'/recommendations/:id', requireAuth, remediationController.getRecommendationById)"
+      },
+      {
+        "method": "post",
+        "definition": "'/plans/:id/dry-run', requireAuth, remediationController.dryRun)"
+      },
+      {
+        "method": "post",
+        "definition": "'/plans/:id/request-approval', requireAuth, requireRole('responder', 'admin'), remediationController.requestApproval)"
+      },
+      {
+        "method": "post",
+        "definition": "'/approvals/:id/approve', requireAuth, requireRole('responder', 'admin'), remediationController.approvePlan)"
+      },
+      {
+        "method": "post",
+        "definition": "'/approvals/:id/reject', requireAuth, requireRole('responder', 'admin'), remediationController.rejectPlan)"
+      },
+      {
+        "method": "post",
+        "definition": "'/plans/:id/execute', requireAuth, requireRole('responder', 'admin'), remediationController.executePlan)"
+      },
+      {
+        "method": "get",
+        "definition": "'/executions', requireAuth, remediationController.listExecutions)"
+      },
+      {
+        "method": "get",
+        "definition": "'/executions/:id', requireAuth, remediationController.getExecutionById)"
+      },
+      {
+        "method": "get",
+        "definition": "'/policies', requireAuth, remediationController.listPolicies)"
+      },
+      {
+        "method": "post",
+        "definition": "'/policies', requireAuth, requireRole('admin'), remediationController.createPolicy)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\runbookExecutions.routes.js",
+    "bytes": 1244,
+    "lines": 23,
+    "sha256": "5a7c4e5c4fbdf46e510f867461757d2a090321c8093369a6728c1253ffdbf652",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/:executionId', requireAuth, executionsController.getExecutionById)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:executionId/logs', requireAuth, executionsController.getExecutionLogs)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:executionId/request-approval', requireAuth, requireRole('admin', 'responder'), executionsController.requestApproval)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:executionId/approve', requireAuth, requireRole('admin', 'responder'), executionsController.approveExecution)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:executionId/reject', requireAuth, requireRole('admin', 'responder'), executionsController.rejectExecution)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:executionId/execute', requireAuth, requireRole('admin', 'responder'), executionsController.executeRunbook)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:executionId/cancel', requireAuth, requireRole('admin', 'responder'), executionsController.cancelExecution)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\runbooks.routes.js",
+    "bytes": 653,
+    "lines": 18,
+    "sha256": "7803233b5424e6bf267f578f6f4d0a398435f910510b7bc8ab55b34a46200d15",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', runbooksController.listRunbooks)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:runbookId', runbooksController.getRunbookById)"
+      },
+      {
+        "method": "post",
+        "definition": "'/', requireAuth, requireRole('admin'), runbooksController.createRunbook)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:runbookId', requireAuth, requireRole('admin'), runbooksController.updateRunbook)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\services.routes.js",
+    "bytes": 836,
+    "lines": 18,
+    "sha256": "c69ddf6882faf8b0a99f127a3505b3652f737f6734caaaf506484be509cf089e",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', servicesController.getAllServices)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:serviceId', servicesController.getServiceById)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:serviceId', servicesController.updateService)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:serviceId/reliability', reliabilityController.getServiceReliability)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:serviceId/change-history', changeController.getServiceChangeHistory)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:serviceId/event-history', eventsController.getServiceEventHistory)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\slo.routes.js",
+    "bytes": 971,
+    "lines": 22,
+    "sha256": "9c7a96c55f04a50759979c56bfbe84757023a270a6ad80823cee216939df6337",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', sloController.listSlos)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:sloId', sloController.getSloById)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:sloId/error-budget', sloController.getErrorBudget)"
+      },
+      {
+        "method": "get",
+        "definition": "'/:sloId/burn-rate', sloController.getBurnRate)"
+      },
+      {
+        "method": "post",
+        "definition": "'/', requireAuth, requireRole('admin', 'responder'), sloController.createSlo)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/:sloId', requireAuth, requireRole('admin', 'responder'), sloController.updateSlo)"
+      },
+      {
+        "method": "delete",
+        "definition": "'/:sloId', requireAuth, requireRole('admin'), sloController.deleteSlo)"
+      },
+      {
+        "method": "post",
+        "definition": "'/:sloId/evaluate', requireAuth, requireRole('admin', 'responder'), sloController.evaluateSlo)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\sreIntelligence.routes.js",
+    "bytes": 1183,
+    "lines": 25,
+    "sha256": "5cde81e83e992994d171f65e3349369cb30d29a61d970eb55108777f6d1bb8cd",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/overview', requireAuth, sreIntelligenceController.getOverview)"
+      },
+      {
+        "method": "get",
+        "definition": "'/health', requireAuth, sreIntelligenceController.getHealth)"
+      },
+      {
+        "method": "get",
+        "definition": "'/predictive-risks', requireAuth, sreIntelligenceController.getPredictiveRisks)"
+      },
+      {
+        "method": "get",
+        "definition": "'/slo-summary', requireAuth, sreIntelligenceController.getSloSummary)"
+      },
+      {
+        "method": "get",
+        "definition": "'/capacity-optimization', requireAuth, sreIntelligenceController.getCapacityOptimization)"
+      },
+      {
+        "method": "get",
+        "definition": "'/recommendations', requireAuth, sreIntelligenceController.getRecommendations)"
+      },
+      {
+        "method": "patch",
+        "definition": "'/recommendations/:id/status', requireAuth, requireRole('responder', 'admin'), sreIntelligenceController.updateRecommendationStatus)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\routes\\telemetry.routes.js",
+    "bytes": 582,
+    "lines": 17,
+    "sha256": "f3de2eeb1d6ca9c946bfa5e1051b339485766bbbef20ff4c0b6360ba4f353bdf",
+    "routes": [
+      {
+        "method": "get",
+        "definition": "'/', telemetryController.getTelemetry)"
+      },
+      {
+        "method": "get",
+        "definition": "'/status', telemetryController.getStatus)"
+      },
+      {
+        "method": "post",
+        "definition": "'/mode', telemetryController.setMode)"
+      },
+      {
+        "method": "get",
+        "definition": "'/metrics', telemetryController.getMetrics)"
+      },
+      {
+        "method": "get",
+        "definition": "'/traces', telemetryController.getTraces)"
+      },
+      {
+        "method": "get",
+        "definition": "'/logs', telemetryController.getLogs)"
+      }
+    ],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\server.js",
+    "bytes": 3621,
+    "lines": 114,
+    "sha256": "9a05c5b017346f23a9d108308ba6c473f14e2932941e95c1e9cebb439f38dab0",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\aiContext.service.js",
+    "bytes": 8793,
+    "lines": 260,
+    "sha256": "37ea696da0befeadde088d17ece45d433506874f9f37f4359e94fbba2f8af570",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\aiInvestigation.service.js",
+    "bytes": 8326,
+    "lines": 197,
+    "sha256": "1350dc1d58bf100cf64b6e8446670964c94663d7cde34e57b41a4396bdeb1452",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\alertCorrelation.service.js",
+    "bytes": 18559,
+    "lines": 471,
+    "sha256": "6c51e6c25550e16c84bdc534c11f618e041f847b5a1e139d96403f4e532d0f12",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\alertRules.service.js",
+    "bytes": 7503,
+    "lines": 247,
+    "sha256": "98ef2c2a8c462f49609e45f2acbf58d04dbdcfc31cd06da286d3ea2b7efd3c01",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\approval.service.js",
+    "bytes": 5167,
+    "lines": 147,
+    "sha256": "9dcde2b531329e4fd15492a4c15c0fde8ada7f7ea0c8b4682902876584e90554",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\audit.service.js",
+    "bytes": 2827,
+    "lines": 86,
+    "sha256": "b6dac1c57a029dbb4d606d570eff428718f6768c735352929ffd615923c8b6a0",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\auth.service.js",
+    "bytes": 5685,
+    "lines": 186,
+    "sha256": "c503bbbc5d07754e9bbfeea6615d5cdcf612d2826962c7aeb346f1ecc4fea1b8",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\changeIntelligence.service.js",
+    "bytes": 11827,
+    "lines": 318,
+    "sha256": "7af94c976dad92cedd3e339cde701ecd611683f88a261b635a9f4848b7d6c3da",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\policies\\lifecycle-policy.js",
+    "bytes": 2558,
+    "lines": 68,
+    "sha256": "ecd2767543dd9fa1b308efd03812f71d647f22747662eaa1862a51cecb258a1e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\providers\\aws.provider.js",
+    "bytes": 1487,
+    "lines": 42,
+    "sha256": "d783123a23e6ad05d9c8b69225201a71ad03217c5223ed467fe0141ce284f7ab",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\providers\\awsEc2Lifecycle.provider.js",
+    "bytes": 9253,
+    "lines": 270,
+    "sha256": "8d45d1e197b3e04fe9429e9544b1feb633ae3efb584a8e4893a3f128ef23bc9d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\providers\\awsReadOnly.provider.js",
+    "bytes": 19055,
+    "lines": 533,
+    "sha256": "d03fbd16cbb659aa8184793b4cffc484f3c93ed61c04f6e5f996e5ef96a9550e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\providers\\docker.provider.js",
+    "bytes": 1053,
+    "lines": 34,
+    "sha256": "afb47eb4fb3ca766b936ab9add8a15e624569591c021227c9e67b62a3794a2ac",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\providers\\dockerLifecycle.provider.js",
+    "bytes": 7471,
+    "lines": 246,
+    "sha256": "d780364891ad9960d0069d519b3c585f3ce5e062bc7f9cfb9fbdde6d3f712c26",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\providers\\kubernetes.provider.js",
+    "bytes": 1406,
+    "lines": 36,
+    "sha256": "f0429281196d1e76f49ce12200eaa35ca64532037a52dc89ce8aa8e0a52d1382",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\providers\\kubernetesLifecycle.provider.js",
+    "bytes": 5535,
+    "lines": 187,
+    "sha256": "f37dbf47416fe8f97cd2a78f68862a05c782ecb7ca055dda07c4a8a10aa85561",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\providers\\mock.provider.js",
+    "bytes": 2984,
+    "lines": 109,
+    "sha256": "27530823c2659fd5075d436e7680a91b82b9f7445366d1258924b6830b351bc3",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\awsDiscovery.service.js",
+    "bytes": 7933,
+    "lines": 188,
+    "sha256": "19b9b4e7d97dd560c1b791cac6adc783da5acead600ffd53f41d75d6eb78ecac",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\baseline.service.js",
+    "bytes": 8166,
+    "lines": 221,
+    "sha256": "daec9b98f1fd5d602edbfa43e4127b8a8faf715ff8fbbee2528d9e4fbd67cbd1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\cost-estimation.service.js",
+    "bytes": 3866,
+    "lines": 86,
+    "sha256": "b9f9bd49e6fc8abf62084536acfc84423a0e0e4f54d5a63be254dff8b323b746",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\dependency-check.service.js",
+    "bytes": 5870,
+    "lines": 136,
+    "sha256": "093aa366e7ef0bd371d1fdab2e1195dc2a36fc59250836c55d218394bd7eb6f7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\driftDetection.service.js",
+    "bytes": 14018,
+    "lines": 354,
+    "sha256": "8c80f51814c2d0e656f1eb3b9c3be9d2ca809571926d6f6a02966ba8386a3c5e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\driftReconciliation.service.js",
+    "bytes": 11682,
+    "lines": 289,
+    "sha256": "ca031b025cdc57add911352767ab7126b24318a2fe307aa0a9414043947be2ab",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\driftSeverity.service.js",
+    "bytes": 6532,
+    "lines": 185,
+    "sha256": "88f68db2d5f6cd671553903b99c8ac468808ba9b2f8b2569f57f2e7ecdef7d19",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\ec2Eligibility.service.js",
+    "bytes": 8256,
+    "lines": 174,
+    "sha256": "26fa6f887812ee8c81e7ca981d5e5842c549b33857628c2f37abe6a4510605ee",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\lifecycle.service.js",
+    "bytes": 25689,
+    "lines": 588,
+    "sha256": "fe2df06198674b9ca4c37e1ac3390533b08e8f02ff5df960311943a07886c05e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\resource.service.js",
+    "bytes": 2103,
+    "lines": 61,
+    "sha256": "f14b2058dd40edeedbe058297c76aa6597f1882d9c83fabf6ff2dd5ab0a7f8dc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\schedule.service.js",
+    "bytes": 4162,
+    "lines": 120,
+    "sha256": "9a2a57378f4e9bfbacf45ea0fde17090f432b50d54e6087d7a05038158cf80df",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\snapshot.service.js",
+    "bytes": 7312,
+    "lines": 218,
+    "sha256": "e824fdcfdfea9537c30efc4481a5f1fa23b8cb801f7cc35fd3caa9119a8ec384",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\cloud-lifecycle\\services\\workloadEligibility.service.js",
+    "bytes": 16678,
+    "lines": 373,
+    "sha256": "0870deb1b92011eee508bd7e81942e227bdc7dad94afe822096f402b6b82b4a7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\deploymentHistory.service.js",
+    "bytes": 4853,
+    "lines": 133,
+    "sha256": "f011ef7c28cd9f390aa47c4991dea5eb4fdc4a2417dd6796ab9d537f8ccbf08f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\deploymentRegression.service.js",
+    "bytes": 8027,
+    "lines": 194,
+    "sha256": "6c0fd70feff62cddfa80e723386d90a015ea180528b3c4ff6e2c8848754fd954",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\eventNormalizer.service.js",
+    "bytes": 5257,
+    "lines": 122,
+    "sha256": "64fe49991d00db0e4011bf9bb406beb9cb196f7ded01b41ba069317d006eefd5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\faultLab.service.js",
+    "bytes": 6609,
+    "lines": 187,
+    "sha256": "ffebf5333a8c53556034ec827a32123f8f4e79d160680270de49975fa6d8e21d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\incidents.service.js",
+    "bytes": 3942,
+    "lines": 117,
+    "sha256": "921522db18a9d0a928972ee80aa033e2979a1c71f66f8eee06f88ae3ac494d75",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\integration.service.js",
+    "bytes": 17163,
+    "lines": 496,
+    "sha256": "42352f0cd2d76bdd6fd33bcabd01c1f9b8c6257a89dcce235e94b9f1e4070fec",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\integrationHealthMonitor.service.js",
+    "bytes": 1358,
+    "lines": 48,
+    "sha256": "ac3d1c0ff7c695c7f014fa9312b0591dfe4308476f7fc4933e515468f17be03e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\investigation.service.js",
+    "bytes": 5136,
+    "lines": 158,
+    "sha256": "684e4258bc693898789dc4875b8400f2229abe536d1d17fe677eba203c11f808",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\notification.service.js",
+    "bytes": 8328,
+    "lines": 256,
+    "sha256": "42a2af679aeed9e89d7acbb726cfacf83a9300ca7a1cbd71ede99f7ea1bfff2d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\notificationDispatcher.service.js",
+    "bytes": 6751,
+    "lines": 243,
+    "sha256": "52fc2afd0a6d8b5479fdad5afe7342e6a15a35dc9ec8dc34f98920487395f020",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\notificationTemplates.service.js",
+    "bytes": 6318,
+    "lines": 167,
+    "sha256": "7ef40ed4d596a865373f958f99fb044bee0d6b2e4c74c1f77866ffec54c5278b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\operationalIntelligence.service.js",
+    "bytes": 7290,
+    "lines": 172,
+    "sha256": "70b14b9ce41b5605a89aab4b587d38fb85a4646bcba8bdbb307fb31a2c3392fc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\operationalTrends.service.js",
+    "bytes": 5329,
+    "lines": 149,
+    "sha256": "ee0a6dee78393d34710eb5ce6dfe07c7d68ca67a7cf453b791151d6d8f37a236",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\preventiveRecommendation.service.js",
+    "bytes": 6885,
+    "lines": 165,
+    "sha256": "c776f26022c135af38f2c9696292c1d511af5da4d99f67f6cbd35293c426635d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\reliability.service.js",
+    "bytes": 5584,
+    "lines": 153,
+    "sha256": "68bee5c172fcd4b490424e111ed5706c6af32f49daf01f6d45341328b5e8046f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\remediation\\remediationApproval.service.js",
+    "bytes": 8691,
+    "lines": 254,
+    "sha256": "d2ae5b4a32c72cfc6f46d1f0a6d548c61f74c410f9fcee5c4551cfa7280331e6",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\remediation\\remediationExecution.service.js",
+    "bytes": 13429,
+    "lines": 322,
+    "sha256": "4a6c8e313ad5ca55a46f8bd92abfce9926446b610632879ad7c9ddb534a5f323",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\remediation\\remediationPolicy.service.js",
+    "bytes": 4823,
+    "lines": 129,
+    "sha256": "34c869bb702bc9d270c86274a5be48552e4801d9928d089e9686245a29476889",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\remediation\\remediationRecommendation.service.js",
+    "bytes": 13153,
+    "lines": 328,
+    "sha256": "4707537dcfcaa0ce9c59126288f1213bc0a25d52172e9ede9e2698daa307db07",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\remediation\\remediationVerification.service.js",
+    "bytes": 4328,
+    "lines": 129,
+    "sha256": "916928a3151386b082ea2d3b1897ed7ac70536d88d5b181abcbfc0e7df4a9808",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\remediation\\riskAssessment.service.js",
+    "bytes": 6591,
+    "lines": 151,
+    "sha256": "e8962e60cc01215852e0e663e784a5eea9c2050b27b73e4b7fbdbd9103746e42",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\remediationPolicy.service.js",
+    "bytes": 7468,
+    "lines": 194,
+    "sha256": "e02e206e8617e59f799949db3e3a6a8ddd943229ec8acbfd0fe835fbf11fa8ad",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\runbook.service.js",
+    "bytes": 5796,
+    "lines": 184,
+    "sha256": "436190f79431d7cc6b37eb10af2492c035c195e5ddf90ef8cc49e6282076527f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\runbookExecution.service.js",
+    "bytes": 13061,
+    "lines": 372,
+    "sha256": "eccee2d8f9d6d6560c7ae7c13c7e30718469ca5dadfa4d52f98fcca2002356c3",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\serviceMapping.service.js",
+    "bytes": 7195,
+    "lines": 191,
+    "sha256": "156e711e8eb94a0d7d0479cd28415e14be461166c030eb7d0ecaaebcb622d55a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\services.service.js",
+    "bytes": 1476,
+    "lines": 47,
+    "sha256": "11f4230c1724fe3787968c158398ad3e67808c011a548cba05c3ecfe4584e3bf",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\slo.service.js",
+    "bytes": 11164,
+    "lines": 337,
+    "sha256": "691e34d7f4dc9f64af76b85a72538b3a70cdf761b9055d507ef8d0ae8f70f43e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\sre-intelligence\\capacityOptimization.service.js",
+    "bytes": 6649,
+    "lines": 148,
+    "sha256": "2a32ed531c1f2bad011de5d3aa221a7046a3aef2693a100143636aae791f130d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\sre-intelligence\\infrastructureHealth.service.js",
+    "bytes": 14808,
+    "lines": 352,
+    "sha256": "9e9716e07e5083acc26a416f3dd7ecfae5af33b573712f7293202a60623e2a5e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\sre-intelligence\\predictiveRisk.service.js",
+    "bytes": 11501,
+    "lines": 292,
+    "sha256": "38be193086762752094d15a7f45ae82f2f9936702927f3352d1c6b9154522af9",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\sre-intelligence\\sloBudget.service.js",
+    "bytes": 5223,
+    "lines": 145,
+    "sha256": "b61e4665a9c1e05d375d382c4d10158452d26c2097a9c401d2a4d0a438cf5693",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\sre-intelligence\\sreRecommendation.service.js",
+    "bytes": 6648,
+    "lines": 150,
+    "sha256": "e515aaad67ca97fd084505915504c5b2632e67de331f59cc17abe5643b3b6bb1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\telemetryPipeline.service.js",
+    "bytes": 16421,
+    "lines": 440,
+    "sha256": "e5c925f5b08337b08e0c49fff1e9f0668384baf2de88bb9c384a59644ff627c7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\timeline.service.js",
+    "bytes": 11319,
+    "lines": 322,
+    "sha256": "4666a93d87f4879977868ae9d969061bb51923d6ba8d355fdb0fcb71ffeef9ea",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\unifiedCorrelation.service.js",
+    "bytes": 5133,
+    "lines": 150,
+    "sha256": "88a56fe2bc8f34a1b169396fdb69f9ff7da1953d905eead73ff6a539210b7aec",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\unifiedTimeline.service.js",
+    "bytes": 5572,
+    "lines": 137,
+    "sha256": "67b7a429ff3cd003a727e5bc208e0aaabf081524b2e7f7ca70fd68cec0d406e5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\__tests__\\intelligentAlerting.test.js",
+    "bytes": 9273,
+    "lines": 222,
+    "sha256": "afb4cb4594efe99229f8fef277180e485cb78039dfffbd04cab1ce0ac25e49ce",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\services\\__tests__\\timeline.test.js",
+    "bytes": 2850,
+    "lines": 71,
+    "sha256": "0dce2c680fad9723be10f18cca94ca8de3b958cae4ed044ee3a908cdb69d82a0",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\utils\\ApiError.js",
+    "bytes": 981,
+    "lines": 34,
+    "sha256": "f7da99ff5a0e158e2dd07cc88dac0bf9a9ea99e3b3690dfa3bbb84125155e01b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\utils\\logger.js",
+    "bytes": 2017,
+    "lines": 76,
+    "sha256": "c0e57ae20f1d90e4de5da49b61856179fb01c3a6a0487b3c13a2343b38932c42",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "backend\\src\\worker.js",
+    "bytes": 1552,
+    "lines": 45,
+    "sha256": "0a29f1ee128537db817e26d3ea522e30d91dcf2ac5a63be452df0ff1736c227d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\App.jsx",
+    "bytes": 3411,
+    "lines": 64,
+    "sha256": "fe6507dd4aaba20823cd214b01a67f50dacdad64411b8b57372589756132f452",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\common\\EmptyState.jsx",
+    "bytes": 1113,
+    "lines": 31,
+    "sha256": "6731dfa083d41253cb3579fa94d1d4b5765e68315075d2b96ba215d6075cb59f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\common\\HypothesisModal.jsx",
+    "bytes": 4246,
+    "lines": 83,
+    "sha256": "668b3b61972d3447cfa222f7137c3f9778bdb7a7f0503a2dd01d6e680406c840",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\common\\ToastContainer.jsx",
+    "bytes": 2137,
+    "lines": 55,
+    "sha256": "53496afc2dd8e253d7a94fc52f1228ed08388704068b4a22e28ce53b79d4c3ca",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\investigation\\AiAssistantPanel.jsx",
+    "bytes": 14101,
+    "lines": 302,
+    "sha256": "c5bbfb05910eb632b5141643c1fa4ed4b02508a2c5e5805b884ffbb935a2cde5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\investigation\\GovernedRemediationPanel.jsx",
+    "bytes": 18007,
+    "lines": 362,
+    "sha256": "8a92846d0f7d05c2b251352e056d5f574c84cdceee7b30ab0b2e6da5ec14ce1d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\layout\\AppLayout.jsx",
+    "bytes": 1266,
+    "lines": 42,
+    "sha256": "ea03b32ea736f5a8cbe103ca65046a8b4cf6fd3aa00f3b3ead58b79559915fc6",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\layout\\CommandPalette.jsx",
+    "bytes": 6549,
+    "lines": 144,
+    "sha256": "56909699b1d4edc7b9d0bb124c2c11453d75a8a984cc4a7126bc1cf43554dde1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\layout\\Sidebar.jsx",
+    "bytes": 6611,
+    "lines": 146,
+    "sha256": "bfd0eec3b31e040624ff96e508bb8694f84b18b05aa696804139bbfac8be1bcf",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\layout\\SimulationNotice.jsx",
+    "bytes": 1670,
+    "lines": 36,
+    "sha256": "85281ab35bb2594a010f490d0e5af678f1494f8933c29af0f35c5701d3eb00cc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\components\\layout\\TopHeader.jsx",
+    "bytes": 8486,
+    "lines": 183,
+    "sha256": "edb41a3f99872d3204581713d665b964aa3c510fff02f41bdde2fadc47487b78",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\context\\AppContext.jsx",
+    "bytes": 17108,
+    "lines": 511,
+    "sha256": "c373239786bad15f99fbfdce22af2792aa7ea80e050f059cbfa7cb153aebda03",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\context\\AuthContext.jsx",
+    "bytes": 3615,
+    "lines": 134,
+    "sha256": "e5113f7ed39cb8beb9818d9932cd5af2f56dcaa68293c46fbf6c8b213bfd7c4f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\data\\mockData.js",
+    "bytes": 11810,
+    "lines": 228,
+    "sha256": "96905fe8a72675d2bbf9c775a8afc11ed85bd4c0637d389693ef978a95b91352",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\hooks\\useObservability.js",
+    "bytes": 2002,
+    "lines": 68,
+    "sha256": "b623b4ce821055d23727709324a8cae19535514369952467ba67ff74edb8f3d4",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\layouts\\AppLayout.jsx",
+    "bytes": 76,
+    "lines": 3,
+    "sha256": "7abd5ccbf5133c629a7fe16d4b99007e87c2477736b11186a02b76e17e6d8235",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\main.jsx",
+    "bytes": 251,
+    "lines": 12,
+    "sha256": "99717a457c6048f836cd909d340a25669cfb68d02834a63ede662b81bb4e0dc0",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\AlertsCenterPage.jsx",
+    "bytes": 16888,
+    "lines": 345,
+    "sha256": "93e5cab9ec0f66f2b45296916ce120cdef2c186d272320b872c1bc64d54aa884",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\AuthOnboardingPage.jsx",
+    "bytes": 17133,
+    "lines": 359,
+    "sha256": "8c43c5cd86801223614d03763d72d1717d36aa226bac13677d3d5b146fe109cc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\CloudLifecyclePage.jsx",
+    "bytes": 276532,
+    "lines": 5020,
+    "sha256": "ba0495d51f536774aa616f2dfc65e7d6ec37f056e2b64f55693ec66eb1397803",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\DeploymentsPage.jsx",
+    "bytes": 43361,
+    "lines": 795,
+    "sha256": "ac9538dc60ffef47a6d64e3ba255670948cd4fefc76a18a6e363d2be56511a2f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\FaultInjectionLabPage.jsx",
+    "bytes": 27665,
+    "lines": 554,
+    "sha256": "ab0b7e033f2ca883d635ad628b7b939039a7e656154952df72ee558cdf80b81f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\IncidentInvestigationPage.jsx",
+    "bytes": 37231,
+    "lines": 715,
+    "sha256": "2e921131b4449f15dffa51454fff8b7442d89e338f5bc14eafd12e6a1fa8c0bc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\IncidentManagementPage.jsx",
+    "bytes": 15177,
+    "lines": 308,
+    "sha256": "c75b0359679198f083e2c6804ed7b1eb0576ef7f54f136294f4fcbea35e18c88",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\IntegrationsPage.jsx",
+    "bytes": 50504,
+    "lines": 1059,
+    "sha256": "d5eb6c9fb1750159a1cc2133a47b94ceb643032fc3de0dba05bbaf0b8ceec444",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\OperationalIntelligencePage.jsx",
+    "bytes": 57640,
+    "lines": 1180,
+    "sha256": "e70292ee4f8eccf4181fd411a19d8004fdbfbd555a71b0cdaace19aa94cdd509",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\OverviewIncidentPage.jsx",
+    "bytes": 30111,
+    "lines": 500,
+    "sha256": "00287ff6502396b1ac3c81e947dc260151ed0744418e3ce72656973537fe06b4",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\ReportsPostmortemsPage.jsx",
+    "bytes": 7480,
+    "lines": 151,
+    "sha256": "0404ba7fd877b8b50ce598b0c8a27f011a7596bee61cdd8d5b93ae5cda8eaf2a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\RunbooksPage.jsx",
+    "bytes": 38808,
+    "lines": 720,
+    "sha256": "04355dae2d7590023df73def3b17c4bc5276245e62461226ca80061e1c50389d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\ServiceDetailPage.jsx",
+    "bytes": 17321,
+    "lines": 348,
+    "sha256": "0e871e2a111ac2dd01ae9c5e1c7f3d0a5162317f154691c34ba616104837db91",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\ServicesTopologyPage.jsx",
+    "bytes": 31725,
+    "lines": 600,
+    "sha256": "f590a679c995f794e70f1b8fd7a7653c6c18f8a5e44e6bb5ae8936bc8ce26ed1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\SLOsPage.jsx",
+    "bytes": 21238,
+    "lines": 454,
+    "sha256": "bba7efe70693d37a5c14c628990971df9fa2cfb581ea558d3d4eed3729988390",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\SREIntelligencePage.jsx",
+    "bytes": 26556,
+    "lines": 542,
+    "sha256": "4ac50baf53cd6686dd8e1f2a1ca5a2ccc87816125bb43bb14dffb4ac1e552580",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\SystemOverviewPage.jsx",
+    "bytes": 17048,
+    "lines": 331,
+    "sha256": "de256a40d3208fd7a353d1d89700a40953208f7fc597c2b858bab7f72d8b6460",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\TeamSettingsPage.jsx",
+    "bytes": 17687,
+    "lines": 357,
+    "sha256": "b3c4ee3704766477a5d83401b4fba2aed2bed9a42e1398f14973cb017c29ac29",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\pages\\TelemetryExplorerPage.jsx",
+    "bytes": 18220,
+    "lines": 396,
+    "sha256": "4e1b7ddaa83f35514ebef74d8cfeb65f4e941056b7523a71ac4ca4903d3dfcbb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "frontend\\src\\services\\api.js",
+    "bytes": 23841,
+    "lines": 557,
+    "sha256": "d0b718728175ce5cb2f513637794c0bff871ec552aec451c7129d09b3d5c4021",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "deploy\\docker-compose.staging.yml",
+    "bytes": 8027,
+    "lines": 257,
+    "sha256": "31d0eab09df643ac37647b5ab52d90ea6a0ce7e02c8003f7832f7ee0e7091944",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "deploy\\docker-compose.yml",
+    "bytes": 5771,
+    "lines": 184,
+    "sha256": "6af2a2ddb01e869e37d6086c68d20a409fba39e71231d4936480cf3398c2c86c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "deploy\\loki-config.yaml",
+    "bytes": 571,
+    "lines": 32,
+    "sha256": "85bde10cd0cdbe33d6e4151dba913b57a054e8afc29e94ad04b99b863dc0ab0d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "deploy\\nginx\\staging.conf",
+    "bytes": 4785,
+    "lines": 133,
+    "sha256": "da8fc4e655633ae871b92758f877ea24714d2ac090b4db154687d1a15ef3cd11",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "deploy\\otel-collector-config.yaml",
+    "bytes": 877,
+    "lines": 51,
+    "sha256": "ee2aac9787d3fe7f8abeaf5f675d418ffbb908a0ace4afbbb551ac283c45e4c3",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "deploy\\prometheus.yml",
+    "bytes": 282,
+    "lines": 14,
+    "sha256": "203aec00354f8e7d5d6d2428e2ee70edb002d77ffd37c38ff1beed6f6be6a7eb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "deploy\\tempo-config.yaml",
+    "bytes": 411,
+    "lines": 28,
+    "sha256": "7db98d17a5bd8c4848c27a015bcc144f3535b439140552c8937578f9ee1fae4b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\backend-deployment.yaml",
+    "bytes": 2373,
+    "lines": 88,
+    "sha256": "98b353333e9a755314e15e1d74602a2e0f77b8b82a552b2dff3080ff14d5663d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\backend-service.yaml",
+    "bytes": 380,
+    "lines": 20,
+    "sha256": "c28f610836fcdb6248cbda3e83a01a91541c5183a173a57b713b643b50adab33",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\configmap.yaml",
+    "bytes": 873,
+    "lines": 32,
+    "sha256": "327ee5f91cb0f23016d68486c20ca325951c30d92b48eefd28c17e2a95184c25",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\frontend-deployment.yaml",
+    "bytes": 1712,
+    "lines": 69,
+    "sha256": "2726f2dde13b7cd66c306a0e2f0d1825914aeca75118710864fc57ebfcff9152",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\frontend-service.yaml",
+    "bytes": 383,
+    "lines": 20,
+    "sha256": "a7704a8ee34dca7b2d5aa79173ebc38f1afe9959f6b45e93255d070e57812973",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\ingress.yaml",
+    "bytes": 757,
+    "lines": 32,
+    "sha256": "f7a282e08e684d72a719d711d714df6ca423daae784d5bf9c57a1eb8f597f191",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\kustomization.yaml",
+    "bytes": 458,
+    "lines": 23,
+    "sha256": "04c64ed3d220d4a4f6deff8a9967dc093058fe2e4d9deaab4cdd282e562b41f5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\namespace.yaml",
+    "bytes": 152,
+    "lines": 9,
+    "sha256": "d14ec5461321b9147a2802aa3a80cf349b1b7846614773c7e41db7f30a06deb1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\network-policy.yaml",
+    "bytes": 1248,
+    "lines": 50,
+    "sha256": "4133bbbbb07ff50eae0a504ce56e1edae53e012993986a2cb3e415c4a37a33db",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\postgres-service.yaml",
+    "bytes": 389,
+    "lines": 20,
+    "sha256": "d85ca0480a6cbfe1c84d0618da73296b71f2b0cde8656018a34938d2922fea5e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\postgres-statefulset.yaml",
+    "bytes": 2787,
+    "lines": 101,
+    "sha256": "ca69fbaf80f0f9a1cb0684b54fb9cafbbb6a7f3ed176fbe0f19484ec52164b1a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\secret-template.yaml",
+    "bytes": 543,
+    "lines": 17,
+    "sha256": "e95351cee1601955ad85884a6aa6ab890f2621828555d757934d0fb0ad191714",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\base\\worker-deployment.yaml",
+    "bytes": 1796,
+    "lines": 67,
+    "sha256": "5a46e6fc70231886abb0a6d72ae3180afa73ad9c69313d0be1f74ce35c371a2c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\overlays\\local\\ingress-local.yaml",
+    "bytes": 1153,
+    "lines": 47,
+    "sha256": "86ea5da92383dc1b23261e64109cfe6b03f5aa6718daf1191a20dd74ec01d10f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\overlays\\local\\kustomization.yaml",
+    "bytes": 225,
+    "lines": 16,
+    "sha256": "dc9d903d3071656b3b7d21c0c4421d6617f448752686dbcb51645a284347bb5c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\overlays\\local\\patch-local.yaml",
+    "bytes": 345,
+    "lines": 17,
+    "sha256": "578d9ae4335410a2de022f14b6739fe253932f3f2910e6261bdaf821245b40d1",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\overlays\\staging\\ingress-staging.yaml",
+    "bytes": 994,
+    "lines": 37,
+    "sha256": "350ffc48c9996e250fac5f9dbc3269a4abaecac09caba04d36813b675f00de7c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\overlays\\staging\\kustomization.yaml",
+    "bytes": 232,
+    "lines": 17,
+    "sha256": "bea83bbcaf3fd4d601962a4d510baca47568c04bf52be42a9904803065af1356",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "infra\\kubernetes\\overlays\\staging\\patch-staging.yaml",
+    "bytes": 488,
+    "lines": 28,
+    "sha256": "1867157f9c811bf145040607617654cf40954790512872f520e692c45a948895",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "scripts\\backup-db.ps1",
+    "bytes": 2500,
+    "lines": 56,
+    "sha256": "0f009a811beeb4c999a98b37d1ef3f814e1cea3f55e1fc6d9e24b12013d4c7cc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "scripts\\backup-db.sh",
+    "bytes": 1713,
+    "lines": 42,
+    "sha256": "5ef7fd8427fe828e9247ada015b51db3b4dad677c2433f38f32a0b85310b4f4b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "scripts\\restore-db.ps1",
+    "bytes": 2437,
+    "lines": 55,
+    "sha256": "cc9306267f4d4922331fd36b8dc8eefd325dee954465bca5740935a48dedf342",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "scripts\\restore-db.sh",
+    "bytes": 1524,
+    "lines": 42,
+    "sha256": "c517f4fff0f5c42544c3e8b73abdfc66c4c271fc8f6901808c4e6338a1aa663a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "scripts\\securityAudit.js",
+    "bytes": 2145,
+    "lines": 58,
+    "sha256": "a369094a71028de202cff06d402d00e40873fbb77f5941176036c3d5df9eb036",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "scripts\\verify-release.ps1",
+    "bytes": 2681,
+    "lines": 61,
+    "sha256": "b522be069b0f5faccffcc0e1426457e398becbcb4f72e16df82a67caac74046b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "demo-services\\api-gateway\\server.js",
+    "bytes": 2389,
+    "lines": 73,
+    "sha256": "eea3bd6e251341bb0c4b388a4361071ed12eb65857c9ff7579cce991837ef45e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "demo-services\\orders-service\\server.js",
+    "bytes": 2904,
+    "lines": 85,
+    "sha256": "4bffc06fa54b6aba864903ec46625e9ad7a37b10f2715d45a5063e6d25097135",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "demo-services\\package-lock.json",
+    "bytes": 123478,
+    "lines": 3094,
+    "sha256": "d6cef5b066873e26ef3c31a6ce6a03a4e9c2e97ebe1dc0af0e0f6c45daf4aeaf",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "demo-services\\package.json",
+    "bytes": 806,
+    "lines": 25,
+    "sha256": "737096a143c0e532f9250e29211525da830b78437faf85b914a6514b00c52fa4",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "demo-services\\payments-service\\server.js",
+    "bytes": 1660,
+    "lines": 55,
+    "sha256": "163522245384cbee553e35f69083abf62d4acb20b1e03eacbe8988f96361967e",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "demo-services\\run-all.js",
+    "bytes": 908,
+    "lines": 32,
+    "sha256": "f1c7ed09f927ac0a5877129071843f873c90c0d1e51423f0c9ee59eaf2f06299",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "demo-services\\shared\\faultControls.js",
+    "bytes": 1394,
+    "lines": 54,
+    "sha256": "ce651ef770e2ae811b6715f5d5d1ef40daf90718750f76a7d8061067d272c505",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "demo-services\\shared\\tracing.js",
+    "bytes": 1278,
+    "lines": 40,
+    "sha256": "2a99acd1ac345103ae45dc0dc35e57af53294f323af00557e8b0c4bef137e14a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": ".github\\workflows\\benchmark.yml",
+    "bytes": 2211,
+    "lines": 90,
+    "sha256": "2d39eb5b470c40965f916e9c0a304e85f0a8cd420e16feb64c7d7f4dd6e139c8",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": ".github\\workflows\\ci.yml",
+    "bytes": 5674,
+    "lines": 185,
+    "sha256": "c176860191ab0328f7218366a3c5ca53ca2e9acf947ec6f553059f41403467e4",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\aws-ap-south-1-deployment-template.md",
+    "bytes": 7273,
+    "lines": 193,
+    "sha256": "11811d4f638a7c1db1a32cc1b96ac8c5e02867499b36ae38190d1f97100ff139",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\aws-iam-read-only-policy.md",
+    "bytes": 3797,
+    "lines": 94,
+    "sha256": "cbcd3d0343ae1c55c7615822d170cdb49d38736e8b27998052a4e556f2083646",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\ENTERPRISE_PRODUCTION_HARDENING.md",
+    "bytes": 6971,
+    "lines": 101,
+    "sha256": "7e455ecb93c597b638369e69daf0bf17c813a32034fc188b3c76762a5d54e2e2",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\k3s-local-deployment-guide.md",
+    "bytes": 6231,
+    "lines": 217,
+    "sha256": "bc674c483304bf767f909f493467fdc7931642325be4a820f1579b057d1a77fb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\DATABASE_RECOVERY.md",
+    "bytes": 4793,
+    "lines": 87,
+    "sha256": "7da4e0378755568668c58bb02f518b654b503628a0d457f3d342423293ba36d7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\END_TO_END_VALIDATION.md",
+    "bytes": 7005,
+    "lines": 96,
+    "sha256": "cfb8cb2ca18869c756f14636524a4656923fc7808ebc140a362a40e9fe588908",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\ENVIRONMENT_CONFIGURATION.md",
+    "bytes": 2299,
+    "lines": 40,
+    "sha256": "22069cb7c4894fe8a84ee76ac91e8bd5f38da211fa1a0a68af41da6c0708ef37",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\FAILURE_RECOVERY_REPORT.md",
+    "bytes": 5721,
+    "lines": 53,
+    "sha256": "1bd31a27321b5ea72652d6aef825eb2226dcd063a0ae65288b51e0842046b002",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\FRONTEND_QA.md",
+    "bytes": 4947,
+    "lines": 64,
+    "sha256": "77c9598bee825cbcc9cef2fb3c53ec8a30c8286fdbba0094ba82626f6ff6a4fe",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\INCIDENT_RESPONSE.md",
+    "bytes": 2985,
+    "lines": 68,
+    "sha256": "720bef686818a139569f043fdfb3242fe82e8bc8f729f218b2c33442898b7ac4",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\KNOWN_LIMITATIONS.md",
+    "bytes": 1635,
+    "lines": 21,
+    "sha256": "c5303fde9703a96fd6015253f39f589abc8b16abce9f1332aab22243a386386c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\PERFORMANCE_REPORT.md",
+    "bytes": 4055,
+    "lines": 69,
+    "sha256": "05de02a6c4537d87cb4dca2e05a149d7e0d9561ebf9080b14012cbb5dac4aba8",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\PRODUCTION_DEPLOYMENT.md",
+    "bytes": 6340,
+    "lines": 125,
+    "sha256": "30b70c86ae53211b5eaad5e42de3c3ca28c046b295d2b7e2546266ddbff83755",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\RELEASE_BASELINE.md",
+    "bytes": 7012,
+    "lines": 94,
+    "sha256": "34f96bb9342697d5e2f6e2eaa3c29e9feb4bfef97b1d84a58efb96e28d88f65b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\RELEASE_CANDIDATE.md",
+    "bytes": 3117,
+    "lines": 44,
+    "sha256": "dde9cb6598b991efff34c9e753645edad5c49a7262fcc03c1fd0fe3c4f9de4eb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\RELEASE_CHECKLIST.md",
+    "bytes": 2258,
+    "lines": 36,
+    "sha256": "7671f9d2af466a456674d0af9959da35f5d8508b58bb168d283b92696ac42d61",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\ROLLBACK_PLAN.md",
+    "bytes": 3809,
+    "lines": 80,
+    "sha256": "16dcb9bf7f0126e8c38873972ce125900eaf6733c26a341b042987230288b8ce",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\release\\SECURITY_AUDIT.md",
+    "bytes": 5934,
+    "lines": 109,
+    "sha256": "35ba5f1285d6b2f0e556d48e44eaa7cc445f7c831a415b49be56bb967a934b28",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "docs\\staging-deployment-guide.md",
+    "bytes": 10888,
+    "lines": 296,
+    "sha256": "c8e839f5880226017dcb17a27868aed96393bd259177629e47469d23762c15e2",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\changes\\changeIntelligence.test.js",
+    "bytes": 14154,
+    "lines": 342,
+    "sha256": "9dee585b9c8ea6596c873b54ff0edba52ba67adc395cdbb6e46f27a62fd549b2",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\autonomousSreIntelligence.test.js",
+    "bytes": 24746,
+    "lines": 554,
+    "sha256": "8e72bbc6b208c19e3d1839aeea0e0ae20639efc3b3d33c885499b30f8d5e36d6",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\awsEc2Lifecycle.test.js",
+    "bytes": 23967,
+    "lines": 564,
+    "sha256": "8a98cef58fa2eec74c9318112f71c6d02926528336508967397d46c72df62016",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\awsReadOnlyDiscovery.test.js",
+    "bytes": 17453,
+    "lines": 428,
+    "sha256": "febd5ed4a9eeaad10c177c2ac0d45314676f50ff0326143096e88476e1dc77b8",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\cloudLifecycle.test.js",
+    "bytes": 17792,
+    "lines": 381,
+    "sha256": "f08643a615040601d7c32eb31137bbaf472f2652286c1576fba3fd80c4ed9339",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\dockerKubernetesLifecycle.test.js",
+    "bytes": 24521,
+    "lines": 578,
+    "sha256": "d2c412947e152549987a4597edc9e2c68186213a164a2fff9cf4b650bd2860d7",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\driftDetectionReconciliation.test.js",
+    "bytes": 33341,
+    "lines": 842,
+    "sha256": "5ba2c8fb9e796563ca9e9cfc3503b45fc0f21fe200f104d26cc9e736f2333253",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\enterpriseProductionHardening.test.js",
+    "bytes": 11096,
+    "lines": 229,
+    "sha256": "f2f03a39574f52f0374d5ef4491985fe56bcfa0327e97269e440a645379b2263",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\governedRemediationIntelligence.test.js",
+    "bytes": 28257,
+    "lines": 673,
+    "sha256": "3082d7222fa2bb06f2f017a1b33010d6caa23593a5c34ad043463d25e531a277",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\liveIntegrationAcceptance.test.js",
+    "bytes": 8457,
+    "lines": 176,
+    "sha256": "34a7464d2f237e69fe1520647a6235150c4217ff1304d8e35f87c8709677a58b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\liveObservabilityIncidentIntelligence.test.js",
+    "bytes": 24671,
+    "lines": 591,
+    "sha256": "983dc3a0588b070963421bbe1f71bf886452e25a048a8e806d0a3571ccb0fb2f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\cloud-lifecycle\\realInfrastructureIntegrations.test.js",
+    "bytes": 33074,
+    "lines": 797,
+    "sha256": "b0b8d6c127ddcf22c4f7be8e7f4627e4445e3099efc3779bb2566d0aa31e8611",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\correlation\\unifiedCorrelation.test.js",
+    "bytes": 13018,
+    "lines": 325,
+    "sha256": "8e455f8c5b2be72cd08d8d77261c3b1e46764c977e53a0356e84eff6c2eafc10",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\integrations\\enterpriseIntegrations.test.js",
+    "bytes": 19123,
+    "lines": 447,
+    "sha256": "3696d7c3871a6f110d75d1583836b4d5359f07dc0877fc0af51ebfb7c0c75147",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\operations\\operationalIntelligence.test.js",
+    "bytes": 20097,
+    "lines": 422,
+    "sha256": "c0515fc106ec5ad2c426c7c3fc3e9626b7771bf9bb4f677389093bf3462bbc16",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\performance\\alert-load.js",
+    "bytes": 1557,
+    "lines": 49,
+    "sha256": "89cc47a27932db27f27f6cb60d33144647fda4a1f5fe1ed50f05e4af840d7f90",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\performance\\api-load.js",
+    "bytes": 1837,
+    "lines": 52,
+    "sha256": "83b16eb9ace8aacb8f425f02f3d122f8c7e6576277510d0ac14da7041c5fe87f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\performance\\authHelper.js",
+    "bytes": 1486,
+    "lines": 49,
+    "sha256": "98214a512dfa7bc62e48a42a93f97a7410422ba390d77e24a5555a25a6fdddcf",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\performance\\incident-load.js",
+    "bytes": 1557,
+    "lines": 48,
+    "sha256": "c106c536ce56f458beff9a8c7264b1c80ff215ace88ff9aaeb4c0a9c046ea369",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\performance\\ingestion-load.js",
+    "bytes": 3519,
+    "lines": 95,
+    "sha256": "0a3da01568ee5235d4ce7947a18635bad4c22ae4c1eedd69a1fcdb5a9af7dbff",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\performance\\investigation-load.js",
+    "bytes": 1815,
+    "lines": 49,
+    "sha256": "ddca59450d0161fdc00c27f6bb97c15f55e96ec1284fce31ddce64f609227cea",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\performance\\loadRunner.js",
+    "bytes": 3470,
+    "lines": 110,
+    "sha256": "ea227fd837c23c6e5c8c31f4e02bcc7f193e84160d35833e9070499b316f6fe0",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\performance\\runAllBenchmarks.js",
+    "bytes": 3198,
+    "lines": 82,
+    "sha256": "301e721103220bffd25ea1f28612c1a469a0091be8765ee2c7350cb94d444bdf",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\rca-evaluation\\aiAssistant.test.js",
+    "bytes": 7825,
+    "lines": 180,
+    "sha256": "f9edec703955efee880183e195a1fcc8b5354c98764abb0696742e157ca4c11c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\rca-evaluation\\evaluationRunner.js",
+    "bytes": 5336,
+    "lines": 132,
+    "sha256": "7db94fe305000f749adeab1ad1139d9947d1d3750d1911e9af3e69b397e949a0",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\rca-evaluation\\holdout.dataset.js",
+    "bytes": 10872,
+    "lines": 355,
+    "sha256": "0443960fe6e4521e490d6270fab044a7fe43175c5f26c2f0a19f21377223f2bf",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\rca-evaluation\\rcaEngineEnhancement.test.js",
+    "bytes": 8945,
+    "lines": 226,
+    "sha256": "70c2c47ed47d9a24c56ba10e9f843064ddc60f034336c878b1d335961db4e02b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\rca-evaluation\\scenarios.dataset.js",
+    "bytes": 10772,
+    "lines": 367,
+    "sha256": "da151f801919c24db38eda4d53b56381390faf2ee00cbddea59e3b732e775f42",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\release\\failureRecovery.test.js",
+    "bytes": 26772,
+    "lines": 576,
+    "sha256": "c2077cb003dbd610242c93144fd7e5da05aa9a4a1eb97e983ad41fcd06cea903",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\release\\fullLifecycleE2E.test.js",
+    "bytes": 15358,
+    "lines": 319,
+    "sha256": "f8c351979e8d5a52f81ca236ad8245b2f34fcad1cc53d3e0090b73724c1b283a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\release\\verifyDatabaseRecovery.js",
+    "bytes": 4985,
+    "lines": 141,
+    "sha256": "e74bc25a8be2317212cd9df51fc75502a912f831c4fac35292f4de5a721f06fd",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\reliability\\reliability.test.js",
+    "bytes": 8252,
+    "lines": 172,
+    "sha256": "d49c3dea1bb959530342e566a2f5e0cb60c27c6088c2bf999ed42623b8f8ee2d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\remediation\\runbookOrchestration.test.js",
+    "bytes": 15800,
+    "lines": 414,
+    "sha256": "9197e5c5207e59054659ed93f94994fda12c6efdf8a04790855e5fdd7630290c",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\browser23m.mjs",
+    "bytes": 6546,
+    "lines": 67,
+    "sha256": "da160b6ff28007bb1171ef9f0778380be9a141fb0b86cf19279e075df92aeebe",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\capacityZeroUtilization23m.test.mjs",
+    "bytes": 1246,
+    "lines": 18,
+    "sha256": "ebca3a3e1c2e65205a07d09c207c84982b7687e6095c49d81142ad91fa46f2b5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-audit23m.mjs",
+    "bytes": 2978,
+    "lines": 16,
+    "sha256": "09cefa8875097fe566cf339bc5b0f83c4ce56eec97277dfd1acfc446b5c50148",
+    "routes": [],
+    "todos": [
+      "TODO|FIXME|NOT IMPLEMENTED)[^\\n]*/g)].map(m=>m[0]).slice(0,20)});}}}for(const d of directories)walk(path.join(root,d));save('source-audit-inventory.json',source);console.log('Indexed',source.length,'source/config/test/document files and',source.reduce((a,s)=>a+s.routes.length,0),'route declarations');"
+    ]
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-backend23m.mjs",
+    "bytes": 76,
+    "lines": 3,
+    "sha256": "5bf394b449d0f3a9dac13002da85f8640cf2468a95e41624306cb16885cb181d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-browser-focused23m.mjs",
+    "bytes": 4234,
+    "lines": 22,
+    "sha256": "5b757713c988b122d0fb2a5976e949d8dd7112d122264eefc4afce8dc6270871",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-browser23m.mjs",
+    "bytes": 6927,
+    "lines": 69,
+    "sha256": "2d9e800031a34f149e726cdfd1e4d18b86052835c35a38fad1da70241678987b",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-cluster-seed23m.mjs",
+    "bytes": 1018,
+    "lines": 12,
+    "sha256": "e2c6f5786bc6db542a2458bb3f930f94e7319d1c8a0deb9eccb4d6f78bc9d747",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-cluster23m.mjs",
+    "bytes": 1076,
+    "lines": 13,
+    "sha256": "23c3df815a82e4e1a2a070a8b7e7196825da5fa5460827424c586506b13fdcab",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-dedup-child23m.mjs",
+    "bytes": 859,
+    "lines": 10,
+    "sha256": "a5991a142832df568a8b8ce469a5ca06fea8a3d45542e25e29be7f50f229fe79",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-evidence-summary23m.mjs",
+    "bytes": 4142,
+    "lines": 14,
+    "sha256": "4e8183bd0805b8ae9e0e8b7708a534abcaa27ef09128f33782ae1194781229cc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-fix-check23m.mjs",
+    "bytes": 479,
+    "lines": 6,
+    "sha256": "c9937e0fb9e79e5540aa80279b3eb2f8d5d417ee15e7e1763bd20c9d06448116",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-interactions23m.mjs",
+    "bytes": 7798,
+    "lines": 40,
+    "sha256": "960f509f5097d7de8b93ed2a5474c6e71474e89e8dc7d83f8cd0151ce8e18155",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-prepare23m.mjs",
+    "bytes": 1489,
+    "lines": 17,
+    "sha256": "f269286280ae320167455b6c7f12b5a86920d1c96de3da7c53e01c6e28037754",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-recovery23m.mjs",
+    "bytes": 2914,
+    "lines": 25,
+    "sha256": "9932be58169553b5712862096a32a29e46c212830135c261bd76457716a5f37a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-serve23m.mjs",
+    "bytes": 1235,
+    "lines": 16,
+    "sha256": "faa243135d6798f49c76b53facc4a8b5e5ff83331d5b4c5fc64bc06f0eea121d",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-suites23m.mjs",
+    "bytes": 2398,
+    "lines": 20,
+    "sha256": "fe834faf47a1c401f2382f83a3f578b8cefb5b34e8de009b7012aa1ac984754a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-summary23m.mjs",
+    "bytes": 4179,
+    "lines": 28,
+    "sha256": "a98df17e2249ffaebc484fb7a10a7516a611a7313283c95d12cbebd7f677921a",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-supplement23m.mjs",
+    "bytes": 7412,
+    "lines": 59,
+    "sha256": "6e13679fa8cd30f7908a1f5f62710fc7f32831101d9330f84a14258c9bad99bb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-technical23m.mjs",
+    "bytes": 11377,
+    "lines": 80,
+    "sha256": "5d17a67074ff59ad42050052600f86a3bb3c07f3c8291baef4c8bc3d1c6301fb",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent-workflows23m.mjs",
+    "bytes": 15566,
+    "lines": 136,
+    "sha256": "20711d116f393ec7d7a0692962def5be425d01de4843671e3618b3e22f728681",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\independent23m.mjs",
+    "bytes": 8479,
+    "lines": 98,
+    "sha256": "aea7491757a107a1d3beba6820bed7335a2aafc1a40ec17ffc9ed9a6bdda6cec",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\operationsRbac23m.test.mjs",
+    "bytes": 1295,
+    "lines": 16,
+    "sha256": "5cde1e2ca8f381a9bbb0e161676fae17dd74d8381f2f5a3b84ca2cb092300d5f",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\phase23m.mjs",
+    "bytes": 11824,
+    "lines": 154,
+    "sha256": "e2ed93c3934937455a04a14ef09cc932c6ded0caa2a188a5948fadc75903e102",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\recovery23m.mjs",
+    "bytes": 3307,
+    "lines": 39,
+    "sha256": "b7a86169402ea3f9680dfc23162734b032656e2bf1fc949346aeb5b6087956a2",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\relocate23m.mjs",
+    "bytes": 1314,
+    "lines": 23,
+    "sha256": "870368c156b3675ef1dfa0631d8a9ec4303044b0f8611a88fa13dabe280dcc35",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\restart23m.mjs",
+    "bytes": 824,
+    "lines": 10,
+    "sha256": "c710dd81e810cff52e8a5c18d97af462a44b5acf4315d690b5bbce24afcf65fc",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\risks23m.mjs",
+    "bytes": 6547,
+    "lines": 49,
+    "sha256": "f91b2e8b578e8318c4b49bbc55f8e6fcb059752e251fd1f8033afe9fa5f8b068",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\serve23m.mjs",
+    "bytes": 1130,
+    "lines": 17,
+    "sha256": "1e94066790e2cab75d78a70aa0b099435f96a354ed099e0c497cd6d9d1046dc5",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\runtime-validation\\workflows23m.mjs",
+    "bytes": 15560,
+    "lines": 136,
+    "sha256": "1fdb56c4bd41b37203f1d538292ae2421ea3dee4ad3c5b9a6553cc6ca7f334cf",
+    "routes": [],
+    "todos": []
+  },
+  {
+    "path": "tests\\slo\\sloReliability.test.js",
+    "bytes": 11106,
+    "lines": 278,
+    "sha256": "a264963a34ec21ecd5a166dcd10ad6d174aab4db02224e9f24655ffeaf0b8f5d",
+    "routes": [],
+    "todos": []
+  }
+]

@@ -1,0 +1,13 @@
+apiVersion: 1
+
+providers:
+  - name: 'infrapulse-dashboards'
+    orgId: 1
+    folder: 'InfraPulse Platform'
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /etc/grafana/provisioning/dashboards
+      foldersFromFilesStructure: false
+

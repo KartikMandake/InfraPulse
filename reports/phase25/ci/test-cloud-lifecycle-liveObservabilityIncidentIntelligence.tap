@@ -1,0 +1,119 @@
+TAP version 13
+# Subtest: Phase 23I: End-to-End Live Observability & Incident Intelligence
+    # Subtest: 1. Ingestion: Processes metrics, traces, and logs with tenant & environment attribution
+    ok 1 - 1. Ingestion: Processes metrics, traces, and logs with tenant & environment attribution
+      ---
+      duration_ms: 255.9367
+      type: 'test'
+      ...
+    # Subtest: 2. Deduplication: Rejects identical events within sliding window without double-counting
+    ok 2 - 2. Deduplication: Rejects identical events within sliding window without double-counting
+      ---
+      duration_ms: 56.983
+      type: 'test'
+      ...
+    # Subtest: 3. Timestamp Validation: Rejects future timestamps beyond 5m tolerance and routes to dead-letter
+    ok 3 - 3. Timestamp Validation: Rejects future timestamps beyond 5m tolerance and routes to dead-letter
+      ---
+      duration_ms: 34.6827
+      type: 'test'
+      ...
+    # Subtest: 4. Timestamp Validation: Rejects events older than 7 days and records dead-letter reason
+    ok 4 - 4. Timestamp Validation: Rejects events older than 7 days and records dead-letter reason
+      ---
+      duration_ms: 36.7214
+      type: 'test'
+      ...
+    # Subtest: 5. Out-of-Order Events: Sorts telemetry chronologically before routing
+    ok 5 - 5. Out-of-Order Events: Sorts telemetry chronologically before routing
+      ---
+      duration_ms: 54.2572
+      type: 'test'
+      ...
+    # Subtest: 6. Dead-Letter Queue: Records and retrieves malformed telemetry payloads with error reasons
+    ok 6 - 6. Dead-Letter Queue: Records and retrieves malformed telemetry payloads with error reasons
+      ---
+      duration_ms: 21.5388
+      type: 'test'
+      ...
+    # Subtest: 7. Freshness: Accurately calculates telemetry freshness seconds and flags stale integrations
+    ok 7 - 7. Freshness: Accurately calculates telemetry freshness seconds and flags stale integrations
+      ---
+      duration_ms: 26.8324
+      type: 'test'
+      ...
+    # Subtest: 8. Service Identity: Dynamically resolves service IDs across OTLP, K8s, Docker, and AWS
+    ok 8 - 8. Service Identity: Dynamically resolves service IDs across OTLP, K8s, Docker, and AWS
+      ---
+      duration_ms: 12.5853
+      type: 'test'
+      ...
+    # Subtest: 9. Dependency Mapping: Automatically infers caller-to-callee dependencies from distributed traces
+    ok 9 - 9. Dependency Mapping: Automatically infers caller-to-callee dependencies from distributed traces
+      ---
+      duration_ms: 42.1343
+      type: 'test'
+      ...
+    # Subtest: 10. Alert Correlation: Groups alerts on services sharing an underlying crashed infrastructure host
+    ok 10 - 10. Alert Correlation: Groups alerts on services sharing an underlying crashed infrastructure host
+      ---
+      duration_ms: 194.5714
+      type: 'test'
+      ...
+    # Subtest: 11. Alert Correlation: Identifies common incident when distinct alerts share a trace ID
+    ok 11 - 11. Alert Correlation: Identifies common incident when distinct alerts share a trace ID
+      ---
+      duration_ms: 49.4711
+      type: 'test'
+      ...
+    # Subtest: 12. Alert Correlation: Generates explainable rationale and contributing signals
+    ok 12 - 12. Alert Correlation: Generates explainable rationale and contributing signals
+      ---
+      duration_ms: 14.0919
+      type: 'test'
+      ...
+    # Subtest: 13. RCA Engine: Identifies underlying infrastructure crash as CONFIRMED_FACT and boosts candidate
+    ok 13 - 13. RCA Engine: Identifies underlying infrastructure crash as CONFIRMED_FACT and boosts candidate
+      ---
+      duration_ms: 15.9757
+      type: 'test'
+      ...
+    # Subtest: 14. RCA Engine: Correlates active infrastructure drift events into supporting evidence
+    ok 14 - 14. RCA Engine: Correlates active infrastructure drift events into supporting evidence
+      ---
+      duration_ms: 19.4347
+      type: 'test'
+      ...
+    # Subtest: 15. Incident Intelligence: Auto-enriches incident with RCA hypotheses and confidence score
+    ok 15 - 15. Incident Intelligence: Auto-enriches incident with RCA hypotheses and confidence score
+      ---
+      duration_ms: 31.7763
+      type: 'test'
+      ...
+    # Subtest: 16. Incident Deduplication: Avoids opening duplicate open incidents for the same failure domain
+    ok 16 - 16. Incident Deduplication: Avoids opening duplicate open incidents for the same failure domain
+      ---
+      duration_ms: 48.2083
+      type: 'test'
+      ...
+    # Subtest: 17. Isolation: Prevents cross-tenant dead-letter access, telemetry leakage, and dependency pollution
+    ok 17 - 17. Isolation: Prevents cross-tenant dead-letter access, telemetry leakage, and dependency pollution
+      ---
+      duration_ms: 22.1097
+      type: 'test'
+      ...
+    1..17
+ok 1 - Phase 23I: End-to-End Live Observability & Incident Intelligence
+  ---
+  duration_ms: 943.0739
+  type: 'suite'
+  ...
+1..1
+# tests 17
+# suites 1
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1484.0392

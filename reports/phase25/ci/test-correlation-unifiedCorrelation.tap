@@ -1,0 +1,107 @@
+TAP version 13
+# Subtest: Phase 17: Unified Observability Intelligence & Event Correlation
+    # Subtest: 1. Event Normalizers: Correctly normalizes all 8 canonical event types
+    ok 1 - 1. Event Normalizers: Correctly normalizes all 8 canonical event types
+      ---
+      duration_ms: 6.5166
+      type: 'test'
+      ...
+    # Subtest: 2. Invalid Event Rejection: Catches malformed events without throwing unhandled exceptions
+    ok 2 - 2. Invalid Event Rejection: Catches malformed events without throwing unhandled exceptions
+      ---
+      duration_ms: 116.9509
+      type: 'test'
+      ...
+    # Subtest: 3. Timestamp Normalization: Converts local and epoch timestamps to UTC ISO strings
+    ok 3 - 3. Timestamp Normalization: Converts local and epoch timestamps to UTC ISO strings
+      ---
+      duration_ms: 0.7381
+      type: 'test'
+      ...
+    # Subtest: 4. Duplicate Ingestion: Idempotent upsert on unique (source_system, source_ref_id, event_type)
+    ok 4 - 4. Duplicate Ingestion: Idempotent upsert on unique (source_system, source_ref_id, event_type)
+      ---
+      duration_ms: 15.0584
+      type: 'test'
+      ...
+    # Subtest: 5. Out-of-Order & Delayed Events: Chronologically sorted by eventTimestamp
+    ok 5 - 5. Out-of-Order & Delayed Events: Chronologically sorted by eventTimestamp
+      ---
+      duration_ms: 52.4464
+      type: 'test'
+      ...
+    # Subtest: 6. Same-Trace Correlation: Links events sharing trace ID with score 95
+    ok 6 - 6. Same-Trace Correlation: Links events sharing trace ID with score 95
+      ---
+      duration_ms: 1.2731
+      type: 'test'
+      ...
+    # Subtest: 7. Dependency-Aware Correlation: Links caller and callee services with topology path
+    ok 7 - 7. Dependency-Aware Correlation: Links caller and callee services with topology path
+      ---
+      duration_ms: 2.4601
+      type: 'test'
+      ...
+    # Subtest: 8. Deployment Association: Links preceding deployment with subsequent anomaly
+    ok 8 - 8. Deployment Association: Links preceding deployment with subsequent anomaly
+      ---
+      duration_ms: 0.4375
+      type: 'test'
+      ...
+    # Subtest: 9. Contradictory Evidence: Enforces that temporal coincidence alone gives low score and adds caveat
+    ok 9 - 9. Contradictory Evidence: Enforces that temporal coincidence alone gives low score and adds caveat
+      ---
+      duration_ms: 0.4099
+      type: 'test'
+      ...
+    # Subtest: 10. Investigation Graph Construction: Assembles nodes, edges, and prevents duplicates
+    ok 10 - 10. Investigation Graph Construction: Assembles nodes, edges, and prevents duplicates
+      ---
+      duration_ms: 2.2329
+      type: 'test'
+      ...
+    # Subtest: 11. Disconnected Groups Detection: Correctly identifies isolated unlinked nodes
+    ok 11 - 11. Disconnected Groups Detection: Correctly identifies isolated unlinked nodes
+      ---
+      duration_ms: 0.4011
+      type: 'test'
+      ...
+    # Subtest: 12. Database Persistence: Seeded normalized events and correlations survive in PostgreSQL
+    ok 12 - 12. Database Persistence: Seeded normalized events and correlations survive in PostgreSQL
+      ---
+      duration_ms: 16.8378
+      type: 'test'
+      ...
+    # Subtest: 13. Live vs Simulated Telemetry Separation: Telemetry mode is explicitly stored and exposed
+    ok 13 - 13. Live vs Simulated Telemetry Separation: Telemetry mode is explicitly stored and exposed
+      ---
+      duration_ms: 2.7154
+      type: 'test'
+      ...
+    # Subtest: 14. Causal Sequence Analysis: Identifies earliest observed signal and service propagation order
+    ok 14 - 14. Causal Sequence Analysis: Identifies earliest observed signal and service propagation order
+      ---
+      duration_ms: 10.4522
+      type: 'test'
+      ...
+    # Subtest: 15. Tenant Isolation: Events query filters strictly by tenant_id
+    ok 15 - 15. Tenant Isolation: Events query filters strictly by tenant_id
+      ---
+      duration_ms: 2.2015
+      type: 'test'
+      ...
+    1..15
+ok 1 - Phase 17: Unified Observability Intelligence & Event Correlation
+  ---
+  duration_ms: 235.8051
+  type: 'suite'
+  ...
+1..1
+# tests 15
+# suites 1
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 560.0983

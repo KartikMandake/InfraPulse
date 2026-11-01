@@ -1,0 +1,2018 @@
+[
+  {
+    "name": "A — supported integration, discovery, failure and reconnect",
+    "readiness": "VERIFIED WITH LIMITATIONS",
+    "created": {
+      "status": 201,
+      "ms": 91.27980000000002,
+      "data": {
+        "success": true,
+        "data": {
+          "id": "int-kubernetes-ef7200ae",
+          "provider": "kubernetes",
+          "name": "Isolated workflow fixture mvwscvcp",
+          "description": "Read-only cluster monitoring for pods, deployments, statefulsets, restart counts, CrashLoopBackOff, and events.",
+          "status": "CONNECTED",
+          "enabled": true,
+          "config": {
+            "timeoutMs": 250,
+            "clusterUrl": "http://127.0.0.1:63602",
+            "environment": "staging"
+          },
+          "lastSyncAt": "2026-10-31T19:20:10.028Z",
+          "lastSuccessAt": "2026-10-31T19:20:10.028Z",
+          "errorMessage": null,
+          "environment": "staging",
+          "organizationId": "default_tenant",
+          "tenantId": "default_tenant",
+          "createdAt": "2026-10-31T19:20:10.029Z",
+          "updatedAt": "2026-10-31T19:20:10.029Z",
+          "credentialsConfigured": true,
+          "redactedCredentials": {
+            "bearerToken": "synt****oken"
+          }
+        }
+      }
+    },
+    "test": {
+      "status": 200,
+      "ms": 31.13519999999994,
+      "data": {
+        "success": true,
+        "data": {
+          "ok": true,
+          "message": "Successfully connected to Kubernetes API server at http://127.0.0.1:63602. Read-only RBAC confirmed.",
+          "latencyMs": 3,
+          "details": {
+            "clusterUrl": "http://127.0.0.1:63602",
+            "namespaces": [
+              "default"
+            ],
+            "readOnly": true
+          },
+          "status": "CONNECTED"
+        }
+      }
+    },
+    "sync": {
+      "status": 200,
+      "ms": 109.83050000000003,
+      "data": {
+        "success": true,
+        "data": {
+          "success": true,
+          "integrationId": "int-kubernetes-ef7200ae",
+          "provider": "kubernetes",
+          "resourcesDiscovered": 2,
+          "resourcesUpserted": 2,
+          "resources": [
+            {
+              "id": "k8s-staging-phase23m-pay-mvwscvcp",
+              "name": "phase23m-pay-mvwscvcp",
+              "provider": "kubernetes",
+              "resource_type": "deployment",
+              "region": "http://127.0.0.1:63602",
+              "environment": "staging",
+              "current_state": "running",
+              "estimated_hourly_cost": "0.0500",
+              "cost_breakdown": {},
+              "dependencies": [],
+              "persistence_requirements": {},
+              "is_critical_dependency": false,
+              "metadata": {
+                "image": "fixture/pay:v1",
+                "replicas": 2,
+                "namespace": "staging",
+                "tenant_id": "default_tenant",
+                "is_live_k8s": true,
+                "discovered_at": "2026-10-31T19:20:10.151Z",
+                "readyReplicas": 2,
+                "integration_id": "int-kubernetes-ef7200ae",
+                "organization_id": "default_tenant",
+                "updatedReplicas": 2
+              },
+              "last_lifecycle_operation": "DISCOVERY_SYNC",
+              "last_operation_at": null,
+              "last_health_check_status": "healthy",
+              "last_health_check_at": "2026-10-31T19:20:10.152Z",
+              "created_at": "2026-10-31T19:20:10.152Z",
+              "updated_at": "2026-10-31T19:20:10.152Z",
+              "tenant_id": "default_tenant"
+            },
+            {
+              "id": "k8s-pod-staging-phase23m-pay-mvwscvcp-1",
+              "name": "phase23m-pay-mvwscvcp-1",
+              "provider": "kubernetes",
+              "resource_type": "pod",
+              "region": "http://127.0.0.1:63602",
+              "environment": "staging",
+              "current_state": "running",
+              "estimated_hourly_cost": "0.0200",
+              "cost_breakdown": {},
+              "dependencies": [],
+              "persistence_requirements": {},
+              "is_critical_dependency": false,
+              "metadata": {
+                "ready": true,
+                "status": "Running",
+                "namespace": "staging",
+                "tenant_id": "default_tenant",
+                "is_live_k8s": true,
+                "restartCount": 0,
+                "discovered_at": "2026-10-31T19:20:10.159Z",
+                "waitingReason": null,
+                "integration_id": "int-kubernetes-ef7200ae",
+                "serviceMapping": "phase23m-pay-mvwscvcp",
+                "organization_id": "default_tenant"
+              },
+              "last_lifecycle_operation": "DISCOVERY_SYNC",
+              "last_operation_at": null,
+              "last_health_check_status": "healthy",
+              "last_health_check_at": "2026-10-31T19:20:10.160Z",
+              "created_at": "2026-10-31T19:20:10.160Z",
+              "updated_at": "2026-10-31T19:20:10.160Z",
+              "tenant_id": "default_tenant"
+            }
+          ]
+        }
+      }
+    },
+    "failure": {
+      "status": 502,
+      "ms": 48.9226000000001,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "Provider synchronization failed: Kubernetes API error (503): {\"message\":\"Controlled provider failure\"}",
+          "statusCode": 502,
+          "details": null
+        }
+      }
+    },
+    "failedHealth": {
+      "status": 200,
+      "ms": 28.501199999999926,
+      "data": {
+        "success": true,
+        "data": {
+          "id": "int-kubernetes-ef7200ae",
+          "provider": "kubernetes",
+          "name": "Isolated workflow fixture mvwscvcp",
+          "description": "Read-only cluster monitoring for pods, deployments, statefulsets, restart counts, CrashLoopBackOff, and events.",
+          "status": "ERROR",
+          "enabled": true,
+          "config": {
+            "timeoutMs": 250,
+            "clusterUrl": "http://127.0.0.1:63602",
+            "environment": "staging"
+          },
+          "lastSyncAt": "2026-10-31T19:20:10.259Z",
+          "lastSuccessAt": "2026-10-31T19:20:10.202Z",
+          "errorMessage": "Kubernetes API error (503): {\"message\":\"Controlled provider failure\"}",
+          "environment": "staging",
+          "organizationId": "default_tenant",
+          "tenantId": "default_tenant",
+          "createdAt": "2026-10-31T19:20:10.029Z",
+          "updatedAt": "2026-10-31T19:20:10.260Z",
+          "credentialsConfigured": true,
+          "redactedCredentials": {
+            "bearerToken": "synt****oken"
+          }
+        }
+      }
+    },
+    "disabled": {
+      "status": 409,
+      "ms": 21.245600000000195,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "Integration is disabled. Re-enable it before synchronization.",
+          "statusCode": 409,
+          "details": null
+        }
+      }
+    },
+    "recovered": {
+      "status": 200,
+      "ms": 59.85570000000007,
+      "data": {
+        "success": true,
+        "data": {
+          "success": true,
+          "integrationId": "int-kubernetes-ef7200ae",
+          "provider": "kubernetes",
+          "resourcesDiscovered": 2,
+          "resourcesUpserted": 2,
+          "resources": [
+            {
+              "id": "k8s-staging-phase23m-pay-mvwscvcp",
+              "name": "phase23m-pay-mvwscvcp",
+              "provider": "kubernetes",
+              "resource_type": "deployment",
+              "region": "http://127.0.0.1:63602",
+              "environment": "staging",
+              "current_state": "running",
+              "estimated_hourly_cost": "0.0500",
+              "cost_breakdown": {},
+              "dependencies": [],
+              "persistence_requirements": {},
+              "is_critical_dependency": false,
+              "metadata": {
+                "image": "fixture/pay:v1",
+                "replicas": 2,
+                "namespace": "staging",
+                "tenant_id": "default_tenant",
+                "is_live_k8s": true,
+                "discovered_at": "2026-10-31T19:20:10.432Z",
+                "readyReplicas": 2,
+                "integration_id": "int-kubernetes-ef7200ae",
+                "organization_id": "default_tenant",
+                "updatedReplicas": 2
+              },
+              "last_lifecycle_operation": "DISCOVERY_SYNC",
+              "last_operation_at": null,
+              "last_health_check_status": "healthy",
+              "last_health_check_at": "2026-10-31T19:20:10.152Z",
+              "created_at": "2026-10-31T19:20:10.152Z",
+              "updated_at": "2026-10-31T19:20:10.433Z",
+              "tenant_id": "default_tenant"
+            },
+            {
+              "id": "k8s-pod-staging-phase23m-pay-mvwscvcp-1",
+              "name": "phase23m-pay-mvwscvcp-1",
+              "provider": "kubernetes",
+              "resource_type": "pod",
+              "region": "http://127.0.0.1:63602",
+              "environment": "staging",
+              "current_state": "running",
+              "estimated_hourly_cost": "0.0200",
+              "cost_breakdown": {},
+              "dependencies": [],
+              "persistence_requirements": {},
+              "is_critical_dependency": false,
+              "metadata": {
+                "ready": true,
+                "status": "Running",
+                "namespace": "staging",
+                "tenant_id": "default_tenant",
+                "is_live_k8s": true,
+                "restartCount": 0,
+                "discovered_at": "2026-10-31T19:20:10.437Z",
+                "waitingReason": null,
+                "integration_id": "int-kubernetes-ef7200ae",
+                "serviceMapping": "phase23m-pay-mvwscvcp",
+                "organization_id": "default_tenant"
+              },
+              "last_lifecycle_operation": "DISCOVERY_SYNC",
+              "last_operation_at": null,
+              "last_health_check_status": "healthy",
+              "last_health_check_at": "2026-10-31T19:20:10.160Z",
+              "created_at": "2026-10-31T19:20:10.160Z",
+              "updated_at": "2026-10-31T19:20:10.438Z",
+              "tenant_id": "default_tenant"
+            }
+          ]
+        }
+      }
+    },
+    "lastSuccessAt": "2026-10-31T19:20:10.456Z",
+    "providerRequests": [
+      {
+        "method": "GET",
+        "url": "/api/v1"
+      },
+      {
+        "method": "GET",
+        "url": "/api/v1"
+      },
+      {
+        "method": "GET",
+        "url": "/api/v1/namespaces?limit=50"
+      },
+      {
+        "method": "GET",
+        "url": "/apis/apps/v1/deployments?limit=100"
+      },
+      {
+        "method": "GET",
+        "url": "/apis/apps/v1/statefulsets?limit=100"
+      },
+      {
+        "method": "GET",
+        "url": "/api/v1/pods?limit=200"
+      },
+      {
+        "method": "GET",
+        "url": "/api/v1/events?fieldSelector=type=Warning&limit=50"
+      },
+      {
+        "method": "GET",
+        "url": "/api/v1/namespaces?limit=50"
+      },
+      {
+        "method": "GET",
+        "url": "/api/v1/namespaces?limit=50"
+      },
+      {
+        "method": "GET",
+        "url": "/apis/apps/v1/deployments?limit=100"
+      },
+      {
+        "method": "GET",
+        "url": "/apis/apps/v1/statefulsets?limit=100"
+      },
+      {
+        "method": "GET",
+        "url": "/api/v1/pods?limit=200"
+      },
+      {
+        "method": "GET",
+        "url": "/api/v1/events?fieldSelector=type=Warning&limit=50"
+      }
+    ],
+    "limitation": "Loopback HTTP Kubernetes fixture, not a real cluster."
+  },
+  {
+    "name": "B — authenticated telemetry to alert, incident and dependency",
+    "readiness": "VERIFIED WITH LIMITATIONS",
+    "traceResponse": {
+      "status": 200,
+      "ms": 56.99309999999991,
+      "data": {
+        "success": true,
+        "ingestedCount": 2,
+        "duplicateCount": 0,
+        "data": {
+          "tenantId": "default_tenant",
+          "environment": "staging",
+          "provider": "opentelemetry",
+          "telemetryType": "trace",
+          "processedCount": 2,
+          "rejectedCount": 0,
+          "duplicateCount": 0,
+          "alertTriggers": 0,
+          "inferredDependencies": 1,
+          "ingestedEvents": [
+            {
+              "eventType": "trace_anomaly",
+              "sourceSystem": "opentelemetry",
+              "traceId": "00000000000000000000b1a19367b7f8",
+              "spanId": "1111111111111111",
+              "durationMs": 500,
+              "error": true,
+              "sourceRefId": "00000000000000000000b1a19367b7f8:1111111111111111",
+              "serviceId": "phase23m-caller-mvwscvcp",
+              "serviceName": "phase23m-caller-mvwscvcp",
+              "environment": "staging",
+              "title": "OTel Span: Controlled failure (500ms)",
+              "summary": "Trace 00000000000000000000b1a19367b7f8 span Controlled failure executed with status ERROR",
+              "severity": "high",
+              "eventTimestamp": "2026-10-31T19:20:10.488Z",
+              "correlationIds": [
+                "00000000000000000000b1a19367b7f8",
+                "1111111111111111"
+              ],
+              "normalizedAttributes": {
+                "traceId": "00000000000000000000b1a19367b7f8",
+                "spanId": "1111111111111111",
+                "serviceNamespace": "default",
+                "durationMs": 500,
+                "hasError": true,
+                "resourceAttributes": {
+                  "service.name": "phase23m-caller-mvwscvcp",
+                  "deployment.environment.name": "staging"
+                },
+                "spanAttributes": {}
+              },
+              "tenantId": "default_tenant",
+              "telemetryMode": "live",
+              "isSimulated": false,
+              "organizationId": "default_org",
+              "id": "evt-4dc0f896ab3c5be64c081bffb20bf60f8e51f723e9515e8bd665e14b"
+            },
+            {
+              "eventType": "trace_anomaly",
+              "sourceSystem": "opentelemetry",
+              "traceId": "00000000000000000000b1a19367b7f8",
+              "spanId": "2222222222222222",
+              "parentSpanId": "1111111111111111",
+              "durationMs": 500,
+              "error": true,
+              "sourceRefId": "00000000000000000000b1a19367b7f8:2222222222222222",
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "environment": "staging",
+              "title": "OTel Span: Controlled failure (500ms)",
+              "summary": "Trace 00000000000000000000b1a19367b7f8 span Controlled failure executed with status ERROR",
+              "severity": "high",
+              "eventTimestamp": "2026-10-31T19:20:10.488Z",
+              "correlationIds": [
+                "00000000000000000000b1a19367b7f8",
+                "2222222222222222"
+              ],
+              "normalizedAttributes": {
+                "traceId": "00000000000000000000b1a19367b7f8",
+                "spanId": "2222222222222222",
+                "parentSpanId": "1111111111111111",
+                "serviceNamespace": "default",
+                "durationMs": 500,
+                "hasError": true,
+                "resourceAttributes": {
+                  "service.name": "phase23m-pay-mvwscvcp",
+                  "deployment.environment.name": "staging"
+                },
+                "spanAttributes": {}
+              },
+              "tenantId": "default_tenant",
+              "telemetryMode": "live",
+              "isSimulated": false,
+              "organizationId": "default_org",
+              "id": "evt-863094fb984ececaf438289c951e81ecdde1c5fd9526444c5bb1ad44"
+            }
+          ]
+        }
+      }
+    },
+    "logResponse": {
+      "status": 200,
+      "ms": 40.556299999999965,
+      "data": {
+        "success": true,
+        "ingestedCount": 3,
+        "duplicateCount": 0,
+        "data": {
+          "tenantId": "default_tenant",
+          "environment": "staging",
+          "provider": "opentelemetry",
+          "telemetryType": "log",
+          "processedCount": 3,
+          "rejectedCount": 0,
+          "duplicateCount": 0,
+          "alertTriggers": 0,
+          "inferredDependencies": 0,
+          "ingestedEvents": [
+            {
+              "eventType": "log_error",
+              "sourceSystem": "opentelemetry",
+              "logMessage": "Controlled upstream failure 1",
+              "sourceRefId": "log-ea70fa2e2c70a43a0d5151dadcfaf95f81e13baee005106c9b2c43a8",
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "environment": "staging",
+              "title": "OTel Log [ERROR] on phase23m-pay-mvwscvcp",
+              "summary": "Controlled upstream failure 1",
+              "severity": "high",
+              "eventTimestamp": "2026-10-31T19:20:10.488Z",
+              "correlationIds": [
+                "00000000000000000000b1a19367b7f8"
+              ],
+              "normalizedAttributes": {
+                "severityText": "ERROR",
+                "severityNumber": 17,
+                "traceId": "00000000000000000000b1a19367b7f8",
+                "body": "Controlled upstream failure 1",
+                "logAttributes": {},
+                "resourceAttributes": {
+                  "service.name": "phase23m-pay-mvwscvcp",
+                  "deployment.environment.name": "staging"
+                }
+              },
+              "tenantId": "default_tenant",
+              "telemetryMode": "live",
+              "isSimulated": false,
+              "organizationId": "default_org",
+              "id": "evt-8e57f0001e42b8f73281f8ff4dc354bc4733639f5663d579a42d2850"
+            },
+            {
+              "eventType": "log_error",
+              "sourceSystem": "opentelemetry",
+              "logMessage": "Controlled upstream failure 2",
+              "sourceRefId": "log-103301c32ff2720648a3080b6b7f12d85c5c3093372c6d9e1e246ec5",
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "environment": "staging",
+              "title": "OTel Log [ERROR] on phase23m-pay-mvwscvcp",
+              "summary": "Controlled upstream failure 2",
+              "severity": "high",
+              "eventTimestamp": "2026-10-31T19:20:10.488Z",
+              "correlationIds": [
+                "00000000000000000000b1a19367b7f8"
+              ],
+              "normalizedAttributes": {
+                "severityText": "ERROR",
+                "severityNumber": 17,
+                "traceId": "00000000000000000000b1a19367b7f8",
+                "body": "Controlled upstream failure 2",
+                "logAttributes": {},
+                "resourceAttributes": {
+                  "service.name": "phase23m-pay-mvwscvcp",
+                  "deployment.environment.name": "staging"
+                }
+              },
+              "tenantId": "default_tenant",
+              "telemetryMode": "live",
+              "isSimulated": false,
+              "organizationId": "default_org",
+              "id": "evt-2da6a2397bd6bb06595a82f936d75a873a3dc03559ce4af7d363bff1"
+            },
+            {
+              "eventType": "log_error",
+              "sourceSystem": "opentelemetry",
+              "logMessage": "Controlled upstream failure 3",
+              "sourceRefId": "log-9c9ad555b11ef6197755f0de90c5e72648b0db0c3b13e19320df4d7f",
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "environment": "staging",
+              "title": "OTel Log [ERROR] on phase23m-pay-mvwscvcp",
+              "summary": "Controlled upstream failure 3",
+              "severity": "high",
+              "eventTimestamp": "2026-10-31T19:20:10.488Z",
+              "correlationIds": [
+                "00000000000000000000b1a19367b7f8"
+              ],
+              "normalizedAttributes": {
+                "severityText": "ERROR",
+                "severityNumber": 17,
+                "traceId": "00000000000000000000b1a19367b7f8",
+                "body": "Controlled upstream failure 3",
+                "logAttributes": {},
+                "resourceAttributes": {
+                  "service.name": "phase23m-pay-mvwscvcp",
+                  "deployment.environment.name": "staging"
+                }
+              },
+              "tenantId": "default_tenant",
+              "telemetryMode": "live",
+              "isSimulated": false,
+              "organizationId": "default_org",
+              "id": "evt-e08ce248ee5a422d897eee8ea5cdd8162431402d1cfddcab83319a00"
+            }
+          ]
+        }
+      }
+    },
+    "metricResponse": {
+      "status": 200,
+      "ms": 227.39779999999996,
+      "data": {
+        "success": true,
+        "ingestedCount": 1,
+        "duplicateCount": 0,
+        "data": {
+          "tenantId": "default_tenant",
+          "environment": "staging",
+          "provider": "opentelemetry",
+          "telemetryType": "metric",
+          "processedCount": 1,
+          "rejectedCount": 0,
+          "duplicateCount": 0,
+          "alertTriggers": 13,
+          "inferredDependencies": 0,
+          "ingestedEvents": [
+            {
+              "eventType": "metric_anomaly",
+              "sourceSystem": "opentelemetry",
+              "metric": "error_rate",
+              "unit": "%",
+              "value": 25,
+              "sourceRefId": "metric-d45798092eb8882ef4a80ad8646b0b9019215498c9f65fc9fd247b58",
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "environment": "staging",
+              "title": "OTel Metric: error_rate",
+              "summary": "error_rate recorded value 25 on phase23m-pay-mvwscvcp",
+              "severity": "info",
+              "eventTimestamp": "2026-10-31T19:20:10.488Z",
+              "normalizedAttributes": {
+                "metricName": "error_rate",
+                "currentValue": 25,
+                "unit": "%",
+                "attributes": {},
+                "resourceAttributes": {
+                  "service.name": "phase23m-pay-mvwscvcp",
+                  "deployment.environment.name": "staging"
+                }
+              },
+              "tenantId": "default_tenant",
+              "telemetryMode": "live",
+              "isSimulated": false,
+              "organizationId": "default_org",
+              "id": "evt-098d4c28021aec3ffef9c6bd9db2471f2b5cf585c5594225519a5798"
+            }
+          ]
+        }
+      }
+    },
+    "repeat": {
+      "status": 200,
+      "ms": 19.853500000000167,
+      "data": {
+        "success": true,
+        "ingestedCount": 0,
+        "duplicateCount": 1,
+        "data": {
+          "tenantId": "default_tenant",
+          "environment": "staging",
+          "provider": "opentelemetry",
+          "telemetryType": "metric",
+          "processedCount": 0,
+          "rejectedCount": 0,
+          "duplicateCount": 1,
+          "alertTriggers": 0,
+          "inferredDependencies": 0,
+          "ingestedEvents": []
+        }
+      }
+    },
+    "foreign": {
+      "status": 403,
+      "ms": 11.61660000000029,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "Ingestion tenant must match credential ownership.",
+          "statusCode": 403,
+          "details": null
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "evt-863094fb984ececaf438289c951e81ecdde1c5fd9526444c5bb1ad44",
+        "tenant_id": "default_tenant",
+        "environment": "staging",
+        "event_type": "trace_anomaly"
+      },
+      {
+        "id": "evt-8e57f0001e42b8f73281f8ff4dc354bc4733639f5663d579a42d2850",
+        "tenant_id": "default_tenant",
+        "environment": "staging",
+        "event_type": "log_error"
+      },
+      {
+        "id": "evt-2da6a2397bd6bb06595a82f936d75a873a3dc03559ce4af7d363bff1",
+        "tenant_id": "default_tenant",
+        "environment": "staging",
+        "event_type": "log_error"
+      },
+      {
+        "id": "evt-e08ce248ee5a422d897eee8ea5cdd8162431402d1cfddcab83319a00",
+        "tenant_id": "default_tenant",
+        "environment": "staging",
+        "event_type": "log_error"
+      },
+      {
+        "id": "evt-098d4c28021aec3ffef9c6bd9db2471f2b5cf585c5594225519a5798",
+        "tenant_id": "default_tenant",
+        "environment": "staging",
+        "event_type": "metric_anomaly"
+      }
+    ],
+    "alerts": [
+      {
+        "id": "ALT-6922",
+        "incident_id": "INC-6865",
+        "severity": "critical"
+      },
+      {
+        "id": "ALT-7097",
+        "incident_id": "INC-6865",
+        "severity": "critical"
+      },
+      {
+        "id": "ALT-6574",
+        "incident_id": "INC-6865",
+        "severity": "critical"
+      }
+    ],
+    "service": {
+      "error_rate": "25",
+      "status": "critical"
+    },
+    "dependencies": [
+      {
+        "source_service_id": "phase23m-caller-mvwscvcp",
+        "target_service_id": "phase23m-pay-mvwscvcp"
+      }
+    ],
+    "incidentId": "INC-6865",
+    "timeline": {
+      "status": 200,
+      "ms": 22.528299999999945,
+      "data": {
+        "success": true,
+        "data": {
+          "incidentId": "INC-6865",
+          "incidentTitle": "Incident: Cascading anomaly detected on phase23m-pay-mvwscvcp",
+          "primaryServiceId": "phase23m-pay-mvwscvcp",
+          "primaryServiceName": "phase23m-pay-mvwscvcp",
+          "startedAt": "19:20:10 UTC",
+          "isSimulated": false,
+          "eventCount": 6,
+          "topologyCorrelation": {
+            "primaryServiceId": "phase23m-pay-mvwscvcp",
+            "firstObservedAnomaly": {
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "time": "19:20:10 UTC",
+              "title": "Incident Declared by Intelligent Alerting"
+            },
+            "downstreamAffectedCount": 0,
+            "downstreamAffectedServices": [],
+            "upstreamDependencyCount": 0,
+            "upstreamDependencies": [],
+            "precedingDeployments": []
+          },
+          "events": [
+            {
+              "id": "inc-evt-INC-6865-0",
+              "incidentId": "INC-6865",
+              "type": "alert_fired",
+              "time": "19:20:10 UTC",
+              "sortMinute": 1160,
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "severity": "critical",
+              "title": "Incident Declared by Intelligent Alerting",
+              "description": "Critical alert ALT-6922 breached threshold on phase23m-pay-mvwscvcp. Initial blast radius under triage.",
+              "source": "telemetry_anomaly",
+              "isKeyMilestone": true,
+              "evidenceRef": {
+                "type": "milestone",
+                "index": 0
+              },
+              "temporalRelation": "detection_window"
+            },
+            {
+              "id": "inc-evt-INC-6865-1",
+              "incidentId": "INC-6865",
+              "type": "alert_fired",
+              "time": "19:20:10 UTC",
+              "sortMinute": 1160,
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "severity": "high",
+              "title": "Correlated Alert: Service Health Status Failure: phase23m-pay-mvwscvcp (status == critical)",
+              "description": "Alert ALT-7097 fired for phase23m-pay-mvwscvcp. Linked via same_service.",
+              "source": "telemetry_anomaly",
+              "isKeyMilestone": false,
+              "evidenceRef": {
+                "type": "milestone",
+                "index": 1
+              },
+              "temporalRelation": "detection_window"
+            },
+            {
+              "id": "inc-evt-INC-6865-2",
+              "incidentId": "INC-6865",
+              "type": "alert_fired",
+              "time": "19:20:10 UTC",
+              "sortMinute": 1160,
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "severity": "high",
+              "title": "Correlated Alert: Controlled error-rate workflow mvwscvcp: phase23m-pay-mvwscvcp (errorRate > 2)",
+              "description": "Alert ALT-6574 fired for phase23m-pay-mvwscvcp. Linked via same_service.",
+              "source": "telemetry_anomaly",
+              "isKeyMilestone": false,
+              "evidenceRef": {
+                "type": "milestone",
+                "index": 2
+              },
+              "temporalRelation": "detection_window"
+            },
+            {
+              "id": "alt-evt-ALT-6574",
+              "incidentId": "INC-6865",
+              "type": "alert_fired",
+              "time": "19:20:10 UTC",
+              "sortMinute": 1160,
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "severity": "critical",
+              "title": "Alert Triggered: Controlled error-rate workflow mvwscvcp: phase23m-pay-mvwscvcp (errorRate > 2)",
+              "description": "Threshold 2 breached with value: 25 (errorRate).",
+              "source": "telemetry_alert_rule",
+              "isKeyMilestone": true,
+              "evidenceRef": {
+                "type": "alert",
+                "id": "ALT-6574"
+              },
+              "temporalRelation": "detection_window"
+            },
+            {
+              "id": "alt-evt-ALT-7097",
+              "incidentId": "INC-6865",
+              "type": "alert_fired",
+              "time": "19:20:10 UTC",
+              "sortMinute": 1160,
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "severity": "critical",
+              "title": "Alert Triggered: Service Health Status Failure: phase23m-pay-mvwscvcp (status == critical)",
+              "description": "Threshold critical breached with value: critical (status).",
+              "source": "telemetry_alert_rule",
+              "isKeyMilestone": true,
+              "evidenceRef": {
+                "type": "alert",
+                "id": "ALT-7097"
+              },
+              "temporalRelation": "detection_window"
+            },
+            {
+              "id": "alt-evt-ALT-6922",
+              "incidentId": "INC-6865",
+              "type": "alert_fired",
+              "time": "19:20:10 UTC",
+              "sortMinute": 1160,
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "serviceName": "phase23m-pay-mvwscvcp",
+              "severity": "critical",
+              "title": "Alert Triggered: Elevated HTTP 5xx Error Rate: phase23m-pay-mvwscvcp (errorRate > 2)",
+              "description": "Threshold 2 breached with value: 25 (errorRate).",
+              "source": "telemetry_alert_rule",
+              "isKeyMilestone": true,
+              "evidenceRef": {
+                "type": "alert",
+                "id": "ALT-6922"
+              },
+              "temporalRelation": "detection_window"
+            }
+          ]
+        }
+      }
+    },
+    "correlation": {
+      "status": 200,
+      "ms": 126.0317,
+      "data": {
+        "success": true,
+        "data": {
+          "incidentId": "INC-6865",
+          "summary": {
+            "totalNodes": 23,
+            "totalEdges": 49,
+            "earliestObservedSignal": {
+              "id": "evt-863094fb984ececaf438289c951e81ecdde1c5fd9526444c5bb1ad44",
+              "type": "trace_anomaly",
+              "timestamp": "2026-10-31T19:20:10.488Z",
+              "serviceId": "phase23m-pay-mvwscvcp",
+              "title": "OTel Span: Controlled failure (500ms)"
+            },
+            "mostAffectedServices": [
+              {
+                "serviceId": "phase23m-pay-mvwscvcp",
+                "eventCount": 5
+              }
+            ],
+            "deploymentAssociations": [],
+            "sloImpact": [],
+            "disconnectedCount": 0,
+            "confidence": "high",
+            "limitations": [
+              "Deterministic graph correlates observed telemetry and topology.",
+              "Temporal correlation is evidence of association, not proof of causation without trace stack evidence."
+            ]
+          },
+          "disconnectedGroups": []
+        }
+      }
+    }
+  },
+  {
+    "name": "C — evidence-qualified RCA, persisted ranking and symptom rejection",
+    "readiness": "FAILED",
+    "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'payment-service'\n- 'phase23m-pay-mvwscvcp'\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'payment-service'\n- 'phase23m-pay-mvwscvcp'\n\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:42:231\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async stage (file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:5:95)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:40:2"
+  },
+  {
+    "name": "D — canonical baseline, one controlled deviation, dry-run reconciliation",
+    "readiness": "FAILED",
+    "error": "Expected values to be strictly equal:\n\ntrue !== false\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\ntrue !== false\n\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:51:161\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async stage (file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:5:95)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:47:2"
+  },
+  {
+    "name": "E — generated recommendation, immutable approval, expiry and disabled execution",
+    "readiness": "FAILED",
+    "error": "{\"status\":200,\"ms\":26.889900000000125,\"data\":{\"success\":true,\"data\":{\"incidentId\":\"INC-6865\",\"recommendationsGenerated\":0,\"recommendations\":[],\"message\":\"No actionable remediation generated: Top candidate score below threshold (60) or unverified hypothesis.\"}}}",
+    "stack": "AssertionError [ERR_ASSERTION]: {\"status\":200,\"ms\":26.889900000000125,\"data\":{\"success\":true,\"data\":{\"incidentId\":\"INC-6865\",\"recommendationsGenerated\":0,\"recommendations\":[],\"message\":\"No actionable remediation generated: Top candidate score below threshold (60) or unverified hypothesis.\"}}}\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:56:173\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async stage (file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:5:95)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-workflows23m.mjs:54:2"
+  },
+  {
+    "name": "F — measured SLO windows, health freshness and estimated capacity",
+    "readiness": "VERIFIED WITH LIMITATIONS",
+    "endpoints": {
+      "overview": {
+        "status": 200,
+        "ms": 166.26229999999987,
+        "data": {
+          "success": true,
+          "data": {
+            "health": {
+              "tenantId": "default_tenant",
+              "environment": "staging",
+              "overallScore": 52,
+              "healthStatus": "DEGRADED",
+              "telemetryStatus": "FRESH",
+              "confidenceLevel": "LOW",
+              "dataFreshnessSeconds": 0,
+              "servicesHealth": [
+                {
+                  "serviceId": "auth-gateway-v2",
+                  "serviceName": "auth-gateway-v2",
+                  "healthScore": 50,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "No telemetry ingested for service in evaluation window."
+                  ]
+                },
+                {
+                  "serviceId": "checkout-api",
+                  "serviceName": "checkout-api",
+                  "healthScore": 85,
+                  "status": "HEALTHY",
+                  "telemetryStatus": "STALE",
+                  "confidence": "MEDIUM",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "Elevated error rate: 3.10%"
+                  ]
+                },
+                {
+                  "serviceId": "payment-service",
+                  "serviceName": "payment-service",
+                  "healthScore": 60,
+                  "status": "DEGRADED",
+                  "telemetryStatus": "STALE",
+                  "confidence": "MEDIUM",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "High error rate: 25.00%"
+                  ]
+                },
+                {
+                  "serviceId": "phase23m-caller-mvwscvcp",
+                  "serviceName": "phase23m-caller-mvwscvcp",
+                  "healthScore": 100,
+                  "status": "HEALTHY",
+                  "telemetryStatus": "FRESH",
+                  "confidence": "HIGH",
+                  "activeIncidentsCount": 0,
+                  "deductions": []
+                },
+                {
+                  "serviceId": "phase23m-pay-mvwscvcp",
+                  "serviceName": "phase23m-pay-mvwscvcp",
+                  "healthScore": 60,
+                  "status": "DEGRADED",
+                  "telemetryStatus": "FRESH",
+                  "confidence": "HIGH",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "High error rate: 25.00%"
+                  ]
+                },
+                {
+                  "serviceId": "cart-service",
+                  "serviceName": "cart-service",
+                  "healthScore": 50,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "No telemetry ingested for service in evaluation window."
+                  ]
+                },
+                {
+                  "serviceId": "fraud-evaluator",
+                  "serviceName": "fraud-evaluator",
+                  "healthScore": 50,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "No telemetry ingested for service in evaluation window."
+                  ]
+                },
+                {
+                  "serviceId": "inventory-mesh",
+                  "serviceName": "inventory-mesh",
+                  "healthScore": 50,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "No telemetry ingested for service in evaluation window."
+                  ]
+                },
+                {
+                  "serviceId": "ledger-db-proxy",
+                  "serviceName": "ledger-db-proxy",
+                  "healthScore": 50,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "No telemetry ingested for service in evaluation window."
+                  ]
+                },
+                {
+                  "serviceId": "notification-worker",
+                  "serviceName": "notification-worker",
+                  "healthScore": 50,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "activeIncidentsCount": 0,
+                  "deductions": [
+                    "No telemetry ingested for service in evaluation window."
+                  ]
+                }
+              ],
+              "resourcesHealth": [
+                {
+                  "resourceId": "res-aws-ec2-staging",
+                  "name": "infrapulse-staging-ec2",
+                  "provider": "aws",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "res-aws-rds-postgres",
+                  "name": "infrapulse-staging-rds-pg16",
+                  "provider": "aws",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "fixture-phase23m-pay-mvwscvcp",
+                  "name": "fixture-phase23m-pay-mvwscvcp",
+                  "provider": "docker",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "res-docker-backend",
+                  "name": "infrapulse-backend",
+                  "provider": "docker",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "res-docker-frontend",
+                  "name": "infrapulse-frontend",
+                  "provider": "docker",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "res-docker-postgres",
+                  "name": "infrapulse-postgres",
+                  "provider": "docker",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "res-docker-worker",
+                  "name": "infrapulse-worker",
+                  "provider": "docker",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "drift-resource-1793473685584",
+                  "name": "Fixture",
+                  "provider": "kubernetes",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "res-k8s-dep-backend",
+                  "name": "backend-deployment",
+                  "provider": "kubernetes",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "res-k8s-dep-frontend",
+                  "name": "frontend-deployment",
+                  "provider": "kubernetes",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "k8s-staging-phase23m-pay-mvwscvcp",
+                  "name": "phase23m-pay-mvwscvcp",
+                  "provider": "kubernetes",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "k8s-pod-staging-phase23m-pay-mvwscvcp-1",
+                  "name": "phase23m-pay-mvwscvcp-1",
+                  "provider": "kubernetes",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                },
+                {
+                  "resourceId": "res-k8s-sts-postgres",
+                  "name": "postgres-statefulset",
+                  "provider": "kubernetes",
+                  "resourceType": "compute",
+                  "healthScore": 40,
+                  "status": "UNKNOWN",
+                  "telemetryStatus": "UNAVAILABLE",
+                  "confidence": "LOW",
+                  "deductions": [
+                    "No telemetry ingested for resource. Health cannot be confirmed."
+                  ]
+                }
+              ],
+              "riskIndicators": [
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-aws-ec2-staging",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-aws-ec2-staging\" (aws) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-aws-rds-postgres",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-aws-rds-postgres\" (aws) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "fixture-phase23m-pay-mvwscvcp",
+                  "severity": "WARNING",
+                  "message": "Resource \"fixture-phase23m-pay-mvwscvcp\" (docker) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-docker-backend",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-docker-backend\" (docker) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-docker-frontend",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-docker-frontend\" (docker) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-docker-postgres",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-docker-postgres\" (docker) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-docker-worker",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-docker-worker\" (docker) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "drift-resource-1793473685584",
+                  "severity": "WARNING",
+                  "message": "Resource \"drift-resource-1793473685584\" (kubernetes) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-k8s-dep-backend",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-k8s-dep-backend\" (kubernetes) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-k8s-dep-frontend",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-k8s-dep-frontend\" (kubernetes) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "k8s-staging-phase23m-pay-mvwscvcp",
+                  "severity": "WARNING",
+                  "message": "Resource \"k8s-staging-phase23m-pay-mvwscvcp\" (kubernetes) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "k8s-pod-staging-phase23m-pay-mvwscvcp-1",
+                  "severity": "WARNING",
+                  "message": "Resource \"k8s-pod-staging-phase23m-pay-mvwscvcp-1\" (kubernetes) has no recent telemetry."
+                },
+                {
+                  "type": "MISSING_TELEMETRY",
+                  "resourceId": "res-k8s-sts-postgres",
+                  "severity": "WARNING",
+                  "message": "Resource \"res-k8s-sts-postgres\" (kubernetes) has no recent telemetry."
+                }
+              ],
+              "supportingEvidence": [
+                {
+                  "totalResourcesEvaluated": 13,
+                  "totalServicesEvaluated": 10,
+                  "activeIncidentsCount": 0,
+                  "activeDriftCount": 0,
+                  "telemetryFreshnessSeconds": 0
+                }
+              ],
+              "evaluatedAt": "2026-10-31T19:20:11.427Z"
+            },
+            "sloOverview": {
+              "kpis": {
+                "totalSlos": 4,
+                "nominalCount": 1,
+                "burnWarningCount": 1,
+                "breachedCount": 2,
+                "insufficientDataCount": 0,
+                "atRiskServicesCount": 3,
+                "overallCompliancePercent": 50
+              },
+              "slos": [
+                {
+                  "id": "slo-inventory-availability",
+                  "name": "Inventory Stock Reservation Availability",
+                  "serviceId": "inventory-mesh",
+                  "serviceName": "inventory-mesh",
+                  "sliType": "availability",
+                  "targetPercent": 99.9,
+                  "currentSliValue": 99.98,
+                  "remainingBudgetPercent": 92,
+                  "budgetConsumedPercent": 8,
+                  "burnRate1h": 0.2,
+                  "burnRate6h": 0.2,
+                  "burnRate24h": 0.1,
+                  "status": "nominal",
+                  "dataQuality": "good",
+                  "activeAlertsCount": 0,
+                  "evaluatedAt": "2026-10-31T18:51:49.795Z"
+                },
+                {
+                  "id": "slo-auth-latency",
+                  "name": "OAuth Token Introspection Latency (< 25ms)",
+                  "serviceId": "auth-gateway-v2",
+                  "serviceName": "auth-gateway-v2",
+                  "sliType": "latency",
+                  "targetPercent": 99.99,
+                  "currentSliValue": 99.1,
+                  "remainingBudgetPercent": 42,
+                  "budgetConsumedPercent": 58,
+                  "burnRate1h": 3.2,
+                  "burnRate6h": 2.1,
+                  "burnRate24h": 1.4,
+                  "status": "burn_warning",
+                  "dataQuality": "good",
+                  "activeAlertsCount": 0,
+                  "evaluatedAt": "2026-10-31T18:51:49.795Z"
+                },
+                {
+                  "id": "slo-checkout-latency",
+                  "name": "Order Checkout Latency (< 150ms)",
+                  "serviceId": "checkout-api",
+                  "serviceName": "checkout-api",
+                  "sliType": "latency",
+                  "targetPercent": 99.9,
+                  "currentSliValue": 95.88,
+                  "remainingBudgetPercent": 0,
+                  "budgetConsumedPercent": 100,
+                  "burnRate1h": 14.4,
+                  "burnRate6h": 6.2,
+                  "burnRate24h": 3.8,
+                  "status": "breached",
+                  "dataQuality": "good",
+                  "activeAlertsCount": 0,
+                  "evaluatedAt": "2026-10-31T18:51:49.795Z"
+                },
+                {
+                  "id": "slo-payment-success",
+                  "name": "Payment Authorization Success Rate",
+                  "serviceId": "payment-service",
+                  "serviceName": "payment-service",
+                  "sliType": "availability",
+                  "targetPercent": 99.95,
+                  "currentSliValue": 50,
+                  "remainingBudgetPercent": 0,
+                  "budgetConsumedPercent": 100,
+                  "burnRate1h": 2000,
+                  "burnRate6h": 1000,
+                  "burnRate24h": 1000,
+                  "status": "breached",
+                  "dataQuality": "incomplete",
+                  "activeAlertsCount": 0,
+                  "evaluatedAt": "2026-10-31T19:08:05.336Z"
+                }
+              ],
+              "atRiskServiceIds": [
+                "auth-gateway-v2",
+                "checkout-api",
+                "payment-service"
+              ],
+              "evaluatedAt": "2026-10-31T19:20:11.571Z"
+            },
+            "risks": [],
+            "capacity": [],
+            "recommendations": [],
+            "meta": {
+              "tenantId": "default_tenant",
+              "environment": "staging",
+              "timestamp": "2026-10-31T19:20:11.571Z"
+            }
+          }
+        }
+      },
+      "health": {
+        "status": 200,
+        "ms": 73.35429999999997,
+        "data": {
+          "success": true,
+          "data": {
+            "tenantId": "default_tenant",
+            "environment": "staging",
+            "overallScore": 52,
+            "healthStatus": "DEGRADED",
+            "telemetryStatus": "FRESH",
+            "confidenceLevel": "LOW",
+            "dataFreshnessSeconds": 1,
+            "servicesHealth": [
+              {
+                "serviceId": "auth-gateway-v2",
+                "serviceName": "auth-gateway-v2",
+                "healthScore": 50,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "No telemetry ingested for service in evaluation window."
+                ]
+              },
+              {
+                "serviceId": "checkout-api",
+                "serviceName": "checkout-api",
+                "healthScore": 85,
+                "status": "HEALTHY",
+                "telemetryStatus": "STALE",
+                "confidence": "MEDIUM",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "Elevated error rate: 3.10%"
+                ]
+              },
+              {
+                "serviceId": "payment-service",
+                "serviceName": "payment-service",
+                "healthScore": 60,
+                "status": "DEGRADED",
+                "telemetryStatus": "STALE",
+                "confidence": "MEDIUM",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "High error rate: 25.00%"
+                ]
+              },
+              {
+                "serviceId": "phase23m-caller-mvwscvcp",
+                "serviceName": "phase23m-caller-mvwscvcp",
+                "healthScore": 100,
+                "status": "HEALTHY",
+                "telemetryStatus": "FRESH",
+                "confidence": "HIGH",
+                "activeIncidentsCount": 0,
+                "deductions": []
+              },
+              {
+                "serviceId": "phase23m-pay-mvwscvcp",
+                "serviceName": "phase23m-pay-mvwscvcp",
+                "healthScore": 60,
+                "status": "DEGRADED",
+                "telemetryStatus": "FRESH",
+                "confidence": "HIGH",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "High error rate: 25.00%"
+                ]
+              },
+              {
+                "serviceId": "cart-service",
+                "serviceName": "cart-service",
+                "healthScore": 50,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "No telemetry ingested for service in evaluation window."
+                ]
+              },
+              {
+                "serviceId": "fraud-evaluator",
+                "serviceName": "fraud-evaluator",
+                "healthScore": 50,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "No telemetry ingested for service in evaluation window."
+                ]
+              },
+              {
+                "serviceId": "inventory-mesh",
+                "serviceName": "inventory-mesh",
+                "healthScore": 50,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "No telemetry ingested for service in evaluation window."
+                ]
+              },
+              {
+                "serviceId": "ledger-db-proxy",
+                "serviceName": "ledger-db-proxy",
+                "healthScore": 50,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "No telemetry ingested for service in evaluation window."
+                ]
+              },
+              {
+                "serviceId": "notification-worker",
+                "serviceName": "notification-worker",
+                "healthScore": 50,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "activeIncidentsCount": 0,
+                "deductions": [
+                  "No telemetry ingested for service in evaluation window."
+                ]
+              }
+            ],
+            "resourcesHealth": [
+              {
+                "resourceId": "res-aws-ec2-staging",
+                "name": "infrapulse-staging-ec2",
+                "provider": "aws",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "res-aws-rds-postgres",
+                "name": "infrapulse-staging-rds-pg16",
+                "provider": "aws",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "fixture-phase23m-pay-mvwscvcp",
+                "name": "fixture-phase23m-pay-mvwscvcp",
+                "provider": "docker",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "res-docker-backend",
+                "name": "infrapulse-backend",
+                "provider": "docker",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "res-docker-frontend",
+                "name": "infrapulse-frontend",
+                "provider": "docker",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "res-docker-postgres",
+                "name": "infrapulse-postgres",
+                "provider": "docker",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "res-docker-worker",
+                "name": "infrapulse-worker",
+                "provider": "docker",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "drift-resource-1793473685584",
+                "name": "Fixture",
+                "provider": "kubernetes",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "res-k8s-dep-backend",
+                "name": "backend-deployment",
+                "provider": "kubernetes",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "res-k8s-dep-frontend",
+                "name": "frontend-deployment",
+                "provider": "kubernetes",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "k8s-staging-phase23m-pay-mvwscvcp",
+                "name": "phase23m-pay-mvwscvcp",
+                "provider": "kubernetes",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "k8s-pod-staging-phase23m-pay-mvwscvcp-1",
+                "name": "phase23m-pay-mvwscvcp-1",
+                "provider": "kubernetes",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              },
+              {
+                "resourceId": "res-k8s-sts-postgres",
+                "name": "postgres-statefulset",
+                "provider": "kubernetes",
+                "resourceType": "compute",
+                "healthScore": 40,
+                "status": "UNKNOWN",
+                "telemetryStatus": "UNAVAILABLE",
+                "confidence": "LOW",
+                "deductions": [
+                  "No telemetry ingested for resource. Health cannot be confirmed."
+                ]
+              }
+            ],
+            "riskIndicators": [
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-aws-ec2-staging",
+                "severity": "WARNING",
+                "message": "Resource \"res-aws-ec2-staging\" (aws) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-aws-rds-postgres",
+                "severity": "WARNING",
+                "message": "Resource \"res-aws-rds-postgres\" (aws) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "fixture-phase23m-pay-mvwscvcp",
+                "severity": "WARNING",
+                "message": "Resource \"fixture-phase23m-pay-mvwscvcp\" (docker) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-docker-backend",
+                "severity": "WARNING",
+                "message": "Resource \"res-docker-backend\" (docker) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-docker-frontend",
+                "severity": "WARNING",
+                "message": "Resource \"res-docker-frontend\" (docker) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-docker-postgres",
+                "severity": "WARNING",
+                "message": "Resource \"res-docker-postgres\" (docker) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-docker-worker",
+                "severity": "WARNING",
+                "message": "Resource \"res-docker-worker\" (docker) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "drift-resource-1793473685584",
+                "severity": "WARNING",
+                "message": "Resource \"drift-resource-1793473685584\" (kubernetes) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-k8s-dep-backend",
+                "severity": "WARNING",
+                "message": "Resource \"res-k8s-dep-backend\" (kubernetes) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-k8s-dep-frontend",
+                "severity": "WARNING",
+                "message": "Resource \"res-k8s-dep-frontend\" (kubernetes) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "k8s-staging-phase23m-pay-mvwscvcp",
+                "severity": "WARNING",
+                "message": "Resource \"k8s-staging-phase23m-pay-mvwscvcp\" (kubernetes) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "k8s-pod-staging-phase23m-pay-mvwscvcp-1",
+                "severity": "WARNING",
+                "message": "Resource \"k8s-pod-staging-phase23m-pay-mvwscvcp-1\" (kubernetes) has no recent telemetry."
+              },
+              {
+                "type": "MISSING_TELEMETRY",
+                "resourceId": "res-k8s-sts-postgres",
+                "severity": "WARNING",
+                "message": "Resource \"res-k8s-sts-postgres\" (kubernetes) has no recent telemetry."
+              }
+            ],
+            "supportingEvidence": [
+              {
+                "totalResourcesEvaluated": 13,
+                "totalServicesEvaluated": 10,
+                "activeIncidentsCount": 0,
+                "activeDriftCount": 0,
+                "telemetryFreshnessSeconds": 1
+              }
+            ],
+            "evaluatedAt": "2026-10-31T19:20:11.595Z"
+          }
+        }
+      },
+      "predictive-risks": {
+        "status": 200,
+        "ms": 20.772100000000137,
+        "data": {
+          "success": true,
+          "data": []
+        }
+      },
+      "slo-summary": {
+        "status": 200,
+        "ms": 67.30119999999988,
+        "data": {
+          "success": true,
+          "data": {
+            "kpis": {
+              "totalSlos": 4,
+              "nominalCount": 1,
+              "burnWarningCount": 1,
+              "breachedCount": 2,
+              "insufficientDataCount": 0,
+              "atRiskServicesCount": 3,
+              "overallCompliancePercent": 50
+            },
+            "slos": [
+              {
+                "id": "slo-inventory-availability",
+                "name": "Inventory Stock Reservation Availability",
+                "serviceId": "inventory-mesh",
+                "serviceName": "inventory-mesh",
+                "sliType": "availability",
+                "targetPercent": 99.9,
+                "currentSliValue": 99.98,
+                "remainingBudgetPercent": 92,
+                "budgetConsumedPercent": 8,
+                "burnRate1h": 0.2,
+                "burnRate6h": 0.2,
+                "burnRate24h": 0.1,
+                "status": "nominal",
+                "dataQuality": "good",
+                "activeAlertsCount": 0,
+                "evaluatedAt": "2026-10-31T18:51:49.795Z"
+              },
+              {
+                "id": "slo-auth-latency",
+                "name": "OAuth Token Introspection Latency (< 25ms)",
+                "serviceId": "auth-gateway-v2",
+                "serviceName": "auth-gateway-v2",
+                "sliType": "latency",
+                "targetPercent": 99.99,
+                "currentSliValue": 99.1,
+                "remainingBudgetPercent": 42,
+                "budgetConsumedPercent": 58,
+                "burnRate1h": 3.2,
+                "burnRate6h": 2.1,
+                "burnRate24h": 1.4,
+                "status": "burn_warning",
+                "dataQuality": "good",
+                "activeAlertsCount": 0,
+                "evaluatedAt": "2026-10-31T18:51:49.795Z"
+              },
+              {
+                "id": "slo-checkout-latency",
+                "name": "Order Checkout Latency (< 150ms)",
+                "serviceId": "checkout-api",
+                "serviceName": "checkout-api",
+                "sliType": "latency",
+                "targetPercent": 99.9,
+                "currentSliValue": 95.88,
+                "remainingBudgetPercent": 0,
+                "budgetConsumedPercent": 100,
+                "burnRate1h": 14.4,
+                "burnRate6h": 6.2,
+                "burnRate24h": 3.8,
+                "status": "breached",
+                "dataQuality": "good",
+                "activeAlertsCount": 0,
+                "evaluatedAt": "2026-10-31T18:51:49.795Z"
+              },
+              {
+                "id": "slo-payment-success",
+                "name": "Payment Authorization Success Rate",
+                "serviceId": "payment-service",
+                "serviceName": "payment-service",
+                "sliType": "availability",
+                "targetPercent": 99.95,
+                "currentSliValue": 50,
+                "remainingBudgetPercent": 0,
+                "budgetConsumedPercent": 100,
+                "burnRate1h": 2000,
+                "burnRate6h": 1000,
+                "burnRate24h": 1000,
+                "status": "breached",
+                "dataQuality": "incomplete",
+                "activeAlertsCount": 0,
+                "evaluatedAt": "2026-10-31T19:08:05.336Z"
+              }
+            ],
+            "atRiskServiceIds": [
+              "auth-gateway-v2",
+              "checkout-api",
+              "payment-service"
+            ],
+            "evaluatedAt": "2026-10-31T19:20:11.734Z"
+          }
+        }
+      },
+      "capacity-optimization": {
+        "status": 200,
+        "ms": 34.87519999999995,
+        "data": {
+          "success": true,
+          "data": {
+            "summary": {
+              "totalResourcesAnalyzed": 8,
+              "underutilizedComputeCount": 0,
+              "idleResourcesCount": 0,
+              "totalMonthlyWasteUsd": 0,
+              "currency": "USD"
+            },
+            "insights": [],
+            "analyzedAt": "2026-10-31T19:20:11.769Z"
+          }
+        }
+      },
+      "recommendations": {
+        "status": 200,
+        "ms": 29.36830000000009,
+        "data": {
+          "success": true,
+          "data": []
+        }
+      }
+    },
+    "arithmetic": {
+      "sliValue": 99.5,
+      "targetPercent": 99.9,
+      "errorBudgetPercent": 0.1,
+      "allowedBadEvents": 10,
+      "remainingBadEvents": 0,
+      "budgetConsumedPercent": 100,
+      "remainingBudgetPercent": 0,
+      "burnRateMultiplier": 5,
+      "status": "breached",
+      "dataQuality": "good",
+      "alerts": [
+        {
+          "sloId": "temp-slo-eval",
+          "policyId": null,
+          "alertType": "budget_exhausted",
+          "severity": "critical",
+          "burnRate": 0,
+          "budgetRemainingPercent": 0,
+          "message": "Error budget exhausted (0% remaining) for SLO \"undefined\". Immediate operational review required."
+        }
+      ]
+    },
+    "windows": {
+      "1h": {
+        "windowStart": "2026-10-31T18:20:11.833Z",
+        "windowEnd": "2026-10-31T19:20:11.833Z",
+        "totalEvents": 1,
+        "badEvents": 1,
+        "goodEvents": 0,
+        "burnRate": 100
+      },
+      "6h": {
+        "windowStart": "2026-10-31T13:20:11.833Z",
+        "windowEnd": "2026-10-31T19:20:11.833Z",
+        "totalEvents": 2,
+        "badEvents": 1,
+        "goodEvents": 1,
+        "burnRate": 50
+      },
+      "24h": {
+        "windowStart": "2026-10-30T19:20:11.833Z",
+        "windowEnd": "2026-10-31T19:20:11.833Z",
+        "totalEvents": 2,
+        "badEvents": 1,
+        "goodEvents": 1,
+        "burnRate": 50
+      }
+    },
+    "capacity": {
+      "summary": {
+        "totalResourcesAnalyzed": 1,
+        "underutilizedComputeCount": 1,
+        "idleResourcesCount": 0,
+        "totalMonthlyWasteUsd": 36.5,
+        "currency": "USD"
+      },
+      "insights": [
+        {
+          "tenantId": "default_tenant",
+          "environment": "staging",
+          "resourceId": "zero",
+          "serviceId": null,
+          "provider": "aws",
+          "resourceType": "compute_instance",
+          "currentAllocation": {
+            "computeHourly": 0.1,
+            "instanceType": "t3.medium"
+          },
+          "actualUtilization": {
+            "cpuPercent": 0,
+            "memoryPercent": 0
+          },
+          "underutilizationPercent": 100,
+          "estimatedMonthlyWasteUsd": 36.5,
+          "optimizationCategory": "OVER_PROVISIONED_COMPUTE",
+          "recommendedGovernedAction": "DOCKER_CONTAINER_RESTART",
+          "confidence": "HIGH",
+          "justification": "Compute workload \"zero\" averages 0.0% CPU and 0.0% memory. Downsizing or right-sizing saves ~$36.5/mo."
+        }
+      ],
+      "analyzedAt": "2026-10-31T19:20:11.840Z"
+    },
+    "limitation": "Cost is an estimate; trace-based SLO samples do not prove full unsampled request coverage."
+  }
+]

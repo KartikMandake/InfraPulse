@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import {tenantContext} from '../security/tenantContext.js';
 import * as changeRepo from '../repositories/change.repository.js';
 import * as servicesRepo from '../repositories/services.repository.js';
 import * as sloRepo from '../repositories/slo.repository.js';
@@ -16,9 +17,10 @@ async function fetchContext(serviceId) {
   try {
     allServices = await servicesRepo.findAllServices();
   } catch (err) {
+    if(tenantContext())throw err;
     allServices = initialServices;
   }
-  if (!allServices || allServices.length === 0) allServices = initialServices;
+  if (!allServices || allServices.length === 0) allServices = tenantContext()?[]:initialServices;
 
   let targetService = allServices.find(s => s.id === serviceId);
   if (!targetService) {
@@ -61,10 +63,10 @@ async function fetchContext(serviceId) {
   try {
     deploymentHistory = await changeRepo.findAllHistoricalDeployments(serviceId).catch(() => []);
     if (deploymentHistory.length === 0) {
-      deploymentHistory = initialDeployments.filter(d => d.serviceName === serviceId || d.serviceId === serviceId);
+      deploymentHistory = tenantContext()?[]:initialDeployments.filter(d => d.serviceName === serviceId || d.serviceId === serviceId);
     }
   } catch {
-    deploymentHistory = initialDeployments.filter(d => d.serviceName === serviceId || d.serviceId === serviceId);
+    deploymentHistory = tenantContext()?[]:initialDeployments.filter(d => d.serviceName === serviceId || d.serviceId === serviceId);
   }
 
   return {

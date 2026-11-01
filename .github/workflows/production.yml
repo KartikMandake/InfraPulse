@@ -1,0 +1,49 @@
+# Phase 25: build/validate/plan only. No publication or deployment commands.
+name: InfraPulse production deploy plan
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: true
+        description: version
+      commit:
+        type: string
+        required: true
+        description: commit
+      release_run_id:
+        type: string
+        required: true
+        description: release_run_id
+      current_version:
+        type: string
+        required: true
+        description: current_version
+      backup_evidence:
+        type: string
+        required: true
+        description: "JSON: archiveSha256, restoreVerified:true, newTargetOnly:true"
+      acknowledgement:
+        type: choice
+        required: true
+        description: acknowledgement
+        options:
+          - PLAN ONLY
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: InfraPulse production deploy plan-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  plan:
+    uses: ./.github/workflows/deployment-plan.yml
+    with:
+      environment: production
+      operation: deploy
+      version: ${{ inputs.version }}
+      commit: ${{ inputs.commit }}
+      release_run_id: ${{ inputs.release_run_id }}
+      current_version: ${{ inputs.current_version }}
+      backup_evidence: ${{ inputs.backup_evidence }}
+      acknowledgement: ${{ inputs.acknowledgement }}

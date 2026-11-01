@@ -1,0 +1,548 @@
+{
+  "inventory": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "count": 19,
+      "data": [
+        {
+          "id": "res-docker-backend",
+          "name": "infrapulse-backend",
+          "provider": "docker",
+          "resource_type": "docker_compose_service",
+          "region": "local",
+          "environment": "local",
+          "current_state": "running",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {
+            "ipv4": 0,
+            "compute": 0,
+            "managed": 0,
+            "storage": 0,
+            "networking": 0
+          },
+          "dependencies": [
+            "res-docker-postgres"
+          ],
+          "persistence_requirements": {
+            "has_persistent_volume": false
+          },
+          "is_critical_dependency": false,
+          "metadata": {
+            "image": "infrapulse-backend:staging",
+            "is_simulated": true,
+            "port_mapping": "5000:5000",
+            "container_name": "infrapulse-backend"
+          },
+          "last_lifecycle_operation": "inspect",
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:03:56.241Z",
+          "created_at": "2026-11-01T01:03:56.241Z",
+          "updated_at": "2026-11-01T01:03:56.241Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "res-docker-frontend",
+          "name": "infrapulse-frontend",
+          "provider": "docker",
+          "resource_type": "docker_compose_service",
+          "region": "local",
+          "environment": "local",
+          "current_state": "running",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {
+            "ipv4": 0,
+            "compute": 0,
+            "managed": 0,
+            "storage": 0,
+            "networking": 0
+          },
+          "dependencies": [
+            "res-docker-backend"
+          ],
+          "persistence_requirements": {
+            "has_persistent_volume": false
+          },
+          "is_critical_dependency": false,
+          "metadata": {
+            "image": "infrapulse-frontend:staging",
+            "is_simulated": true,
+            "port_mapping": "8080:8080",
+            "container_name": "infrapulse-frontend"
+          },
+          "last_lifecycle_operation": "inspect",
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:03:56.241Z",
+          "created_at": "2026-11-01T01:03:56.241Z",
+          "updated_at": "2026-11-01T01:03:56.241Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "res-docker-postgres",
+          "name": "infrapulse-postgres",
+          "provider": "docker",
+          "resource_type": "docker_compose_service",
+          "region": "local",
+          "environment": "local",
+          "current_state": "running",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {
+            "ipv4": 0,
+            "compute": 0,
+            "managed": 0,
+            "storage": 0,
+            "networking": 0
+          },
+          "dependencies": [],
+          "persistence_requirements": {
+            "mount_path": "/var/lib/postgresql/data",
+            "volume_name": "pgdata",
+            "has_persistent_volume": true
+          },
+          "is_critical_dependency": true,
+          "metadata": {
+            "image": "postgres:16-alpine",
+            "is_simulated": true,
+            "port_mapping": "5432:5432",
+            "container_name": "infrapulse-postgres"
+          },
+          "last_lifecycle_operation": "inspect",
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:03:56.241Z",
+          "created_at": "2026-11-01T01:03:56.241Z",
+          "updated_at": "2026-11-01T01:03:56.241Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "res-docker-worker",
+          "name": "infrapulse-worker",
+          "provider": "docker",
+          "resource_type": "docker_compose_service",
+          "region": "local",
+          "environment": "local",
+          "current_state": "running",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {
+            "ipv4": 0,
+            "compute": 0,
+            "managed": 0,
+            "storage": 0,
+            "networking": 0
+          },
+          "dependencies": [
+            "res-docker-postgres",
+            "res-docker-backend"
+          ],
+          "persistence_requirements": {
+            "has_persistent_volume": false
+          },
+          "is_critical_dependency": false,
+          "metadata": {
+            "image": "infrapulse-backend:staging",
+            "command": "node src/worker.js",
+            "is_simulated": true,
+            "container_name": "infrapulse-worker"
+          },
+          "last_lifecycle_operation": "inspect",
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:03:56.241Z",
+          "created_at": "2026-11-01T01:03:56.241Z",
+          "updated_at": "2026-11-01T01:03:56.241Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-approved-target",
+          "name": "n1793495376536-approved-target",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-approved-target"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:40.677Z",
+          "created_at": "2026-11-01T01:09:40.677Z",
+          "updated_at": "2026-11-01T01:09:40.677Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-audit",
+          "name": "n1793495376536-audit",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-audit"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:41.594Z",
+          "created_at": "2026-11-01T01:09:41.594Z",
+          "updated_at": "2026-11-01T01:09:41.594Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-concurrent",
+          "name": "n1793495376536-concurrent",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "running",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-concurrent"
+          },
+          "last_lifecycle_operation": "start",
+          "last_operation_at": "2026-11-01T01:09:41.377Z",
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:40.906Z",
+          "created_at": "2026-11-01T01:09:40.906Z",
+          "updated_at": "2026-11-01T01:09:41.377Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-expired",
+          "name": "n1793495376536-expired",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "running",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-expired"
+          },
+          "last_lifecycle_operation": "start",
+          "last_operation_at": "2026-11-01T01:09:41.553Z",
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:41.391Z",
+          "created_at": "2026-11-01T01:09:41.391Z",
+          "updated_at": "2026-11-01T01:09:41.553Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-explicit",
+          "name": "n1793495376536-explicit",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": true,
+            "container_name": "n1793495376536-explicit"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:39.674Z",
+          "created_at": "2026-11-01T01:09:39.674Z",
+          "updated_at": "2026-11-01T01:09:39.674Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-freeze",
+          "name": "n1793495376536-freeze",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-freeze"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:39.755Z",
+          "created_at": "2026-11-01T01:09:39.755Z",
+          "updated_at": "2026-11-01T01:09:39.755Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-invalid-timezone",
+          "name": "n1793495376536-invalid-timezone",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-invalid-timezone"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:42.020Z",
+          "created_at": "2026-11-01T01:09:42.020Z",
+          "updated_at": "2026-11-01T01:09:42.020Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-override",
+          "name": "n1793495376536-override",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "running",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-override"
+          },
+          "last_lifecycle_operation": "start",
+          "last_operation_at": "2026-11-01T01:09:40.637Z",
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:40.451Z",
+          "created_at": "2026-11-01T01:09:40.451Z",
+          "updated_at": "2026-11-01T01:09:40.637Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-partial",
+          "name": "n1793495376536-partial",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "starting",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-partial"
+          },
+          "last_lifecycle_operation": "start",
+          "last_operation_at": "2026-11-01T01:09:41.788Z",
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:41.682Z",
+          "created_at": "2026-11-01T01:09:41.682Z",
+          "updated_at": "2026-11-01T01:09:41.788Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-rbac",
+          "name": "n1793495376536-rbac",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-rbac"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:38.303Z",
+          "created_at": "2026-11-01T01:09:38.303Z",
+          "updated_at": "2026-11-01T01:09:38.303Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-schedule",
+          "name": "n1793495376536-schedule",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-schedule"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:41.807Z",
+          "created_at": "2026-11-01T01:09:41.807Z",
+          "updated_at": "2026-11-01T01:09:41.807Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-self",
+          "name": "n1793495376536-self",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-self"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:39.531Z",
+          "created_at": "2026-11-01T01:09:39.531Z",
+          "updated_at": "2026-11-01T01:09:39.531Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "n1793495376536-substituted-target",
+          "name": "n1793495376536-substituted-target",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "local",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "n1793495376536-substituted-target"
+          },
+          "last_lifecycle_operation": "stop",
+          "last_operation_at": "2026-11-01T01:09:40.880Z",
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:09:40.681Z",
+          "created_at": "2026-11-01T01:09:40.681Z",
+          "updated_at": "2026-11-01T01:09:40.880Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "restart1793495575614-crash",
+          "name": "restart1793495575614-crash",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "ap-south-1",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "restart1793495575614-crash"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:13:08.211Z",
+          "created_at": "2026-11-01T01:13:08.211Z",
+          "updated_at": "2026-11-01T01:13:08.211Z",
+          "tenant_id": "default_tenant"
+        },
+        {
+          "id": "restart1793495711120-crash",
+          "name": "restart1793495711120-crash",
+          "provider": "docker",
+          "resource_type": "docker_container",
+          "region": "ap-south-1",
+          "environment": "staging",
+          "current_state": "stopped",
+          "estimated_hourly_cost": "0.0000",
+          "cost_breakdown": {},
+          "dependencies": [],
+          "persistence_requirements": {},
+          "is_critical_dependency": false,
+          "metadata": {
+            "is_live": false,
+            "container_name": "restart1793495711120-crash"
+          },
+          "last_lifecycle_operation": null,
+          "last_operation_at": null,
+          "last_health_check_status": "healthy",
+          "last_health_check_at": "2026-11-01T01:15:23.409Z",
+          "created_at": "2026-11-01T01:15:23.409Z",
+          "updated_at": "2026-11-01T01:15:23.409Z",
+          "tenant_id": "default_tenant"
+        }
+      ],
+      "composeServices": []
+    }
+  },
+  "health": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "data": {
+        "healthy": false,
+        "status": "unreachable",
+        "error": "Failed to connect to Docker Engine (//./pipe/docker_engine): connect ENOENT //./pipe/docker_engine"
+      }
+    }
+  },
+  "daemonExpected": "UNAVAILABLE based on actual local docker version failure"
+}

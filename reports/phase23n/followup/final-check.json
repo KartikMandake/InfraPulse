@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-01T01:35:22.951Z",
+  "reportSha256": "2e6c97700c76bf605701ff384c91780c9638f9184d7abeb4bb48cd0feaf0ece8",
+  "defectRows": 19,
+  "unexpectedPreexistingChanges": [],
+  "environmentUnchanged": true,
+  "stagedUnchanged": true,
+  "missingLinks": [],
+  "whitespaceStatus": 0,
+  "clusterStopped": true
+}

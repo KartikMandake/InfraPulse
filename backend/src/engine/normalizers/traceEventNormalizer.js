@@ -48,6 +48,7 @@ export function normalizeTraceEvent(raw, options = {}) {
     normalizedAttributes: {
       traceId,
       spanId: raw.spanId || null,
+      parentSpanId:raw.parentSpanId||raw.normalizedAttributes?.parentSpanId||null,
       durationMs,
       isError,
       httpStatusCode: raw.httpStatusCode || null,

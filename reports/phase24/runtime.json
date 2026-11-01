@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Production configuration preflight without database access",
+    "status": "PASS",
+    "commandExit": 0
+  },
+  {
+    "name": "Missing secrets fail fast before opening a listener",
+    "status": "PASS",
+    "commandExit": 1,
+    "structuredError": true
+  },
+  {
+    "name": "Production backend starts with automatic migration and seed disabled",
+    "status": "PASS",
+    "pid": 2900,
+    "unchanged": {
+      "users": 3,
+      "migrations": 22
+    },
+    "node": "v26.4.0",
+    "transport": "Actual local HTTP behind simulated trusted HTTPS proxy headers; native SCRAM database"
+  },
+  {
+    "name": "HTTPS gate, health exemption, exact CORS and correlation headers",
+    "status": "PASS",
+    "httpsRequired": true,
+    "readinessPublic": true,
+    "exactCors": true,
+    "correlation": true
+  },
+  {
+    "name": "Authentication, Secure cookie and tenant service request",
+    "status": "PASS",
+    "register": 201,
+    "me": 200,
+    "services": 200,
+    "cookieFlags": [
+      "Secure",
+      "HttpOnly",
+      "SameSite=Lax"
+    ],
+    "secretValuesRecorded": false
+  },
+  {
+    "name": "Authentication burst receives HTTP 429",
+    "status": "PASS",
+    "statuses": [
+      400,
+      400,
+      400,
+      400,
+      400,
+      400,
+      400,
+      400,
+      400,
+      429,
+      429,
+      429
+    ]
+  },
+  {
+    "name": "Standalone production worker polls the actual disposable database",
+    "status": "PASS",
+    "pid": 18824,
+    "healthProbeExit": 0,
+    "notifications": "No external provider configured; no real delivery attempted"
+  },
+  {
+    "name": "Database outage returns readiness 503 while liveness remains 200",
+    "status": "PASS",
+    "readiness": 503,
+    "liveness": 200,
+    "workerProbe": 1,
+    "target": "Owned phase24 cluster on 5545 only"
+  },
+  {
+    "name": "Database restart restores readiness and worker health",
+    "status": "PASS",
+    "readiness": 200,
+    "workerProbe": 0
+  },
+  {
+    "name": "Worker graceful shutdown and fresh-process recovery",
+    "status": "PASS",
+    "first": {
+      "code": 0,
+      "signal": null
+    },
+    "previousPid": 18824,
+    "newPid": 11224,
+    "nativeLinuxSignal": "NOT TESTED: Windows harness emits SIGTERM in owned child through IPC"
+  },
+  {
+    "name": "Backend graceful shutdown closes listener and database pool",
+    "status": "PASS",
+    "code": 0,
+    "signal": null,
+    "nativeLinuxSignal": "NOT TESTED: trusted test-child IPC emits SIGTERM"
+  }
+]

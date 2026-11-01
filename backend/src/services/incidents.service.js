@@ -1,5 +1,6 @@
+import {tenantContext} from '../security/tenantContext.js';
 import * as incidentsRepo from '../repositories/incidents.repository.js';
-import { getIncidents as getMemIncidents, getIncidentById as getMemIncidentById, updateIncident as updateMemIncident, createIncident as createMemIncident } from '../data/incidents.js';
+import { getIncidents as unsafe_getMemIncidents, getIncidentById as unsafe_getMemIncidentById, updateIncident as unsafe_updateMemIncident, createIncident as unsafe_createMemIncident } from '../data/incidents.js';
 import { triggerIncidentNotification } from './notification.service.js';
 import { invalidateInvestigationCache } from './investigation.service.js';
 import { ApiError } from '../utils/ApiError.js';
@@ -7,8 +8,9 @@ import { ApiError } from '../utils/ApiError.js';
 export async function listIncidents() {
   try {
     const data = await incidentsRepo.findAllIncidents();
-    if (data && data.length > 0) return data;
+    if (data && (data.length > 0 || tenantContext())) return data;
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[IncidentsService] DB fallback to memory:', err.message);
   }
   return getMemIncidents();
@@ -19,6 +21,7 @@ export async function findIncidentById(id) {
     const incident = await incidentsRepo.findIncidentById(id);
     if (incident) return incident;
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[IncidentsService] DB fallback to memory:', err.message);
   }
 
@@ -46,6 +49,7 @@ export async function modifyIncident(id, updates) {
       finalResult = updated;
     }
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[IncidentsService] DB fallback to memory:', err.message);
   }
 
@@ -96,6 +100,7 @@ export async function addIncident(data) {
       createdIncident = created;
     }
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[IncidentsService] DB fallback to memory:', err.message);
   }
 
@@ -114,3 +119,11 @@ export async function addIncident(data) {
 
   return createdIncident;
 }
+
+const getMemIncidents=(...args)=>tenantContext()?[]:unsafe_getMemIncidents(...args);
+
+const getMemIncidentById=(...args)=>tenantContext()?null:unsafe_getMemIncidentById(...args);
+
+const updateMemIncident=(...args)=>tenantContext()?null:unsafe_updateMemIncident(...args);
+
+const createMemIncident=(...args)=>tenantContext()?null:unsafe_createMemIncident(...args);

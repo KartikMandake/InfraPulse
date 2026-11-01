@@ -8,6 +8,8 @@ function mapUserRow(row, includePassword = false) {
     email: row.email,
     role: row.role,
     status: row.status,
+    tenantId: row.tenant_id || 'default_tenant',
+    organizationId: row.tenant_id || 'default_tenant',
     createdAt: row.created_at,
     updatedAt: row.updated_at
   };
@@ -61,9 +63,9 @@ export async function createUserRecord(userData, client = null) {
 
   const res = await q(
     `INSERT INTO users (
-      id, name, email, password_hash, role, status
+      id, name, email, password_hash, role, status, tenant_id
     ) VALUES (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5, $6, $7
     )
     ON CONFLICT (email) DO NOTHING
     RETURNING *;`,
@@ -73,7 +75,8 @@ export async function createUserRecord(userData, client = null) {
       normalizedEmail,
       userData.passwordHash,
       userData.role || 'viewer',
-      userData.status || 'active'
+      userData.status || 'active',
+      userData.tenantId || 'default_tenant'
     ]
   );
 

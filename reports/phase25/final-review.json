@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "releaseTests": 22,
+  "workflows": 7,
+  "strictYamlFiles": 8,
+  "requiredDocuments": 6,
+  "localLinksChecked": 43,
+  "policy": 0,
+  "composeFixture": 0,
+  "secretScanner": 0
+}

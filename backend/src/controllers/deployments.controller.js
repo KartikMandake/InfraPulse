@@ -1,5 +1,6 @@
+import {tenantContext} from '../security/tenantContext.js';
 import * as deploymentsRepo from '../repositories/deployments.repository.js';
-import { getDeployments as getMemDeployments, updateDeployment as updateMemDeployment } from '../data/deployments.js';
+import { getDeployments as unsafe_getMemDeployments, updateDeployment as unsafe_updateMemDeployment } from '../data/deployments.js';
 import { ApiError } from '../utils/ApiError.js';
 
 export async function getAllDeployments(req, res, next) {
@@ -9,6 +10,7 @@ export async function getAllDeployments(req, res, next) {
       data = await deploymentsRepo.findAllDeployments();
       if (!data || data.length === 0) data = getMemDeployments();
     } catch (err) {
+    if(tenantContext())throw err;
       console.warn('[DeploymentsController] DB read fallback:', err.message);
       data = getMemDeployments();
     }
@@ -24,6 +26,7 @@ export async function updateDeploymentRecord(req, res, next) {
     try {
       updated = await deploymentsRepo.updateDeploymentRecord(req.params.deploymentId, req.body);
     } catch (err) {
+    if(tenantContext())throw err;
       console.warn('[DeploymentsController] DB update fallback:', err.message);
     }
 
@@ -38,3 +41,7 @@ export async function updateDeploymentRecord(req, res, next) {
     next(error);
   }
 }
+
+const getMemDeployments=(...args)=>tenantContext()?[]:unsafe_getMemDeployments(...args);
+
+const updateMemDeployment=(...args)=>tenantContext()?null:unsafe_updateMemDeployment(...args);

@@ -1,0 +1,6 @@
+{
+  "status": 0,
+  "ms": 334.1406,
+  "stdout": "✔ M18 complete JSON object drafts parse at submit time (3.3625ms)\n✔ M18 incomplete JSON and non-object values are rejected clearly (7.4383ms)\n✔ M19 successful clipboard write is awaited (0.7457ms)\n✔ M19 denied clipboard access is handled without an unhandled rejection (0.6802ms)\n✔ M19 absent Clipboard API produces a recoverable error (0.3476ms)\nℹ tests 5\nℹ suites 0\nℹ pass 5\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 186.9307\n",
+  "stderr": ""
+}

@@ -1,0 +1,616 @@
+{
+  "before": {
+    "alert_rules": {
+      "count": 5,
+      "sha256": "45d872e4ef3c9483c12ded1fded7e9937b9f8fdc9f6f41156ff4c41bd8d4b4a9"
+    },
+    "alerts": {
+      "count": 12,
+      "sha256": "cce95fe9ca53cf62cef3cb8c6ef1ebc6088b4df899713b92baf2bbc444971e06"
+    },
+    "assistant_conversations": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "assistant_messages": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audit_logs": {
+      "count": 24,
+      "sha256": "d7e05f44affd7e7da9e065ddbcc760bb57f2edb88d6b2a520855029eec8a51f8"
+    },
+    "change_assessments": {
+      "count": 3,
+      "sha256": "9bc3da4b141377809e4b1b15e9b74a39ab831ce576c72f332aa17e97dc0bc813"
+    },
+    "change_events": {
+      "count": 3,
+      "sha256": "0f9fd5b46bff7ba0f726721138b2487d88b88231aaf220574d8ba719f83373b3"
+    },
+    "change_impact_services": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "change_outcomes": {
+      "count": 3,
+      "sha256": "d8a1f6e7703fe07bf74ec21af296489577bad775575c431717900db27870aa1e"
+    },
+    "change_risk_evidence": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cloud_aws_discovery_runs": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cloud_cost_estimates": {
+      "count": 2,
+      "sha256": "2fbe9b7ddb12db3b39727c64184479111c7316167c17b41cdc501916a351f4ec"
+    },
+    "cloud_desired_state_baselines": {
+      "count": 1,
+      "sha256": "9b69bc0d2b817b55dbd2467fc7d8a8c4ef0f99065e9bca0005cf34d7ba5facfb"
+    },
+    "cloud_drift_events": {
+      "count": 6,
+      "sha256": "45037fd73dec7cb0933487cfb5154c0045d7678afcfbc84b1d79c2beb7d43879"
+    },
+    "cloud_lifecycle_operations": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cloud_reconciliation_plans": {
+      "count": 1,
+      "sha256": "144491831cb1b16f9182e91db3f4f33bf3edb81abe8e5970089fdaa08b46b051"
+    },
+    "cloud_resources": {
+      "count": 11,
+      "sha256": "21714fb5a8eab525766571af3f0d7ed8f90adf8431b6176dcf32ea286ce0b083"
+    },
+    "cloud_schedules": {
+      "count": 2,
+      "sha256": "873ad4e503ce822e07944d01765ae86343a0b847c91a3711a1c9e742d31bccd6"
+    },
+    "cloud_state_snapshots": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "deployment_regressions": {
+      "count": 2,
+      "sha256": "9a0d7919d6c1d60f670a1cc6ca8e0bb75609de65d5fae072663c3dd789c1a458"
+    },
+    "deployments": {
+      "count": 3,
+      "sha256": "348d86ea0721590890da6ed8d37d2d7a233b8e56dcda453882f47492b1e9acc8"
+    },
+    "early_warning_events": {
+      "count": 2,
+      "sha256": "defb06e7358fb4f6a90cf6fc49a10912580c487229d389c2791ed29690028071"
+    },
+    "event_correlations": {
+      "count": 6,
+      "sha256": "e98f840f26b8cc241da8e373ad1a248e805837ee32a17232c63d263cba2a12e1"
+    },
+    "event_normalization_failures": {
+      "count": 1,
+      "sha256": "fec7a580a7494e4b2f2b5c59215e376adfd0e69e65d2757ecc31bb8520ede2ce"
+    },
+    "fault_simulations": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "incident_events": {
+      "count": 19,
+      "sha256": "3016fbbdd2d77718db82c49bd8f489d60fb546c60cbf3a84dd65acbe75e647f6"
+    },
+    "incidents": {
+      "count": 4,
+      "sha256": "e19a7fb77172bc461bca801f003b62ee5718056659bb939eba7b69d79930eb0c"
+    },
+    "infra_remediation_approvals": {
+      "count": 1,
+      "sha256": "0010e2d33ee756579ed2b72ae2f7bc86a60b9e6dd4c71b80e19a3e47c0f0b8b0"
+    },
+    "integration_credentials": {
+      "count": 2,
+      "sha256": "9f8abe0252291dd930c9da43ecd651969a539a585eb67d0f61b31fc5cbce10ff"
+    },
+    "integration_health_events": {
+      "count": 5,
+      "sha256": "3770d6d3d85c42f2bc908347d80cfdc8ec2c5c209e489d6b2a1a62683fd5f719"
+    },
+    "integration_sync_state": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "integration_telemetry_stats": {
+      "count": 1,
+      "sha256": "6c9ce1b0853564833c30d483908c2bf16ff93ee022de9d4c645fc9c8cd44e95a"
+    },
+    "integration_webhook_deliveries": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "integrations": {
+      "count": 2,
+      "sha256": "0102e536533e4bc81a9f6580f48abd7a7ddcd67fbd57191eacf2d59c2a8be69a"
+    },
+    "investigation_graph_snapshots": {
+      "count": 3,
+      "sha256": "bafe508608e553a7528de4d5420936e6297cf31126fa280636e1d0c8b462e49c"
+    },
+    "investigation_runs": {
+      "count": 4,
+      "sha256": "95c018be85ad292d5b430acaf94dd9316056879b878a6cea7348dffa23425060"
+    },
+    "normalized_events": {
+      "count": 164,
+      "sha256": "2b9357fb44bf0dad8969ba31ab03eb058ebbd983245065495f2888e96fc573e9"
+    },
+    "notification_channels": {
+      "count": 2,
+      "sha256": "64406c3a5c5f0d6483878317d3e4118b0f164e994189fa1a495dcd1b04dee6c9"
+    },
+    "notification_deliveries": {
+      "count": 7,
+      "sha256": "9518ce28212a1ced17f46fcf58432b577ad811934e269fb5d081a77db16aff02"
+    },
+    "notification_preferences": {
+      "count": 8,
+      "sha256": "27771a1d1eb8d2406c4991a5d6cf3ec4f078c8389b7a841d00b3500261354712"
+    },
+    "operational_patterns": {
+      "count": 4,
+      "sha256": "2f7054d1aef21f5ad1977cb9fd5ce7270b9d2d517230d83015ab213082e7f141"
+    },
+    "operational_trend_snapshots": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "pattern_evidence": {
+      "count": 4,
+      "sha256": "e1d24431a761b2a2b0402035629e1a789c07bb1788da5e2f801af6c26e323ec3"
+    },
+    "preventive_recommendations": {
+      "count": 4,
+      "sha256": "43bded96f1447b2f2fb2a7eb23bf6a7c7f9b2055723526c985c816170d94780f"
+    },
+    "remediation_action_logs": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_approvals": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_execution_events": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_executions": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_plans": {
+      "count": 1,
+      "sha256": "3ab42ee9860349c59913701b12659ccd6645ea35c9e6dd63588dc64aef5cf63b"
+    },
+    "remediation_policy_rules": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_recommendations": {
+      "count": 1,
+      "sha256": "5d1ca35a52d7a3017b001c7264383d2f09420f768b3b6a1580823ec388e2d103"
+    },
+    "runbook_execution_steps": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runbook_executions": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runbook_versions": {
+      "count": 6,
+      "sha256": "dab8eb59cc3f98b86742e4b6f72acebca94e97acb0ed144605dbb4241668eefc"
+    },
+    "runbooks": {
+      "count": 6,
+      "sha256": "3ab8d0b68c6babb6542e845163c621c28c33ebeba7bb6bfa9631ea629b64e38c"
+    },
+    "schema_migrations": {
+      "count": 18,
+      "sha256": "f456b0c6ed91dd82d0bdf440fb35c54310e6c05caf1f5f11f7ae4d9901af3380"
+    },
+    "service_observed_dependencies": {
+      "count": 1,
+      "sha256": "b631e2b9d8b3872236a09491414360e4c0b4da5dbe18193f647c664f062cf87c"
+    },
+    "service_reliability_snapshots": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service_risk_profiles": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "services": {
+      "count": 8,
+      "sha256": "70d23270a7033dec7e5ab5c1b7d31cfdeedb68c2421bf34e65fef9299e3cca95"
+    },
+    "sessions": {
+      "count": 11,
+      "sha256": "fb4cd2fc3dedc75ca992f55688cee84485356031a89b57205c6636219bdcbbe3"
+    },
+    "slo_alert_events": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "slo_alert_policies": {
+      "count": 4,
+      "sha256": "7f0dde0930d1d811f2dc45abd77577b672acbfbd2ed8ae9bf9e5ff1282c16dee"
+    },
+    "slo_error_budget_history": {
+      "count": 4,
+      "sha256": "349521f5d41b5cea33de56333b3c9b715ada02f075c05225889d80cabfb3f7b5"
+    },
+    "slo_evaluations": {
+      "count": 4,
+      "sha256": "295c8c15d94214afa3f1581205af99a7bebadf73701f89189e47f7fec60085f7"
+    },
+    "slos": {
+      "count": 4,
+      "sha256": "6b0402a63d652cab4964dfe4c95ca053df98f3cd605e7220ab552b6d02828edc"
+    },
+    "sre_capacity_insights": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sre_health_snapshots": {
+      "count": 1,
+      "sha256": "205c9373a3a6a8a1ce21b95639b0c4bce8af5433255e71a7c484009ee61f17e4"
+    },
+    "sre_operational_recommendations": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sre_risk_predictions": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "telemetry_dead_letter": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "users": {
+      "count": 3,
+      "sha256": "44c17bcd96cfc10e8043463086f7f7cdc33f6fffe951de8e6f2cd1f80a2cc985"
+    }
+  },
+  "backup": {
+    "status": 0,
+    "signal": null,
+    "stdout": "[Backup] Creating PostgreSQL snapshot for database 'infrapulse_23m_20261031_7e7465' on 127.0.0.1:5540...\n[Backup Complete] Backup successfully written to D:\\Projects\\InfraPulse\\reports\\phase23m\\backup\\infrapulse_backup_20261031_212216.sql (285030 bytes).\n",
+    "stderr": ""
+  },
+  "backupMs": 2111.5373999999997,
+  "archive": {
+    "path": "backup\\infrapulse_backup_20261031_212216.sql",
+    "bytes": 285030,
+    "header": "PGDMP"
+  },
+  "restore": {
+    "status": 0,
+    "signal": null,
+    "stdout": "[Restore] Restoring database 'infrapulse_23m_20261031_7e7465_restore' on 127.0.0.1:5540 from 'D:\\Projects\\InfraPulse\\reports\\phase23m\\backup\\infrapulse_backup_20261031_212216.sql'...\n[Restore Complete] Database 'infrapulse_23m_20261031_7e7465_restore' restored successfully from D:\\Projects\\InfraPulse\\reports\\phase23m\\backup\\infrapulse_backup_20261031_212216.sql.\n",
+    "stderr": ""
+  },
+  "restoreMs": 4640.9568,
+  "after": {
+    "alert_rules": {
+      "count": 5,
+      "sha256": "45d872e4ef3c9483c12ded1fded7e9937b9f8fdc9f6f41156ff4c41bd8d4b4a9"
+    },
+    "alerts": {
+      "count": 12,
+      "sha256": "cce95fe9ca53cf62cef3cb8c6ef1ebc6088b4df899713b92baf2bbc444971e06"
+    },
+    "assistant_conversations": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "assistant_messages": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audit_logs": {
+      "count": 24,
+      "sha256": "d7e05f44affd7e7da9e065ddbcc760bb57f2edb88d6b2a520855029eec8a51f8"
+    },
+    "change_assessments": {
+      "count": 3,
+      "sha256": "9bc3da4b141377809e4b1b15e9b74a39ab831ce576c72f332aa17e97dc0bc813"
+    },
+    "change_events": {
+      "count": 3,
+      "sha256": "0f9fd5b46bff7ba0f726721138b2487d88b88231aaf220574d8ba719f83373b3"
+    },
+    "change_impact_services": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "change_outcomes": {
+      "count": 3,
+      "sha256": "d8a1f6e7703fe07bf74ec21af296489577bad775575c431717900db27870aa1e"
+    },
+    "change_risk_evidence": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cloud_aws_discovery_runs": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cloud_cost_estimates": {
+      "count": 2,
+      "sha256": "2fbe9b7ddb12db3b39727c64184479111c7316167c17b41cdc501916a351f4ec"
+    },
+    "cloud_desired_state_baselines": {
+      "count": 1,
+      "sha256": "9b69bc0d2b817b55dbd2467fc7d8a8c4ef0f99065e9bca0005cf34d7ba5facfb"
+    },
+    "cloud_drift_events": {
+      "count": 6,
+      "sha256": "45037fd73dec7cb0933487cfb5154c0045d7678afcfbc84b1d79c2beb7d43879"
+    },
+    "cloud_lifecycle_operations": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cloud_reconciliation_plans": {
+      "count": 1,
+      "sha256": "144491831cb1b16f9182e91db3f4f33bf3edb81abe8e5970089fdaa08b46b051"
+    },
+    "cloud_resources": {
+      "count": 11,
+      "sha256": "21714fb5a8eab525766571af3f0d7ed8f90adf8431b6176dcf32ea286ce0b083"
+    },
+    "cloud_schedules": {
+      "count": 2,
+      "sha256": "873ad4e503ce822e07944d01765ae86343a0b847c91a3711a1c9e742d31bccd6"
+    },
+    "cloud_state_snapshots": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "deployment_regressions": {
+      "count": 2,
+      "sha256": "9a0d7919d6c1d60f670a1cc6ca8e0bb75609de65d5fae072663c3dd789c1a458"
+    },
+    "deployments": {
+      "count": 3,
+      "sha256": "348d86ea0721590890da6ed8d37d2d7a233b8e56dcda453882f47492b1e9acc8"
+    },
+    "early_warning_events": {
+      "count": 2,
+      "sha256": "defb06e7358fb4f6a90cf6fc49a10912580c487229d389c2791ed29690028071"
+    },
+    "event_correlations": {
+      "count": 6,
+      "sha256": "e98f840f26b8cc241da8e373ad1a248e805837ee32a17232c63d263cba2a12e1"
+    },
+    "event_normalization_failures": {
+      "count": 1,
+      "sha256": "fec7a580a7494e4b2f2b5c59215e376adfd0e69e65d2757ecc31bb8520ede2ce"
+    },
+    "fault_simulations": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "incident_events": {
+      "count": 19,
+      "sha256": "3016fbbdd2d77718db82c49bd8f489d60fb546c60cbf3a84dd65acbe75e647f6"
+    },
+    "incidents": {
+      "count": 4,
+      "sha256": "e19a7fb77172bc461bca801f003b62ee5718056659bb939eba7b69d79930eb0c"
+    },
+    "infra_remediation_approvals": {
+      "count": 1,
+      "sha256": "0010e2d33ee756579ed2b72ae2f7bc86a60b9e6dd4c71b80e19a3e47c0f0b8b0"
+    },
+    "integration_credentials": {
+      "count": 2,
+      "sha256": "9f8abe0252291dd930c9da43ecd651969a539a585eb67d0f61b31fc5cbce10ff"
+    },
+    "integration_health_events": {
+      "count": 5,
+      "sha256": "3770d6d3d85c42f2bc908347d80cfdc8ec2c5c209e489d6b2a1a62683fd5f719"
+    },
+    "integration_sync_state": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "integration_telemetry_stats": {
+      "count": 1,
+      "sha256": "6c9ce1b0853564833c30d483908c2bf16ff93ee022de9d4c645fc9c8cd44e95a"
+    },
+    "integration_webhook_deliveries": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "integrations": {
+      "count": 2,
+      "sha256": "0102e536533e4bc81a9f6580f48abd7a7ddcd67fbd57191eacf2d59c2a8be69a"
+    },
+    "investigation_graph_snapshots": {
+      "count": 3,
+      "sha256": "bafe508608e553a7528de4d5420936e6297cf31126fa280636e1d0c8b462e49c"
+    },
+    "investigation_runs": {
+      "count": 4,
+      "sha256": "95c018be85ad292d5b430acaf94dd9316056879b878a6cea7348dffa23425060"
+    },
+    "normalized_events": {
+      "count": 164,
+      "sha256": "2b9357fb44bf0dad8969ba31ab03eb058ebbd983245065495f2888e96fc573e9"
+    },
+    "notification_channels": {
+      "count": 2,
+      "sha256": "64406c3a5c5f0d6483878317d3e4118b0f164e994189fa1a495dcd1b04dee6c9"
+    },
+    "notification_deliveries": {
+      "count": 7,
+      "sha256": "9518ce28212a1ced17f46fcf58432b577ad811934e269fb5d081a77db16aff02"
+    },
+    "notification_preferences": {
+      "count": 8,
+      "sha256": "27771a1d1eb8d2406c4991a5d6cf3ec4f078c8389b7a841d00b3500261354712"
+    },
+    "operational_patterns": {
+      "count": 4,
+      "sha256": "2f7054d1aef21f5ad1977cb9fd5ce7270b9d2d517230d83015ab213082e7f141"
+    },
+    "operational_trend_snapshots": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "pattern_evidence": {
+      "count": 4,
+      "sha256": "e1d24431a761b2a2b0402035629e1a789c07bb1788da5e2f801af6c26e323ec3"
+    },
+    "preventive_recommendations": {
+      "count": 4,
+      "sha256": "43bded96f1447b2f2fb2a7eb23bf6a7c7f9b2055723526c985c816170d94780f"
+    },
+    "remediation_action_logs": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_approvals": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_execution_events": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_executions": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_plans": {
+      "count": 1,
+      "sha256": "3ab42ee9860349c59913701b12659ccd6645ea35c9e6dd63588dc64aef5cf63b"
+    },
+    "remediation_policy_rules": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remediation_recommendations": {
+      "count": 1,
+      "sha256": "5d1ca35a52d7a3017b001c7264383d2f09420f768b3b6a1580823ec388e2d103"
+    },
+    "runbook_execution_steps": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runbook_executions": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runbook_versions": {
+      "count": 6,
+      "sha256": "dab8eb59cc3f98b86742e4b6f72acebca94e97acb0ed144605dbb4241668eefc"
+    },
+    "runbooks": {
+      "count": 6,
+      "sha256": "3ab8d0b68c6babb6542e845163c621c28c33ebeba7bb6bfa9631ea629b64e38c"
+    },
+    "schema_migrations": {
+      "count": 18,
+      "sha256": "f456b0c6ed91dd82d0bdf440fb35c54310e6c05caf1f5f11f7ae4d9901af3380"
+    },
+    "service_observed_dependencies": {
+      "count": 1,
+      "sha256": "b631e2b9d8b3872236a09491414360e4c0b4da5dbe18193f647c664f062cf87c"
+    },
+    "service_reliability_snapshots": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service_risk_profiles": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "services": {
+      "count": 8,
+      "sha256": "70d23270a7033dec7e5ab5c1b7d31cfdeedb68c2421bf34e65fef9299e3cca95"
+    },
+    "sessions": {
+      "count": 11,
+      "sha256": "fb4cd2fc3dedc75ca992f55688cee84485356031a89b57205c6636219bdcbbe3"
+    },
+    "slo_alert_events": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "slo_alert_policies": {
+      "count": 4,
+      "sha256": "7f0dde0930d1d811f2dc45abd77577b672acbfbd2ed8ae9bf9e5ff1282c16dee"
+    },
+    "slo_error_budget_history": {
+      "count": 4,
+      "sha256": "349521f5d41b5cea33de56333b3c9b715ada02f075c05225889d80cabfb3f7b5"
+    },
+    "slo_evaluations": {
+      "count": 4,
+      "sha256": "295c8c15d94214afa3f1581205af99a7bebadf73701f89189e47f7fec60085f7"
+    },
+    "slos": {
+      "count": 4,
+      "sha256": "6b0402a63d652cab4964dfe4c95ca053df98f3cd605e7220ab552b6d02828edc"
+    },
+    "sre_capacity_insights": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sre_health_snapshots": {
+      "count": 1,
+      "sha256": "205c9373a3a6a8a1ce21b95639b0c4bce8af5433255e71a7c484009ee61f17e4"
+    },
+    "sre_operational_recommendations": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sre_risk_predictions": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "telemetry_dead_letter": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "users": {
+      "count": 3,
+      "sha256": "44c17bcd96cfc10e8043463086f7f7cdc33f6fffe951de8e6f2cd1f80a2cc985"
+    }
+  },
+  "matches": true,
+  "totalTables": 72,
+  "totalRows": 393,
+  "corruptRestore": {
+    "status": 1,
+    "signal": null,
+    "stdout": "[Restore] Restoring database 'infrapulse_23m_20261031_7e7465_restore' on 127.0.0.1:5540 from 'D:\\Projects\\InfraPulse\\reports\\phase23m\\backup\\phase23m-corrupt.dump'...\n[Restore Error]: pg_restore failed with exit code 1.\n",
+    "stderr": "pg_restore: error: input file does not appear to be a valid archive (too short?)\r\n"
+  },
+  "missingDbBackup": {
+    "status": 1,
+    "signal": null,
+    "stdout": "[Backup] Creating PostgreSQL snapshot for database 'infrapulse_23m_definitely_missing' on 127.0.0.1:5540...\n[Backup Error]: pg_dump failed with exit code 1.\n",
+    "stderr": "pg_dump: error: connection to server at \"127.0.0.1\", port 5540 failed: FATAL:  database \"infrapulse_23m_definitely_missing\" does not exist\r\n"
+  }
+}

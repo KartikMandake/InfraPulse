@@ -1,0 +1,2 @@
+import assert from 'node:assert/strict';
+const url=new URL(process.env.TARGET_URL||'http://127.0.0.1:5085');assert.equal(url.hostname,'127.0.0.1');assert.equal(url.protocol,'http:');let healthy=false;for(let i=0;i<100;i++){try{if((await fetch(url.origin+'/api/health/ready',{signal:AbortSignal.timeout(1000)})).status===200){healthy=true;break;}}catch{}await new Promise(r=>setTimeout(r,100));}if(!healthy){console.error('Disposable benchmark target did not become ready');process.exitCode=1;}

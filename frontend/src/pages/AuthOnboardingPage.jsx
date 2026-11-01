@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import {copyText} from '../utils/operatorFeedback.js';
 
 export const AuthOnboardingPage = () => {
   const { user, role, login, register, logout, switchDemoUser } = useAuth();
@@ -17,14 +18,15 @@ export const AuthOnboardingPage = () => {
   const [currentStep, setCurrentStep] = useState(2);
   const [clusterName, setClusterName] = useState('prod-k8s-mesh');
   const [copiedHelm, setCopiedHelm] = useState(false);
+  const [clipboardError,setClipboardError]=useState(null);
   const [isConnected, setIsConnected] = useState(true);
 
   const helmCmd = `helm repo add infrapulse https://charts.infrapulse.io\nhelm upgrade --install infrapulse infrapulse/agent --set cluster.name=${clusterName}`;
 
-  const copyHelm = () => {
-    navigator.clipboard.writeText(helmCmd);
-    setCopiedHelm(true);
-    setTimeout(() => setCopiedHelm(false), 1500);
+  const copyHelm = async () => {
+    const result=await copyText(helmCmd);setClipboardError(result.ok?null:result.error);
+    setCopiedHelm(result.ok);
+    if(result.ok)setTimeout(() => setCopiedHelm(false), 1500);
   };
 
   const handleAuthSubmit = async (e) => {
@@ -312,6 +314,7 @@ export const AuthOnboardingPage = () => {
                     <span>{copiedHelm ? 'Copied Helm Script!' : 'Copy Script'}</span>
                   </button>
                 </div>
+                {clipboardError&&<p role="alert" className="text-red-400 text-xs">{clipboardError}</p>}
                 <pre className="p-3 bg-[#030407] border border-[#272a33] rounded-lg text-xs text-[#b1c5ff] overflow-x-auto leading-relaxed">
                   {helmCmd}
                 </pre>

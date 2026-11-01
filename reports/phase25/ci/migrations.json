@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "database": "infrapulse_ci_phase25_1793500388141",
+  "total": 22,
+  "firstApplied": 22,
+  "replayApplied": 0,
+  "testSeed": true,
+  "productionDatabaseTouched": false
+}

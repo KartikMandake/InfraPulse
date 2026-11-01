@@ -1,0 +1,60 @@
+{
+  "before": {
+    "id": "aws-i-extra1793495519991-collision",
+    "name": "extra1793495519991",
+    "provider": "aws",
+    "resource_type": "ec2_instance",
+    "region": "ap-south-1",
+    "environment": "staging",
+    "current_state": "stopped",
+    "metadata": {
+      "is_simulated": true,
+      "is_live_aws": false,
+      "marker": "simulation"
+    }
+  },
+  "result": {
+    "runId": "run_c71270d6624a",
+    "region": "ap-south-1",
+    "identity": {
+      "accountIdMasked": "********TEST",
+      "arnMasked": "fixture"
+    },
+    "counts": {
+      "ec2": 1,
+      "ebs": 0,
+      "elasticIps": 0,
+      "rds": 0,
+      "total": 1
+    },
+    "upsertedCount": 1,
+    "estimatedMonthlyCostUsd": 0,
+    "durationMs": 1
+  },
+  "after": {
+    "id": "aws-i-extra1793495519991-collision",
+    "name": "extra1793495519991",
+    "provider": "aws",
+    "resource_type": "ec2_instance",
+    "region": "ap-south-1",
+    "environment": "staging",
+    "current_state": "stopped",
+    "estimated_hourly_cost": "0.0000",
+    "cost_breakdown": {},
+    "dependencies": [],
+    "persistence_requirements": {},
+    "is_critical_dependency": false,
+    "metadata": {
+      "instance_id": "i-extra1793495519991-collision",
+      "is_live_aws": true,
+      "is_simulated": false
+    },
+    "last_lifecycle_operation": null,
+    "last_operation_at": null,
+    "last_health_check_status": "healthy",
+    "last_health_check_at": "2026-11-01T01:12:00.656Z",
+    "created_at": "2026-11-01T01:12:00.656Z",
+    "updated_at": "2026-11-01T01:12:00.683Z",
+    "tenant_id": "default_tenant"
+  }
+}

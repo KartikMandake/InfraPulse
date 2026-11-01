@@ -1,0 +1,14 @@
+[
+  {
+    "component": "backend",
+    "status": 0,
+    "stdout": "",
+    "stderr": "2026-11-01T08:32:26+05:30\tINFO\t[misconfig] Misconfiguration scanning is enabled\n2026-11-01T08:32:26+05:30\tINFO\t[checks-client] Using existing checks from cache\tpath=\"C:\\\\Users\\\\karti\\\\AppData\\\\Local\\\\trivy\\\\policy\\\\content\"\n2026-11-01T08:32:28+05:30\tINFO\tDetected config files\tnum=1\n"
+  },
+  {
+    "component": "frontend",
+    "status": 0,
+    "stdout": "",
+    "stderr": "2026-11-01T08:32:28+05:30\tINFO\t[misconfig] Misconfiguration scanning is enabled\n2026-11-01T08:32:28+05:30\tINFO\t[checks-client] Using existing checks from cache\tpath=\"C:\\\\Users\\\\karti\\\\AppData\\\\Local\\\\trivy\\\\policy\\\\content\"\n2026-11-01T08:32:30+05:30\tINFO\tDetected config files\tnum=1\n"
+  }
+]

@@ -1,3 +1,4 @@
+import {tenantContext} from '../security/tenantContext.js';
 /**
  * Alert Rules Management & Rule Evaluation Service
  */
@@ -118,18 +119,19 @@ export function validateRule(rule) {
 export async function getAlertRules() {
   try {
     const rules = await alertRulesRepo.findAllAlertRules();
-    if (rules && rules.length > 0) return rules;
+    if (rules && (rules.length > 0 || tenantContext())) return rules;
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[AlertRulesService] DB fallback to memory:', err.message);
   }
-  return alertRulesMem;
+  return tenantContext()?[]:alertRulesMem;
 }
 
 /**
  * Synchronous variant for tests/internal pure functions.
  */
 export function getAlertRulesSync() {
-  return alertRulesMem;
+  return tenantContext()?[]:alertRulesMem;
 }
 
 /**
@@ -140,9 +142,10 @@ export async function getAlertRuleById(ruleId) {
     const rule = await alertRulesRepo.findAlertRuleById(ruleId);
     if (rule) return rule;
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[AlertRulesService] DB fallback to memory:', err.message);
   }
-  return alertRulesMem.find(r => r.id === ruleId) || null;
+  return tenantContext()?null:alertRulesMem.find(r => r.id === ruleId) || null;
 }
 
 /**
@@ -168,13 +171,15 @@ export async function createAlertRule(ruleData) {
   try {
     const saved = await alertRulesRepo.createAlertRuleRecord(newRule);
     if (saved) {
-      alertRulesMem.push(saved);
+      if(!tenantContext())alertRulesMem.push(saved);
       return saved;
     }
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[AlertRulesService] DB save fallback:', err.message);
   }
 
+  if(tenantContext())throw new ApiError(503,'Alert rule could not be persisted.');
   alertRulesMem.push(newRule);
   return newRule;
 }
@@ -186,14 +191,16 @@ export async function updateAlertRule(ruleId, updates) {
   try {
     const updated = await alertRulesRepo.updateAlertRuleRecord(ruleId, updates);
     if (updated) {
-      const idx = alertRulesMem.findIndex(r => r.id === ruleId);
+      const idx = tenantContext()?-1:alertRulesMem.findIndex(r => r.id === ruleId);
       if (idx !== -1) alertRulesMem[idx] = updated;
       return updated;
     }
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[AlertRulesService] DB update fallback:', err.message);
   }
 
+  if(tenantContext())throw ApiError.notFound(`Alert rule "${ruleId}" not found.`);
   const index = alertRulesMem.findIndex(r => r.id === ruleId);
   if (index === -1) {
     throw ApiError.notFound(`Alert rule "${ruleId}" not found.`);
@@ -214,7 +221,7 @@ export async function updateAlertRule(ruleId, updates) {
  */
 export function resetAlertRules() {
   alertRulesMem = [...INITIAL_ALERT_RULES];
-  return alertRulesMem;
+  return tenantContext()?[]:alertRulesMem;
 }
 
 /**

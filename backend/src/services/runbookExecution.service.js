@@ -174,6 +174,8 @@ export async function executeRunbook({ executionId, user }) {
   if (!runbook) throw ApiError.notFound(`Runbook "${execution.runbookId}" not found.`);
 
   const approval = await executionsRepo.findApprovalByExecutionId(executionId);
+  const plannedSteps=await executionsRepo.findExecutionSteps(executionId);
+  if(generatePlanHash({...execution.dryRunPlan,steps:plannedSteps})!==execution.planHash)throw ApiError.conflict('Security violation: execution steps differ from the approved runbook plan.');
 
   // 1. Strict preflight verification
   validateExecutionPreflight({

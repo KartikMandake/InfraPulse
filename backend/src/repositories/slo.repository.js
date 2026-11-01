@@ -37,9 +37,10 @@ function mapEvaluationRow(row) {
     allowedBadEvents: Number(row.allowed_bad_events),
     remainingBudgetPercent: Number(row.remaining_budget_percent),
     budgetConsumedPercent: Number(row.budget_consumed_percent),
-    burnRate1h: Number(row.burn_rate_1h || 0),
-    burnRate6h: Number(row.burn_rate_6h || 0),
-    burnRate24h: Number(row.burn_rate_24h || 0),
+    burnRate1h: row.burn_rate_1h===null?null:Number(row.burn_rate_1h),
+    burnRate6h: row.burn_rate_6h===null?null:Number(row.burn_rate_6h),
+    burnRate24h: row.burn_rate_24h===null?null:Number(row.burn_rate_24h),
+    windowEvidence:row.window_evidence||{},
     status: row.status,
     dataQuality: row.data_quality,
     isSimulated: Boolean(row.is_simulated),
@@ -54,7 +55,7 @@ function mapHistoryRow(row) {
     sloId: row.slo_id,
     timestamp: row.timestamp,
     budgetRemainingPercent: Number(row.budget_remaining_percent),
-    burnRate: Number(row.burn_rate),
+    burnRate: row.burn_rate===null?null:Number(row.burn_rate),
     badEventsDelta: Number(row.bad_events_delta)
   };
 }
@@ -238,9 +239,9 @@ export async function createEvaluation(data, client = null) {
       total_events, good_events, bad_events, sli_value, target_percent,
       error_budget_percent, allowed_bad_events, remaining_budget_percent,
       budget_consumed_percent, burn_rate_1h, burn_rate_6h, burn_rate_24h,
-      status, data_quality, is_simulated, telemetry_source
+        status, data_quality, is_simulated, telemetry_source,window_evidence
     ) VALUES (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21,$22
     )
     RETURNING *;`,
     [
@@ -258,13 +259,14 @@ export async function createEvaluation(data, client = null) {
       data.allowedBadEvents || 0,
       data.remainingBudgetPercent,
       data.budgetConsumedPercent,
-      data.burnRate1h || 0,
-      data.burnRate6h || 0,
-      data.burnRate24h || 0,
+        data.burnRate1h ?? null,
+        data.burnRate6h ?? null,
+        data.burnRate24h ?? null,
       data.status || 'nominal',
       data.dataQuality || 'good',
       data.isSimulated !== false,
-      data.telemetrySource || 'demo_adapter'
+        data.telemetrySource || 'demo_adapter',
+        JSON.stringify(data.windowEvidence||{})
     ]
   );
   return mapEvaluationRow(res.rows[0]);

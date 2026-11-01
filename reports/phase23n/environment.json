@@ -1,0 +1,44 @@
+{
+  "platform": "win32",
+  "node": "v26.4.0",
+  "tools": {
+    "docker": {
+      "available": true,
+      "paths": [
+        "C:\\Users\\karti\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker",
+        "C:\\Users\\karti\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe"
+      ]
+    },
+    "kubectl": {
+      "available": true,
+      "paths": [
+        "C:\\Users\\karti\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\kubectl.exe"
+      ]
+    },
+    "aws": {
+      "available": true,
+      "paths": [
+        "C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe"
+      ]
+    },
+    "minikube": {
+      "available": false,
+      "paths": []
+    },
+    "kind": {
+      "available": false,
+      "paths": []
+    }
+  },
+  "docker": {
+    "context": "desktop-linux",
+    "local": true,
+    "serverReachable": false,
+    "error": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+    "version": null
+  },
+  "kubernetes": {
+    "available": false,
+    "error": "error: current-context must exist in order to minify\n"
+  }
+}

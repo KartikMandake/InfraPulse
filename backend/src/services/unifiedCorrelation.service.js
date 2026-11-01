@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import {tenantContext} from '../security/tenantContext.js';
 import * as eventsRepo from '../repositories/events.repository.js';
 import * as incidentsRepo from '../repositories/incidents.repository.js';
 import * as servicesRepo from '../repositories/services.repository.js';
@@ -16,10 +17,11 @@ export async function getIncidentInvestigationGraph(incidentId, options = {}) {
   let allServices = [];
   try {
     allServices = await servicesRepo.findAllServices();
-  } catch {
+  } catch (error) {
+    if(tenantContext())throw error;
     allServices = initialServices;
   }
-  if (!allServices || allServices.length === 0) allServices = initialServices;
+  if (!allServices || allServices.length === 0) allServices = tenantContext()?[]:initialServices;
 
   // 2. Fetch normalized events
   const events = await eventsRepo.listNormalizedEvents({

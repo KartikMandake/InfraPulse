@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  namespace: infrapulse
+  labels:
+    app.kubernetes.io/name: infrapulse
+    app.kubernetes.io/component: worker
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: infrapulse
+      app.kubernetes.io/component: worker
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: infrapulse
+        app.kubernetes.io/component: worker
+    spec:
+      terminationGracePeriodSeconds: 30
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: worker
+          image: infrapulse-backend:latest
+          imagePullPolicy: IfNotPresent
+          command: ["node", "src/worker.js"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            capabilities:
+              drop:
+                - ALL
+          envFrom:
+            - configMapRef:
+                name: infrapulse-config
+          env:
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: infrapulse-secrets
+                  key: POSTGRES_PASSWORD
+            - name: INTEGRATION_ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: infrapulse-secrets
+                  key: INTEGRATION_ENCRYPTION_KEY
+            - name: SLACK_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: infrapulse-secrets
+                  key: SLACK_WEBHOOK_URL
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+

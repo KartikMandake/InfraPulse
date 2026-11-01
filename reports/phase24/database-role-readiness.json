@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "finding": "P24-01: unscoped authentication cannot find users under a non-bypass login role",
+  "actualLocalRuntime": true,
+  "existingUsers": 5,
+  "visibleBeforeTenantContext": 0,
+  "probe": "Source auth/session reads occur before tenantBoundary; equivalent role permissions exercised in a rolled-back transaction.",
+  "securityChecksWeakened": false,
+  "productionRoleReadiness": "BLOCKED"
+}

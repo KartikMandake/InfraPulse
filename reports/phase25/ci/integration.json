@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "productionConfiguration": true,
+  "ready": 200,
+  "live": 200,
+  "plaintextAuth": 400,
+  "registration": 201,
+  "authenticatedMe": 200,
+  "tenantServices": 200,
+  "secureHttpOnlyCookie": true,
+  "gracefulHandlerExit": 0,
+  "transport": "Actual loopback HTTP/PG; HTTPS proxy headers simulated. Disposable privileged DB fixture; P24-01 unresolved.",
+  "nativeLinuxSignal": "NOT TESTED on Windows"
+}

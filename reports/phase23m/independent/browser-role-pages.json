@@ -1,0 +1,410 @@
+[
+  {
+    "role": "viewer",
+    "route": "/cloud-lifecycle",
+    "text": "Cloud Resource Lifecycle & Cost Governance\nAWS EC2 GOVERNED LIFECYCLE\nTWO-PERSON APPROVAL\n\nControlled EC2 start/stop management, strict eligibility guardrails, two-person approvals & persistent storage defense.\n\nrefresh\nRefresh\ncloud_sync\nAWS Integration (ap-south-1 Mumbai)\nCREDENTIAL PROVIDER PENDING\nRegion: ap-south-1\nLive Discovered: 0 workloads\nap-south-1 (Mumbai)\ntravel_explore\nDiscover AWS Resources\nverified_user\nGoverned EC2 mutations require allowlisting, non-production tags, dry-run evaluation, two-person approval, and explicit confirmation.\nAWS_LIFECYCLE_MUTATIONS_ENABLED: False (Default)\nInventoried Workloads\ndns\n0\n0 Live AWS\n/ 0 Sim\n0 Running\n•\n0 Stopped\nEstimated Hourly Burn\npayments\n$0.0000\n/ hr\nDaily: $0.00 (ap-south-1 rates)\nMonthly Run-Rate (730h)\ncalendar_month\n$0.00\n/ mo\nStorage baseline: $0.00/mo\nFree Tier & Savings\nsavings\n$0.00\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\ncompare_arrows\nInfrastructure Drift\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nAll Origins (Live + Sim)\nLive AWS Only\nSimulated Only\nAll Providers\nAWS (ap-south-1)\nDocker Compose\nKubernetes\nAll States\nRunning\nStopped\nIn-Use (EBS)\nAvailable\nScaled Down\nRESOURCE & ORIGIN\tPROVIDER / TYPE\tREGION / ENV\tSTATE\tCOST / HR\tPERSISTENCE\tLIFECYCLE ACTIONS\nNo matching cloud workloads found.",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  },
+  {
+    "role": "viewer",
+    "route": "/team",
+    "text": "admin_panel_settings\nIdentity, RBAC & Security Audit\nACTIVE ROLE: VIEWER\n\nRole-Based Access Control, persistent PostgreSQL sessions, and immutable security audit logging.\n\nSwitch:\nADMIN\nRESPONDER\nVIEWER\nTeam Members & RBAC (3)\nhistory_edu\nSecurity Audit Trail\nAdmin Only\nAPI Service Tokens (2)\nNAME & EMAIL\tTITLE\tRBAC ROLE\tSTATUS\tROLE MANAGEMENT\n\nSC\nSarah Chen\nsarah.chen@infrapulse.io\nPrincipal SRE\tADMIN\t\nOnline\n\tAdmin Only\n\nMV\nMarcus Vance\nmarcus.v@infrapulse.io\nStaff SRE\tRESPONDER\t\nOnline\n\tAdmin Only\n\nAR\nAlex Ross\nalex.ross@infrapulse.io\nJunior Observability Analyst\tVIEWER\t\nIdle\n\tAdmin Only",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  },
+  {
+    "role": "viewer",
+    "route": "/runbooks",
+    "text": "terminal\nRunbook Orchestrator & Safe Remediation\nPHASE 14\n\nHuman-approved operational procedures, controlled simulation adapters, and immutable audit logs.\n\nLogged in as:\nAlex Ross\nVIEWER\nshield\nSafety Enforced: All remediation actions are dispatched to allowlisted simulation adapters. No arbitrary shell execution, SQL, or unapproved mutations.\nDeterministic RCA Integration\nRUNBOOK CATALOG\n6 Available\nAll Modes\nDiagnostic\nRemediation\nAll Risks\nLow Risk\nMedium Risk\nHigh Risk\nRB-ROLLBACK-01\nHIGH RISK\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION\n3 Steps\nRB-TIMEOUT-01\nLOW RISK\nDownstream Dependency Timeout Diagnostic\nDIAGNOSTIC\n3 Steps\nRB-5XX-01\nLOW RISK\nHTTP 5xx Server Error Surge Investigation\nDIAGNOSTIC\n3 Steps\nRB-LATENCY-01\nLOW RISK\nHigh API Latency Diagnostic & Investigation\nDIAGNOSTIC\n3 Steps\nRB-DB-01\nMEDIUM RISK\nDatabase Connection Pool Exhaustion Mitigation\nREMEDIATION\n3 Steps\nRB-RESTART-01\nMEDIUM RISK\nGraceful Rolling Service Restart Remediation\nREMEDIATION\n3 Steps\nRB-ROLLBACK-01\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION (SIMULATED)\nHIGH RISK\n\nHigh-risk automated remediation to instantly depromote a regressed canary release (e.g. v1.8.3), shift 100% of traffic back to stable baseline (v1.8.2), and verify error rate restoration.\n\nTARGET INCIDENT CONTEXT\nINC-6400: auth-gateway-v2\nINC-4919: notification-worker\nINC-4912: auth-gateway-v2\nINC-4921: payment-service\n1. Steps & Procedures\n2. Dry-Run & Approval\n3. Execution Progress & Audit\nPRECONDITIONS\nIncident is correlated with a recent deployment (ACA score < 70 or error spike)\nPrevious stable deployment artifact is available in registry\nAdmin role approval AND secondary confirmation confirmed\nGOVERNANCE & SAFETY\nRequired Role: ADMIN\nApplicable Services: payment-service, checkout-api, auth-gateway-v2, *\nVerification: Verify telemetry adapter reports canary traffic == 0% and p99 latency restored to nominal baseline.\nORDERED EXECUTION STEPS\n1\nVerify Canary Error Spike & Correlated Commit Diff\ninspect_recent_logs\n\nInspect canary pod error rate vs stable pod baseline to confirm regression locus.\n\nParams: {\"filter\":\"canary\"}\n2\nSimulate Instant Canary Depromotion to Stable v1.8.2\nsimulate_canary_depromote\n\nSimulate Argo Rollouts undo / traffic drain to instantly revert 10% canary traffic to stable.\n\nParams: {\"targetRevision\":\"stable\",\"drainTimeoutSec\":10}\n⚠️ Remediation Action\nCompensation on Failure: simulate_canary_depromote\n3\nVerify Post-Rollback Latency & SLO Restoration\nverify_service_recovery\n\nConfirm p99 latency drops below 50ms and error budget burn rate returns to 0.\n\nParams: {\"maxAcceptable\":50,\"expectedMetric\":\"latencyP99\",\"expectedStatus\":\"nominal\"}\nplay_arrow\nGenerate Dry-Run Execution Plan →",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  },
+  {
+    "role": "responder",
+    "route": "/cloud-lifecycle",
+    "text": "Cloud Resource Lifecycle & Cost Governance\nAWS EC2 GOVERNED LIFECYCLE\nTWO-PERSON APPROVAL\n\nControlled EC2 start/stop management, strict eligibility guardrails, two-person approvals & persistent storage defense.\n\nrefresh\nRefresh\ncloud_sync\nAWS Integration (ap-south-1 Mumbai)\nCREDENTIAL PROVIDER PENDING\nRegion: ap-south-1\nLive Discovered: 0 workloads\nap-south-1 (Mumbai)\ntravel_explore\nDiscover AWS Resources\nverified_user\nGoverned EC2 mutations require allowlisting, non-production tags, dry-run evaluation, two-person approval, and explicit confirmation.\nAWS_LIFECYCLE_MUTATIONS_ENABLED: False (Default)\nInventoried Workloads\ndns\n0\n0 Live AWS\n/ 0 Sim\n0 Running\n•\n0 Stopped\nEstimated Hourly Burn\npayments\n$0.0000\n/ hr\nDaily: $0.00 (ap-south-1 rates)\nMonthly Run-Rate (730h)\ncalendar_month\n$0.00\n/ mo\nStorage baseline: $0.00/mo\nFree Tier & Savings\nsavings\n$0.00\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\ncompare_arrows\nInfrastructure Drift\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nAll Origins (Live + Sim)\nLive AWS Only\nSimulated Only\nAll Providers\nAWS (ap-south-1)\nDocker Compose\nKubernetes\nAll States\nRunning\nStopped\nIn-Use (EBS)\nAvailable\nScaled Down\nRESOURCE & ORIGIN\tPROVIDER / TYPE\tREGION / ENV\tSTATE\tCOST / HR\tPERSISTENCE\tLIFECYCLE ACTIONS\nNo matching cloud workloads found.",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  },
+  {
+    "role": "responder",
+    "route": "/team",
+    "text": "admin_panel_settings\nIdentity, RBAC & Security Audit\nACTIVE ROLE: RESPONDER\n\nRole-Based Access Control, persistent PostgreSQL sessions, and immutable security audit logging.\n\nSwitch:\nADMIN\nRESPONDER\nVIEWER\nTeam Members & RBAC (3)\nhistory_edu\nSecurity Audit Trail\nAdmin Only\nAPI Service Tokens (2)\nNAME & EMAIL\tTITLE\tRBAC ROLE\tSTATUS\tROLE MANAGEMENT\n\nSC\nSarah Chen\nsarah.chen@infrapulse.io\nPrincipal SRE\tADMIN\t\nOnline\n\tAdmin Only\n\nMV\nMarcus Vance\nmarcus.v@infrapulse.io\nStaff SRE\tRESPONDER\t\nOnline\n\tAdmin Only\n\nAR\nAlex Ross\nalex.ross@infrapulse.io\nJunior Observability Analyst\tVIEWER\t\nIdle\n\tAdmin Only",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  },
+  {
+    "role": "responder",
+    "route": "/runbooks",
+    "text": "terminal\nRunbook Orchestrator & Safe Remediation\nPHASE 14\n\nHuman-approved operational procedures, controlled simulation adapters, and immutable audit logs.\n\nLogged in as:\nMarcus Vance\nRESPONDER\nshield\nSafety Enforced: All remediation actions are dispatched to allowlisted simulation adapters. No arbitrary shell execution, SQL, or unapproved mutations.\nDeterministic RCA Integration\nRUNBOOK CATALOG\n6 Available\nAll Modes\nDiagnostic\nRemediation\nAll Risks\nLow Risk\nMedium Risk\nHigh Risk\nRB-ROLLBACK-01\nHIGH RISK\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION\n3 Steps\nRB-TIMEOUT-01\nLOW RISK\nDownstream Dependency Timeout Diagnostic\nDIAGNOSTIC\n3 Steps\nRB-5XX-01\nLOW RISK\nHTTP 5xx Server Error Surge Investigation\nDIAGNOSTIC\n3 Steps\nRB-LATENCY-01\nLOW RISK\nHigh API Latency Diagnostic & Investigation\nDIAGNOSTIC\n3 Steps\nRB-DB-01\nMEDIUM RISK\nDatabase Connection Pool Exhaustion Mitigation\nREMEDIATION\n3 Steps\nRB-RESTART-01\nMEDIUM RISK\nGraceful Rolling Service Restart Remediation\nREMEDIATION\n3 Steps\nRB-ROLLBACK-01\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION (SIMULATED)\nHIGH RISK\n\nHigh-risk automated remediation to instantly depromote a regressed canary release (e.g. v1.8.3), shift 100% of traffic back to stable baseline (v1.8.2), and verify error rate restoration.\n\nTARGET INCIDENT CONTEXT\nINC-6400: auth-gateway-v2\nINC-4919: notification-worker\nINC-4912: auth-gateway-v2\nINC-4921: payment-service\n1. Steps & Procedures\n2. Dry-Run & Approval\n3. Execution Progress & Audit\nPRECONDITIONS\nIncident is correlated with a recent deployment (ACA score < 70 or error spike)\nPrevious stable deployment artifact is available in registry\nAdmin role approval AND secondary confirmation confirmed\nGOVERNANCE & SAFETY\nRequired Role: ADMIN\nApplicable Services: payment-service, checkout-api, auth-gateway-v2, *\nVerification: Verify telemetry adapter reports canary traffic == 0% and p99 latency restored to nominal baseline.\nORDERED EXECUTION STEPS\n1\nVerify Canary Error Spike & Correlated Commit Diff\ninspect_recent_logs\n\nInspect canary pod error rate vs stable pod baseline to confirm regression locus.\n\nParams: {\"filter\":\"canary\"}\n2\nSimulate Instant Canary Depromotion to Stable v1.8.2\nsimulate_canary_depromote\n\nSimulate Argo Rollouts undo / traffic drain to instantly revert 10% canary traffic to stable.\n\nParams: {\"targetRevision\":\"stable\",\"drainTimeoutSec\":10}\n⚠️ Remediation Action\nCompensation on Failure: simulate_canary_depromote\n3\nVerify Post-Rollback Latency & SLO Restoration\nverify_service_recovery\n\nConfirm p99 latency drops below 50ms and error budget burn rate returns to 0.\n\nParams: {\"maxAcceptable\":50,\"expectedMetric\":\"latencyP99\",\"expectedStatus\":\"nominal\"}\nplay_arrow\nGenerate Dry-Run Execution Plan →",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  },
+  {
+    "role": "admin",
+    "route": "/cloud-lifecycle",
+    "text": "Cloud Resource Lifecycle & Cost Governance\nAWS EC2 GOVERNED LIFECYCLE\nTWO-PERSON APPROVAL\n\nControlled EC2 start/stop management, strict eligibility guardrails, two-person approvals & persistent storage defense.\n\nrefresh\nRefresh\nemergency_home\nKILL SWITCH ENGAGED\ncloud_sync\nAWS Integration (ap-south-1 Mumbai)\nCREDENTIAL PROVIDER PENDING\nRegion: ap-south-1\nLive Discovered: 0 workloads\nap-south-1 (Mumbai)\ntravel_explore\nDiscover AWS Resources\nverified_user\nGoverned EC2 mutations require allowlisting, non-production tags, dry-run evaluation, two-person approval, and explicit confirmation.\nAWS_LIFECYCLE_MUTATIONS_ENABLED: False (Default)\nwarning\nGLOBAL CLOUD LIFECYCLE KILL SWITCH IS ACTIVE: All start, stop, restart, and scaling operations are suspended by Administrator (sarah.chen@infrapulse.io).\nInventoried Workloads\ndns\n11\n0 Live AWS\n/ 11 Sim\n10 Running\n•\n1 Stopped\nEstimated Hourly Burn\npayments\n$0.0901\n/ hr\nDaily: $2.16 (ap-south-1 rates)\nMonthly Run-Rate (730h)\ncalendar_month\n$65.77\n/ mo\nStorage baseline: $17.01/mo\nFree Tier & Savings\nsavings\n$31.40\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\n11\ncompare_arrows\nInfrastructure Drift\n6\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\n2\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nAll Origins (Live + Sim)\nLive AWS Only\nSimulated Only\nAll Providers\nAWS (ap-south-1)\nDocker Compose\nKubernetes\nAll States\nRunning\nStopped\nIn-Use (EBS)\nAvailable\nScaled Down\nRESOURCE & ORIGIN\tPROVIDER / TYPE\tREGION / ENV\tSTATE\tCOST / HR\tPERSISTENCE\tLIFECYCLE ACTIONS\n\ninfrapulse-staging-ec2\nSIMULATED\nres-aws-ec2-staging\nType: t4g.small\nIPv4: 13.232.100.45\nELIGIBLE (NON-PROD)\n\tAWS\nec2_instance\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0251\n$18.32/mo\n\t\nhard_drive\nPreserved Vol\n\t\nDry-Run Stop\nInspect\n\n\ninfrapulse-staging-rds-pg16\nSIMULATED\nCRITICAL\nres-aws-rds-postgres\n\tAWS\nrds_instance\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0290\n$21.17/mo\n\tStateless\t\nDry-Run Stop\nInspect\n\n\ninfrapulse-backend\nSIMULATED\nres-docker-backend\nPROTECTED: CONTROL PLANE\n\tDOCKER\ndocker_compose_service\n\t\nlocal\nlocal\n\t\nrunning\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Stop\nRestart\nInspect\n\n\ninfrapulse-frontend\nSIMULATED\nres-docker-frontend\nGOVERNED DOCKER\n\tDOCKER\ndocker_compose_service\n\t\nlocal\nlocal\n\t\nrunning\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Stop\nRestart\nInspect\n\n\ninfrapulse-postgres\nSIMULATED\nCRITICAL\nres-docker-postgres\nPROTECTED: DB DEPENDENCY\n\tDOCKER\ndocker_compose_service\n\t\nlocal\nlocal\n\t\nrunning\t\n$0.0000\n$0.00/mo\n\t\nhard_drive\nPreserved Vol\n\t\nDry-Run Stop\nRestart\nInspect\n\n\ninfrapulse-worker\nSIMULATED\nres-docker-worker\nGOVERNED DOCKER\n\tDOCKER\ndocker_compose_service\n\t\nlocal\nlocal\n\t\nrunning\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Stop\nRestart\nInspect\n\n\nbackend-deployment\nSIMULATED\nres-k8s-dep-backend\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\nk8s_deployment\nns: infrapulse\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0160\n$11.68/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\nfrontend-deployment\nSIMULATED\nres-k8s-dep-frontend\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\nk8s_deployment\nns: infrapulse\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0080\n$5.84/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\nphase23m-api\nSIMULATED\nk8s-phase23m-phase23m-api\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\ndeployment\nns: phase23m\n\t\nhttp://127.0.0.1:55570\nstaging\n\t\nstopped\t\n$0.0500\n$36.50/mo\n\tStateless\t\nScale Replicas\nInspect\n\n\nphase23m-api-1\nSIMULATED\nk8s-pod-phase23m-phase23m-api-1\nGOVERNED K8S (REPLICAS: 1)\n\tKUBERNETES\npod\nns: phase23m\n\t\nhttp://127.0.0.1:55570\nstaging\n\t\nrunning\t\n$0.0200\n$14.60/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\npostgres-statefulset\nSIMULATED\nCRITICAL\nres-k8s-sts-postgres\nPROTECTED: STATEFULSET DB\n\tKUBERNETES\nk8s_statefulset\nns: infrapulse\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0120\n$8.76/mo\n\t\nhard_drive\nRetained PVC\n\t\nScale Replicas\nScale 0\nInspect",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  },
+  {
+    "role": "admin",
+    "route": "/team",
+    "text": "admin_panel_settings\nIdentity, RBAC & Security Audit\nACTIVE ROLE: ADMIN\n\nRole-Based Access Control, persistent PostgreSQL sessions, and immutable security audit logging.\n\nSwitch:\nADMIN\nRESPONDER\nVIEWER\nTeam Members & RBAC (3)\nhistory_edu\nSecurity Audit Trail\nAPI Service Tokens (2)\nNAME & EMAIL\tTITLE\tRBAC ROLE\tSTATUS\tROLE MANAGEMENT\n\nMV\nMarcus Vance\nmarcus.v@infrapulse.io\nIncident Commander & SRE\tRESPONDER\t\nOnline\n\t\nadmin\nresponder\nviewer\n\n\nAR\nAlex Ross\nalex.ross@infrapulse.io\nTelemetry Observer\tVIEWER\t\nOnline\n\t\nadmin\nresponder\nviewer\n\n\nSC\nSarah Chen\nsarah.chen@infrapulse.io\nPrincipal SRE / Workspace Admin\tADMIN\t\nOnline\n\t\nadmin\nresponder\nviewer",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  },
+  {
+    "role": "admin",
+    "route": "/runbooks",
+    "text": "terminal\nRunbook Orchestrator & Safe Remediation\nPHASE 14\n\nHuman-approved operational procedures, controlled simulation adapters, and immutable audit logs.\n\nLogged in as:\nSarah Chen\nADMIN\nshield\nSafety Enforced: All remediation actions are dispatched to allowlisted simulation adapters. No arbitrary shell execution, SQL, or unapproved mutations.\nDeterministic RCA Integration\nRUNBOOK CATALOG\n6 Available\nAll Modes\nDiagnostic\nRemediation\nAll Risks\nLow Risk\nMedium Risk\nHigh Risk\nRB-ROLLBACK-01\nHIGH RISK\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION\n3 Steps\nRB-TIMEOUT-01\nLOW RISK\nDownstream Dependency Timeout Diagnostic\nDIAGNOSTIC\n3 Steps\nRB-5XX-01\nLOW RISK\nHTTP 5xx Server Error Surge Investigation\nDIAGNOSTIC\n3 Steps\nRB-LATENCY-01\nLOW RISK\nHigh API Latency Diagnostic & Investigation\nDIAGNOSTIC\n3 Steps\nRB-DB-01\nMEDIUM RISK\nDatabase Connection Pool Exhaustion Mitigation\nREMEDIATION\n3 Steps\nRB-RESTART-01\nMEDIUM RISK\nGraceful Rolling Service Restart Remediation\nREMEDIATION\n3 Steps\nRB-ROLLBACK-01\nHigh-Risk Canary Rollback & Deployment Depromotion\nREMEDIATION (SIMULATED)\nHIGH RISK\n\nHigh-risk automated remediation to instantly depromote a regressed canary release (e.g. v1.8.3), shift 100% of traffic back to stable baseline (v1.8.2), and verify error rate restoration.\n\nTARGET INCIDENT CONTEXT\nINC-6400: auth-gateway-v2\nINC-4919: notification-worker\nINC-4912: auth-gateway-v2\nINC-4921: payment-service\n1. Steps & Procedures\n2. Dry-Run & Approval\n3. Execution Progress & Audit\nPRECONDITIONS\nIncident is correlated with a recent deployment (ACA score < 70 or error spike)\nPrevious stable deployment artifact is available in registry\nAdmin role approval AND secondary confirmation confirmed\nGOVERNANCE & SAFETY\nRequired Role: ADMIN\nApplicable Services: payment-service, checkout-api, auth-gateway-v2, *\nVerification: Verify telemetry adapter reports canary traffic == 0% and p99 latency restored to nominal baseline.\nORDERED EXECUTION STEPS\n1\nVerify Canary Error Spike & Correlated Commit Diff\ninspect_recent_logs\n\nInspect canary pod error rate vs stable pod baseline to confirm regression locus.\n\nParams: {\"filter\":\"canary\"}\n2\nSimulate Instant Canary Depromotion to Stable v1.8.2\nsimulate_canary_depromote\n\nSimulate Argo Rollouts undo / traffic drain to instantly revert 10% canary traffic to stable.\n\nParams: {\"targetRevision\":\"stable\",\"drainTimeoutSec\":10}\n⚠️ Remediation Action\nCompensation on Failure: simulate_canary_depromote\n3\nVerify Post-Rollback Latency & SLO Restoration\nverify_service_recovery\n\nConfirm p99 latency drops below 50ms and error budget burn rate returns to 0.\n\nParams: {\"maxAcceptable\":50,\"expectedMetric\":\"latencyP99\",\"expectedStatus\":\"nominal\"}\nplay_arrow\nGenerate Dry-Run Execution Plan →",
+    "apiErrors": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/cloud/audit?limit=25",
+        "status": 403
+      }
+    ]
+  }
+]

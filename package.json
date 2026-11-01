@@ -1,6 +1,7 @@
 {
   "name": "infrapulse",
-  "version": "2.4.0",
+  "version": "1.0.0",
+  "type": "module",
   "private": true,
   "description": "InfraPulse - AI-Assisted SRE Root Cause Analysis & Infrastructure Observability Platform",
   "scripts": {
@@ -28,10 +29,24 @@
     "test:e2e": "node --test tests/release/fullLifecycleE2E.test.js",
     "test:failure": "node --test tests/release/failureRecovery.test.js",
     "test:rca": "node --test tests/rca-evaluation/rcaEngineEnhancement.test.js && node tests/rca-evaluation/evaluationRunner.js && node --test tests/rca-evaluation/aiAssistant.test.js",
-    "test": "npm run test:backend && npm run test:reliability && npm run test:rca && npm run test:remediation && npm run test:slo && npm run test:changes && npm run test:correlation && npm run test:operations && npm run test:integrations && npm run test:e2e && npm run test:failure",
-    "benchmark": "node tests/performance/runAllBenchmarks.js"
+    "test:cloud": "node --test tests/cloud-lifecycle/cloudLifecycle.test.js && node --test tests/cloud-lifecycle/awsReadOnlyDiscovery.test.js && node --test tests/cloud-lifecycle/awsEc2Lifecycle.test.js && node --test tests/cloud-lifecycle/dockerKubernetesLifecycle.test.js && node --test tests/cloud-lifecycle/driftDetectionReconciliation.test.js && node --test tests/cloud-lifecycle/realInfrastructureIntegrations.test.js && node --test tests/cloud-lifecycle/liveObservabilityIncidentIntelligence.test.js && node --test tests/cloud-lifecycle/liveIntegrationAcceptance.test.js && node --test tests/cloud-lifecycle/governedRemediationIntelligence.test.js && node --test tests/cloud-lifecycle/autonomousSreIntelligence.test.js && node --test tests/cloud-lifecycle/enterpriseProductionHardening.test.js",
+    "test": "npm run test:backend && npm run test:reliability && npm run test:rca && npm run test:remediation && npm run test:slo && npm run test:changes && npm run test:correlation && npm run test:operations && npm run test:integrations && npm run test:e2e && npm run test:failure && npm run test:cloud",
+    "benchmark": "node tests/performance/runAllBenchmarks.js",
+    "ci:policy": "node scripts/ci/policy.mjs",
+    "ci:test": "node scripts/ci/tests.mjs",
+    "ci:integration": "node scripts/ci/integration.mjs",
+    "test:cicd": "node --test tests/cicd/*.test.mjs",
+    "release:check": "node scripts/release/version.mjs",
+    "release:prepare": "node scripts/release/prepare.mjs"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "yaml": "2.8.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ec2": "^3.1161.0",
+    "@aws-sdk/client-rds": "^3.1161.0",
+    "@aws-sdk/client-sts": "^3.1161.0",
+    "@aws-sdk/credential-providers": "^3.1161.0"
   }
 }

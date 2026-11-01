@@ -1,3 +1,4 @@
+import {withTenant} from '../security/tenantContext.js';
 import * as changeIntelligenceService from '../services/changeIntelligence.service.js';
 import * as deploymentRegressionService from '../services/deploymentRegression.service.js';
 import * as deploymentHistoryService from '../services/deploymentHistory.service.js';
@@ -106,15 +107,21 @@ export async function handleDeploymentWebhook(req, res, next) {
     // 1. Authenticate webhook request
     const authHeader = req.headers['authorization'] || '';
     const tokenHeader = req.headers['x-infrapulse-token'] || '';
-    const configuredSecret = process.env.DEPLOYMENT_WEBHOOK_SECRET || 'infrapulse-webhook-secret-token';
+    const configuredSecret = process.env.DEPLOYMENT_WEBHOOK_SECRET;
 
     const bearerToken = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : '';
     const providedToken = tokenHeader || bearerToken;
 
-    if (!providedToken || providedToken !== configuredSecret) {
+    if (!configuredSecret || !providedToken || providedToken !== configuredSecret) {
       throw ApiError.unauthorized('Invalid or missing deployment webhook secret token.');
     }
 
+    if(!req.verifiedWebhookTenant){
+      const tenant=process.env.DEPLOYMENT_WEBHOOK_TENANT_ID||'default_tenant';
+      if(req.body.tenantId&&req.body.tenantId!==tenant)throw ApiError.forbidden('Webhook tenant does not match configured owner.');
+      req.verifiedWebhookTenant=tenant;
+      return withTenant(tenant,()=>handleDeploymentWebhook(req,res,next));
+    }
     // 2. Validate payload
     const { serviceId, service_id, newVersion, new_version } = req.body;
     const targetService = serviceId || service_id;

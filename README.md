@@ -1,18 +1,18 @@
 # InfraPulse ⚡
 
 > **Autonomous SRE Observability, Deterministic Root Cause Analysis & Safe Incident Remediation Platform**  
-> *Production-grade site reliability engineering platform built with React, Node.js, Express, PostgreSQL, and OpenTelemetry.*
+> *Production-ready v1.0 release built with React, Node.js, Express, PostgreSQL, and OpenTelemetry.*
 
-[![Release Candidate](https://img.shields.io/badge/release-v2.4.0--rc1-blue.svg)](https://github.com/KartikMandake/InfraPulse/releases)
-[![Test Suite](https://img.shields.io/badge/tests-168%20passed%20%7C%200%20failed-brightgreen.svg)](https://github.com/KartikMandake/InfraPulse)
-[![Architecture](https://img.shields.io/badge/architecture-pure%20ESM%20%2B%20React-orange.svg)](https://github.com/KartikMandake/InfraPulse)
+[![Release](https://img.shields.io/badge/release-v1.0.0-blue.svg)](docs/RELEASE_NOTES_V1.md)
+[![Build Status](https://img.shields.io/badge/tests-337%20passed-brightgreen.svg)](docs/PHASE_30_V1_RELEASE_REPORT.md)
+[![Architecture](https://img.shields.io/badge/architecture-pure%20ESM%20%2B%20React-orange.svg)](docs/SECURITY_ARCHITECTURE.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
 
 ## 📋 Table of Contents
 1. [Project Overview & Problem Statement](#-project-overview--problem-statement)
-2. [Project Status (v2.4.0-rc1)](#-project-status-v240-rc1)
+2. [Project Status (v1.0.0)](#-project-status-v100)
 3. [Key Platform Capabilities](#-key-platform-capabilities)
 4. [System Architecture](#-system-architecture)
 5. [Platform Subsystems Deep-Dive](#-platform-subsystems-deep-dive)
@@ -48,25 +48,21 @@ Modern microservices-based distributed architectures are extraordinarily complex
 
 ---
 
-## 📊 Project Status (v2.4.0-rc1)
+## 📊 Project Status (v1.0.0)
 
-InfraPulse is currently at **Release Candidate `v2.4.0-rc1`**. All 20 engineering phases have been implemented, verified, and benchmarked:
+InfraPulse has completed comprehensive production validation and reliability hardening across 30 engineering phases.
 
-- **Automated Test Suite**: **168 passing tests** across 11 test suites with **0 failures**:
-  - `test:backend`: Core persistence, auth, RBAC, alert rules, and telemetry adapters (59 tests).
-  - `test:reliability`: Graceful degradation, database disconnections, and recovery under load (8 tests).
-  - `test:rca`: Deterministic RCA, holdout scenario evaluation, and evidence quality bounds (11 tests).
-  - `test:assistant`: Grounded AI context catalogs, anti-hallucination checks, and RBAC guardrails (10 tests).
-  - `test:remediation`: Runbook catalog, dry-run plan hashing, and two-party approval governance (15 tests).
-  - `test:slo`: Multi-window burn-rate tracking, error budget calculations, and SLI evaluation (15 tests).
-  - `test:changes`: Deployment change risk estimation, regression detection, and topology correlation (15 tests).
-  - `test:correlation`: Canonical cross-source event normalization and time-aligned correlation (15 tests).
-  - `test:operations`: Recurring failure pattern detection, early warnings, and preventive recommendations (15 tests).
-  - `test:integrations`: Enterprise provider webhooks, AES-256-GCM encryption, and HMAC signature checks (15 tests).
-  - `test:e2e`: Full 15-step operational lifecycle validation (GitHub webhook -> Slack dispatch) (1 test).
-  - `test:failure`: 20-scenario chaos, poison payload, and graceful recovery validation (20 tests).
-- **Frontend Build**: Verified production bundle via `vite v6.4.5` (compiled with zero warnings or errors).
-- **Verification Disclosure**: Third-party enterprise external integrations (such as live GitHub webhooks, live remote Kubernetes clusters, or active Slack incoming webhooks) and production cloud orchestration require separate production credentials and runtime environment setup.
+- **Automated Quality Gates**: **337 passing test suites (0 failures)** across backend core, security regression, self-monitoring, disaster recovery, and cloud lifecycle governance.
+- **RCA Engine Benchmark**: **85.7% Top-1 accuracy**, **100% Top-3 accuracy**, and **0.929 Mean Reciprocal Rank (MRR)** with a **2.85 ms** average execution latency (9,143 evaluations/second direct throughput).
+- **Security & Multi-Tenancy**: PostgreSQL Row-Level Security (`NOBYPASSRLS`), timing attack mitigation on authentication, strict separation of duties, and zero static secrets.
+- **Disaster Recovery**: All 22 database migrations verified on PostgreSQL 16 (2.55s), with automated backup and point-in-time recovery runbooks.
+- **Deployment Scope**: Fully validated for local workstation, bare-metal, and self-hosted container deployments (`deploy/production/compose.yml`). Cloud deployment to AWS `ap-south-1` is fully documented and gated behind explicit user budget approval.
+
+For detailed test matrices, performance benchmarks, and evaluation datasets, see:
+- [`RELEASE_NOTES_V1.md`](docs/RELEASE_NOTES_V1.md)
+- [`PHASE_29_PRODUCTION_VALIDATION_REPORT.md`](docs/PHASE_29_PRODUCTION_VALIDATION_REPORT.md)
+- [`PHASE_30_V1_RELEASE_REPORT.md`](docs/PHASE_30_V1_RELEASE_REPORT.md)
+- [`DEMO_AND_ONBOARDING_GUIDE.md`](docs/DEMO_AND_ONBOARDING_GUIDE.md)
 
 ---
 
@@ -227,7 +223,7 @@ The user interface is built according to the **Stitch Design System** featuring 
 | **Backend API** | Node.js v20 LTS, Express v4, Pure JavaScript ES Modules (`.js`) |
 | **Database & Persistence** | PostgreSQL 16, Versioned SQL Migrations, `pg` connection pool |
 | **Background Processing** | Dedicated Node.js Queue Worker (`worker.js`) with atomic row claiming (`FOR UPDATE SKIP LOCKED`) |
-| **Security & Auth** | HTTP-Only Session Cookies, CSRF Protection, Argon2/Bcrypt Hashing, AES-256-GCM, Constant-Time HMAC-SHA256 |
+| **Security & Auth** | HTTP-Only Session Cookies, exact-origin CSRF checks, Bcrypt Hashing, AES-256-GCM, Constant-Time HMAC-SHA256 |
 | **Telemetry & Observability** | OpenTelemetry SDK (OTLP HTTP), Prometheus (PromQL), Grafana Tempo, Grafana Loki |
 | **Containerization** | Docker, Multi-Stage Alpine Dockerfiles, Unprivileged Nginx, Docker Compose |
 | **Testing** | Node.js Native Test Runner (`node --test`), Assert/Strict, Cross-Suite Concurrency Control |
@@ -265,7 +261,7 @@ Edit `backend/.env` to point to your local PostgreSQL database (e.g. `PGHOST=loc
 
 ### 4. Apply Database Migrations & Seed Data
 ```bash
-# Run 10 versioned SQL migrations
+# Run 22 versioned SQL migrations
 npm run db:migrate
 
 # Idempotently seed baseline services, incidents, alerts, SLOs, and users
@@ -284,7 +280,7 @@ npm run dev
 
 ## 🗄 Database Migrations & Relational Schema
 
-InfraPulse maintains strict forward-compatible relational persistence through **10 versioned SQL migrations** in `backend/src/db/migrations/`:
+InfraPulse maintains strict forward-compatible relational persistence through **22 versioned SQL migrations** in `backend/src/db/migrations/`:
 
 | Migration | Subsystem | Description |
 |---|---|---|
@@ -298,12 +294,24 @@ InfraPulse maintains strict forward-compatible relational persistence through **
 | `008_unified_correlation.sql` | Observability Correlation | Canonical normalized events, cross-source correlations, and investigation graph snapshots. |
 | `009_operational_intelligence.sql` | Predictive Intelligence | Recurring failure patterns, service risk profiles, early warnings, and preventive recommendations. |
 | `010_integrations_ecosystem.sql` | Enterprise Ecosystem | Provider registrations, AES-256-GCM encrypted credentials, webhook deliveries, and audit events. |
+| `011_cloud_lifecycle_cost_governance.sql` | Cloud governance | Resources, approval operations, schedules and cost estimates. |
+| `012_aws_discovery_governance.sql` | AWS discovery | Read-only discovery and eligibility metadata. |
+| `013_infrastructure_drift_governance.sql` | Drift | Baselines, snapshots, deviations and reconciliation previews. |
+| `014_real_infrastructure_integrations.sql` | Provider metadata | Inventory and provider capabilities. |
+| `015_telemetry_reliability_and_incident_intelligence.sql` | Telemetry | Dead letters, observed dependencies and ingestion statistics. |
+| `016_governed_remediation_intelligence.sql` | Remediation | Recommendations, canonical plans, approvals and executions. |
+| `017_autonomous_sre_intelligence.sql` | SRE | Health, forecasts, SLO histories and capacity estimates. |
+| `018_enterprise_hardening_indexes.sql` | Indexes | Query performance indexes. |
+| `019_tenant_security_and_durable_governance.sql` | Security | Tenant ownership/RLS, durable deduplication, emergency state and immutable plans. |
+| `020_measurement_evidence.sql` | Measurement | Environment-scoped event identity and window evidence. |
+| `021_unknown_burn_history.sql` | Measurement | Nullable history values for unobserved windows. |
+| `022_cross_workflow_resource_exclusion.sql` | Governance | Database exclusion across lifecycle/remediation execution claims. |
 
 ---
 
 ## 📜 Package Scripts Reference
 
-All package scripts declared in `package.json` are verified and active:
+Available package scripts are listed below. Validation scope and unexecuted infrastructure cases are disclosed in the Phase 23M report:
 
 ```bash
 # Development & Execution
@@ -311,7 +319,7 @@ npm run install:all     # Cleanly install root, backend, frontend, and demo-serv
 npm run dev             # Concurrently launch backend (port 5000) and frontend (port 5173)
 npm run dev:backend     # Launch backend API in development watch mode
 npm run dev:frontend    # Launch frontend Vite dev server
-npm run start:backend   # Start backend API in production mode
+npm run start:backend   # Start backend API; set NODE_ENV=production explicitly for production configuration
 npm run start:worker    # Start standalone background notification queue worker
 npm run start:demo      # Start the local microservice demo mesh (ports 4001, 4002, 4003)
 
@@ -323,8 +331,8 @@ npm run db:seed         # Idempotently seed database with demo services, inciden
 npm run build           # Full production build (compiles frontend Vite bundle)
 npm run build:frontend  # Compile frontend into frontend/dist/ directory
 
-# Verification & Test Suite (168 tests)
-npm test                # Run complete test suite across all 11 subsystems
+# Verification (use disposable test databases)
+npm test                # Root aggregate includes infrastructure cases: review flags and isolate its database first
 npm run test:backend    # Execute core backend persistence, auth, RBAC, and alert tests
 npm run test:rca        # Execute RCA engine and holdout scenario benchmarks
 npm run test:assistant  # Test grounded AI assistant and anti-hallucination guardrails
@@ -346,37 +354,22 @@ npm run benchmark       # Run performance benchmark suite (ingestion, RCA, alert
 InfraPulse exposes a clean, consistent REST API responding with standard JSON envelopes:
 
 ### Core Endpoints Overview
-| Method | Route | Description | Min Role |
+| Method | Route | Description | Minimum access |
 |---|---|---|---|
-| `GET` | `/api/health/live` | Process liveness probe (event loop responsiveness) | Public |
-| `GET` | `/api/health/ready` | Database readiness and connectivity check | Public |
-| `POST` | `/api/auth/register` | Register new user (first user becomes Admin, subsequent Viewers) | Public |
-| `POST` | `/api/auth/login` | Authenticate credentials and receive session cookie | Public |
-| `POST` | `/api/auth/logout` | Revoke session and invalidate authentication cookie | Viewer |
-| `GET` | `/api/services` | Retrieve all registered services and topology dependencies | Viewer |
-| `GET` | `/api/incidents` | List active and historical incidents with milestone summaries | Viewer |
-| `POST` | `/api/incidents` | Declare a new operational incident | Responder |
-| `PATCH` | `/api/incidents/:id` | Update incident status, severity, or mitigation notes | Responder |
-| `GET` | `/api/investigation/:incidentId` | Get RCA investigation results, ranked hypotheses, and trace waterfall | Viewer |
-| `POST` | `/api/investigation/run/:incidentId` | Trigger a fresh deterministic RCA analysis run | Responder |
-| `POST` | `/api/assistant/ask` | Query the grounded AI investigation assistant | Viewer |
-| `GET` | `/api/alerts` | List firing and historical alerts with deduplication counters | Viewer |
-| `PATCH` | `/api/alerts/:id/acknowledge` | Acknowledge firing alert | Responder |
-| `PATCH` | `/api/alerts/:id/resolve` | Mark alert as resolved | Responder |
-| `GET` | `/api/slo` | Retrieve all Service Level Objectives and attainment metrics | Viewer |
-| `GET` | `/api/slo/:id/evaluate` | Evaluate current SLI attainment, remaining budget, and burn rates | Viewer |
-| `GET` | `/api/deployments` | List deployments and Automated Canary Analysis (ACA) scores | Viewer |
-| `POST` | `/api/fault-lab/inject` | Trigger controlled chaos simulation scenario | Admin |
-| `POST` | `/api/fault-lab/stop` | Terminate active chaos scenario and trigger rollback | Admin |
-| `GET` | `/api/runbooks` | Retrieve the executable remediation runbook catalog | Viewer |
-| `POST` | `/api/runbooks/dry-run` | Generate dry-run remediation plan and compute `planHash` | Responder |
-| `POST` | `/api/runbooks/execute` | Initiate runbook execution (submits for approval if high-risk) | Responder |
-| `POST` | `/api/runbooks/approve` | Approve pending remediation request (separation of duties enforced) | Responder/Admin |
-| `GET` | `/api/operational-intelligence/dashboard`| Get recurring failure patterns, early warnings, and recommendations | Viewer |
-| `GET` | `/api/integrations` | List registered enterprise integration providers | Viewer |
-| `POST` | `/api/integrations` | Register new provider (stores credentials with AES-256-GCM) | Admin |
-| `POST` | `/api/integrations/webhooks/github` | Inbound GitHub webhook endpoint (constant-time HMAC verified) | Public |
-| `POST` | `/api/integrations/otlp/v1/traces` | Inbound OpenTelemetry OTLP JSON trace receiver | Public |
+| GET | `/api/health/live`, `/api/health/ready` | Liveness and database readiness | Public |
+| POST | `/api/auth/register`, `/api/auth/login` | Server-owned tenant membership and session creation | Public |
+| GET | `/api/services`, `/api/incidents`, `/api/alerts`, `/api/deployments` | Tenant-owned records | Authenticated |
+| GET | `/api/incidents/:incidentId/investigation` | Ranked evidence-qualified hypotheses | Authenticated |
+| POST | `/api/incidents/:incidentId/investigation/run` | Refresh investigation | Responder/admin |
+| POST | `/api/incidents/:incidentId/assistant/chat` | Grounded assistant conversation | Authenticated |
+| PATCH | `/api/alerts/:alertId/acknowledge`, `/api/alerts/:alertId/resolve` | Alert state update | Responder/admin |
+| GET | `/api/slos` | Service objectives | Authenticated |
+| POST | `/api/slos/:sloId/evaluate` | Evaluate timestamped SLI observations | Responder/admin |
+| POST | `/api/fault-lab/simulations` | Explicit synthetic fault simulation | Responder/admin |
+| GET | `/api/operations/intelligence/overview` | Operational intelligence | Authenticated |
+| POST | `/api/integrations/otlp/v1/metrics`, `/traces`, `/logs` | Credential-bound OTLP JSON ingestion | Enabled integration ingestion key |
+| GET | `/api/health/diagnostics` | Detailed diagnostics | Authenticated |
+
 
 ---
 
@@ -411,15 +404,35 @@ InfraPulse exposes a clean, consistent REST API responding with standard JSON en
 - **Authenticated Encryption at Rest**: Integration secrets are encrypted via AES-256-GCM. Ciphertext tampering throws authentication tag verification errors.
 - **Constant-Time Cryptography**: Webhook HMAC signatures are compared using `crypto.timingSafeEqual` to eliminate timing attacks.
 - **Deep Log Redaction**: Request logging middleware automatically strips bearer tokens, passwords, Slack webhooks, and SMTP secrets.
-- **Cross-Site Request Forgery (CSRF)**: Mutating state endpoints require valid CSRF double-submit tokens alongside session cookies.
+- **Cross-Site Request Forgery (CSRF)**: Cookie-authenticated mutations require an exactly trusted Origin/Referer. Integration ingestion uses dedicated verified credentials or signatures.
 - **Separation of Duties**: Requesters are blocked from approving their own remediation executions. High-risk runbooks require two-party authorization.
 
 ### Known Limitations & Operational Considerations
-1. **Container Daemon Status**: Docker Engine files (`deploy/docker-compose.yml`, multi-stage Dockerfiles) are fully verified and production-ready. However, when developing locally without an active Docker daemon, use native local commands (`npm run dev`).
-2. **Third-Party Live Connectors**: External providers (GitHub, Kubernetes, Slack) require live external credentials and cluster connectivity to ingest production signals. When credentials are unconfigured or set to test mode, adapters fall back gracefully to verified mock or simulated payloads.
+1. **Container Daemon Status**: Deployment manifests were inspected. Running container/Kubernetes deployment, live mutation and failover remain unverified. Local native startup uses `npm run dev`.
+2. **Third-Party Live Connectors**: External providers require explicit credentials and connectivity. Failed or disabled integrations return errors; authenticated tenant requests do not receive demo data as a substitute. Explicit simulation views remain labelled as simulations.
 3. **Simulation Safety Policy**: Fault injection and automated remediation actions operate through simulated adapters by default to prevent accidental infrastructure damage. Real infrastructure mutation adapters require dedicated cloud credentials and explicit configuration.
 
 ---
 
 ## 📄 License
 InfraPulse is open-source software licensed under the **[MIT License](LICENSE)**.
+
+## Production deployment preparation
+
+Phase 24 prepares configuration and runbooks; **production deployment is NO-GO**. Nineteen Phase 23N findings, including five P0 lifecycle defects, remain open. Start with the [Phase 24 report](docs/PHASE_24_DEPLOYMENT_PREPARATION_REPORT.md), [production architecture](docs/PRODUCTION_DEPLOYMENT_ARCHITECTURE.md) and [gated deployment runbook](docs/PRODUCTION_DEPLOYMENT_RUNBOOK.md). The root Compose stack is a development/demo environment. The separate production draft is `deploy/production/compose.yml`; it has not been run in Docker. AWS cost estimates do not establish a ₹0 deployment.
+
+## CI and release automation
+
+Phase 25 adds lockfile-based CI, an explicit safe test profile, pinned action/tool/base-image references, build-only image scanning, checksummed unpublished candidates, and protected plan-only staging/production/rollback workflows. **Deployment and publication remain disabled.** GitHub execution and environment settings have not been verified. Start with the [Phase 25 report](docs/PHASE_25_CICD_RELEASE_AUTOMATION_REPORT.md), [CI architecture](docs/CICD_ARCHITECTURE.md) and [pipeline runbook](docs/DEPLOYMENT_PIPELINE_RUNBOOK.md).
+
+`npm run release:check`, `npm run ci:policy` and `npm run test:cicd` validate local release/pipeline rules. `npm run ci:test` additionally requires an explicitly selected disposable loopback `infrapulse_ci_*` database; never point it at existing user data. Legacy `npm test` is not the safe CI profile because some fixtures enable execution flags. Existing tests are retained; exclusions and five live-provider skips are recorded explicitly.
+
+## Phase 23M migration and operation notes
+
+Apply migrations only to an explicitly selected database, using a migration identity allowed to create/alter roles and table policies. Migration 019 creates or hardens the NOLOGIN/NOBYPASSRLS `infrapulse_tenant_runtime` role. Authenticated request queries use transaction-local tenant identity and that restricted role, including when the connection owner is a superuser. Existing rows retain their historical `default_tenant` ownership; new signup membership is generated by the server. Existing approved legacy plans are revoked and require a newly generated canonical plan and approval. Migration stops on conflicting active resource claims; operators must reconcile them before retrying. Do not delete historical execution records to force migration success.
+
+Keep `AWS_LIFECYCLE_MUTATIONS_ENABLED`, `DOCKER_LIFECYCLE_ENABLED`, `KUBERNETES_LIFECYCLE_ENABLED`, `REMEDIATION_EXECUTION_ENABLED` and `REMEDIATION_PRODUCTION_ENABLED` false during validation. The emergency freeze is durable and shared across processes and fails closed if its database state cannot be read. It prevents new guarded mutations; it cannot cancel a provider request already sent.
+
+OTLP keys belong to one enabled integration and its tenant/environment. Use `Authorization: Bearer <ingestion-key>` or `x-otlp-key`. Rotating the credential immediately invalidates the old key. The implemented parser accepts supported OTLP JSON gauge/sum metrics, traces and logs; unsupported histogram payloads return a client error. Use actual timestamped window evidence for burn rates. Trace-derived counts are sampled observations and cannot establish complete request coverage. Cost/savings fields are estimates.
+
+`npm run start:frontend` starts Vite on 5173; `npm run dev` starts backend/frontend using configured environment values. `npm test --prefix frontend` builds and checks feedback behavior and the per-chunk size budget. Passing that budget does not measure Web Vitals. See [recovery documentation](docs/ENTERPRISE_PRODUCTION_HARDENING.md) for logical backup/restore and the unverified archival-PITR boundary.

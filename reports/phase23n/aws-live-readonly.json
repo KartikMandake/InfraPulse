@@ -1,0 +1,60 @@
+{
+  "mode": "REAL AWS READ-ONLY ATTEMPT",
+  "mutationFlag": false,
+  "identity": {
+    "connected": true,
+    "region": "ap-south-1",
+    "accountIdMasked": "********3579",
+    "arnMasked": "arn:aws:iam::********:root",
+    "userIdMasked": "4161****",
+    "timestamp": "2026-11-01T01:05:18.089Z"
+  },
+  "calls": [
+    {
+      "command": "GetCallerIdentityCommand",
+      "region": "ap-south-1"
+    },
+    {
+      "command": "DescribeInstancesCommand",
+      "region": "ap-south-1"
+    },
+    {
+      "command": "DescribeVolumesCommand",
+      "region": "ap-south-1"
+    },
+    {
+      "command": "DescribeAddressesCommand",
+      "region": "ap-south-1"
+    },
+    {
+      "command": "DescribeDBInstancesCommand",
+      "region": "ap-south-1"
+    }
+  ],
+  "discovery": {
+    "ec2": {
+      "status": "VERIFIED READ-ONLY",
+      "count": 1,
+      "allApSouth1": true,
+      "liveClassification": true
+    },
+    "ebs": {
+      "status": "VERIFIED READ-ONLY",
+      "count": 1,
+      "allApSouth1": true,
+      "liveClassification": true
+    },
+    "addresses": {
+      "status": "VERIFIED READ-ONLY",
+      "count": 1,
+      "allApSouth1": true,
+      "liveClassification": true
+    },
+    "rds": {
+      "status": "VERIFIED READ-ONLY",
+      "count": 1,
+      "allApSouth1": true,
+      "liveClassification": true
+    }
+  }
+}

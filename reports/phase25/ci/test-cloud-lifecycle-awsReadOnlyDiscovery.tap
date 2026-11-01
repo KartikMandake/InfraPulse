@@ -1,0 +1,95 @@
+TAP version 13
+# Subtest: Phase 23D: AWS Read-Only Integration & Cloud Resource Discovery
+    # Subtest: 1. Successful Identity Lookup: Obtains caller identity and masks sensitive identifiers
+    ok 1 - 1. Successful Identity Lookup: Obtains caller identity and masks sensitive identifiers
+      ---
+      duration_ms: 275.8944
+      type: 'test'
+      ...
+    # Subtest: 2. Unauthorized AWS Identity: Gracefully handles expired or invalid AWS credentials
+    ok 2 - 2. Unauthorized AWS Identity: Gracefully handles expired or invalid AWS credentials
+      ---
+      duration_ms: 136.1003
+      type: 'test'
+      ...
+    # Subtest: 3. EC2 Pagination: Traverses multiple DescribeInstances pages via NextToken
+    ok 3 - 3. EC2 Pagination: Traverses multiple DescribeInstances pages via NextToken
+      ---
+      duration_ms: 119.2599
+      type: 'test'
+      ...
+    # Subtest: 4. EBS Volume Discovery: Discovers gp3 storage, attachment state, and hourly cost
+    ok 4 - 4. EBS Volume Discovery: Discovers gp3 storage, attachment state, and hourly cost
+      ---
+      duration_ms: 110.7965
+      type: 'test'
+      ...
+    # Subtest: 5. Public IP Discovery: Discovers Elastic IPs and distinguishes associated from unassociated
+    ok 5 - 5. Public IP Discovery: Discovers Elastic IPs and distinguishes associated from unassociated
+      ---
+      duration_ms: 117.7916
+      type: 'test'
+      ...
+    # Subtest: 6. RDS DB Instance Discovery: Discovers relational database with engine, class, and storage
+    ok 6 - 6. RDS DB Instance Discovery: Discovers relational database with engine, class, and storage
+      ---
+      duration_ms: 132.6362
+      type: 'test'
+      ...
+    # Subtest: 7. Empty Resource Accounts: Returns zero resources cleanly without errors
+    ok 7 - 7. Empty Resource Accounts: Returns zero resources cleanly without errors
+      ---
+      duration_ms: 100.1509
+      type: 'test'
+      ...
+    # Subtest: 8. AWS API Throttling & Network Errors: Captures service errors into error list gracefully
+    ok 8 - 8. AWS API Throttling & Network Errors: Captures service errors into error list gracefully
+      ---
+      duration_ms: 100.1117
+      type: 'test'
+      ...
+    # Subtest: 9. Region Restriction: Rejects discovery calls outside allowed regions (ap-south-1)
+    ok 9 - 9. Region Restriction: Rejects discovery calls outside allowed regions (ap-south-1)
+      ---
+      duration_ms: 101.3407
+      type: 'test'
+      ...
+    # Subtest: 10. Zero Mutation Guarantee: Verifies that ONLY read-only Describe/Get commands are executed
+    ok 10 - 10. Zero Mutation Guarantee: Verifies that ONLY read-only Describe/Get commands are executed
+      ---
+      duration_ms: 103.0975
+      type: 'test'
+      ...
+    # Subtest: 11. Credential Redaction: Helper utilities mask account IDs and ARNs consistently
+    ok 11 - 11. Credential Redaction: Helper utilities mask account IDs and ARNs consistently
+      ---
+      duration_ms: 108.0005
+      type: 'test'
+      ...
+    # Subtest: 12. Resource Synchronization: Persists live AWS workloads without overwriting simulated baseline
+    ok 12 - 12. Resource Synchronization: Persists live AWS workloads without overwriting simulated baseline
+      ---
+      duration_ms: 143.6289
+      type: 'test'
+      ...
+    # Subtest: 13. Free Tier Transparency: Returns clear "Not verified" disclaimer and allowances
+    ok 13 - 13. Free Tier Transparency: Returns clear "Not verified" disclaimer and allowances
+      ---
+      duration_ms: 106.2135
+      type: 'test'
+      ...
+    1..13
+ok 1 - Phase 23D: AWS Read-Only Integration & Cloud Resource Discovery
+  ---
+  duration_ms: 1661.6869
+  type: 'suite'
+  ...
+1..1
+# tests 13
+# suites 1
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2479.8419

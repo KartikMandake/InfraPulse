@@ -1,0 +1,81 @@
+{
+  "mode": "CLI/static only; no container or image changes",
+  "version": {
+    "status": 0,
+    "ms": 628.7791,
+    "stdout": "Docker Compose version v5.6.0\n",
+    "stderr": ""
+  },
+  "daemon": {
+    "status": 1,
+    "ms": 933.8731,
+    "stdout": "\n",
+    "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n"
+  },
+  "checks": [
+    {
+      "file": "docker-compose.yml",
+      "status": 0,
+      "stderr": "",
+      "services": [
+        "backend",
+        "frontend",
+        "postgres",
+        "worker"
+      ]
+    },
+    {
+      "file": "deploy/docker-compose.yml",
+      "status": 0,
+      "stderr": "",
+      "services": [
+        "backend",
+        "frontend",
+        "postgres",
+        "worker"
+      ]
+    },
+    {
+      "file": "deploy/docker-compose.staging.yml",
+      "status": 0,
+      "stderr": "time=\"2026-11-01T07:34:48+05:30\" level=warning msg=\"The \\\"POSTGRES_PASSWORD\\\" variable is not set. Defaulting to a blank string.\"\ntime=\"2026-11-01T07:34:48+05:30\" level=warning msg=\"The \\\"POSTGRES_PASSWORD\\\" variable is not set. Defaulting to a blank string.\"\ntime=\"2026-11-01T07:34:48+05:30\" level=warning msg=\"The \\\"POSTGRES_PASSWORD\\\" variable is not set. Defaulting to a blank string.\"\n",
+      "services": [
+        "backend",
+        "frontend",
+        "postgres",
+        "worker"
+      ]
+    },
+    {
+      "file": "deploy/production/compose.yml",
+      "status": 0,
+      "stderr": "",
+      "services": [
+        "backend",
+        "frontend",
+        "postgres",
+        "worker"
+      ],
+      "invariants": "PASS: private DB, private API/worker, loopback frontend, immutable image references, external data, all execution flags false"
+    }
+  ],
+  "kubernetes": {
+    "status": 1,
+    "ms": 242.3144000000002,
+    "stdout": "",
+    "stderr": "error: current-context is not set\n"
+  },
+  "kustomize": [
+    {
+      "dir": "infra/kubernetes/overlays/local",
+      "status": 0,
+      "stderr": ""
+    },
+    {
+      "dir": "infra/kubernetes/overlays/staging",
+      "status": 0,
+      "stderr": ""
+    }
+  ],
+  "builds": "BLOCKED when Docker daemon is unavailable; no build attempted and no containers started."
+}

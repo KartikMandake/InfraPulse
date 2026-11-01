@@ -1,0 +1,55 @@
+{
+  "schedule": {
+    "id": "n1793495376536-schedule",
+    "resource_id": "n1793495376536-schedule",
+    "name": "Automated start schedule",
+    "action": "start",
+    "cron_expression": "0 20 * * 1-5",
+    "timezone": "Asia/Kolkata",
+    "enabled": true,
+    "is_paused": false,
+    "days_of_week": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "time_of_day": "20:00",
+    "last_run_at": null,
+    "next_run_at": null,
+    "missed_execution_recovery": true,
+    "created_by": "sarah.chen@infrapulse.io",
+    "created_at": "2026-11-01T01:09:41.810Z",
+    "updated_at": "2026-11-01T01:09:41.810Z",
+    "tenant_id": "default_tenant"
+  },
+  "a": {
+    "evaluatedCount": 3,
+    "missedCount": 1,
+    "missedExecutions": [
+      {
+        "scheduleId": "n1793495376536-schedule",
+        "resourceId": "n1793495376536-schedule",
+        "action": "start",
+        "scheduledTime": "2026-11-01T00:00:00.000Z",
+        "detectedAt": "2026-11-02T15:00:00.000Z",
+        "recoveryAction": "QUEUED_FOR_EVALUATION"
+      }
+    ]
+  },
+  "b": {
+    "evaluatedCount": 3,
+    "missedCount": 1,
+    "missedExecutions": [
+      {
+        "scheduleId": "n1793495376536-schedule",
+        "resourceId": "n1793495376536-schedule",
+        "action": "start",
+        "scheduledTime": "2026-11-01T00:00:00.000Z",
+        "detectedAt": "2026-11-02T15:00:00.000Z",
+        "recoveryAction": "QUEUED_FOR_EVALUATION"
+      }
+    ]
+  }
+}

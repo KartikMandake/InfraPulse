@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "ordinarySyntheticRejected": true,
+  "simulation": {
+    "schema": 1,
+    "mode": "SIMULATED PLAN",
+    "environment": "production",
+    "operation": "deploy",
+    "currentVersion": "2.3.9",
+    "targetVersion": "2.4.0",
+    "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "status": "BLOCKED",
+    "deploymentEnabled": false,
+    "published": false,
+    "reason": "Execution is not implemented; Phase 23N/24 security and recovery gates remain open.",
+    "steps": [
+      "Verify immutable artifact and image IDs; never resolve a mutable latest tag",
+      "Require protected-environment review and independent backup/restore evidence",
+      "Serialize a separate migration process; no seed, automatic down-migration or data overwrite",
+      "Drain HTTP/notification batch and verify operation state before any future image replacement",
+      "Verify real HTTPS health/readiness, auth/tenant/security and worker state after an authorized future operation"
+    ],
+    "failureActions": [
+      "Keep traffic/promotion closed; preserve data, claims, approvals and logs",
+      "Use docs/PRODUCTION_ROLLBACK_PLAN.md; no volume deletion or destructive restore"
+    ],
+    "cloudOperations": [],
+    "healthRequests": []
+  },
+  "executionSwitchRejected": true,
+  "requestsMade": 0
+}

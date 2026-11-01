@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import {tenantContext} from '../security/tenantContext.js';
 import * as changeRepo from '../repositories/change.repository.js';
 import * as servicesRepo from '../repositories/services.repository.js';
 import * as sloRepo from '../repositories/slo.repository.js';
@@ -18,10 +19,12 @@ export async function evaluateDeploymentRegressions(changeId, options = {}) {
   let service = null;
   try {
     service = await servicesRepo.findServiceById(serviceId);
-  } catch {
+  } catch (error) {
+    if(tenantContext())throw error;
     service = initialServices.find(s => s.id === serviceId);
   }
-  if (!service) service = initialServices.find(s => s.id === serviceId);
+  if (!service) service = tenantContext()?null:initialServices.find(s => s.id === serviceId);
+  if(!service&&tenantContext())throw ApiError.notFound('Deployment service not found.');
 
   // Fallback metric values from service or initial data
   const currentLatency = Number(options.currentLatency ?? service?.latencyP99 ?? service?.latency_p99 ?? 24);

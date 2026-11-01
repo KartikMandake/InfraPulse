@@ -25,24 +25,52 @@ import changeRoutes from './routes/change.routes.js';
 import integrationsRoutes from './routes/integrations.routes.js';
 import eventsRoutes from './routes/events.routes.js';
 import operationalIntelligenceRoutes from './routes/operationalIntelligence.routes.js';
+import cloudLifecycleRoutes from './routes/cloudLifecycle.routes.js';
+import remediationRoutes from './routes/remediation.routes.js';
+import sreIntelligenceRoutes from './routes/sreIntelligence.routes.js';
+import selfMonitoringRoutes from './routes/selfMonitoring.routes.js';
+import { getMetrics } from './controllers/selfMonitoring.controller.js';
 import { authenticate } from './middleware/authenticate.js';
+import {tenantBoundary} from './security/tenantContext.js';
 import { csrfProtection } from './middleware/csrf.js';
 import { requestLogger } from './middleware/requestLogger.js';
 import { notFound } from './middleware/notFound.js';
 import { errorHandler } from './middleware/errorHandler.js';
+import {securityHeaders,requireHttps,createAuthRateLimiter,createGeneralApiRateLimiter} from './middleware/productionSecurity.js';
 
 const app = express();
+app.disable('x-powered-by');
+
+// Trust proxy for reverse proxies / load balancers
+if (config.trustProxy) {
+  app.set('trust proxy', config.trustProxy === 'true' ? true : (isNaN(Number(config.trustProxy)) ? config.trustProxy : Number(config.trustProxy)));
+}
 
 // Middleware
 app.use(requestLogger);
+app.use(securityHeaders);
+app.use(requireHttps(config));
+if(config.productionLike){
+  app.use(createAuthRateLimiter());
+  app.use('/api', createGeneralApiRateLimiter());
+}
 app.use(cors({
-  origin: [config.frontendUrl, 'http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin: config.corsOrigins,
   credentials: true
 }));
 app.use(cookieParser());
-app.use(express.json());
-app.use(authenticate);
+app.use(express.json({ limit: config.requestBodyLimit || '2mb',verify:(req,res,buffer)=>{req.rawBody=buffer.toString('utf8');} }));
+// Ingestion tokens authenticate integrations, not user sessions. The dedicated
+// integration handlers verify credentials and establish a trusted tenant context.
+const externalIngestion=/^\/api\/integrations\/(?:otlp\/v1\/(?:metrics|traces|logs)|webhooks\/(?:github|grafana)|deployments\/webhook)\/?$/;
+const selfMonitoringMetrics=/^(?:\/metrics|\/api\/self-monitoring\/metrics)\/?$/;
+app.use((req,res,next)=>(externalIngestion.test(req.path)||selfMonitoringMetrics.test(req.path))?next():authenticate(req,res,next));
 app.use(csrfProtection);
+app.use((req,res,next)=>{
+  const publicPath=/^\/api\/(?:health\/(?:live|ready)|auth\/(?:login|register|me)|self-monitoring\/(?:metrics|overview|alerts|slos))\/?$/;
+  if(!req.path.startsWith('/api/')||publicPath.test(req.path)||externalIngestion.test(req.path)||selfMonitoringMetrics.test(req.path))return next();
+  return tenantBoundary(req,res,next);
+});
 
 // Routes
 app.use('/api/health', healthRoutes);
@@ -67,6 +95,11 @@ app.use('/api/changes', changeRoutes);
 app.use('/api/integrations', integrationsRoutes);
 app.use('/api/events', eventsRoutes);
 app.use('/api/operations/intelligence', operationalIntelligenceRoutes);
+app.use('/api/cloud', cloudLifecycleRoutes);
+app.use('/api/remediation', remediationRoutes);
+app.use('/api/sre-intelligence', sreIntelligenceRoutes);
+app.get('/metrics', getMetrics);
+app.use('/api/self-monitoring', selfMonitoringRoutes);
 
 // Error Handling
 app.use(notFound);

@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "indexSha256": "d219fe007918fdf02f06fab9361555cfd2c8477b77ea7ec4f66a79a72fdf054f",
+  "assets": [
+    {
+      "name": "AlertsCenterPage-C36YS1Tc.js",
+      "bytes": 22037,
+      "sha256": "9759114ea1e0a88cd2b18ff4ec9fb5b692129021b0b12612c9773468a41ed039"
+    },
+    {
+      "name": "AuthOnboardingPage-DWDbmjZ1.js",
+      "bytes": 25117,
+      "sha256": "6c7ba94775639b64f49fb0f012778c32c8bbe155ba538a47b3fd61decb1e5cf5"
+    },
+    {
+      "name": "CloudLifecyclePage-DLv9e2ni.js",
+      "bytes": 403700,
+      "sha256": "370e6f46a34c5edf3b065c6e4e5dd390264c1fb397d291f688e46863fac8be4e"
+    },
+    {
+      "name": "DeploymentsPage-BaB4RNNi.js",
+      "bytes": 65484,
+      "sha256": "2906f97fc289d0acfa8e3ac642ddbb74f8c758aeedb7ee750b40f4765e376614"
+    },
+    {
+      "name": "EmptyState-B8NbcG-d.js",
+      "bytes": 1875,
+      "sha256": "1d060e8a3b346e3ef70f80c7377448031fe5e437f1ad7e93384226765e8873aa"
+    },
+    {
+      "name": "FaultInjectionLabPage-3JpoyS_x.js",
+      "bytes": 40720,
+      "sha256": "09c24937820fda1b5a16e3630196d61bae45c784a1d7beebb34b10e422740a9e"
+    },
+    {
+      "name": "IncidentInvestigationPage-BvmwPJid.js",
+      "bytes": 100502,
+      "sha256": "73f21ae458dc70e8e82fff7d3d4265b76071663f129099a2dcd6dbe3a09751a9"
+    },
+    {
+      "name": "IncidentManagementPage-bJZUvkvA.js",
+      "bytes": 22303,
+      "sha256": "5f248bd304535f5dd36f7e27a4a4790d1f2ea8fa3a4fd46d600825a028d0a262"
+    },
+    {
+      "name": "index-C5sgSXg-.js",
+      "bytes": 111497,
+      "sha256": "cf51f77114a34b8b59c4629cd56d2e9c872fc7350164efb8e648bcce634f3b69"
+    },
+    {
+      "name": "index-TIpQ-sJ5.css",
+      "bytes": 56601,
+      "sha256": "28aad4910c57ee3b70804f283190c3a31d64062569dc929d569530419cd3d56a"
+    },
+    {
+      "name": "IntegrationsPage-DxYvRsqR.js",
+      "bytes": 60321,
+      "sha256": "be6c70fc31b432712ee4aad9b3ea769d4bed75523a39244cf56e663bd0f5886e"
+    },
+    {
+      "name": "OperationalIntelligencePage-BdR64fa9.js",
+      "bytes": 81817,
+      "sha256": "0e1ad94967cbe0a9b20266f57efe233da4114dad6681d7841ec8ba4f0c11d0cb"
+    },
+    {
+      "name": "operatorFeedback-DGX_6kuY.js",
+      "bytes": 653,
+      "sha256": "17366d3f780e7e14e87634b68e7995094852766f618bd28cf8a650bd7fc866a4"
+    },
+    {
+      "name": "OverviewIncidentPage-BFJWNr-K.js",
+      "bytes": 52940,
+      "sha256": "15580fef3c4eee35f53f7792ba77f7df033b8942691e7bd37ecb1c3e46baee6a"
+    },
+    {
+      "name": "react-vendor-Bm6UKVJG.js",
+      "bytes": 469837,
+      "sha256": "c5fb17ebf597b7120b1b04239d3bc2027b610b0179fbd67758099c373894c9fe"
+    },
+    {
+      "name": "ReportsPostmortemsPage-CLKEVwq6.js",
+      "bytes": 12000,
+      "sha256": "d644af12a4606e4c10f141b2eb4c2597b7083c1159d034e515484f8bd2619d19"
+    },
+    {
+      "name": "RunbooksPage-Bh2SDqV8.js",
+      "bytes": 44845,
+      "sha256": "3149b9c9aeb33e615e8666e53b12b8832bf805b9a2f510aa15880b530e7afd8a"
+    },
+    {
+      "name": "ServiceDetailPage-C4cqk3H1.js",
+      "bytes": 27835,
+      "sha256": "207d90e6a5cbe26ca31c1244382951bfd7cb3f159bd55c7406f4c400139f85bd"
+    },
+    {
+      "name": "ServicesTopologyPage-ZFNEKoxk.js",
+      "bytes": 43504,
+      "sha256": "21e0c487cdfdc90755fdb690ce83aed68d2b04eb7ed262485885b051f5ef5e4c"
+    },
+    {
+      "name": "SLOsPage-C6M3pQ03.js",
+      "bytes": 29092,
+      "sha256": "05d81ab6bca03e4dadde111f74c0ef6bd963dc0ebd0475aad9870ecce6e7787a"
+    },
+    {
+      "name": "SREIntelligencePage-BQyTlFAU.js",
+      "bytes": 45577,
+      "sha256": "e4d1f216595372928fd5b76c6a708533b4af6f5b2def3e53a9ad21e6d3050bc9"
+    },
+    {
+      "name": "SystemOverviewPage-9cJrROp8.js",
+      "bytes": 32018,
+      "sha256": "aaa7043656487c28d7ec8e79f9fc6577d3efaa8f977efc0557a8864986da5d16"
+    },
+    {
+      "name": "TeamSettingsPage-D_WLWgXy.js",
+      "bytes": 25677,
+      "sha256": "29389011113479ee758ced452ad0dd86a91116e8074fc7613f1420eb4e1c8c6f"
+    },
+    {
+      "name": "TelemetryExplorerPage-Dzm1NGm7.js",
+      "bytes": 25531,
+      "sha256": "0c690b27d703d48e2eaf7ea52aef8be24a71200fb7ad04ec4a5ad0fdea417227"
+    }
+  ],
+  "browserE2E": "NOT TESTED; existing frontend contract/build tests run separately."
+}

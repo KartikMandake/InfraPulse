@@ -1,4 +1,5 @@
 import { query } from '../db/connection.js';
+import {tenantContext} from '../security/tenantContext.js';
 
 function mapAuditRow(row) {
   if (!row) return null;
@@ -25,9 +26,9 @@ export async function createAuditRecord(data, client = null) {
   const res = await q(
     `INSERT INTO audit_logs (
       id, actor_user_id, actor_email, actor_role, action, resource_type,
-      resource_id, outcome, metadata, correlation_id, ip_address
+      resource_id, outcome, metadata, correlation_id, ip_address,tenant_id
     ) VALUES (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11
+      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11,$12
     )
     RETURNING *;`,
     [
@@ -41,7 +42,8 @@ export async function createAuditRecord(data, client = null) {
       data.outcome || 'success',
       JSON.stringify(data.metadata || {}),
       data.correlationId || null,
-      data.ipAddress || null
+      data.ipAddress || null,
+      tenantContext()?.tenantId||data.tenantId||'default_tenant'
     ]
   );
 

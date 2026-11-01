@@ -1,0 +1,9 @@
+{
+  "subject": "phase23m-pay-mvwtkhet",
+  "caller": "phase23m-caller-mvwtkhet",
+  "incidentId": "INC-9170",
+  "integrationId": "int-kubernetes-dee8f2e8",
+  "otlpId": "int-opentelemetry-65e587f5",
+  "resourceId": "k8s-staging-phase23m-pay-mvwtkhet",
+  "planId": "rem_plan_8937aeb34b76"
+}

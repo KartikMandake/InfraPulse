@@ -1,0 +1,148 @@
+{
+  "status": "PASS",
+  "syntaxFiles": [
+    {
+      "file": "backend/src/app.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/config/env.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/db/connection.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/middleware/errorHandler.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/middleware/requestLogger.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/routes/health.routes.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/server.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/services/notificationDispatcher.service.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/utils/logger.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/worker.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/config/settings.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/entrypoint.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/middleware/productionSecurity.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/utils/shutdown.js",
+      "status": 0
+    },
+    {
+      "file": "backend/src/worker-health.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/validate-production-compose.mjs",
+      "status": 0
+    },
+    {
+      "file": "scripts/validate-production-config.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/production/productionPreparation.test.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-client-check.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-database.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-db-role-probe.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-ec2-prices.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-finalize.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-migration-failure.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-platform.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-prices.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-process.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-restore-security.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-review.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-runtime.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-suites.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-test-preload.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24-toolchain.mjs",
+      "status": 0
+    },
+    {
+      "file": "tests/runtime-validation/phase24.mjs",
+      "status": 0
+    }
+  ],
+  "documentationCount": 6,
+  "localLinks": 52,
+  "composeFixture": {
+    "status": 0,
+    "stdout": "{\"status\":\"PASS\",\"mode\":\"SYNTHETIC STATIC FIXTURE\",\"scope\":\"Compose syntax and safety invariants only; images, runtime secret permissions, DB roles, TLS and release gates are not verified. No resources started.\"}\n"
+  },
+  "secretScannerStatus": 0
+}

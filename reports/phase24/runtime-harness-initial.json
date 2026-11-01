@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Production configuration preflight without database access",
+    "status": "PASS",
+    "commandExit": 0
+  },
+  {
+    "name": "Missing secrets fail fast before opening a listener",
+    "status": "FAIL",
+    "message": "The expression evaluated to a falsy value:\n\n  assert.ok(!r.stderr.includes(' at '))\n"
+  },
+  {
+    "name": "Production backend starts with automatic migration and seed disabled",
+    "status": "FAIL",
+    "message": "Owned runtime condition timed out"
+  },
+  {
+    "name": "HTTPS gate, health exemption, exact CORS and correlation headers",
+    "status": "FAIL",
+    "message": "fetch failed"
+  },
+  {
+    "name": "Authentication, Secure cookie and tenant service request",
+    "status": "FAIL",
+    "message": "fetch failed"
+  },
+  {
+    "name": "Authentication burst receives HTTP 429",
+    "status": "FAIL",
+    "message": "fetch failed"
+  },
+  {
+    "name": "Standalone production worker polls the actual disposable database",
+    "status": "PASS",
+    "pid": 11244,
+    "healthProbeExit": 0,
+    "notifications": "No external provider configured; no real delivery attempted"
+  },
+  {
+    "name": "Database outage returns readiness 503 while liveness remains 200",
+    "status": "FAIL",
+    "message": "fetch failed"
+  },
+  {
+    "name": "Database restart restores readiness and worker health",
+    "status": "FAIL",
+    "message": "Owned runtime condition timed out"
+  },
+  {
+    "name": "Worker graceful shutdown and fresh-process recovery",
+    "status": "PASS",
+    "first": {
+      "code": 0,
+      "signal": null
+    },
+    "previousPid": 11244,
+    "newPid": 2512,
+    "nativeLinuxSignal": "NOT TESTED: Windows harness emits SIGTERM in owned child through IPC"
+  },
+  {
+    "name": "Backend graceful shutdown closes listener and database pool",
+    "status": "PASS",
+    "code": 0,
+    "signal": null,
+    "nativeLinuxSignal": "NOT TESTED: trusted test-child IPC emits SIGTERM"
+  }
+]

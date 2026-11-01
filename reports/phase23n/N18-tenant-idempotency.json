@@ -1,0 +1,56 @@
+{
+  "responses": [
+    {
+      "status": 201,
+      "data": {
+        "success": true,
+        "data": {
+          "id": "op_993f6a14e545",
+          "resource_id": "scope-1793495774436_a",
+          "action": "start",
+          "status": "pending_approval",
+          "is_dry_run": false,
+          "safety_checks": {
+            "eligibility": {
+              "checks": {
+                "genericProvider": true
+              },
+              "blockers": [],
+              "eligible": true,
+              "warnings": []
+            },
+            "allowStatefulSetScale": false,
+            "exceptionalAuthorization": false
+          },
+          "requested_by": "n1793495376536_a@test.invalid",
+          "requester_role": "admin",
+          "approved_by": null,
+          "approved_at": null,
+          "executed_at": null,
+          "completed_at": null,
+          "execution_logs": [
+            {
+              "message": "Operation 'start' requested by n1793495376536_a@test.invalid (admin). Reason: Not specified. Pending two-person approval.",
+              "timestamp": "2026-11-01T01:16:14.776Z"
+            }
+          ],
+          "idempotency_key": "scope-1793495774436",
+          "rejection_reason": null,
+          "created_at": "2026-11-01T01:16:14.776Z",
+          "tenant_id": "n1793495376536_a"
+        }
+      }
+    },
+    {
+      "status": 409,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "duplicate key value violates unique constraint \"cloud_lifecycle_operations_idempotency_key_key\"",
+          "statusCode": 409,
+          "details": null
+        }
+      }
+    }
+  ]
+}

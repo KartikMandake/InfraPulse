@@ -1,0 +1,39 @@
+{
+  "modifiedExisting": [
+    "docs/PHASE_23N_OPERATIONAL_READINESS_REPORT.md"
+  ],
+  "addedValidationSources": [
+    "tests/runtime-validation/phase23n-followup-checks.mjs",
+    "tests/runtime-validation/phase23n-followup-environment.mjs",
+    "tests/runtime-validation/phase23n-followup-finalize.mjs",
+    "tests/runtime-validation/phase23n-followup-report.mjs",
+    "tests/runtime-validation/phase23n-followup-restore.mjs",
+    "tests/runtime-validation/phase23n-followup.mjs"
+  ],
+  "generatedEvidence": [
+    "reports/phase23n/followup/N19-audit-integrity.json",
+    "reports/phase23n/followup/baseline.json",
+    "reports/phase23n/followup/changed-files.json",
+    "reports/phase23n/followup/checks.json",
+    "reports/phase23n/followup/checks.json.harness-initial",
+    "reports/phase23n/followup/cluster-start.json",
+    "reports/phase23n/followup/commands.jsonl",
+    "reports/phase23n/followup/defects.json",
+    "reports/phase23n/followup/environment.json",
+    "reports/phase23n/followup/final-check.json",
+    "reports/phase23n/followup/finalization.json",
+    "reports/phase23n/followup/git-before.json",
+    "reports/phase23n/followup/initdb.json",
+    "reports/phase23n/followup/migrate.json",
+    "reports/phase23n/followup/report-before.md",
+    "reports/phase23n/followup/restore-checks.json",
+    "reports/phase23n/followup/restore.json",
+    "reports/phase23n/followup/seed.json",
+    "reports/phase23n/followup/staged-before.json",
+    "reports/phase23n/followup/state.json",
+    "reports/phase23n/followup/summary.json"
+  ],
+  "applicationFilesChanged": [],
+  "environmentFilesChanged": [],
+  "scope": "Exact changes for the expanded-checklist follow-up; preceding Phase 23N work retained."
+}

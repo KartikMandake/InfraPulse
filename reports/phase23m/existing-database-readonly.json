@@ -1,0 +1,79 @@
+{
+  "connection": [
+    {
+      "database": "infrapulse",
+      "version": "PostgreSQL 16.14, compiled by Visual C++ build 1944, 64-bit",
+      "port": 5434
+    }
+  ],
+  "migrations": [
+    {
+      "migration_name": "001_initial_schema.sql"
+    },
+    {
+      "migration_name": "002_auth_rbac_audit.sql"
+    },
+    {
+      "migration_name": "003_notifications.sql"
+    },
+    {
+      "migration_name": "004_ai_assistant.sql"
+    },
+    {
+      "migration_name": "005_runbook_orchestration.sql"
+    },
+    {
+      "migration_name": "006_slo_reliability.sql"
+    },
+    {
+      "migration_name": "007_change_intelligence.sql"
+    },
+    {
+      "migration_name": "008_unified_correlation.sql"
+    },
+    {
+      "migration_name": "009_operational_intelligence.sql"
+    },
+    {
+      "migration_name": "010_integrations_ecosystem.sql"
+    },
+    {
+      "migration_name": "011_cloud_lifecycle_cost_governance.sql"
+    },
+    {
+      "migration_name": "012_aws_discovery_governance.sql"
+    },
+    {
+      "migration_name": "013_infrastructure_drift_governance.sql"
+    },
+    {
+      "migration_name": "014_real_infrastructure_integrations.sql"
+    },
+    {
+      "migration_name": "015_telemetry_reliability_and_incident_intelligence.sql"
+    },
+    {
+      "migration_name": "016_governed_remediation_intelligence.sql"
+    },
+    {
+      "migration_name": "017_autonomous_sre_intelligence.sql"
+    },
+    {
+      "migration_name": "018_enterprise_hardening_indexes.sql"
+    }
+  ],
+  "wal": [
+    {
+      "name": "archive_command",
+      "setting": "(disabled)"
+    },
+    {
+      "name": "archive_mode",
+      "setting": "off"
+    },
+    {
+      "name": "wal_level",
+      "setting": "replica"
+    }
+  ]
+}

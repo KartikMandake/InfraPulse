@@ -1,0 +1,57 @@
+{
+  "ready": {
+    "status": 200,
+    "ms": 6.4749000000001615,
+    "data": {
+      "status": "READY",
+      "timestamp": "2026-10-31T16:05:49.685Z",
+      "uptimeSeconds": 1,
+      "dependencies": {
+        "database": "CONNECTED",
+        "latencyMs": 2
+      }
+    }
+  },
+  "sessionAfterRestart": {
+    "status": 200,
+    "ms": 27.72069999999985,
+    "data": {
+      "status": "ok",
+      "data": {
+        "user": {
+          "id": "usr_admin_001",
+          "name": "Sarah Chen",
+          "email": "sarah.chen@infrapulse.io",
+          "role": "admin",
+          "status": "active"
+        }
+      }
+    }
+  },
+  "killSwitchAfterRestart": {
+    "status": 200,
+    "ms": 22.213400000000092,
+    "data": {
+      "success": true,
+      "data": {
+        "active": false,
+        "enabledAt": null,
+        "enabledBy": null,
+        "reason": null
+      }
+    }
+  },
+  "freezeReenabled": {
+    "status": 200,
+    "ms": 54.256900000000314,
+    "data": {
+      "success": true,
+      "data": {
+        "active": true,
+        "enabledAt": "2026-10-31T16:05:49.789Z",
+        "enabledBy": "sarah.chen@infrapulse.io",
+        "reason": "Phase 23M safety freeze after controlled restart"
+      }
+    }
+  }
+}

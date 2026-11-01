@@ -1,0 +1,14 @@
+{
+  "time": "2026-11-01T01:29:53.301Z",
+  "docker": {
+    "context": "desktop-linux",
+    "local": true,
+    "daemonReachable": false,
+    "status": "BLOCKED",
+    "reason": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n"
+  },
+  "kubernetes": {
+    "status": "BLOCKED",
+    "reason": "error: current-context must exist in order to minify\n"
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "folder": "root",
+    "status": 0,
+    "stdout": "\nadded 55 packages, and audited 56 packages in 57s\n\n7 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n",
+    "stderr": "",
+    "sourceLockUnchanged": true,
+    "hooks": "disabled for integrity-only fresh install"
+  },
+  {
+    "folder": "backend",
+    "status": 0,
+    "stdout": "\nadded 119 packages, and audited 120 packages in 39s\n\n20 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n",
+    "stderr": "",
+    "sourceLockUnchanged": true,
+    "hooks": "disabled for integrity-only fresh install"
+  },
+  {
+    "folder": "frontend",
+    "status": 0,
+    "stdout": "\nadded 189 packages, and audited 190 packages in 1m\n\n27 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n",
+    "stderr": "npm warn deprecated recharts@2.15.4: 1.x and 2.x branches are no longer active. Bump to Recharts v3 to receive latest features and bugfixes. See https://github.com/recharts/recharts/wiki/3.0-migration-guide\n",
+    "sourceLockUnchanged": true,
+    "hooks": "disabled for integrity-only fresh install"
+  }
+]

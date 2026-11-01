@@ -1,0 +1,40 @@
+{
+  "baselineFileCount": 500,
+  "baselineIncludesOwnBootstrapHarness": true,
+  "missing": [],
+  "protectedFiles": [
+    {
+      "path": ".env",
+      "unchanged": true
+    },
+    {
+      "path": ".env.example",
+      "unchanged": true
+    },
+    {
+      "path": ".env.staging.example",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env.example",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env.staging.example",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/.env.staging.example",
+      "unchanged": true
+    }
+  ],
+  "ownedCredentialInEvidence": false,
+  "gitCommandsExecuted": false,
+  "originalDatabaseAccessed": false,
+  "generatedFrontendDist": "Rebuilt by requested frontend tests/build; excluded from source manifest.",
+  "notes": "Starting source content preserved except explicitly listed Phase 24 edits. No initial Git index inspection was made because Git operations were prohibited."
+}

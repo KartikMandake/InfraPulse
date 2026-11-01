@@ -1,0 +1,127 @@
+{
+  "result": {
+    "success": true,
+    "operation": {
+      "id": "op_fe0d718690a4",
+      "resource_id": "n1793495376536-partial",
+      "action": "start",
+      "status": "completed",
+      "is_dry_run": false,
+      "safety_checks": {
+        "eligibility": {
+          "checks": {
+            "isAllowlisted": true,
+            "isNonProduction": true,
+            "isDockerResource": true,
+            "mutationsFlagEnabled": true,
+            "namedVolumePreserved": true,
+            "isNotDatabaseContainer": true,
+            "noActiveRunbookConflict": true,
+            "noActiveIncidentConflict": true,
+            "isNotControlPlaneContainer": true,
+            "noDownstreamCallersBlocked": true
+          },
+          "blockers": [],
+          "eligible": true,
+          "warnings": []
+        },
+        "allowStatefulSetScale": false,
+        "exceptionalAuthorization": false
+      },
+      "requested_by": "marcus.v@infrapulse.io",
+      "requester_role": "responder",
+      "approved_by": "sarah.chen@infrapulse.io",
+      "approved_at": "2026-11-01T01:09:41.752Z",
+      "executed_at": "2026-11-01T01:09:41.783Z",
+      "completed_at": "2026-11-01T01:09:41.793Z",
+      "execution_logs": [
+        {
+          "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+          "timestamp": "2026-11-01T01:09:41.724Z"
+        },
+        {
+          "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+          "timestamp": "2026-11-01T01:09:41.752Z"
+        },
+        {
+          "result": {
+            "success": false,
+            "warning": "Controlled partial transition",
+            "newState": "starting",
+            "partialTransition": true
+          },
+          "message": "Execution of 'start' completed successfully via docker simulated provider.",
+          "timestamp": "2026-11-01T01:09:41.793Z"
+        }
+      ],
+      "idempotency_key": "n1793495376536-n1793495376536-partial-start",
+      "rejection_reason": null,
+      "created_at": "2026-11-01T01:09:41.725Z",
+      "tenant_id": "default_tenant"
+    },
+    "result": {
+      "success": false,
+      "partialTransition": true,
+      "newState": "starting",
+      "warning": "Controlled partial transition"
+    }
+  },
+  "stored": {
+    "id": "op_fe0d718690a4",
+    "resource_id": "n1793495376536-partial",
+    "action": "start",
+    "status": "completed",
+    "is_dry_run": false,
+    "safety_checks": {
+      "eligibility": {
+        "checks": {
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isDockerResource": true,
+          "mutationsFlagEnabled": true,
+          "namedVolumePreserved": true,
+          "isNotDatabaseContainer": true,
+          "noActiveRunbookConflict": true,
+          "noActiveIncidentConflict": true,
+          "isNotControlPlaneContainer": true,
+          "noDownstreamCallersBlocked": true
+        },
+        "blockers": [],
+        "eligible": true,
+        "warnings": []
+      },
+      "allowStatefulSetScale": false,
+      "exceptionalAuthorization": false
+    },
+    "requested_by": "marcus.v@infrapulse.io",
+    "requester_role": "responder",
+    "approved_by": "sarah.chen@infrapulse.io",
+    "approved_at": "2026-11-01T01:09:41.752Z",
+    "executed_at": "2026-11-01T01:09:41.783Z",
+    "completed_at": "2026-11-01T01:09:41.793Z",
+    "execution_logs": [
+      {
+        "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+        "timestamp": "2026-11-01T01:09:41.724Z"
+      },
+      {
+        "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+        "timestamp": "2026-11-01T01:09:41.752Z"
+      },
+      {
+        "result": {
+          "success": false,
+          "warning": "Controlled partial transition",
+          "newState": "starting",
+          "partialTransition": true
+        },
+        "message": "Execution of 'start' completed successfully via docker simulated provider.",
+        "timestamp": "2026-11-01T01:09:41.793Z"
+      }
+    ],
+    "idempotency_key": "n1793495376536-n1793495376536-partial-start",
+    "rejection_reason": null,
+    "created_at": "2026-11-01T01:09:41.725Z",
+    "tenant_id": "default_tenant"
+  }
+}

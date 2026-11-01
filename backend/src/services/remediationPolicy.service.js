@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import { ApiError } from '../utils/ApiError.js';
+import {canonicalJson} from '../security/planIntegrity.js';
 
 /**
  * Remediation Policy Service
@@ -39,7 +40,7 @@ export function generatePlanHash({ runbookId, runbookVersion, targetServiceId, s
 
   return crypto
     .createHash('sha256')
-    .update(JSON.stringify(normalized))
+    .update(JSON.stringify(canonicalJson(normalized)))
     .digest('hex');
 }
 
@@ -162,6 +163,7 @@ export function validateApprovalPolicy({ user, execution, runbook, twoFactorConf
  * Prevents race conditions, plan tampering, and execution of stale runbook versions.
  */
 export function validateExecutionPreflight({ execution, approval = null, currentRunbook }) {
+  assertRunbookPlanIntegrity(execution);
   // 1. Stale runbook version check
   if (currentRunbook.version !== execution.runbookVersion) {
     throw ApiError.badRequest(
@@ -188,6 +190,12 @@ export function validateExecutionPreflight({ execution, approval = null, current
     throw ApiError.badRequest('Security violation: Execution plan hash does not match approved plan hash.');
   }
 
+  return true;
+}
+
+export function assertRunbookPlanIntegrity(execution){
+  const plan=execution.dryRunPlan;
+  if(!plan||plan.runbookId!==execution.runbookId||Number(plan.runbookVersion)!==Number(execution.runbookVersion)||plan.targetServiceId!==execution.targetServiceId||generatePlanHash(plan)!==execution.planHash)throw ApiError.conflict('Security violation: stored runbook plan content has changed. Generate and approve a new plan.');
   return true;
 }
 

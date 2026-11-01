@@ -1,3 +1,5 @@
+import {query} from '../db/connection.js';
+import {observationCounts,evaluateBurnWindows} from '../engine/sloWindows.js';
 import * as sloRepo from '../repositories/slo.repository.js';
 import * as servicesRepo from '../repositories/services.repository.js';
 import {
@@ -163,46 +165,21 @@ export async function evaluateSlo(sloId, options = {}) {
   const slo = await sloRepo.findSloById(sloId);
   if (!slo) throw ApiError.notFound(`SLO "${sloId}" was not found.`);
 
-  const now = new Date();
+  const now = options.now ? new Date(options.now) : new Date();
   const windowDays = Number(slo.rollingWindowDays) || 30;
   const windowStart = new Date(now.getTime() - windowDays * 24 * 60 * 60 * 1000);
 
-  // Fetch service telemetry metrics
-  const service = await servicesRepo.findServiceById(slo.serviceId).catch(() => null);
-
-  let totalEvents = options.totalEvents;
-  let goodEvents = options.goodEvents;
-  let badEvents = options.badEvents;
-  let dataQuality = DATA_QUALITIES.GOOD;
-  let isSimulated = true;
-
-  if (totalEvents === undefined) {
-    // Generate realistic telemetry metrics based on service profile
-    const rps = service?.rps || 100;
-    // Rolling 30d request volume approximation
-    totalEvents = Math.max(100, Math.round(rps * 60 * 60 * 24 * Math.min(windowDays, 30)));
-
-    if (slo.sliType === SLI_TYPES.AVAILABILITY) {
-      const errorRate = Number(service?.errorRate) || 0.1;
-      badEvents = Math.round(totalEvents * (errorRate / 100));
-      goodEvents = totalEvents - badEvents;
-    } else if (slo.sliType === SLI_TYPES.LATENCY) {
-      const p99 = Number(service?.latencyP99) || 45;
-      const threshold = Number(slo.latencyThresholdMs) || 150;
-      const ratioOver = p99 > threshold ? Math.min(0.20, (p99 - threshold) / (threshold * 2)) : 0.001;
-      badEvents = Math.round(totalEvents * ratioOver);
-      goodEvents = totalEvents - badEvents;
-    } else if (slo.sliType === SLI_TYPES.ERROR_RATE) {
-      const errorRate = Number(service?.errorRate) || 0.05;
-      badEvents = Math.round(totalEvents * (errorRate / 100));
-      goodEvents = totalEvents - badEvents;
-    } else {
-      // Throughput
-      goodEvents = Math.round(totalEvents * 0.999);
-      badEvents = totalEvents - goodEvents;
-    }
-  }
-
+  const environment=options.environment||slo.sliDefinition?.environment||'staging';
+  let samples=options.observations;
+  if(!samples){const result=await query("SELECT event_timestamp,normalized_attributes FROM normalized_events WHERE service_id=$1 AND environment=$2 AND event_type='trace_anomaly' AND telemetry_mode='live' AND event_timestamp>$3 AND event_timestamp<=$4",[slo.serviceId,environment,windowStart.toISOString(),now.toISOString()]);samples=result.rows.map(row=>({timestamp:row.event_timestamp,...row.normalized_attributes}));}
+  const measured=observationCounts(samples,{now,hours:windowDays*24,sliType:slo.sliType,latencyThresholdMs:slo.latencyThresholdMs});
+  let totalEvents=options.totalEvents??measured.totalEvents;
+  let badEvents=options.badEvents??measured.badEvents;
+  let goodEvents=options.goodEvents??(totalEvents-badEvents);
+  if(![totalEvents,badEvents,goodEvents].every(n=>Number.isFinite(n)&&n>=0)||goodEvents+badEvents!==totalEvents)throw ApiError.badRequest('SLI counts must be non-negative and good + bad must equal total.');
+  const isSimulated=options.totalEvents!==undefined||options.observations!==undefined;
+  const windows=evaluateBurnWindows(samples,{now,targetPercent:slo.targetPercent,sliType:slo.sliType,latencyThresholdMs:slo.latencyThresholdMs});
+  const dataQuality=totalEvents===0?DATA_QUALITIES.MISSING_TELEMETRY:options.complete===true?DATA_QUALITIES.GOOD:DATA_QUALITIES.INCOMPLETE;
   // 1. Calculate SLI Value
   const sliResult = calculateSliValue(slo.sliType, {
     totalEvents,
@@ -218,23 +195,7 @@ export async function evaluateSlo(sloId, options = {}) {
     badEvents
   });
 
-  // 3. Multi-window Burn Rates (1h, 6h, 24h)
-  const burnRate1h = calculateBurnRate({
-    totalEvents,
-    badEvents: Math.round(badEvents * 1.5), // weighted for recent peak
-    targetPercent: slo.targetPercent
-  });
-  const burnRate6h = calculateBurnRate({
-    totalEvents,
-    badEvents: Math.round(badEvents * 1.1),
-    targetPercent: slo.targetPercent
-  });
-  const burnRate24h = calculateBurnRate({
-    totalEvents,
-    badEvents,
-    targetPercent: slo.targetPercent
-  });
-
+  const burnRate1h=windows['1h'].burnRate,burnRate6h=windows['6h'].burnRate,burnRate24h=windows['24h'].burnRate;
   // 4. Persist Evaluation
   const evaluation = await sloRepo.createEvaluation({
     sloId: slo.id,
@@ -254,9 +215,10 @@ export async function evaluateSlo(sloId, options = {}) {
     burnRate6h,
     burnRate24h,
     status: budgetResult.status,
-    dataQuality: options.dataQuality || budgetResult.dataQuality,
+    dataQuality: options.dataQuality || dataQuality,
     isSimulated,
-    telemetrySource: 'demo_adapter'
+    telemetrySource: isSimulated?'explicit_test_observations':'sampled_trace_observations',
+    windowEvidence:windows
   });
 
   // 5. Persist History Point

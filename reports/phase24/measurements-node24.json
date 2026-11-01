@@ -1,0 +1,23 @@
+{
+  "node": "v24.22.2",
+  "processes": [
+    {
+      "Id": 15040,
+      "WorkingSet64": 126001152,
+      "CPU": 2.453125
+    },
+    {
+      "Id": 20124,
+      "WorkingSet64": 64049152,
+      "CPU": 0.546875
+    }
+  ],
+  "databaseBytes": 14711831,
+  "readiness": {
+    "samples": 20,
+    "medianMs": 2.932299999998577,
+    "p95Ms": 6.7224999999998545,
+    "maxMs": 7.72439999999915
+  },
+  "scope": "Idle Windows processes and loopback health requests; not a load, capacity, Linux container, ARM or user-journey benchmark."
+}

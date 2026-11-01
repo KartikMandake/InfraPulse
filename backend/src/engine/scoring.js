@@ -10,6 +10,8 @@ export const DEFAULT_SCORING_WEIGHTS = {
  */
 export function parseTimeToMinutes(timeStr) {
   if (!timeStr) return null;
+  if(timeStr instanceof Date){if(!Number.isFinite(timeStr.getTime()))return null;return timeStr.getUTCHours()*60+timeStr.getUTCMinutes();}
+  if(typeof timeStr!=='string')return null;
   const match = timeStr.match(/(\d{1,2}):(\d{2}):(\d{2})/);
   if (match) {
     const hours = parseInt(match[1], 10);
@@ -144,9 +146,10 @@ export function calculateDeploymentScore(service, incident, deployments) {
   for (const dep of serviceDeploys) {
     let depScore = 0;
     const depMin = parseTimeToMinutes(dep.timestamp);
+    const incidentInstant=Date.parse(incident.startedAt),deploymentInstant=Date.parse(dep.timestamp);
 
     if (incidentMin !== null && depMin !== null) {
-      const deltaMinutes = incidentMin - depMin;
+      const deltaMinutes = Number.isFinite(incidentInstant)&&Number.isFinite(deploymentInstant)?(incidentInstant-deploymentInstant)/60000:incidentMin-depMin;
       if (deltaMinutes >= -5 && deltaMinutes <= 45) {
         depScore += 70;
       } else if (deltaMinutes > 45 && deltaMinutes <= 120) {
@@ -271,7 +274,7 @@ export function calculateLogAndTraceScore(service, logs, traces) {
     l => l.serviceId === service.id || l.service?.toLowerCase() === service.id.toLowerCase() || l.service?.toLowerCase() === service.name.toLowerCase()
   );
   const serviceSpans = (traces || []).filter(
-    t => t.service === service.id || t.service?.toLowerCase() === service.name.toLowerCase()
+    t => t.serviceId === service.id || t.service === service.id || t.service?.toLowerCase() === service.name?.toLowerCase()
   );
 
   if (serviceLogs.length === 0 && serviceSpans.length === 0) {

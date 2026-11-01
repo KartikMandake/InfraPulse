@@ -1,0 +1,106 @@
+{
+  "mode": "actual disposable backend process killed during injected simulated provider dispatch",
+  "inFlight": {
+    "id": "op_fcc7cac56ea7",
+    "resource_id": "restart1793495711120-crash",
+    "action": "start",
+    "status": "executing",
+    "is_dry_run": false,
+    "safety_checks": {
+      "eligibility": {
+        "checks": {
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isDockerResource": true,
+          "mutationsFlagEnabled": true,
+          "namedVolumePreserved": true,
+          "isNotDatabaseContainer": true,
+          "noActiveRunbookConflict": true,
+          "noActiveIncidentConflict": true,
+          "isNotControlPlaneContainer": true,
+          "noDownstreamCallersBlocked": true
+        },
+        "blockers": [],
+        "eligible": true,
+        "warnings": []
+      },
+      "allowStatefulSetScale": false,
+      "exceptionalAuthorization": false
+    },
+    "requested_by": "marcus.v@infrapulse.io",
+    "requester_role": "responder",
+    "approved_by": "sarah.chen@infrapulse.io",
+    "approved_at": "2026-11-01T01:15:26.155Z",
+    "executed_at": "2026-11-01T01:15:26.242Z",
+    "completed_at": null,
+    "execution_logs": [
+      {
+        "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+        "timestamp": "2026-11-01T01:15:26.132Z"
+      },
+      {
+        "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+        "timestamp": "2026-11-01T01:15:26.155Z"
+      }
+    ],
+    "idempotency_key": null,
+    "rejection_reason": null,
+    "created_at": "2026-11-01T01:15:26.133Z",
+    "tenant_id": "default_tenant"
+  },
+  "after": {
+    "id": "op_fcc7cac56ea7",
+    "resource_id": "restart1793495711120-crash",
+    "action": "start",
+    "status": "executing",
+    "is_dry_run": false,
+    "safety_checks": {
+      "eligibility": {
+        "checks": {
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isDockerResource": true,
+          "mutationsFlagEnabled": true,
+          "namedVolumePreserved": true,
+          "isNotDatabaseContainer": true,
+          "noActiveRunbookConflict": true,
+          "noActiveIncidentConflict": true,
+          "isNotControlPlaneContainer": true,
+          "noDownstreamCallersBlocked": true
+        },
+        "blockers": [],
+        "eligible": true,
+        "warnings": []
+      },
+      "allowStatefulSetScale": false,
+      "exceptionalAuthorization": false
+    },
+    "requested_by": "marcus.v@infrapulse.io",
+    "requester_role": "responder",
+    "approved_by": "sarah.chen@infrapulse.io",
+    "approved_at": "2026-11-01T01:15:26.155Z",
+    "executed_at": "2026-11-01T01:15:26.242Z",
+    "completed_at": null,
+    "execution_logs": [
+      {
+        "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+        "timestamp": "2026-11-01T01:15:26.132Z"
+      },
+      {
+        "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+        "timestamp": "2026-11-01T01:15:26.155Z"
+      }
+    ],
+    "idempotency_key": null,
+    "rejection_reason": null,
+    "created_at": "2026-11-01T01:15:26.133Z",
+    "tenant_id": "default_tenant"
+  },
+  "newOperation": {
+    "status": 409,
+    "data": {
+      "success": false,
+      "message": "Resource 'restart1793495711120-crash' already has an active operation in progress (op_fcc7cac56ea7: start [executing]). Please wait for it to complete."
+    }
+  }
+}

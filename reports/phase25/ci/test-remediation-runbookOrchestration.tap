@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: 1. Runbook Catalog: Retrieves all initial runbooks with version metadata
+ok 1 - 1. Runbook Catalog: Retrieves all initial runbooks with version metadata
+  ---
+  duration_ms: 202.4639
+  type: 'test'
+  ...
+# Subtest: 2. Runbook Catalog: Filters accurately by executionMode, riskLevel, and service
+ok 2 - 2. Runbook Catalog: Filters accurately by executionMode, riskLevel, and service
+  ---
+  duration_ms: 30.2816
+  type: 'test'
+  ...
+# Subtest: 3. Dry-Run Generation: Evaluates preconditions and computes deterministic planHash
+ok 3 - 3. Dry-Run Generation: Evaluates preconditions and computes deterministic planHash
+  ---
+  duration_ms: 41.8328
+  type: 'test'
+  ...
+# Subtest: 4. RBAC Denial: Viewers cannot generate dry-run plans or initiate executions
+ok 4 - 4. RBAC Denial: Viewers cannot generate dry-run plans or initiate executions
+  ---
+  duration_ms: 25.7439
+  type: 'test'
+  ...
+# Subtest: 5. Self-Approval Prevention: Requester cannot approve their own remediation request
+ok 5 - 5. Self-Approval Prevention: Requester cannot approve their own remediation request
+  ---
+  duration_ms: 183.2106
+  type: 'test'
+  ...
+# Subtest: 6. Risk Governance: High-risk runbook requires Admin role and 2FA confirmation
+ok 6 - 6. Risk Governance: High-risk runbook requires Admin role and 2FA confirmation
+  ---
+  duration_ms: 180.6242
+  type: 'test'
+  ...
+# Subtest: 7. Approval Bypass Defense: Execution cannot be run without approved status
+ok 7 - 7. Approval Bypass Defense: Execution cannot be run without approved status
+  ---
+  duration_ms: 76.5894
+  type: 'test'
+  ...
+# Subtest: 8. Idempotency Key: Re-submitting same key returns existing execution without duplicates
+ok 8 - 8. Idempotency Key: Re-submitting same key returns existing execution without duplicates
+  ---
+  duration_ms: 39.6032
+  type: 'test'
+  ...
+# Subtest: 9. Stale Version Defense: Rejects execution if runbook was modified after plan creation
+ok 9 - 9. Stale Version Defense: Rejects execution if runbook was modified after plan creation
+  ---
+  duration_ms: 46.8858
+  type: 'test'
+  ...
+# Subtest: 10. Adapter Input Validation: Rejects unallowlisted actions and command injections
+ok 10 - 10. Adapter Input Validation: Rejects unallowlisted actions and command injections
+  ---
+  duration_ms: 1.8901
+  type: 'test'
+  ...
+# Subtest: 11. Controlled Adapter Execution: Simulates safe diagnostic steps with zero mutation
+ok 11 - 11. Controlled Adapter Execution: Simulates safe diagnostic steps with zero mutation
+  ---
+  duration_ms: 3.6078
+  type: 'test'
+  ...
+# Subtest: 12. End-to-End Diagnostic Lifecycle: Auto-approves low-risk and executes successfully
+ok 12 - 12. End-to-End Diagnostic Lifecycle: Auto-approves low-risk and executes successfully
+  ---
+  duration_ms: 91.5356
+  type: 'test'
+  ...
+# Subtest: 13. End-to-End Remediation Lifecycle: Full Request -> Approval -> Execution with Compensation
+ok 13 - 13. End-to-End Remediation Lifecycle: Full Request -> Approval -> Execution with Compensation
+  ---
+  duration_ms: 134.3721
+  type: 'test'
+  ...
+# Subtest: 14. Cancellation Behavior: Pending execution can be cancelled with audit trail
+ok 14 - 14. Cancellation Behavior: Pending execution can be cancelled with audit trail
+  ---
+  duration_ms: 37.5298
+  type: 'test'
+  ...
+# Subtest: 15. AI Assistant Integration: Recommends registered runbooks grounded on RCA evidence
+ok 15 - 15. AI Assistant Integration: Recommends registered runbooks grounded on RCA evidence
+  ---
+  duration_ms: 124.0844
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6562.0841

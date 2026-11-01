@@ -1,0 +1,53 @@
+TAP version 13
+# Subtest: Phase 23I: Live Integration Acceptance Tests (Opt-In)
+    # Subtest: Live AWS: Real STS authentication, resource discovery & CloudWatch telemetry
+    ok 1 - Live AWS: Real STS authentication, resource discovery & CloudWatch telemetry # SKIP Opt-In Skipped: LIVE_AWS_TEST or AWS credentials not provided in environment. Live AWS test skipped without false claims.
+      ---
+      duration_ms: 2.0336
+      type: 'test'
+      ...
+    # Subtest: Live Docker: Real Docker daemon ping, inventory, health & stats
+    ok 2 - Live Docker: Real Docker daemon ping, inventory, health & stats # SKIP Opt-In Skipped: LIVE_DOCKER_TEST is not enabled. Real Docker daemon acceptance test skipped cleanly.
+      ---
+      duration_ms: 0.8132
+      type: 'test'
+      ...
+    # Subtest: Live Kubernetes: Real API server probe, namespaces, pods & deployment discovery
+    ok 3 - Live Kubernetes: Real API server probe, namespaces, pods & deployment discovery # SKIP Opt-In Skipped: LIVE_K8S_TEST or K8S_BEARER_TOKEN not set. Real cluster acceptance test skipped cleanly.
+      ---
+      duration_ms: 0.4855
+      type: 'test'
+      ...
+    # Subtest: Live Prometheus: Real PromQL instant query & range query execution
+    ok 4 - Live Prometheus: Real PromQL instant query & range query execution # SKIP Opt-In Skipped: LIVE_PROMETHEUS_TEST is not enabled. Real PromQL acceptance test skipped cleanly.
+      ---
+      duration_ms: 0.3533
+      type: 'test'
+      ...
+    # Subtest: Live OpenTelemetry: Payload structural validation, trace correlation & auth check
+    ok 5 - Live OpenTelemetry: Payload structural validation, trace correlation & auth check
+      ---
+      duration_ms: 3.0757
+      type: 'test'
+      ...
+    # Subtest: Live Remediation: Controlled execution on disposable target workload (Opt-In)
+    ok 6 - Live Remediation: Controlled execution on disposable target workload (Opt-In) # SKIP Opt-In Skipped: LIVE_REMEDIATION_TEST is not enabled. Controlled live remediation mutation test skipped cleanly.
+      ---
+      duration_ms: 0.581
+      type: 'test'
+      ...
+    1..6
+ok 1 - Phase 23I: Live Integration Acceptance Tests (Opt-In)
+  ---
+  duration_ms: 11.1057
+  type: 'suite'
+  ...
+1..1
+# tests 6
+# suites 1
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 5
+# todo 0
+# duration_ms 851.4886

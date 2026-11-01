@@ -1,0 +1,15 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+import {root,evidence,save,state,client,api,login,command} from './independent23m.mjs';
+const directories=['backend/src','frontend/src','deploy','infra','scripts','demo-services','.github','docs','tests'];
+const source=[];function walk(dir){for(const ent of fs.readdirSync(dir,{withFileTypes:true})){if(['node_modules','dist'].includes(ent.name))continue;const p=path.join(dir,ent.name);if(ent.isDirectory())walk(p);else if(/\.(js|jsx|mjs|sql|yaml|yml|json|md|ps1|sh|conf)$/.test(ent.name)){const text=fs.readFileSync(p,'utf8');source.push({path:path.relative(root,p),bytes:Buffer.byteLength(text),lines:text.split('\n').length,sha256:crypto.createHash('sha256').update(text).digest('hex'),routes:[...text.matchAll(/router\.(get|post|put|patch|delete)\(([^;]+)/g)].map(m=>({method:m[1],definition:m[2].replace(/\s+/g,' ')})),todos:[...text.matchAll(/(?:TODO|FIXME|NOT IMPLEMENTED)[^\n]*/g)].map(m=>m[0]).slice(0,20)});}}}for(const d of directories)walk(path.join(root,d));save('source-audit-inventory.json',source);console.log('Indexed',source.length,'source/config/test/document files and',source.reduce((a,s)=>a+s.routes.length,0),'route declarations');
+const db=client();await db.connect();save('tenant-schema-audit.json',(await db.query("select table_name,array_agg(column_name order by ordinal_position) columns from information_schema.columns where table_schema='public' group by table_name order by table_name")).rows);
+const results=[];
+try{const admin=await login();const responder=await login('responder');
+ const plan=(await db.query("select p.* from remediation_plans p join remediation_recommendations r on r.id=p.recommendation_id where r.resource_id='phase23m-payment-service-container' order by p.created_at desc limit 1")).rows[0];
+ const approval=await api(`/api/remediation/plans/${plan.id}/request-approval`,{token:responder,method:'POST',body:{}});
+ await db.query('update remediation_plans set parameters=$2 where id=$1',[plan.id,JSON.stringify({...plan.parameters,containerName:'phase23m-different-synthetic-target'})]);
+ const approved=await api(`/api/remediation/approvals/${approval.data.data.id}/approve`,{token:admin,method:'POST',body:{planHash:plan.plan_hash}});
+ results.push({name:'stored-plan-tampering-with-unchanged-hash',oldParameters:plan.parameters,editedParameters:{...plan.parameters,containerName:'phase23m-different-synthetic-target'},approvalStatus:approved.status,approvalData:approved.data,executionAttempted:false});
+ await db.query('update remediation_plans set parameters=$2 where id=$1',[plan.id,JSON.stringify(plan.parameters)]);
+ results.push({name:'final-health',live:await api('/api/health/live'),ready:await api('/api/health/ready'),diagnostics:await api('/api/health/diagnostics'),cloudAudit:await api('/api/cloud/audit',{token:admin})});
+}catch(e){results.push({error:e.message});}save('final-api-audit.json',results);await db.end();

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import api from '../services/api.js';
+import {useAuth} from './AuthContext.jsx';
 import { 
   INITIAL_SERVICES, INITIAL_INCIDENTS, INITIAL_ALERTS, 
   INITIAL_DEPLOYMENTS, INITIAL_SLOS, INITIAL_RUNBOOKS, 
@@ -10,10 +11,11 @@ import {
 const AppContext = createContext(undefined);
 
 export const AppProvider = ({ children }) => {
-  const [services, setServices] = useState(INITIAL_SERVICES);
-  const [incidents, setIncidents] = useState(INITIAL_INCIDENTS);
-  const [alerts, setAlerts] = useState(INITIAL_ALERTS);
-  const [deployments, setDeployments] = useState(INITIAL_DEPLOYMENTS);
+  const {user}=useAuth();
+  const [services, setServices] = useState([]);
+  const [incidents, setIncidents] = useState([]);
+  const [alerts, setAlerts] = useState([]);
+  const [deployments, setDeployments] = useState([]);
   const [slos, setSlos] = useState(INITIAL_SLOS);
   const [runbooks, setRunbooks] = useState(INITIAL_RUNBOOKS);
   const [chaosExperiments, setChaosExperiments] = useState(INITIAL_CHAOS_EXPERIMENTS);
@@ -32,11 +34,15 @@ export const AppProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [toasts, setToasts] = useState([]);
   const [backendConnected, setBackendConnected] = useState(false);
+  const [backendError,setBackendError]=useState(null);
 
   // Initial load from backend API
   useEffect(() => {
+    let active=true;
     async function loadBackendData() {
+      if(!user){setServices([]);setIncidents([]);setAlerts([]);setDeployments([]);setBackendConnected(false);setBackendError(null);return;}
       try {
+        setServices([]);setIncidents([]);setAlerts([]);setDeployments([]);setBackendConnected(false);
         const [srvRes, incRes, altRes, depRes, telRes] = await Promise.allSettled([
           api.getServices(),
           api.getIncidents(),
@@ -44,6 +50,9 @@ export const AppProvider = ({ children }) => {
           api.getDeployments(),
           api.getTelemetry()
         ]);
+        if(!active)return;
+        const rejected=[srvRes,incRes,altRes,depRes,telRes].find(result=>result.status==='rejected');
+        setBackendError(rejected?'Some live data could not be loaded. Retry when the API is available.':null);
 
         if (srvRes.status === 'fulfilled' && srvRes.value?.data) {
           setServices(srvRes.value.data);
@@ -67,7 +76,8 @@ export const AppProvider = ({ children }) => {
     }
 
     loadBackendData();
-  }, []);
+    return ()=>{active=false;};
+  }, [user?.id]);
 
   // Global ⌘K Shortcut Listener
   useEffect(() => {
@@ -479,6 +489,7 @@ export const AppProvider = ({ children }) => {
     addToast,
     removeToast,
     backendConnected,
+    backendError,
     getServiceById,
     getIncidentById,
     resolveIncident,

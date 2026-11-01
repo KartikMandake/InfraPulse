@@ -1,0 +1,242 @@
+TAP version 13
+# node:internal/modules/esm/load:193
+#     throw new ERR_UNSUPPORTED_ESM_URL_SCHEME(parsed, schemes);
+#           ^
+# Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'
+#     at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:193:11)
+#     at defaultLoadSync (node:internal/modules/esm/load:146:3)
+#     at \#loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:805:12)
+#     at \#loadSync (node:internal/modules/esm/loader:837:53)
+#     at ModuleLoader.load (node:internal/modules/esm/loader:786:26)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:497:31)
+#     at \#getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+#     at afterResolve (node:internal/modules/esm/loader:610:52)
+#     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+#     at node:internal/modules/esm/loader:635:32 {
+#   code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+# }
+# Node.js v26.4.0
+# Subtest: backend\\src\\db\\__tests__\\authRbacAudit.test.js
+not ok 1 - backend\\src\\db\\__tests__\\authRbacAudit.test.js
+  ---
+  duration_ms: 171.0096
+  type: 'test'
+  location: 'D:\\Projects\\InfraPulse\\backend\\src\\db\\__tests__\\authRbacAudit.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/load:193
+#     throw new ERR_UNSUPPORTED_ESM_URL_SCHEME(parsed, schemes);
+#           ^
+# Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'
+#     at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:193:11)
+#     at defaultLoadSync (node:internal/modules/esm/load:146:3)
+#     at \#loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:805:12)
+#     at \#loadSync (node:internal/modules/esm/loader:837:53)
+#     at ModuleLoader.load (node:internal/modules/esm/loader:786:26)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:497:31)
+#     at \#getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+#     at afterResolve (node:internal/modules/esm/loader:610:52)
+#     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+#     at node:internal/modules/esm/loader:635:32 {
+#   code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+# }
+# Node.js v26.4.0
+# Subtest: backend\\src\\db\\__tests__\\notificationDelivery.test.js
+not ok 2 - backend\\src\\db\\__tests__\\notificationDelivery.test.js
+  ---
+  duration_ms: 132.361
+  type: 'test'
+  location: 'D:\\Projects\\InfraPulse\\backend\\src\\db\\__tests__\\notificationDelivery.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/load:193
+#     throw new ERR_UNSUPPORTED_ESM_URL_SCHEME(parsed, schemes);
+#           ^
+# Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'
+#     at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:193:11)
+#     at defaultLoadSync (node:internal/modules/esm/load:146:3)
+#     at \#loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:805:12)
+#     at \#loadSync (node:internal/modules/esm/loader:837:53)
+#     at ModuleLoader.load (node:internal/modules/esm/loader:786:26)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:497:31)
+#     at \#getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+#     at afterResolve (node:internal/modules/esm/loader:610:52)
+#     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+#     at node:internal/modules/esm/loader:635:32 {
+#   code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+# }
+# Node.js v26.4.0
+# Subtest: backend\\src\\db\\__tests__\\postgresPersistence.test.js
+not ok 3 - backend\\src\\db\\__tests__\\postgresPersistence.test.js
+  ---
+  duration_ms: 148.9088
+  type: 'test'
+  location: 'D:\\Projects\\InfraPulse\\backend\\src\\db\\__tests__\\postgresPersistence.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/load:193
+#     throw new ERR_UNSUPPORTED_ESM_URL_SCHEME(parsed, schemes);
+#           ^
+# Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'
+#     at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:193:11)
+#     at defaultLoadSync (node:internal/modules/esm/load:146:3)
+#     at \#loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:805:12)
+#     at \#loadSync (node:internal/modules/esm/loader:837:53)
+#     at ModuleLoader.load (node:internal/modules/esm/loader:786:26)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:497:31)
+#     at \#getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+#     at afterResolve (node:internal/modules/esm/loader:610:52)
+#     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+#     at node:internal/modules/esm/loader:635:32 {
+#   code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+# }
+# Node.js v26.4.0
+# Subtest: backend\\src\\engine\\__tests__\\faultLab.test.js
+not ok 4 - backend\\src\\engine\\__tests__\\faultLab.test.js
+  ---
+  duration_ms: 128.9392
+  type: 'test'
+  location: 'D:\\Projects\\InfraPulse\\backend\\src\\engine\\__tests__\\faultLab.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/load:193
+#     throw new ERR_UNSUPPORTED_ESM_URL_SCHEME(parsed, schemes);
+#           ^
+# Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'
+#     at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:193:11)
+#     at defaultLoadSync (node:internal/modules/esm/load:146:3)
+#     at \#loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:805:12)
+#     at \#loadSync (node:internal/modules/esm/loader:837:53)
+#     at ModuleLoader.load (node:internal/modules/esm/loader:786:26)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:497:31)
+#     at \#getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+#     at afterResolve (node:internal/modules/esm/loader:610:52)
+#     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+#     at node:internal/modules/esm/loader:635:32 {
+#   code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+# }
+# Node.js v26.4.0
+# Subtest: backend\\src\\engine\\__tests__\\rcaEngine.test.js
+not ok 5 - backend\\src\\engine\\__tests__\\rcaEngine.test.js
+  ---
+  duration_ms: 120.453
+  type: 'test'
+  location: 'D:\\Projects\\InfraPulse\\backend\\src\\engine\\__tests__\\rcaEngine.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/load:193
+#     throw new ERR_UNSUPPORTED_ESM_URL_SCHEME(parsed, schemes);
+#           ^
+# Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'
+#     at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:193:11)
+#     at defaultLoadSync (node:internal/modules/esm/load:146:3)
+#     at \#loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:805:12)
+#     at \#loadSync (node:internal/modules/esm/loader:837:53)
+#     at ModuleLoader.load (node:internal/modules/esm/loader:786:26)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:497:31)
+#     at \#getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+#     at afterResolve (node:internal/modules/esm/loader:610:52)
+#     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+#     at node:internal/modules/esm/loader:635:32 {
+#   code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+# }
+# Node.js v26.4.0
+# Subtest: backend\\src\\integrations\\telemetry\\__tests__\\telemetryAdapter.test.js
+not ok 6 - backend\\src\\integrations\\telemetry\\__tests__\\telemetryAdapter.test.js
+  ---
+  duration_ms: 111.0052
+  type: 'test'
+  location: 'D:\\Projects\\InfraPulse\\backend\\src\\integrations\\telemetry\\__tests__\\telemetryAdapter.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/load:193
+#     throw new ERR_UNSUPPORTED_ESM_URL_SCHEME(parsed, schemes);
+#           ^
+# Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'
+#     at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:193:11)
+#     at defaultLoadSync (node:internal/modules/esm/load:146:3)
+#     at \#loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:805:12)
+#     at \#loadSync (node:internal/modules/esm/loader:837:53)
+#     at ModuleLoader.load (node:internal/modules/esm/loader:786:26)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:497:31)
+#     at \#getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+#     at afterResolve (node:internal/modules/esm/loader:610:52)
+#     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+#     at node:internal/modules/esm/loader:635:32 {
+#   code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+# }
+# Node.js v26.4.0
+# Subtest: backend\\src\\services\\__tests__\\intelligentAlerting.test.js
+not ok 7 - backend\\src\\services\\__tests__\\intelligentAlerting.test.js
+  ---
+  duration_ms: 116.0267
+  type: 'test'
+  location: 'D:\\Projects\\InfraPulse\\backend\\src\\services\\__tests__\\intelligentAlerting.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/load:193
+#     throw new ERR_UNSUPPORTED_ESM_URL_SCHEME(parsed, schemes);
+#           ^
+# Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'
+#     at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:193:11)
+#     at defaultLoadSync (node:internal/modules/esm/load:146:3)
+#     at \#loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:805:12)
+#     at \#loadSync (node:internal/modules/esm/loader:837:53)
+#     at ModuleLoader.load (node:internal/modules/esm/loader:786:26)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:497:31)
+#     at \#getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+#     at afterResolve (node:internal/modules/esm/loader:610:52)
+#     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+#     at node:internal/modules/esm/loader:635:32 {
+#   code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+# }
+# Node.js v26.4.0
+# Subtest: backend\\src\\services\\__tests__\\timeline.test.js
+not ok 8 - backend\\src\\services\\__tests__\\timeline.test.js
+  ---
+  duration_ms: 120.7156
+  type: 'test'
+  location: 'D:\\Projects\\InfraPulse\\backend\\src\\services\\__tests__\\timeline.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 0
+# fail 8
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1099.4161

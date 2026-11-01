@@ -4,6 +4,7 @@ import { useApp } from '../context/AppContext.jsx';
 import api from '../services/api.js';
 import { EmptyState } from '../components/common/EmptyState.jsx';
 import { AiAssistantPanel } from '../components/investigation/AiAssistantPanel.jsx';
+import { GovernedRemediationPanel } from '../components/investigation/GovernedRemediationPanel.jsx';
 
 export const IncidentInvestigationPage = () => {
   const { incidentId } = useParams();
@@ -37,7 +38,7 @@ export const IncidentInvestigationPage = () => {
 
   // Resolved incident target
   const targetIncidentId = incidentId || 'INC-4921';
-  const localIncident = incidents.find(i => i.id === targetIncidentId) || incidents[0];
+  const localIncident = incidents.find(i => i.id === targetIncidentId);
 
   // Fetch investigation report, unified timeline, graph, and notification deliveries
   const loadInvestigation = async () => {
@@ -150,6 +151,7 @@ export const IncidentInvestigationPage = () => {
   }
 
   const activeIncident = investigationData?.incident || localIncident;
+  if(!activeIncident)return <div role="status" className="p-6 text-[#9296A3]">Loading incident investigation…</div>;
   const hypotheses = investigationData?.hypotheses || [];
   const traces = investigationData?.correlatedTraces || [];
   
@@ -275,7 +277,8 @@ export const IncidentInvestigationPage = () => {
         {[
           { id: 'rca', label: 'Deterministic Root-Cause Analysis', icon: 'psychology' },
           { id: 'investigation_graph', label: 'Unified Investigation Graph', icon: 'hub' },
-          { id: 'sequence_analysis', label: 'Causal Sequence & Propagation', icon: 'route' }
+          { id: 'sequence_analysis', label: 'Causal Sequence & Propagation', icon: 'route' },
+          { id: 'remediation', label: 'Governed Infrastructure Remediation', icon: 'build_circle' },
         ].map(tab => (
           <button
             key={tab.id}
@@ -634,6 +637,15 @@ export const IncidentInvestigationPage = () => {
             )}
           </div>
         </div>
+      )}
+
+      {/* VIEW 4: Governed Infrastructure Remediation */}
+      {activeView === 'remediation' && (
+        <GovernedRemediationPanel
+          incidentId={targetIncidentId}
+          incident={activeIncident}
+          addToast={addToast}
+        />
       )}
 
       {/* VIEW 3: Causal Sequence Analysis */}

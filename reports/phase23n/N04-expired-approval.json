@@ -1,0 +1,135 @@
+{
+  "op": {
+    "id": "op_ceff3ba16da4",
+    "resource_id": "n1793495376536-expired",
+    "action": "start",
+    "status": "pending_approval",
+    "is_dry_run": false,
+    "safety_checks": {
+      "eligibility": {
+        "checks": {
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isDockerResource": true,
+          "mutationsFlagEnabled": true,
+          "namedVolumePreserved": true,
+          "isNotDatabaseContainer": true,
+          "noActiveRunbookConflict": true,
+          "noActiveIncidentConflict": true,
+          "isNotControlPlaneContainer": true,
+          "noDownstreamCallersBlocked": true
+        },
+        "blockers": [],
+        "eligible": true,
+        "warnings": []
+      },
+      "allowStatefulSetScale": false,
+      "exceptionalAuthorization": false
+    },
+    "requested_by": "marcus.v@infrapulse.io",
+    "requester_role": "responder",
+    "approved_by": null,
+    "approved_at": null,
+    "executed_at": null,
+    "completed_at": null,
+    "execution_logs": [
+      {
+        "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+        "timestamp": "2026-11-01T01:09:41.437Z"
+      }
+    ],
+    "idempotency_key": "n1793495376536-n1793495376536-expired-start",
+    "rejection_reason": null,
+    "created_at": "2026-11-01T01:09:41.438Z",
+    "tenant_id": "default_tenant"
+  },
+  "result": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "data": {
+        "success": true,
+        "operation": {
+          "id": "op_ceff3ba16da4",
+          "resource_id": "n1793495376536-expired",
+          "action": "start",
+          "status": "completed",
+          "is_dry_run": false,
+          "safety_checks": {
+            "eligibility": {
+              "checks": {
+                "isAllowlisted": true,
+                "isNonProduction": true,
+                "isDockerResource": true,
+                "mutationsFlagEnabled": true,
+                "namedVolumePreserved": true,
+                "isNotDatabaseContainer": true,
+                "noActiveRunbookConflict": true,
+                "noActiveIncidentConflict": true,
+                "isNotControlPlaneContainer": true,
+                "noDownstreamCallersBlocked": true
+              },
+              "blockers": [],
+              "eligible": true,
+              "warnings": []
+            },
+            "allowStatefulSetScale": false,
+            "exceptionalAuthorization": false
+          },
+          "requested_by": "marcus.v@infrapulse.io",
+          "requester_role": "responder",
+          "approved_by": "sarah.chen@infrapulse.io",
+          "approved_at": "2026-10-02T01:09:41.478Z",
+          "executed_at": "2026-11-01T01:09:41.546Z",
+          "completed_at": "2026-11-01T01:09:41.559Z",
+          "execution_logs": [
+            {
+              "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+              "timestamp": "2026-11-01T01:09:41.437Z"
+            },
+            {
+              "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+              "timestamp": "2026-11-01T01:09:41.463Z"
+            },
+            {
+              "result": {
+                "message": "Resource n1793495376536-expired started successfully.",
+                "success": true,
+                "newState": "running",
+                "timestamp": "2026-11-01T01:09:41.552Z",
+                "isSimulated": true,
+                "dockerDetails": {
+                  "status": "Up (healthy)",
+                  "network": "infrapulse-staging-net",
+                  "containerName": "n1793495376536-expired"
+                },
+                "previousState": "stopped",
+                "operationDurationMs": 45
+              },
+              "message": "Execution of 'start' completed successfully via docker simulated provider.",
+              "timestamp": "2026-11-01T01:09:41.560Z"
+            }
+          ],
+          "idempotency_key": "n1793495376536-n1793495376536-expired-start",
+          "rejection_reason": null,
+          "created_at": "2026-11-01T01:09:41.438Z",
+          "tenant_id": "default_tenant"
+        },
+        "result": {
+          "success": true,
+          "previousState": "stopped",
+          "newState": "running",
+          "message": "Resource n1793495376536-expired started successfully.",
+          "operationDurationMs": 45,
+          "isSimulated": true,
+          "timestamp": "2026-11-01T01:09:41.552Z",
+          "dockerDetails": {
+            "containerName": "n1793495376536-expired",
+            "network": "infrapulse-staging-net",
+            "status": "Up (healthy)"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,789 @@
+{
+  "services": {
+    "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n7 ACTIVE\nnotifications_active\nAlerts & Rules\n23 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\naccount_tree\nServices & Topology Correlation\nDegraded Mesh (6 Critical)\n\nTopological service dependency graph, bidirectional causal impact propagation, and live telemetry signals.\n\nbubble_chart\nGraph\ntable_rows\nInventory\nfilter_alt\nAll (16)\nNominal (8)\nDegraded (2)\nCritical (6)\nOVERLAYS:\nreport\nHighlight Unhealthy\nhub\nDownstream Cascade Path\nbolt\nHigh Latency (>150ms)\nNominal\nDegraded\nCritical\nSelected / Cascade\nClick node to trace causal downstream dependencies & live metrics\nTIER-0\nHTTP\nauth-gateway-v2\np99: 285ms\nerr: 2.45%\nTIER-0\ngRPC\ncheckout-api\np99: 340ms\nerr: 3.1%\nTIER-0\ngRPC\npayment-service\np99: 412ms\nerr: 25%\nTIER-0\nHTTP\nphase23m-caller-mvwscvcp\np99: 10ms\nerr: 0%\nTIER-0\nHTTP\nphase23m-caller-mvwsg4xr\np99: 10ms\nerr: 0%\nTIER-0\nHTTP\nphase23m-caller-mvwshylf\np99: 10ms\nerr: 0%\nTIER-0\nHTTP\nphase23m-caller-mvwsmlv9\np99: 10ms\nerr: 0%\nTIER-0\nHTTP\nphase23m-pay-mvwscvcp\np99: 10ms\nerr: 25%\nTIER-0\nHTTP\nphase23m-pay-mvwsg4xr\np99: 10ms\nerr: 25%\nTIER-0\nHTTP\nphase23m-pay-mvwshylf\np99: 10ms\nerr: 25%\nTIER-0\nHTTP\nphase23m-pay-mvwsmlv9\np99: 10ms\nerr: 25%\nTIER-1\nHTTP\ncart-service\np99: 18ms\nerr: 0.02%\nTIER-1\ngRPC\nfraud-evaluator\np99: 38ms\nerr: 0.04%\nTIER-1\ngRPC\ninventory-mesh\np99: 22ms\nerr: 0.01%\nTIER-1\ngRPC\nledger-db-proxy\np99: 395ms\nerr: 5.8%\nTIER-2\nKafka\nnotification-worker\np99: 14ms\nerr: 0%\nActive Mesh:\n16 Nodes visible\n•\n7 Dependency edges mapped\nTopological Correlation Active",
+    "buttons": [
+      "bubble_chartGraph",
+      "table_rowsInventory",
+      "All (16)",
+      "Nominal (8)",
+      "Degraded (2)",
+      "Critical (6)",
+      "reportHighlight Unhealthy",
+      "hubDownstream Cascade Path",
+      "boltHigh Latency (>150ms)"
+    ],
+    "network": [
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      }
+    ],
+    "errors": []
+  },
+  "cloud-lifecycle": {
+    "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n7 ACTIVE\nnotifications_active\nAlerts & Rules\n23 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\nCloud Resource Lifecycle & Cost Governance\nAWS EC2 GOVERNED LIFECYCLE\nTWO-PERSON APPROVAL\n\nControlled EC2 start/stop management, strict eligibility guardrails, two-person approvals & persistent storage defense.\n\nrefresh\nRefresh\nemergency_home\nEngage Kill Switch\ncloud_sync\nAWS Integration (ap-south-1 Mumbai)\nCREDENTIAL PROVIDER PENDING\nRegion: ap-south-1\nLive Discovered: 0 workloads\nap-south-1 (Mumbai)\ntravel_explore\nDiscover AWS Resources\nverified_user\nGoverned EC2 mutations require allowlisting, non-production tags, dry-run evaluation, two-person approval, and explicit confirmation.\nAWS_LIFECYCLE_MUTATIONS_ENABLED: False (Default)\nInventoried Workloads\ndns\n24\n0 Live AWS\n/ 24 Sim\n13 Running\n•\n7 Stopped\nEstimated Hourly Burn\npayments\n$0.0901\n/ hr\nDaily: $2.16 (ap-south-1 rates)\nMonthly Run-Rate (730h)\ncalendar_month\n$65.77\n/ mo\nStorage baseline: $17.01/mo\nFree Tier & Savings\nsavings\n$31.40\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\n24\ncompare_arrows\nInfrastructure Drift\n1\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\n2\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nAll Origins (Live + Sim)\nLive AWS Only\nSimulated Only\nAll Providers\nAWS (ap-south-1)\nDocker Compose\nKubernetes\nAll States\nRunning\nStopped\nIn-Use (EBS)\nAvailable\nScaled Down\nRESOURCE & ORIGIN\tPROVIDER / TYPE\tREGION / ENV\tSTATE\tCOST / HR\tPERSISTENCE\tLIFECYCLE ACTIONS\n\ninfrapulse-staging-ec2\nSIMULATED\nres-aws-ec2-staging\nType: t4g.small\nIPv4: 13.232.100.45\nELIGIBLE (NON-PROD)\n\tAWS\nec2_instance\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0251\n$18.32/mo\n\t\nhard_drive\nPreserved Vol\n\t\nDry-Run Stop\nInspect\n\n\ninfrapulse-staging-rds-pg16\nSIMULATED\nCRITICAL\nres-aws-rds-postgres\n\tAWS\nrds_instance\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0290\n$21.17/mo\n\tStateless\t\nDry-Run Stop\nInspect\n\n\nfixture-phase23m-pay-mvwscvcp\nSIMULATED\nfixture-phase23m-pay-mvwscvcp\nGOVERNED DOCKER\n\tDOCKER\ndocker_container\n\t\nap-south-1\nstaging\n\t\ncrashed\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Start\nInspect\n\n\nfixture-phase23m-pay-mvwsg4xr\nSIMULATED\nfixture-phase23m-pay-mvwsg4xr\nGOVERNED DOCKER\n\tDOCKER\ndocker_container\n\t\nap-south-1\nstaging\n\t\ncrashed\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Start\nInspect\n\n\nfixture-phase23m-pay-mvwshylf\nSIMULATED\nfixture-phase23m-pay-mvwshylf\nGOVERNED DOCKER\n\tDOCKER\ndocker_container\n\t\nap-south-1\nstaging\n\t\ncrashed\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Start\nInspect\n\n\nfixture-phase23m-pay-mvwsmlv9\nSIMULATED\nfixture-phase23m-pay-mvwsmlv9\nGOVERNED DOCKER\n\tDOCKER\ndocker_container\n\t\nap-south-1\nstaging\n\t\ncrashed\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Start\nInspect\n\n\ninfrapulse-backend\nSIMULATED\nres-docker-backend\nPROTECTED: CONTROL PLANE\n\tDOCKER\ndocker_compose_service\n\t\nlocal\nlocal\n\t\nrunning\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Stop\nRestart\nInspect\n\n\ninfrapulse-frontend\nSIMULATED\nres-docker-frontend\nGOVERNED DOCKER\n\tDOCKER\ndocker_compose_service\n\t\nlocal\nlocal\n\t\nrunning\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Stop\nRestart\nInspect\n\n\ninfrapulse-postgres\nSIMULATED\nCRITICAL\nres-docker-postgres\nPROTECTED: DB DEPENDENCY\n\tDOCKER\ndocker_compose_service\n\t\nlocal\nlocal\n\t\nrunning\t\n$0.0000\n$0.00/mo\n\t\nhard_drive\nPreserved Vol\n\t\nDry-Run Stop\nRestart\nInspect\n\n\ninfrapulse-worker\nSIMULATED\nres-docker-worker\nGOVERNED DOCKER\n\tDOCKER\ndocker_compose_service\n\t\nlocal\nlocal\n\t\nrunning\t\n$0.0000\n$0.00/mo\n\tStateless\t\nDry-Run Stop\nRestart\nInspect\n\n\nFixture\nSIMULATED\ndrift-resource-1793473685584\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\ndeployment\nns: fixture-namespace\n\t\nfixture-region\nregression-drift-1793473685584\n\t\nstopped\t\n$0.0000\n$0.00/mo\n\tStateless\t\nScale Replicas\nInspect\n\n\nFixture\nSIMULATED\ndrift-resource-1793474793209\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\ndeployment\nns: fixture-namespace\n\t\nfixture-region\nregression-drift-1793474793209\n\t\nstopped\t\n$0.0000\n$0.00/mo\n\tStateless\t\nScale Replicas\nInspect\n\n\nFixture\nSIMULATED\ndrift-resource-1793474739834\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\ndeployment\nns: fixture-namespace\n\t\nfixture-region\nregression-drift-1793474739834\n\t\nstopped\t\n$0.0000\n$0.00/mo\n\tStateless\t\nScale Replicas\nInspect\n\n\nbackend-deployment\nSIMULATED\nres-k8s-dep-backend\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\nk8s_deployment\nns: infrapulse\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0160\n$11.68/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\nfrontend-deployment\nSIMULATED\nres-k8s-dep-frontend\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\nk8s_deployment\nns: infrapulse\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0080\n$5.84/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\nphase23m-pay-mvwscvcp\nSIMULATED\nk8s-staging-phase23m-pay-mvwscvcp\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\ndeployment\nns: staging\n\t\nhttp://127.0.0.1:63602\nstaging\n\t\nstopped\t\n$0.0500\n$36.50/mo\n\tStateless\t\nScale Replicas\nInspect\n\n\nphase23m-pay-mvwscvcp-1\nSIMULATED\nk8s-pod-staging-phase23m-pay-mvwscvcp-1\nGOVERNED K8S (REPLICAS: 1)\n\tKUBERNETES\npod\nns: staging\n\t\nhttp://127.0.0.1:63602\nstaging\n\t\nrunning\t\n$0.0200\n$14.60/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\nphase23m-pay-mvwsg4xr\nSIMULATED\nk8s-staging-phase23m-pay-mvwsg4xr\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\ndeployment\nns: staging\n\t\nhttp://127.0.0.1:61563\nstaging\n\t\nstopped\t\n$0.0500\n$36.50/mo\n\tStateless\t\nScale Replicas\nInspect\n\n\nphase23m-pay-mvwsg4xr-1\nSIMULATED\nk8s-pod-staging-phase23m-pay-mvwsg4xr-1\nGOVERNED K8S (REPLICAS: 1)\n\tKUBERNETES\npod\nns: staging\n\t\nhttp://127.0.0.1:61563\nstaging\n\t\nrunning\t\n$0.0200\n$14.60/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\nphase23m-pay-mvwshylf\nSIMULATED\nk8s-staging-phase23m-pay-mvwshylf\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\ndeployment\nns: staging\n\t\nhttp://127.0.0.1:57730\nstaging\n\t\nstopped\t\n$0.0500\n$36.50/mo\n\tStateless\t\nScale Replicas\nInspect\n\n\nphase23m-pay-mvwshylf-1\nSIMULATED\nk8s-pod-staging-phase23m-pay-mvwshylf-1\nGOVERNED K8S (REPLICAS: 1)\n\tKUBERNETES\npod\nns: staging\n\t\nhttp://127.0.0.1:57730\nstaging\n\t\nrunning\t\n$0.0200\n$14.60/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\nphase23m-pay-mvwsmlv9\nSIMULATED\nk8s-staging-phase23m-pay-mvwsmlv9\nGOVERNED K8S (REPLICAS: 2)\n\tKUBERNETES\ndeployment\nns: staging\n\t\nhttp://127.0.0.1:61824\nstaging\n\t\nstopped\t\n$0.0500\n$36.50/mo\n\tStateless\t\nScale Replicas\nInspect\n\n\nphase23m-pay-mvwsmlv9-1\nSIMULATED\nk8s-pod-staging-phase23m-pay-mvwsmlv9-1\nGOVERNED K8S (REPLICAS: 1)\n\tKUBERNETES\npod\nns: staging\n\t\nhttp://127.0.0.1:61824\nstaging\n\t\nrunning\t\n$0.0200\n$14.60/mo\n\tStateless\t\nScale Replicas\nScale 0\nInspect\n\n\npostgres-statefulset\nSIMULATED\nCRITICAL\nres-k8s-sts-postgres\nPROTECTED: STATEFULSET DB\n\tKUBERNETES\nk8s_statefulset\nns: infrapulse\n\t\nap-south-1\nstaging\n\t\nrunning\t\n$0.0120\n$8.76/mo\n\t\nhard_drive\nRetained PVC\n\t\nScale Replicas\nScale 0\nInspect",
+    "buttons": [
+      "refreshRefresh",
+      "emergency_homeEngage Kill Switch",
+      "travel_exploreDiscover AWS Resources",
+      "inventory_2Resource Inventory24",
+      "compare_arrowsInfrastructure Drift1",
+      "approvalOperations & Approvals",
+      "scheduleAutomated Schedules2",
+      "bar_chartCost & Free Tier Intelligence",
+      "historyLifecycle Audit",
+      "Dry-Run Stop",
+      "Inspect",
+      "Dry-Run Stop",
+      "Inspect",
+      "Dry-Run Start",
+      "Inspect",
+      "Dry-Run Start",
+      "Inspect",
+      "Dry-Run Start",
+      "Inspect",
+      "Dry-Run Start",
+      "Inspect",
+      "Dry-Run Stop",
+      "Restart",
+      "Inspect",
+      "Dry-Run Stop",
+      "Restart",
+      "Inspect",
+      "Dry-Run Stop",
+      "Restart",
+      "Inspect",
+      "Dry-Run Stop",
+      "Restart",
+      "Inspect",
+      "Scale Replicas",
+      "Inspect",
+      "Scale Replicas",
+      "Inspect",
+      "Scale Replicas",
+      "Inspect",
+      "Scale Replicas",
+      "Scale 0",
+      "Inspect",
+      "Scale Replicas",
+      "Scale 0",
+      "Inspect",
+      "Scale Replicas",
+      "Inspect",
+      "Scale Replicas",
+      "Scale 0",
+      "Inspect",
+      "Scale Replicas",
+      "Inspect",
+      "Scale Replicas",
+      "Scale 0",
+      "Inspect",
+      "Scale Replicas",
+      "Inspect",
+      "Scale Replicas",
+      "Scale 0",
+      "Inspect",
+      "Scale Replicas",
+      "Inspect",
+      "Scale Replicas",
+      "Scale 0",
+      "Inspect",
+      "Scale Replicas",
+      "Scale 0",
+      "Inspect"
+    ],
+    "network": [
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/audit?limit=25",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/audit?limit=25",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      }
+    ],
+    "errors": []
+  },
+  "integrations": {
+    "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n7 ACTIVE\nnotifications_active\nAlerts & Rules\n23 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\nhub\nEnterprise Integrations & Platform Ecosystem\nPHASE 19\nROLE: ADMIN\n\nProduction-grade connectors for GitHub, Kubernetes, Prometheus, Grafana, Slack, and OpenTelemetry with AES-256-GCM encryption.\n\nextension\nEnterprise Ecosystem (14/8 Connected)\nnotifications_active\nNotification Rails & Queue (24 Deliveries)\nsensors\nCommunity Connectors (6)\ncloud_queue\nAmazon Web Services\nDISCONNECTED\n\nConnects AWS accounts via cross-account IAM role or credentials for read-only discovery of EC2, EBS, RDS, and CloudWatch metrics in ap-south-1.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ninventory_2\nDocker Engine & Compose\nDISCONNECTED\n\nConnects to Docker Engine API for container inventory, Compose service discovery, health monitoring, and live resource statistics.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ncloud\nKubernetes Cluster\nCONNECTED\n\nRead-only cluster monitoring for pods, deployments, statefulsets, restart counts, CrashLoopBackOff, and events.\n\nCredentials:\nAES-256-GCM Encrypted\nLast Success:\n12:38:05 AM\nbolt\nTest\nLogs\nEdit\nshow_chart\nPrometheus\nDISCONNECTED\n\nExecutes PromQL instant and range queries, feeds SLI evaluations, and discovers metrics with configurable name mappings.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\nschema\nOpenTelemetry (OTLP)\nCONNECTED\n\nIngests standard OTLP JSON payloads for distributed traces, metrics, and application logs, preserving full telemetry attributes.\n\nCredentials:\nAES-256-GCM Encrypted\nLast Success:\n12:33:42 AM\nbolt\nTest\nLogs\nEdit\ncode\nGitHub\nDISCONNECTED\n\nIngests GitHub repository webhooks for pushes, pull requests, releases, and Actions CI/CD workflow runs with constant-time HMAC validation.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ndashboard\nGrafana\nDISCONNECTED\n\nIngests Grafana alert notification webhooks, provides dashboard deep-links for investigations, and validates server connectivity.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\nchat\nSlack\nDISCONNECTED\n\nDispatches Block Kit incident notifications, critical alerts, SLO breach warnings, and runbook approval requests via queued Slack webhooks.\n\nNo active connection configured for this provider.\nlink\nConnect Provider",
+    "buttons": [
+      "extensionEnterprise Ecosystem (14/8 Connected)",
+      "notifications_activeNotification Rails & Queue (24 Deliveries)",
+      "sensorsCommunity Connectors (6)",
+      "linkConnect Provider",
+      "linkConnect Provider",
+      "boltTest",
+      "Logs",
+      "Edit",
+      "linkConnect Provider",
+      "boltTest",
+      "Logs",
+      "Edit",
+      "linkConnect Provider",
+      "linkConnect Provider",
+      "linkConnect Provider"
+    ],
+    "network": [
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/audit?limit=25",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/audit?limit=25",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/integrations/catalog",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/notification-settings",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/integrations/catalog",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/notification-settings",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/notifications?limit=50",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/notifications?limit=50",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/integrations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/integrations",
+        "status": 200
+      }
+    ],
+    "errors": []
+  },
+  "operations": {
+    "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n7 ACTIVE\nnotifications_active\nAlerts & Rules\n23 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\npsychology\nOperational Intelligence & Predictive Prevention\nPhase 18\n\nDeterministic analysis of recurring failure patterns, early-warning signals, explainable service risk profiles, and preventive engineering recommendations.\n\nsync\nSync Patterns\nwarning\nScan Warnings\nadd\nNew Recommendation\nRECURRING PATTERNS\n4\n≥2 occurrences\nVerified failure signatures\nHIGH-RISK SERVICES\n0\nScore > 50\nRequiring proactive SRE attention\nEARLY-WARNING SIGNALS\n2\nActive\nDeterministic leading indicators\nPREVENTIVE RECS\n3\nOpen / In-Prog\nEvidence-backed engineering tasks\nRECURRENCE RATE\n100%\n30d window\nIncidents with known pattern\nspeed\nExecutive Overview & Early Warnings\npattern\nRecurring Failure Patterns\ntask_alt\nPreventive Recommendations Inbox\ntrending_up\nReliability Trends & Forecasting\ncrisis_alert\nBOUNDED EARLY-WARNING SIGNALS (LEADING INDICATORS)\nDeterministic Pre-Failure Telemetry Profiles\ndns\npayment-service\nCRITICAL\nSignal: accelerating budget burn\n▶\nError budget consumption rate is 14.4x normal over the past 1-hour window\n▶\nRemaining error budget margin is down to 24.12%\n▶\nTarget objective: 99.9% (Payment API Availability)\nHistorical Correlation: Historical data indicates burn rates >= 5x on payment-service precede critical availability outages within 2 to 4 hours if left unmitigated.\nConfidence: High\nAction: Execute latency/error diagnostic runbook (RB-LATENCY-01) and inspect upstream callers for retry storms.\ndns\npayment-service\nWARNING\nSignal: repeated deployment regression\n▶\n2 deployment regressions observed in close succession\n▶\nRecent regression: v1.8.3 showed latency/error divergence\n▶\nChange failure rate elevated above baseline\nHistorical Correlation: Corresponds to recurrent deployment regression pattern on payment-service. Similar post-release degradation previously led to customer-facing SEV-1 incidents.\nConfidence: High\nAction: Verify canary verification gates (RB-ROLLBACK-01) and review pull request telemetry diffs before promoting next release.\nanalytics\nEXPLAINABLE SERVICE RELIABILITY RISK PROFILES\nWeighted Synthesis (0-100 Score)\nSERVICE\tRISK SCORE\tCATEGORY\tINCIDENTS\tMTTR\tREMAINING BUDGET\tTREND\tCONTRIBUTING FACTORS\n\ndns\npayment-service\n\t\n27\n\tMODERATE\t1\tN/A\t100%\t\ntrending_down\ndeteriorating\n\t\nincident frequency: +12pt\ndeployment regressions: +15pt\n\n\ndns\nauth-gateway-v2\n\t\n12\n\tLOW\t2\tN/A\t100%\t\ntrending_flat\nstable\n\t\nincident frequency: +12pt\n\n\ndns\nnotification-worker\n\t\n12\n\tLOW\t1\tN/A\t100%\t\ntrending_flat\nstable\n\t\nincident frequency: +12pt\n\n\ndns\nphase23m-pay-mvwscvcp\n\t\n12\n\tLOW\t1\tN/A\t100%\t\ntrending_flat\nstable\n\t\nincident frequency: +12pt\n\n\ndns\nphase23m-pay-mvwsg4xr\n\t\n12\n\tLOW\t1\tN/A\t100%\t\ntrending_flat\nstable\n\t\nincident frequency: +12pt\n\n\ndns\nphase23m-pay-mvwshylf\n\t\n12\n\tLOW\t1\tN/A\t100%\t\ntrending_flat\nstable\n\t\nincident frequency: +12pt\n\n\ndns\nphase23m-pay-mvwsmlv9\n\t\n12\n\tLOW\t1\tN/A\t100%\t\ntrending_flat\nstable\n\t\nincident frequency: +12pt\n\n\ndns\ncart-service\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t\n\n\ndns\ncheckout-api\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t\n\n\ndns\nfraud-evaluator\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t\n\n\ndns\ninventory-mesh\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t\n\n\ndns\nledger-db-proxy\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t\n\n\ndns\nphase23m-caller-mvwscvcp\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t\n\n\ndns\nphase23m-caller-mvwsg4xr\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t\n\n\ndns\nphase23m-caller-mvwshylf\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t\n\n\ndns\nphase23m-caller-mvwsmlv9\n\t\n0\n\tLOW\t0\tN/A\t100%\t\ntrending_up\nimproving\n\t",
+    "buttons": [
+      "syncSync Patterns",
+      "warningScan Warnings",
+      "addNew Recommendation",
+      "speedExecutive Overview & Early Warnings",
+      "patternRecurring Failure Patterns",
+      "task_altPreventive Recommendations Inbox",
+      "trending_upReliability Trends & Forecasting"
+    ],
+    "network": [
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/audit?limit=25",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/audit?limit=25",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/integrations/catalog",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/notification-settings",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/integrations/catalog",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/notification-settings",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/notifications?limit=50",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/notifications?limit=50",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/integrations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/integrations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/auth/me",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/overview",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/services",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/patterns",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/incidents",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/early-warnings",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/alerts",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/service-risks",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/deployments",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/telemetry",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/early-warnings",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/service-risks",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/overview",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/trends?days=30",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/trends?days=30",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5190/api/operations/intelligence/patterns",
+        "status": 200
+      }
+    ],
+    "errors": []
+  }
+}

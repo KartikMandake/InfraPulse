@@ -2,18 +2,28 @@
  * Alert Correlation & Deduplication Engine with PostgreSQL Persistence
  */
 
-import { getAlerts as getMemAlerts, addAlert as addMemAlert, updateAlert as updateMemAlert } from '../data/alerts.js';
+import {tenantContext} from '../security/tenantContext.js';
+import { getAlerts as unsafe_getMemAlerts, addAlert as unsafe_addMemAlert, updateAlert as unsafe_updateMemAlert } from '../data/alerts.js';
 import * as alertsRepo from '../repositories/alerts.repository.js';
 import * as alertRulesRepo from '../repositories/alertRules.repository.js';
 import * as servicesRepo from '../repositories/services.repository.js';
 import * as incidentsRepo from '../repositories/incidents.repository.js';
-import { getAlertRules as getMemAlertRules, getAlertRulesSync, evaluateCondition } from './alertRules.service.js';
-import { getServices as getMemServices } from '../data/services.js';
-import { getIncidents as getMemIncidents, createIncident as createMemIncident, updateIncident as updateMemIncident } from '../data/incidents.js';
+import { getAlertRules as getMemAlertRules, getAlertRulesSync as unsafe_getAlertRulesSync, evaluateCondition } from './alertRules.service.js';
+import { getServices as unsafe_getMemServices } from '../data/services.js';
+import { getIncidents as unsafe_getMemIncidents, createIncident as unsafe_createMemIncident, updateIncident as unsafe_updateMemIncident } from '../data/incidents.js';
 import * as telemetryService from '../integrations/telemetry/telemetry.service.js';
 import { triggerIncidentNotification } from './notification.service.js';
 import { withTransaction } from '../db/connection.js';
+import { runRcaAnalysis } from '../engine/rcaEngine.js';
 import { ApiError } from '../utils/ApiError.js';
+const getMemAlerts=(...args)=>tenantContext()?[]:unsafe_getMemAlerts(...args);
+const getMemServices=(...args)=>tenantContext()?[]:unsafe_getMemServices(...args);
+const getMemIncidents=(...args)=>tenantContext()?[]:unsafe_getMemIncidents(...args);
+const getAlertRulesSync=(...args)=>tenantContext()?[]:unsafe_getAlertRulesSync(...args);
+const addMemAlert=(data)=>tenantContext()?data:unsafe_addMemAlert(data);
+const createMemIncident=(data)=>tenantContext()?data:unsafe_createMemIncident(data);
+const updateMemAlert=(...args)=>tenantContext()?null:unsafe_updateMemAlert(...args);
+const updateMemIncident=(...args)=>tenantContext()?null:unsafe_updateMemIncident(...args);
 
 /**
  * Checks if Service A and Service B share a dependency relationship.
@@ -125,6 +135,7 @@ export async function evaluateAndCorrelateAlerts(options = {}) {
       existingAlerts = aList.length > 0 ? aList : getMemAlerts();
       existingIncidents = iList.length > 0 ? iList : getMemIncidents();
     } catch (err) {
+      if(tenantContext())throw err;
       console.warn('[AlertCorrelation] DB load fallback:', err.message);
       services = getMemServices();
       rules = getAlertRulesSync();
@@ -223,6 +234,7 @@ export async function evaluateAndCorrelateAlerts(options = {}) {
                 firedAt: firedTime
               });
             } catch (err) {
+              if(tenantContext())throw err;
               console.warn('[AlertCorrelation] DB alert update fallback:', err.message);
             }
           }
@@ -277,6 +289,7 @@ export async function evaluateAndCorrelateAlerts(options = {}) {
           try {
             savedAlert = await alertsRepo.createAlertRecord(alertPayload);
           } catch (err) {
+            if(tenantContext())throw err;
             console.warn('[AlertCorrelation] DB alert create fallback:', err.message);
           }
         }
@@ -298,8 +311,22 @@ export async function evaluateAndCorrelateAlerts(options = {}) {
 
     for (const incident of openIncidents) {
       const topoRelation = checkTopologicalRelation(alert.serviceId, incident.serviceId, services);
+      const isSharedResource = Boolean(alert.resourceId && (incident.resourceId || incident.correlatedResourceIds?.includes(alert.resourceId)) && (alert.resourceId === incident.resourceId || incident.correlatedResourceIds?.includes(alert.resourceId)));
+      const isSharedTrace = Boolean(alert.traceId && (incident.traceId || incident.correlatedTraceIds?.includes(alert.traceId)) && (alert.traceId === incident.traceId || incident.correlatedTraceIds?.includes(alert.traceId)));
 
-      if (topoRelation.related) {
+      const isRelated = topoRelation.related || isSharedResource || isSharedTrace;
+      if (isRelated) {
+        const relationshipName = isSharedResource
+          ? 'shared_infrastructure_host'
+          : isSharedTrace
+          ? 'shared_distributed_trace'
+          : (topoRelation.relationship || 'topological_dependency');
+        const relationPath = isSharedResource
+          ? "shared_resource:" + alert.resourceId
+          : isSharedTrace
+          ? "shared_trace:" + alert.traceId
+          : (topoRelation.path || (alert.serviceId + " -> " + incident.serviceId));
+
         // Link to existing incident within database transaction
         if (useDatabase) {
           try {
@@ -311,13 +338,14 @@ export async function evaluateAndCorrelateAlerts(options = {}) {
                   type: 'alert_fired',
                   time: new Date().toISOString().substring(11, 19) + ' UTC',
                   title: `Correlated Alert: ${alert.title}`,
-                  description: `Alert ${alert.id} fired for ${alert.serviceName}. Linked via ${topoRelation.relationship}.`,
+                  description: `Alert ${alert.id} fired for ${alert.serviceName}. Linked via ${relationshipName}.`,
                   source: 'telemetry_anomaly'
                 },
                 client
               );
             });
           } catch (err) {
+            if(tenantContext())throw err;
             console.warn('[AlertCorrelation] DB incident link fallback:', err.message);
           }
         }
@@ -325,7 +353,7 @@ export async function evaluateAndCorrelateAlerts(options = {}) {
         updateMemAlert(alert.id, { incidentId: incident.id });
         linked = true;
 
-        const rationale = `Alert "${alert.id}" (${alert.serviceName}) correlated to open incident "${incident.id}" via ${topoRelation.relationship} (${topoRelation.path}).`;
+        const rationale = `Alert "${alert.id}" (${alert.serviceName}) correlated to open incident "${incident.id}" via ${relationshipName} (${relationPath}). Contributing signal: ${alert.metric} (${alert.currentValue}).`;
         evaluationReport.correlationRationale.push({
           alertId: alert.id,
           incidentId: incident.id,
@@ -394,8 +422,29 @@ export async function evaluateAndCorrelateAlerts(options = {}) {
             await alertsRepo.updateAlertRecord(alert.id, { incidentId: newIncId }, client);
           });
         } catch (err) {
+          if(tenantContext())throw err;
           console.warn('[AlertCorrelation] DB new incident create fallback:', err.message);
         }
+      }
+
+      try {
+        const initialRca = runRcaAnalysis({
+          incident: incPayload,
+          services,
+          alerts: existingAlerts,
+          deployments: [],
+          logs: [],
+          traces: []
+        });
+        if (initialRca.length > 0) {
+          incPayload.rcaHypotheses = initialRca.slice(0, 5);
+          incPayload.rcaConfidenceLevel = initialRca[0].confidenceLevel || 'STRONG_HYPOTHESIS';
+          incPayload.aiConfidencePercent = Math.round(initialRca[0].score);
+          incPayload.aiHypothesis = initialRca[0].summary;
+          incPayload.aiRemediationRecommendation = initialRca[0].suggestedNextAction;
+        }
+      } catch (rcaErr) {
+        console.warn('[AlertCorrelation] Auto RCA notice:', rcaErr.message);
       }
 
       const memInc = createMemIncident(incPayload);

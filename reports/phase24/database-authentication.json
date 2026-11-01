@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "mode": "actual owned PostgreSQL 16 loopback",
+  "incorrectPasswordSqlState": "28P01",
+  "correctPasswordConnectionsVerified": true,
+  "transport": "SCRAM; loopback TLS exemption only. Remote TLS not tested."
+}

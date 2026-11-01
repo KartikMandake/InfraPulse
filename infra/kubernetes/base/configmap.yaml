@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: infrapulse-config
+  namespace: infrapulse
+  labels:
+    app.kubernetes.io/name: infrapulse
+    app.kubernetes.io/part-of: infrapulse
+data:
+  NODE_ENV: "development"
+  APP_ENV: "development"
+  AWS_LIFECYCLE_MUTATIONS_ENABLED: "false"
+  DOCKER_LIFECYCLE_ENABLED: "false"
+  KUBERNETES_LIFECYCLE_ENABLED: "false"
+  REMEDIATION_EXECUTION_ENABLED: "false"
+  REMEDIATION_PRODUCTION_ENABLED: "false"
+  PORT: "5000"
+  PGHOST: "postgres-service"
+  PGPORT: "5432"
+  PGDATABASE: "infrapulse"
+  PGUSER: "postgres"
+  FRONTEND_URL: "http://frontend-service:8080"
+  APP_BASE_URL: "http://localhost:8080"
+  CORS_ORIGIN: "http://localhost:8080,http://127.0.0.1:8080"
+  TRUST_PROXY: "1"
+  REQUEST_BODY_LIMIT: "2mb"
+  COOKIE_SECURE: "false"
+  AUTO_MIGRATE: "true"
+  AUTO_SEED: "true"
+  NOTIFICATION_WORKER_ENABLED: "false"
+  NOTIFICATION_MOCK_MODE: "true"
+  TELEMETRY_MODE: "demo"
+  PROMETHEUS_URL: "http://prometheus-service:9090"
+  TEMPO_URL: "http://tempo-service:3200"
+  LOKI_URL: "http://loki-service:3100"
+  OTEL_COLLECTOR_URL: "http://otel-collector-service:4318"
+

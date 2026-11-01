@@ -1,3 +1,4 @@
+import {otlpIdentity,inIngestionTenant,signedIntegrationIdentity} from '../security/ingestionIdentity.js';
 /**
  * Enterprise Integrations Controller — InfraPulse Phase 19
  */
@@ -6,6 +7,8 @@ import { integrationService } from '../services/integration.service.js';
 import { integrationRegistry } from '../integrations/core/IntegrationRegistry.js';
 import { integrationRepository } from '../repositories/integration.repository.js';
 import { ingestEvent } from '../services/eventNormalizer.service.js';
+import { telemetryPipelineService } from '../services/telemetryPipeline.service.js';
+import { serviceMappingService } from '../services/serviceMapping.service.js';
 import { ApiError } from '../utils/ApiError.js';
 
 export const integrationsController = {
@@ -122,17 +125,19 @@ export const integrationsController = {
   // === Provider-Specific Webhook Handlers ===
   async handleGitHubWebhook(req, res, next) {
     try {
+      const identity=await signedIntegrationIdentity(req,'github');
       const eventType = req.headers['x-github-event'] || 'push';
-      const tenantId = req.query.tenantId || req.user?.tenantId || 'default_tenant';
+      const tenantId = identity.tenant_id;
 
-      const result = await integrationService.processWebhook({
+      const result = await inIngestionTenant(identity,()=>integrationService.processWebhook({
+        integrationId:identity.id,
         providerKey: 'github',
         eventType,
         payload: req.body,
         rawBody: req.rawBody,
         headers: req.headers,
         tenantId
-      });
+      }));
 
       res.status(200).json({ success: true, data: result });
     } catch (err) {
@@ -142,16 +147,18 @@ export const integrationsController = {
 
   async handleGrafanaWebhook(req, res, next) {
     try {
-      const tenantId = req.query.tenantId || req.user?.tenantId || 'default_tenant';
+      const identity=await signedIntegrationIdentity(req,'grafana');
+      const tenantId = identity.tenant_id;
 
-      const result = await integrationService.processWebhook({
+      const result = await inIngestionTenant(identity,()=>integrationService.processWebhook({
+        integrationId:identity.id,
         providerKey: 'grafana',
         eventType: 'alert',
         payload: req.body,
         rawBody: req.rawBody,
         headers: req.headers,
         tenantId
-      });
+      }));
 
       res.status(200).json({ success: true, data: result });
     } catch (err) {
@@ -159,109 +166,75 @@ export const integrationsController = {
     }
   },
 
-  // === OTLP Ingestion Handlers ===
-  async handleOtlpMetrics(req, res, next) {
+
+  async syncIntegration(req, res, next) {
     try {
-      const tenantId = req.query.tenantId || req.user?.tenantId || 'default_tenant';
-      const provider = integrationRegistry.get('opentelemetry');
-
-      // Enforce 2MB request payload size
-      const bodyBytes = Buffer.byteLength(JSON.stringify(req.body || {}));
-      if (bodyBytes > 2097152) {
-        throw ApiError.badRequest('OTLP Payload Too Large: Exceeds 2MB limit.');
-      }
-
-      // Check auth if configured
-      const integration = await integrationRepository.findByProvider('opentelemetry', tenantId);
-      if (integration) {
-        const credRecord = await integrationRepository.findCredentials(integration.id, tenantId);
-        if (credRecord) {
-          const authOk = provider.authenticateRequest(req.headers, {
-            ingestionKey: credRecord.redacted_preview?.ingestionKey
-          });
-          if (!authOk) {
-            throw ApiError.unauthorized('Invalid or missing OTLP ingestion credentials.');
-          }
-        }
-      }
-
-      const events = provider.normalizeMetricPayload(req.body);
-      for (const ev of events) {
-        await ingestEvent(ev, tenantId);
-      }
-
-      res.status(200).json({ success: true, ingestedCount: events.length });
+      const tenantId = req.user?.tenantId || 'default_tenant';
+      const result = await integrationService.syncIntegration(req.params.id, req.user, tenantId);
+      res.status(200).json({ success: true, data: result });
     } catch (err) {
       next(err);
     }
   },
 
-  async handleOtlpTraces(req, res, next) {
+  async getTelemetryStats(req, res, next) {
     try {
-      const tenantId = req.query.tenantId || req.user?.tenantId || 'default_tenant';
-      const provider = integrationRegistry.get('opentelemetry');
-
-      const bodyBytes = Buffer.byteLength(JSON.stringify(req.body || {}));
-      if (bodyBytes > 2097152) {
-        throw ApiError.badRequest('OTLP Payload Too Large: Exceeds 2MB limit.');
-      }
-
-      const integration = await integrationRepository.findByProvider('opentelemetry', tenantId);
-      if (integration) {
-        const credRecord = await integrationRepository.findCredentials(integration.id, tenantId);
-        if (credRecord) {
-          const authOk = provider.authenticateRequest(req.headers, {
-            ingestionKey: credRecord.redacted_preview?.ingestionKey
-          });
-          if (!authOk) {
-            throw ApiError.unauthorized('Invalid or missing OTLP ingestion credentials.');
-          }
-        }
-      }
-
-      const events = provider.normalizeTracePayload(req.body);
-      for (const ev of events) {
-        await ingestEvent(ev, tenantId);
-      }
-
-      res.status(200).json({ success: true, ingestedCount: events.length });
+      const tenantId = req.user?.tenantId || 'default_tenant';
+      const stats = await integrationService.getTelemetryStats(req.params.id, tenantId);
+      res.status(200).json({ success: true, data: stats });
     } catch (err) {
       next(err);
     }
   },
 
-  async handleOtlpLogs(req, res, next) {
+    async getFreshness(req, res, next) {
     try {
-      const tenantId = req.query.tenantId || req.user?.tenantId || 'default_tenant';
-      const provider = integrationRegistry.get('opentelemetry');
-
-      const bodyBytes = Buffer.byteLength(JSON.stringify(req.body || {}));
-      if (bodyBytes > 2097152) {
-        throw ApiError.badRequest('OTLP Payload Too Large: Exceeds 2MB limit.');
-      }
-
-      const integration = await integrationRepository.findByProvider('opentelemetry', tenantId);
-      if (integration) {
-        const credRecord = await integrationRepository.findCredentials(integration.id, tenantId);
-        if (credRecord) {
-          const authOk = provider.authenticateRequest(req.headers, {
-            ingestionKey: credRecord.redacted_preview?.ingestionKey
-          });
-          if (!authOk) {
-            throw ApiError.unauthorized('Invalid or missing OTLP ingestion credentials.');
-          }
-        }
-      }
-
-      const events = provider.normalizeLogPayload(req.body);
-      for (const ev of events) {
-        await ingestEvent(ev, tenantId);
-      }
-
-      res.status(200).json({ success: true, ingestedCount: events.length });
+      const tenantId = req.user?.tenantId || 'default_tenant';
+      const freshness = await telemetryPipelineService.getTelemetryFreshness(req.params.id, tenantId);
+      res.status(200).json({ success: true, data: freshness });
     } catch (err) {
       next(err);
     }
-  }
+  },
+
+  async getDeadLetters(req, res, next) {
+    try {
+      const tenantId = req.user?.tenantId || 'default_tenant';
+      const deadLetters = await integrationRepository.listDeadLetters(tenantId, {
+        integrationId: req.params.id,
+        limit: req.query.limit || 50
+      });
+      res.status(200).json({ success: true, count: deadLetters.length, data: deadLetters });
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  async getObservedDependencies(req, res, next) {
+    try {
+      const tenantId = req.user?.tenantId || 'default_tenant';
+      const environment = req.query.environment || 'staging';
+      const dependencies = await serviceMappingService.getServiceDependencies(tenantId, environment);
+      res.status(200).json({ success: true, count: dependencies.length, data: dependencies });
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  handleOtlpMetrics(req,res,next){return ingestOtlp(req,res,next,'metric');},
+  handleOtlpTraces(req,res,next){return ingestOtlp(req,res,next,'trace');},
+  handleOtlpLogs(req,res,next){return ingestOtlp(req,res,next,'log');}
 };
-
+async function ingestOtlp(req,res,next,type){
+ try{
+  const identity=await otlpIdentity(req);
+  return await inIngestionTenant(identity,async()=>{
+   const provider=integrationRegistry.get('opentelemetry');
+   let events;try{events=provider[type==='metric'?'normalizeMetricPayload':type==='trace'?'normalizeTracePayload':'normalizeLogPayload'](req.body);}catch(e){throw ApiError.badRequest(e.message);}
+   const environment=identity.environment||identity.config?.environment||'staging';
+   events=events.map(event=>({...event,environment,tenantId:identity.tenant_id,telemetryMode:'live',isSimulated:false}));
+   const data=await telemetryPipelineService.normalizeAndRouteTelemetry({integrationId:identity.id,tenantId:identity.tenant_id,environment,provider:'opentelemetry',telemetryType:type,events,rawBytes:Buffer.byteLength(req.rawBody||'')});
+   res.status(data.rejectedCount&&data.processedCount===0?422:200).json({success:data.rejectedCount===0,ingestedCount:data.processedCount,duplicateCount:data.duplicateCount,data});
+  });
+ }catch(e){next(e);}
+}

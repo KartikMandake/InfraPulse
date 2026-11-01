@@ -12,6 +12,7 @@ router.post('/logout', authController.logout);
 
 // Session inspect
 router.get('/me', requireAuth, authController.getMe);
+router.post('/revoke-sessions', requireAuth, authController.revokeSessions);
 
 // User administration (Admin only)
 router.get('/users', requireRole('admin'), authController.listUsers);

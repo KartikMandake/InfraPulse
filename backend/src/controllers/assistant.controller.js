@@ -1,9 +1,16 @@
 import * as aiInvestigationService from '../services/aiInvestigation.service.js';
+import { ApiError } from '../utils/ApiError.js';
 
 export async function chatWithAssistant(req, res, next) {
   try {
     const { incidentId } = req.params;
     const { message, conversationId, provider } = req.body || {};
+    if (!message || typeof message !== 'string' || message.trim().length === 0) {
+      throw ApiError.badRequest('Message is required and cannot be empty.');
+    }
+    if (message.length > 8192) {
+      throw ApiError.badRequest('Message length exceeds maximum permitted limit of 8192 characters.');
+    }
     const result = await aiInvestigationService.askAssistant({
       incidentId,
       user: req.user,

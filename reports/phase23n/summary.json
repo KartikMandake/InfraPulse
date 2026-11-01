@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-11-01T01:24:52.445Z",
+  "decision": "NOT PRODUCTION READY / NO-GO",
+  "existingTests": 196,
+  "existingPassed": 196,
+  "independentChecks": 37,
+  "independentPassed": 19,
+  "independentFailed": 18,
+  "openDefects": 18,
+  "criticalDefects": [
+    "N01",
+    "N02",
+    "N03",
+    "N09",
+    "N11"
+  ],
+  "realAwsMutationCommands": 0,
+  "realDockerKubernetesMutations": 0,
+  "liveAwsDiscovery": {
+    "ec2": {
+      "status": "VERIFIED READ-ONLY",
+      "count": 1,
+      "allApSouth1": true,
+      "liveClassification": true
+    },
+    "ebs": {
+      "status": "VERIFIED READ-ONLY",
+      "count": 1,
+      "allApSouth1": true,
+      "liveClassification": true
+    },
+    "addresses": {
+      "status": "VERIFIED READ-ONLY",
+      "count": 1,
+      "allApSouth1": true,
+      "liveClassification": true
+    },
+    "rds": {
+      "status": "VERIFIED READ-ONLY",
+      "count": 1,
+      "allApSouth1": true,
+      "liveClassification": true
+    }
+  },
+  "logicalRecovery": {
+    "tables": 74,
+    "rows": 295,
+    "matchingHashes": true
+  },
+  "archivalPitr": "NOT VERIFIED",
+  "applicationFilesChanged": [],
+  "environmentFilesUnchanged": true,
+  "servicesStopped": true
+}

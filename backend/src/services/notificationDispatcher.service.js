@@ -1,7 +1,12 @@
 import nodemailer from 'nodemailer';
 import { config } from '../config/env.js';
+import fs from 'node:fs';
+import {logger} from '../utils/logger.js';
 import * as notifRepo from '../repositories/notification.repository.js';
 import { sanitizeText } from './notificationTemplates.service.js';
+import { queueGauge, heartbeatAge, recordOperation } from '../observability/metrics.js';
+import { performance } from 'node:perf_hooks';
+import { withTenant } from '../security/tenantContext.js';
 
 // In-memory test spy for mock deliveries during automated testing
 export const mockDeliveries = {
@@ -201,29 +206,48 @@ export async function dispatchDelivery(delivery) {
 /**
  * Processes pending items from the persistent delivery queue.
  */
-export async function processDeliveryQueue(batchSize = 10) {
+export async function processDeliveryQueue(batchSize = 10, {throwOnError=false} = {}) {
+  const start = performance.now();
+  let failed = false;
   try {
     const claimed = await notifRepo.claimPendingDeliveries(batchSize);
-    if (!claimed || claimed.length === 0) return 0;
+    if (!claimed || claimed.length === 0) {
+      try { queueGauge.set({ state: 'pending' }, 0); } catch {}
+      return 0;
+    }
+
+    try { queueGauge.set({ state: 'pending' }, claimed.length); } catch {}
 
     for (const delivery of claimed) {
-      await dispatchDelivery(delivery);
+      if (delivery.tenant_id) {
+        await withTenant(delivery.tenant_id, () => dispatchDelivery(delivery));
+      } else {
+        await dispatchDelivery(delivery);
+      }
     }
 
     return claimed.length;
   } catch (err) {
-    console.error('[NotificationDispatcher Error]: Queue processing error:', err.message);
+    failed = true;
+    logger.error('Notification queue processing failed',{code:err.code,...(!config.productionLike?{message:err.message}:{})});
+    if(throwOnError)throw err;
     return 0;
+  } finally {
+    try { recordOperation('worker.batch', performance.now() - start, failed); } catch {}
   }
 }
 
 /**
  * Starts background queue processing timer.
  */
-export function startBackgroundWorker(intervalMs = 5000) {
+let activePoll=null;
+function heartbeat(healthy){try{heartbeatAge.set(0);}catch{}if(config.workerHealthFile){try{fs.writeFileSync(config.workerHealthFile,JSON.stringify({pid:process.pid,at:Date.now(),healthy}));}catch(error){logger.error('Worker health file update failed',{code:error.code});}}}
+export function startBackgroundWorker(intervalMs = 5000,{processBatch=processDeliveryQueue}={}) {
   if (workerIntervalId) return;
-  workerIntervalId = setInterval(async () => {
-    await processDeliveryQueue(10);
+  heartbeat(true);
+  workerIntervalId = setInterval(() => {
+    if(activePoll)return;
+    activePoll=Promise.resolve().then(()=>processBatch(10,{throwOnError:true})).then(()=>heartbeat(true)).catch(()=>heartbeat(false)).finally(()=>{activePoll=null;});
   }, intervalMs);
 
   if (workerIntervalId.unref) {
@@ -239,4 +263,5 @@ export function stopBackgroundWorker() {
     clearInterval(workerIntervalId);
     workerIntervalId = null;
   }
+  return activePoll||Promise.resolve();
 }

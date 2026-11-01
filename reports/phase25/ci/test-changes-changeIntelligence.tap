@@ -1,0 +1,107 @@
+TAP version 13
+# Subtest: Phase 16: Deployment Risk & Change Intelligence
+    # Subtest: 1. Dependency Graph Direction: Identifies callers as downstream impact targets
+    ok 1 - 1. Dependency Graph Direction: Identifies callers as downstream impact targets
+      ---
+      duration_ms: 5.1947
+      type: 'test'
+      ...
+    # Subtest: 2. Transitive Blast Radius: Traces multi-hop callers with decreasing confidence
+    ok 2 - 2. Transitive Blast Radius: Traces multi-hop callers with decreasing confidence
+      ---
+      duration_ms: 0.6734
+      type: 'test'
+      ...
+    # Subtest: 3. Shared Dependency Detection: Identifies shared stateful resources with callers
+    ok 3 - 3. Shared Dependency Detection: Identifies shared stateful resources with callers
+      ---
+      duration_ms: 0.6563
+      type: 'test'
+      ...
+    # Subtest: 4. Deterministic Risk Scoring: Computes exact 0-100 score and factor breakdown
+    ok 4 - 4. Deterministic Risk Scoring: Computes exact 0-100 score and factor breakdown
+      ---
+      duration_ms: 4.5462
+      type: 'test'
+      ...
+    # Subtest: 5. Missing Evidence Behavior: Degrades confidence and flags uncertainty
+    ok 5 - 5. Missing Evidence Behavior: Degrades confidence and flags uncertainty
+      ---
+      duration_ms: 0.7608
+      type: 'test'
+      ...
+    # Subtest: 6. Insufficient Historical Samples: Does not invent or fabricate failure rate
+    ok 6 - 6. Insufficient Historical Samples: Does not invent or fabricate failure rate
+      ---
+      duration_ms: 0.6023
+      type: 'test'
+      ...
+    # Subtest: 7. Pre-Deployment SLO Health Integration: Healthy SLO produces 0 penalty points
+    ok 7 - 7. Pre-Deployment SLO Health Integration: Healthy SLO produces 0 penalty points
+      ---
+      duration_ms: 0.652
+      type: 'test'
+      ...
+    # Subtest: 8. Post-Deployment Regression Detection: Identifies latency and error rate shifts
+    ok 8 - 8. Post-Deployment Regression Detection: Identifies latency and error rate shifts
+      ---
+      duration_ms: 319.8901
+      type: 'test'
+      ...
+    # Subtest: 9. Temporal Correlation vs Causation: Explicitly labels temporal association without proving causality
+    ok 9 - 9. Temporal Correlation vs Causation: Explicitly labels temporal association without proving causality
+      ---
+      duration_ms: 25.2011
+      type: 'test'
+      ...
+    # Subtest: 10. Controlled Webhook Ingestion: Rejects invalid tokens with 401 Unauthorized
+    ok 10 - 10. Controlled Webhook Ingestion: Rejects invalid tokens with 401 Unauthorized
+      ---
+      duration_ms: 13.1647
+      type: 'test'
+      ...
+    # Subtest: 11. Idempotent Webhook Handling: Re-submitting same idempotency key returns existing record
+    ok 11 - 11. Idempotent Webhook Handling: Re-submitting same idempotency key returns existing record
+      ---
+      duration_ms: 252.5134
+      type: 'test'
+      ...
+    # Subtest: 12. AI Assistant Grounding: Incorporates change events and regressions into verifiable catalog
+    ok 12 - 12. AI Assistant Grounding: Incorporates change events and regressions into verifiable catalog
+      ---
+      duration_ms: 4.5429
+      type: 'test'
+      ...
+    # Subtest: 13. Database Persistence: Initial changes and assessments survive in PostgreSQL
+    ok 13 - 13. Database Persistence: Initial changes and assessments survive in PostgreSQL
+      ---
+      duration_ms: 14.0052
+      type: 'test'
+      ...
+    # Subtest: 14. Historical Change Intelligence: Computes DORA metrics across sufficient sample
+    ok 14 - 14. Historical Change Intelligence: Computes DORA metrics across sufficient sample
+      ---
+      duration_ms: 4.4996
+      type: 'test'
+      ...
+    # Subtest: 15. Blast Radius Summary: Isolated leaf service reports 0 downstream callers
+    ok 15 - 15. Blast Radius Summary: Isolated leaf service reports 0 downstream callers
+      ---
+      duration_ms: 0.6479
+      type: 'test'
+      ...
+    1..15
+ok 1 - Phase 16: Deployment Risk & Change Intelligence
+  ---
+  duration_ms: 654.1971
+  type: 'suite'
+  ...
+1..1
+# tests 15
+# suites 1
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1049.742

@@ -1,0 +1,107 @@
+TAP version 13
+# Subtest: Phase 23C: Cloud Resource Lifecycle & Cost Governance
+    # Subtest: 1. Resource Inventory: Retrieves all simulated cloud resources across AWS, Docker, and K8s
+    ok 1 - 1. Resource Inventory: Retrieves all simulated cloud resources across AWS, Docker, and K8s
+      ---
+      duration_ms: 229.0299
+      type: 'test'
+      ...
+    # Subtest: 2. Health Probing: Deterministically probes provider status and updates health score
+    ok 2 - 2. Health Probing: Deterministically probes provider status and updates health score
+      ---
+      duration_ms: 93.6273
+      type: 'test'
+      ...
+    # Subtest: 3. Dependency Check: Detects running downstream callers when evaluating Safe Stop
+    ok 3 - 3. Dependency Check: Detects running downstream callers when evaluating Safe Stop
+      ---
+      duration_ms: 136.9252
+      type: 'test'
+      ...
+    # Subtest: 4. Dry-Run Evaluation: Generates safety warnings, affected callers, and persistent storage guarantees
+    ok 4 - 4. Dry-Run Evaluation: Generates safety warnings, affected callers, and persistent storage guarantees
+      ---
+      duration_ms: 120.4769
+      type: 'test'
+      ...
+    # Subtest: 5. Persistent Storage Protection: Preserves EBS volume and detach state without data deletion
+    ok 5 - 5. Persistent Storage Protection: Preserves EBS volume and detach state without data deletion
+      ---
+      duration_ms: 99.6846
+      type: 'test'
+      ...
+    # Subtest: 6. RBAC Enforcement: Viewer cannot request lifecycle operations (403 Forbidden)
+    ok 6 - 6. RBAC Enforcement: Viewer cannot request lifecycle operations (403 Forbidden)
+      ---
+      duration_ms: 89.0944
+      type: 'test'
+      ...
+    # Subtest: 7. Separation of Duties: Submitter cannot approve their own operation
+    ok 7 - 7. Separation of Duties: Submitter cannot approve their own operation
+      ---
+      duration_ms: 142.2574
+      type: 'test'
+      ...
+    # Subtest: 8. Two-Person Approval Flow: Responder requests, Admin approves, execution succeeds
+    ok 8 - 8. Two-Person Approval Flow: Responder requests, Admin approves, execution succeeds
+      ---
+      duration_ms: 183.8641
+      type: 'test'
+      ...
+    # Subtest: 9. Idempotency Key Deduplication: Repeated requests with identical key return original operation
+    ok 9 - 9. Idempotency Key Deduplication: Repeated requests with identical key return original operation
+      ---
+      duration_ms: 117.604
+      type: 'test'
+      ...
+    # Subtest: 10. Concurrent Operation Lock: Prevents conflicting simultaneous operations on the same resource
+    ok 10 - 10. Concurrent Operation Lock: Prevents conflicting simultaneous operations on the same resource
+      ---
+      duration_ms: 104.0662
+      type: 'test'
+      ...
+    # Subtest: 11. Cost Governance: Disaggregates compute, persistent storage, and public IPv4
+    ok 11 - 11. Cost Governance: Disaggregates compute, persistent storage, and public IPv4
+      ---
+      duration_ms: 91.2666
+      type: 'test'
+      ...
+    # Subtest: 12. Storage Cost Persistence: EBS/PVC storage charges continue even when compute is stopped
+    ok 12 - 12. Storage Cost Persistence: EBS/PVC storage charges continue even when compute is stopped
+      ---
+      duration_ms: 77.3749
+      type: 'test'
+      ...
+    # Subtest: 13. Schedule Governance: Supports weekday schedules in Asia/Kolkata timezone with pause/resume
+    ok 13 - 13. Schedule Governance: Supports weekday schedules in Asia/Kolkata timezone with pause/resume
+      ---
+      duration_ms: 98.3747
+      type: 'test'
+      ...
+    # Subtest: 14. Emergency Kill Switch: Blocks all mutating lifecycle operations immediately when active
+    ok 14 - 14. Emergency Kill Switch: Blocks all mutating lifecycle operations immediately when active
+      ---
+      duration_ms: 116.2397
+      type: 'test'
+      ...
+    # Subtest: 15. Audit Trail: All lifecycle operations and approvals are recorded with user attribution
+    ok 15 - 15. Audit Trail: All lifecycle operations and approvals are recorded with user attribution
+      ---
+      duration_ms: 127.3671
+      type: 'test'
+      ...
+    1..15
+ok 1 - Phase 23C: Cloud Resource Lifecycle & Cost Governance
+  ---
+  duration_ms: 1832.5249
+  type: 'suite'
+  ...
+1..1
+# tests 15
+# suites 1
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2651.4866

@@ -1,0 +1,2 @@
+import fs from 'node:fs';
+try{const file=process.env.WORKER_HEALTH_FILE;if(!file)throw new Error();const state=JSON.parse(fs.readFileSync(file,'utf8')),age=Date.now()-Number(state.at),maximum=Number(process.env.WORKER_HEALTH_MAX_AGE_MS||120000);if(state.healthy!==true||!Number.isFinite(age)||age<0||!Number.isInteger(maximum)||maximum<1000||age>maximum)throw new Error();process.exitCode=0;}catch{process.exitCode=1;}

@@ -1,0 +1,76 @@
+{
+  "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health\n99.98%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nAPI Proxy Initializing\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\naccount_tree\nServices & Topology Correlation\nDegraded Mesh (2 Critical)\n\nTopological service dependency graph, bidirectional causal impact propagation, and live telemetry signals.\n\nbubble_chart\nGraph\ntable_rows\nInventory\nfilter_alt\nAll (8)\nNominal (4)\nDegraded (2)\nCritical (2)\nOVERLAYS:\nreport\nHighlight Unhealthy\nhub\nDownstream Cascade Path\nbolt\nHigh Latency (>150ms)\nNominal\nDegraded\nCritical\nSelected / Cascade\nClick node to trace causal downstream dependencies & live metrics\nTIER-0\ngRPC\npayment-service\np99: 412ms\nerr: 4.12%\nTIER-0\nHTTP\nauth-gateway-v2\np99: 285ms\nerr: 2.45%\nTIER-0\nCALLER\ncheckout-api\np99: 340ms\nerr: 3.1%\nTIER-1\ngRPC\ninventory-mesh\np99: 22ms\nerr: 0.01%\nTIER-1\nDEP\nledger-db-proxy\np99: 395ms\nerr: 5.8%\nTIER-1\nHTTP\ncart-service\np99: 18ms\nerr: 0.02%\nTIER-2\nKafka\nnotification-worker\np99: 14ms\nerr: 0%\nTIER-1\nDEP\nfraud-evaluator\np99: 38ms\nerr: 0.04%\nActive Mesh:\n8 Nodes visible\n•\n7 Dependency edges mapped\nTopological Correlation Active\npayment-service\nTier-0 • payments-core • us-east-1\nDeep Dive →\nP99 LATENCY\n412ms\nbaseline: 24ms\nERROR RATE\n4.12%\ntarget: <0.05%\nTHROUGHPUT\n18.4k/s\n16 Pods Active\nCPU / MEMORY\n88.4%\nMemory: 94.2%\nTopological Call Neighbors\nGraph Edge Trace\nDirect Downstream Callers (1) [Clients]:\n← checkout-api\nUpstream Dependencies (3) [Servers]:\n→ ledger-db-proxy\n→ fraud-evaluator\n→ stripe-bridge\nACTIVE FIRING ALERTS (2)\nService Health Status Failure: payment-service (status == critical)\ncritical\nHikariCP Connection Pool Exhaustion (>95% active)\n2000\nRECENT GIT DEPLOYMENTS (1)\nv1.8.3 (canary)\n7f4a29c\nfeat(payments): add idempotency token check with distributed cache lock",
+  "events": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+    },
+    {
+      "type": "error",
+      "text": "[API Error] GET /api/services: Phase 23M controlled API failure"
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 503
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+    },
+    {
+      "type": "error",
+      "text": "[API Error] GET /api/services: Phase 23M controlled API failure"
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 200
+    }
+  ]
+}

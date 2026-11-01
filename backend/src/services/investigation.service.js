@@ -1,14 +1,18 @@
+import {tenantContext} from '../security/tenantContext.js';
 import { findIncidentById, modifyIncident } from './incidents.service.js';
 import * as servicesRepo from '../repositories/services.repository.js';
 import * as alertsRepo from '../repositories/alerts.repository.js';
 import * as deploymentsRepo from '../repositories/deployments.repository.js';
 import * as investigationsRepo from '../repositories/investigations.repository.js';
-import { getServices as getMemServices } from '../data/services.js';
-import { getAlerts as getMemAlerts } from '../data/alerts.js';
-import { getDeployments as getMemDeployments } from '../data/deployments.js';
+import { cloudLifecycleRepository } from '../repositories/cloudLifecycle.repository.js';
+import { driftGovernanceRepository } from '../repositories/driftGovernance.repository.js';
+import { getServices as unsafe_getMemServices } from '../data/services.js';
+import { getAlerts as unsafe_getMemAlerts } from '../data/alerts.js';
+import { getDeployments as unsafe_getMemDeployments } from '../data/deployments.js';
 import { getTelemetryLogs, getTelemetryTraces } from '../data/telemetry.js';
+import {getLogs,getTraces} from '../integrations/telemetry/telemetry.service.js';
 import { runRcaAnalysis } from '../engine/rcaEngine.js';
-import { withTransaction } from '../db/connection.js';
+import { withTransaction,query } from '../db/connection.js';
 
 // In-memory cache for recent investigations keyed by incidentId + evidence hash
 const investigationCache = new Map();
@@ -16,7 +20,7 @@ const CACHE_TTL_MS = 60000; // 60 seconds
 
 export function invalidateInvestigationCache(incidentId) {
   if (incidentId) {
-    investigationCache.delete(incidentId);
+    investigationCache.delete(cacheKey(incidentId));
   } else {
     investigationCache.clear();
   }
@@ -24,7 +28,7 @@ export function invalidateInvestigationCache(incidentId) {
 
 export async function getIncidentInvestigation(incidentId) {
   // 1. Check in-memory cache first for fast response
-  const cached = investigationCache.get(incidentId);
+  const cached = investigationCache.get(cacheKey(incidentId));
   if (cached && (Date.now() - cached.cachedAt < CACHE_TTL_MS)) {
     return cached.data;
   }
@@ -42,10 +46,11 @@ export async function getIncidentInvestigation(incidentId) {
         hypotheses: saved.hypotheses,
         correlatedTraces: saved.correlatedTraces
       };
-      investigationCache.set(incidentId, { cachedAt: Date.now(), data: result });
+      investigationCache.set(cacheKey(incidentId), { cachedAt: Date.now(), data: result });
       return result;
     }
   } catch (err) {
+    if(tenantContext())throw err;
     console.warn('[InvestigationService] DB read fallback:', err.message);
   }
 
@@ -56,7 +61,7 @@ export async function getIncidentInvestigation(incidentId) {
 export async function runIncidentInvestigation(incidentId, options = {}) {
   // If forceFresh is false, check cache first
   if (options.forceFresh === false) {
-    const cached = investigationCache.get(incidentId);
+    const cached = investigationCache.get(cacheKey(incidentId));
     if (cached && (Date.now() - cached.cachedAt < CACHE_TTL_MS)) {
       return cached.data;
     }
@@ -71,27 +76,32 @@ export async function runIncidentInvestigation(incidentId, options = {}) {
   if (!services) {
     try {
       services = await servicesRepo.findAllServices();
-    } catch {
+    } catch (error) {
+      if(tenantContext())throw error;
       services = getMemServices();
     }
   }
   if (!alerts) {
     try {
       alerts = await alertsRepo.findAllAlerts();
-    } catch {
+    } catch (error) {
+      if(tenantContext())throw error;
       alerts = getMemAlerts();
     }
   }
   if (!deployments) {
     try {
       deployments = await deploymentsRepo.findAllDeployments();
-    } catch {
+    } catch (error) {
+      if(tenantContext())throw error;
       deployments = getMemDeployments();
     }
   }
 
-  const logs = options.logs || getTelemetryLogs();
-  const traces = options.traces || getTelemetryTraces();
+  const logs = options.logs || (tenantContext()?(await getLogs()).logs:getTelemetryLogs());
+  const traces = options.traces || (tenantContext()?(await getTraces()).traces:getTelemetryTraces());
+  const cloudResources=await cloudLifecycleRepository.getAllResources();
+  const driftEvents=await driftGovernanceRepository.getAllDriftEvents({tenantId:tenantContext()?.tenantId||'default_tenant',status:'detected'});
   const weights = options.weights || undefined;
 
   const hypotheses = runRcaAnalysis({
@@ -101,6 +111,8 @@ export async function runIncidentInvestigation(incidentId, options = {}) {
     deployments,
     logs,
     traces,
+    cloudResources,
+    driftEvents,
     weights
   });
 
@@ -120,12 +132,8 @@ export async function runIncidentInvestigation(incidentId, options = {}) {
     hypotheses,
     correlatedTraces
   };
-  investigationCache.set(incidentId, { cachedAt: Date.now(), data: result });
-
-  // Asynchronous non-blocking persistence to PostgreSQL (avoids blocking client response)
-  (async () => {
-    try {
-      await withTransaction(async (client) => {
+  // Return only after the evidence and incident hypothesis agree durably.
+  await withTransaction(async (client) => {
         if (hypotheses.length > 0) {
           const top = hypotheses[0];
           await modifyIncident(incidentId, {
@@ -133,6 +141,7 @@ export async function runIncidentInvestigation(incidentId, options = {}) {
             aiHypothesis: top.summary,
             aiRemediationRecommendation: top.suggestedNextAction
           });
+          await query('UPDATE incidents SET rca_confidence_level=$1,rca_hypotheses=$2::jsonb WHERE id=$3',[top.confidenceLevel,JSON.stringify(hypotheses),incidentId]);
         }
 
         await investigationsRepo.createInvestigationRunRecord(
@@ -145,11 +154,16 @@ export async function runIncidentInvestigation(incidentId, options = {}) {
           },
           client
         );
-      });
-    } catch (err) {
-      console.warn('[InvestigationService] Async DB persistence warning:', err.message);
-    }
-  })();
+  });
+  investigationCache.set(cacheKey(incidentId), { cachedAt: Date.now(), data: result });
 
   return result;
 }
+
+const getMemServices=(...args)=>tenantContext()?[]:unsafe_getMemServices(...args);
+
+const getMemAlerts=(...args)=>tenantContext()?[]:unsafe_getMemAlerts(...args);
+
+const getMemDeployments=(...args)=>tenantContext()?[]:unsafe_getMemDeployments(...args);
+
+function cacheKey(id){return (tenantContext()?.tenantId||"internal")+":"+id;}

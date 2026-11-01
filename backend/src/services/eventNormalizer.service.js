@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import {tenantContext} from '../security/tenantContext.js';
 import * as eventsRepo from '../repositories/events.repository.js';
 import { normalizeMetricEvent } from '../engine/normalizers/metricEventNormalizer.js';
 import { normalizeLogEvent } from '../engine/normalizers/logEventNormalizer.js';
@@ -76,6 +77,10 @@ export function normalizeEventPayload(raw, options = {}) {
 export async function ingestEvent(raw, options = {}) {
   try {
     const normalized = normalizeEventPayload(raw, options);
+    normalized.tenantId=tenantContext()?.tenantId||options.tenantId||normalized.tenantId||'default_tenant';
+    normalized.normalizedAttributes={...(raw.normalizedAttributes||{}),...(normalized.normalizedAttributes||{})};
+    normalized.sourceRefId=String(raw.sourceRefId||normalized.sourceRefId);
+    normalized.id='evt-'+crypto.createHash('sha256').update(JSON.stringify([normalized.tenantId,normalized.environment,normalized.sourceSystem,normalized.eventType,normalized.sourceRefId])).digest('hex').slice(0,56);
     const saved = await eventsRepo.insertNormalizedEvent(normalized);
     return { success: true, event: saved };
   } catch (err) {

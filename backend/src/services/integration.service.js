@@ -11,6 +11,7 @@ import { integrationRepository } from '../repositories/integration.repository.js
 import { encryptCredentials, decryptCredentials, redactSecrets } from '../integrations/core/crypto.js';
 import { recordAuditEvent } from './audit.service.js';
 import { ingestEvent } from './eventNormalizer.service.js';
+import { telemetryPipelineService } from './telemetryPipeline.service.js';
 import { ApiError } from '../utils/ApiError.js';
 
 export const integrationService = {
@@ -409,5 +410,95 @@ export const integrationService = {
 
     await integrationRepository.updateDeliveryStatus(delivery.id, 'PROCESSED', 'Manually retried and verified');
     return { success: true, message: `Delivery ${deliveryId} retried successfully.` };
-  }
+  },
+  /**
+   * Discovers and synchronizes live infrastructure workloads and telemetry.
+   */
+  async syncIntegration(id, user, tenantId = 'default_tenant') {
+    const integration = await integrationRepository.findById(id, tenantId);
+    if (!integration) {
+      throw ApiError.notFound(`Integration not found: ${id}`);
+    }
+    if(!integration.enabled)throw ApiError.conflict('Integration is disabled. Re-enable it before synchronization.');
+
+    const provider = integrationRegistry.get(integration.provider);
+    if (!provider) {
+      throw ApiError.badRequest(`Unsupported provider: ${integration.provider}`);
+    }
+
+    if (typeof provider.syncResources !== 'function') {
+      throw ApiError.badRequest(`Provider '${integration.provider}' does not support resource synchronization.`);
+    }
+
+    const credRecord = await integrationRepository.findCredentials(id, tenantId);
+    let credentials = {};
+    if (credRecord) {
+      credentials = decryptCredentials({
+        encryptedData: credRecord.encrypted_data,
+        iv: credRecord.iv,
+        authTag: credRecord.auth_tag
+      });
+    }
+
+    let syncRes;
+    try{
+      syncRes=await provider.syncResources(integration.config,credentials);
+      if(syncRes?.ok===false||syncRes?.success===false)throw new Error(syncRes.message||'Provider synchronization unavailable');
+    }catch(error){
+      await integrationRepository.update(id,{status:'ERROR',lastSyncAt:new Date().toISOString(),errorMessage:error.message},tenantId);
+      await integrationRepository.recordHealthEvent({id:`hlth-${crypto.randomBytes(6).toString('hex')}`,integrationId:id,provider:integration.provider,previousStatus:integration.status,newStatus:'ERROR',reason:error.message},tenantId);
+      throw new ApiError(502,'Provider synchronization failed: '+error.message);
+    }
+
+    const pipelineRes = await telemetryPipelineService.syncInfrastructureInventory({
+      integration,
+      discoveredResources: syncRes.discoveredResources || [],
+      telemetryMetrics: syncRes.telemetryMetrics || [],
+      tenantId,
+      organizationId: integration.organizationId || 'default_org',
+      environment: integration.environment || integration.config?.environment || 'staging'
+    });
+
+    await recordAuditEvent({
+      actor: user,
+      action: 'INTEGRATION_SYNCED',
+      resourceType: 'integration',
+      resourceId: id,
+      outcome: 'success',
+      metadata: {
+        provider: integration.provider,
+        resourcesDiscovered: pipelineRes.resourcesDiscovered,
+        driftsIdentified: pipelineRes.driftsIdentified
+      }
+    }).catch(() => {});
+
+    return {
+      success: true,
+      integrationId: id,
+      provider: integration.provider,
+      ...pipelineRes
+    };
+  },
+
+  /**
+   * Retrieves live telemetry statistics for an integration.
+   */
+  async getTelemetryStats(id, tenantId = 'default_tenant') {
+    const integration = await integrationRepository.findById(id, tenantId);
+    if (!integration) {
+      throw ApiError.notFound(`Integration not found: ${id}`);
+    }
+    const stats = await integrationRepository.getTelemetryStats(id, tenantId);
+    return stats || {
+      integrationId: id,
+      metricsReceived: 0,
+      tracesReceived: 0,
+      logsReceived: 0,
+      bytesReceived: 0,
+      errorsEncountered: 0,
+      lastError: null,
+      updatedAt: null
+    };
+  },
+
 };

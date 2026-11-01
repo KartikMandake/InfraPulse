@@ -1,0 +1,10 @@
+{
+  "status": 200,
+  "ms": 72.6465,
+  "data": {
+    "status": "LIVE",
+    "timestamp": "2026-10-31T19:53:01.501Z",
+    "uptimeSeconds": 833,
+    "pid": 21648
+  }
+}

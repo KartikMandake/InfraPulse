@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "database": "infrapulse_phase24_1793497190700_restore",
+  "attemptedMigration": "temporary owned failure probe only",
+  "sqlState": "22012",
+  "newTableRolledBack": true,
+  "migrationRecordAbsent": true,
+  "priorMigrations": 22,
+  "commandExit": 1
+}

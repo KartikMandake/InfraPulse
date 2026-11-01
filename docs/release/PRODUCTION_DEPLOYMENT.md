@@ -1,5 +1,7 @@
 # InfraPulse — Production Deployment Guide & Container Engineering
 
+> Historical release guidance. Production approval is closed; use the [Phase 24 gated runbook](../PRODUCTION_DEPLOYMENT_RUNBOOK.md) and [current readiness report](../PHASE_24_DEPLOYMENT_PREPARATION_REPORT.md). Earlier container/version/configuration assumptions do not establish current readiness.
+
 **Phase 20 Release Engineering Deliverable**  
 **Document Version**: 2.4.0  
 **Target Runtimes**: Docker Engine 24+ / Docker Compose v2.20+ / Kubernetes 1.28+  

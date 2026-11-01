@@ -1,0 +1,20 @@
+[
+  {
+    "id": "F06",
+    "name": "Logical restore and migration replay preserve every table hash",
+    "status": "PASS",
+    "mode": "ACTUAL ISOLATED POSTGRESQL",
+    "tables": 74,
+    "rows": 295,
+    "migrations": 22,
+    "newMigrationsApplied": 0
+  },
+  {
+    "id": "F07",
+    "name": "Restored tenant RLS and immutable plan guards remain effective",
+    "status": "PASS",
+    "mode": "ACTUAL ISOLATED POSTGRESQL",
+    "rlsRows": 0,
+    "tamperSqlState": "42501"
+  }
+]

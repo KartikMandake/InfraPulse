@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: Semantic versions accept stable and prerelease tags without ambiguous numeric fields
+ok 1 - Semantic versions accept stable and prerelease tags without ambiguous numeric fields
+  ---
+  duration_ms: 5.0167
+  type: 'test'
+  ...
+# Subtest: Version ordering handles numeric prerelease, stable and incompatible versions
+ok 2 - Version ordering handles numeric prerelease, stable and incompatible versions
+  ---
+  duration_ms: 0.8021
+  type: 'test'
+  ...
+# Subtest: Package and lock versions and dependency declarations must agree
+ok 3 - Package and lock versions and dependency declarations must agree
+  ---
+  duration_ms: 235.8784
+  type: 'test'
+  ...
+# Subtest: Artifact bytes, not just filenames, are verified
+ok 4 - Artifact bytes, not just filenames, are verified
+  ---
+  duration_ms: 16.3071
+  type: 'test'
+  ...
+# Subtest: Unlisted/missing files and inconsistent nested image identities fail verification
+ok 5 - Unlisted/missing files and inconsistent nested image identities fail verification
+  ---
+  duration_ms: 47.6756
+  type: 'test'
+  ...
+# Subtest: Artifact traversal, absolute paths and duplicate entries fail closed
+ok 6 - Artifact traversal, absolute paths and duplicate entries fail closed
+  ---
+  duration_ms: 11.7566
+  type: 'test'
+  ...
+# Subtest: Environment files cannot enter candidate artifacts
+ok 7 - Environment files cannot enter candidate artifacts
+  ---
+  duration_ms: 2.5922
+  type: 'test'
+  ...
+# Subtest: Validated rollback plan stays blocked and performs no external operations
+ok 8 - Validated rollback plan stays blocked and performs no external operations
+  ---
+  duration_ms: 0.9455
+  type: 'test'
+  ...
+# Subtest: Rollback cannot select a newer or identical release
+ok 9 - Rollback cannot select a newer or identical release
+  ---
+  duration_ms: 0.9282
+  type: 'test'
+  ...
+# Subtest: Deploy cannot silently downgrade
+ok 10 - Deploy cannot silently downgrade
+  ---
+  duration_ms: 0.9148
+  type: 'test'
+  ...
+# Subtest: Missing approval and incomplete backup evidence reject plans
+ok 11 - Missing approval and incomplete backup evidence reject plans
+  ---
+  duration_ms: 2.1804
+  type: 'test'
+  ...
+# Subtest: Wrong commit, failed CI, PR runs and absent review protections reject plans
+ok 12 - Wrong commit, failed CI, PR runs and absent review protections reject plans
+  ---
+  duration_ms: 2.6243
+  type: 'test'
+  ...
+# Subtest: GitHub run identity rejects fork, wrong workflow and failed runs
+ok 13 - GitHub run identity rejects fork, wrong workflow and failed runs
+  ---
+  duration_ms: 1.1829
+  type: 'test'
+  ...
+# Subtest: Documented environment metadata must require independent reviews and protected branches
+ok 14 - Documented environment metadata must require independent reviews and protected branches
+  ---
+  duration_ms: 0.8137
+  type: 'test'
+  ...
+# Subtest: Execute switch is rejected without deployment side effects
+ok 15 - Execute switch is rejected without deployment side effects
+  ---
+  duration_ms: 188.5211
+  type: 'test'
+  ...
+# Subtest: Synthetic candidates require explicit simulation
+ok 16 - Synthetic candidates require explicit simulation
+  ---
+  duration_ms: 1.9088
+  type: 'test'
+  ...
+# Subtest: Large numeric prerelease identifiers sort without precision loss
+ok 17 - Large numeric prerelease identifiers sort without precision loss
+  ---
+  duration_ms: 0.5909
+  type: 'test'
+  ...
+# Subtest: Clean-checkout policy allows templates and rejects real environment files
+ok 18 - Clean-checkout policy allows templates and rejects real environment files
+  ---
+  duration_ms: 4.3953
+  type: 'test'
+  ...
+# Subtest: Test isolation refuses remote hosts and ordinary database names
+ok 19 - Test isolation refuses remote hosts and ordinary database names
+  ---
+  duration_ms: 1.2401
+  type: 'test'
+  ...
+# Subtest: Workflow policy accepts the configured CI
+ok 20 - Workflow policy accepts the configured CI
+  ---
+  duration_ms: 47.1168
+  type: 'test'
+  ...
+# Subtest: Workflow YAML duplicate keys, floating pins and unapproved action sources fail
+ok 21 - Workflow YAML duplicate keys, floating pins and unapproved action sources fail
+  ---
+  duration_ms: 38.6107
+  type: 'test'
+  ...
+# Subtest: Workflow write permissions and inline shell expressions fail
+ok 22 - Workflow write permissions and inline shell expressions fail
+  ---
+  duration_ms: 22.1996
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 965.2384

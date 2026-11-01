@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict';import {requireIsolatedDatabase,safeTestEnvironment,save} from './common.mjs';
+requireIsolatedDatabase();Object.assign(process.env,safeTestEnvironment());
+const {query,closePool}=await import('../../backend/src/db/connection.js');const {runMigrations}=await import('../../backend/src/db/migrate.js');const {seedDatabase}=await import('../../backend/src/db/seed.js');
+try{assert.equal((await query("SELECT count(*)::int n FROM pg_tables WHERE schemaname='public'")).rows[0].n,0,'Migration CI target must be a new empty disposable database');const first=await runMigrations();assert.equal(first.totalMigrations,22);assert.equal(first.appliedNow.length,22);const replay=await runMigrations();assert.equal(replay.appliedNow.length,0);await seedDatabase();save('migrations.json',{status:'PASS',database:process.env.PGDATABASE,total:22,firstApplied:22,replayApplied:0,testSeed:true,productionDatabaseTouched:false});}finally{await closePool();}

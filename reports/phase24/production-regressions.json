@@ -1,0 +1,14 @@
+[
+  {
+    "name": "production-preparation",
+    "status": 0,
+    "ms": 1559.7897,
+    "counts": {
+      "tests": 18,
+      "pass": 18,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  }
+]

@@ -1,9 +1,17 @@
 /**
- * Integration Registry — InfraPulse Phase 19
+ * Integration Registry — InfraPulse Phase 19 / Phase 23H
  *
- * Central registry managing all platform ecosystem integration providers.
+ * Central registry managing all platform ecosystem and real infrastructure integration providers:
+ * - AWS (Amazon Web Services)
+ * - Docker (Docker Engine & Compose)
+ * - Kubernetes (Kubernetes Clusters)
+ * - Prometheus (PromQL Metrics Endpoint)
+ * - OpenTelemetry (OTLP Metrics, Traces & Logs)
+ * - GitHub, Grafana, Slack
  */
 
+import { AwsIntegrationProvider } from '../providers/aws/AwsIntegrationProvider.js';
+import { DockerIntegrationProvider } from '../providers/docker/DockerIntegrationProvider.js';
 import { GitHubProvider } from '../providers/github/GitHubProvider.js';
 import { KubernetesProvider } from '../providers/kubernetes/KubernetesProvider.js';
 import { PrometheusProvider } from '../providers/prometheus/PrometheusProvider.js';
@@ -18,12 +26,14 @@ class IntegrationRegistry {
   }
 
   registerDefaultProviders() {
-    this.register(new GitHubProvider());
+    this.register(new AwsIntegrationProvider());
+    this.register(new DockerIntegrationProvider());
     this.register(new KubernetesProvider());
     this.register(new PrometheusProvider());
+    this.register(new OpenTelemetryProvider());
+    this.register(new GitHubProvider());
     this.register(new GrafanaProvider());
     this.register(new SlackProvider());
-    this.register(new OpenTelemetryProvider());
   }
 
   register(provider) {
@@ -48,4 +58,3 @@ class IntegrationRegistry {
 }
 
 export const integrationRegistry = new IntegrationRegistry();
-

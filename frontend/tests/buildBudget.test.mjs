@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import path from 'node:path';
+const dist=path.resolve(import.meta.dirname,'../dist');
+test('M26 production JavaScript chunks stay within 500 kB without suppressing warnings',()=>{const assets=fs.readdirSync(path.join(dist,'assets')).filter(name=>name.endsWith('.js'));assert.ok(assets.length>1,'Production output should split independently loaded routes');for(const name of assets)assert.ok(fs.statSync(path.join(dist,'assets',name)).size<=500000,`${name} exceeds the chunk budget`);});
+test('M26 entry page does not eagerly load every application route',()=>{const html=fs.readFileSync(path.join(dist,'index.html'),'utf8');assert.doesNotMatch(html,/CloudLifecyclePage|ServicesTopologyPage|IncidentInvestigationPage/);});

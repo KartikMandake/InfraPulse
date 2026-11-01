@@ -1,0 +1,6 @@
+{
+  "status": 0,
+  "ms": 195.42109999999957,
+  "stdout": "[RCAEvaluation] Beginning evaluation across 8 labeled scenarios...\n\n================ RCA EVALUATION SUMMARY ================\nTop-1 Accuracy:                      85.7%\nTop-3 Accuracy:                      100%\nMean Reciprocal Rank (MRR):          0.929\nFalse-Positive Rate:                 0%\nInsufficient Evidence Detection:     100%\nAverage Investigation Duration:      3.55ms\n========================================================\n\n",
+  "stderr": ""
+}

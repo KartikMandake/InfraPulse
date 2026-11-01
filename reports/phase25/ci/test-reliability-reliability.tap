@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: Reliability 1: Duplicate notification event is rejected by idempotency key
+ok 1 - Reliability 1: Duplicate notification event is rejected by idempotency key
+  ---
+  duration_ms: 265.2525
+  type: 'test'
+  ...
+# Subtest: Reliability 2: Notification provider timeout is bounded and marks delivery failed or retry
+ok 2 - Reliability 2: Notification provider timeout is bounded and marks delivery failed or retry
+  ---
+  duration_ms: 28.4634
+  type: 'test'
+  ...
+# Subtest: Reliability 3: Notification queue claiming recovers pending records across simulated worker crash
+ok 3 - Reliability 3: Notification queue claiming recovers pending records across simulated worker crash
+  ---
+  duration_ms: 22.2212
+  type: 'test'
+  ...
+# Subtest: Reliability 4: Telemetry status reports offline state gracefully without crashing
+ok 4 - Reliability 4: Telemetry status reports offline state gracefully without crashing
+  ---
+  duration_ms: 51.6785
+  type: 'test'
+  ...
+# Subtest: Reliability 5: Malformed queries to telemetry service return clean fallback structures
+ok 5 - Reliability 5: Malformed queries to telemetry service return clean fallback structures
+  ---
+  duration_ms: 1.5942
+  type: 'test'
+  ...
+# Subtest: Reliability 6: Database connection pool handles disconnects and reconnects gracefully
+ok 6 - Reliability 6: Database connection pool handles disconnects and reconnects gracefully
+  ---
+  duration_ms: 171.3727
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1610.2471

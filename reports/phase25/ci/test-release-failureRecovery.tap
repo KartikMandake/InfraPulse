@@ -1,0 +1,140 @@
+TAP version 13
+# {"timestamp":"2026-11-01T02:59:27.020Z","severity":"ERROR","service":"infrapulse-backend","code":"42P01","message":"Database query failed"}
+# Subtest: Phase 20: Failure, Chaos & Recovery Validation
+    # Subtest: Scenario 1: PostgreSQL query error is handled gracefully without process crash
+    ok 1 - Scenario 1: PostgreSQL query error is handled gracefully without process crash
+      ---
+      duration_ms: 111.2332
+      type: 'test'
+      ...
+# {"timestamp":"2026-11-01T02:59:27.091Z","severity":"ERROR","service":"infrapulse-backend","code":"22012","message":"Database query failed"}
+    # Subtest: Scenario 2: Connection pool recovers immediately and executes subsequent queries
+    ok 2 - Scenario 2: Connection pool recovers immediately and executes subsequent queries
+      ---
+      duration_ms: 120.6683
+      type: 'test'
+      ...
+    # Subtest: Scenario 3: Worker crash does not lose pending notification deliveries
+    ok 3 - Scenario 3: Worker crash does not lose pending notification deliveries
+      ---
+      duration_ms: 45.8916
+      type: 'test'
+      ...
+    # Subtest: Scenario 4: Notification dispatch to blackhole endpoint fails gracefully with timeout
+    ok 4 - Scenario 4: Notification dispatch to blackhole endpoint fails gracefully with timeout
+      ---
+      duration_ms: 14.0264
+      type: 'test'
+      ...
+    # Subtest: Scenario 5: Webhook replay attack is rejected via delivery idempotency
+    ok 5 - Scenario 5: Webhook replay attack is rejected via delivery idempotency
+      ---
+      duration_ms: 90.4846
+      type: 'test'
+      ...
+    # Subtest: Scenario 6: Webhook tampered HMAC signature is rejected with 401 Unauthorized
+    ok 6 - Scenario 6: Webhook tampered HMAC signature is rejected with 401 Unauthorized
+      ---
+      duration_ms: 22.9737
+      type: 'test'
+      ...
+    # Subtest: Scenario 7: Webhook missing HMAC signature header is rejected with 401
+    ok 7 - Scenario 7: Webhook missing HMAC signature header is rejected with 401
+      ---
+      duration_ms: 19.9992
+      type: 'test'
+      ...
+    # Subtest: Scenario 8: Provider connection failure transitions status to ERROR
+    ok 8 - Scenario 8: Provider connection failure transitions status to ERROR
+      ---
+      duration_ms: 0.7346
+      type: 'test'
+      ...
+    # Subtest: Scenario 9: External provider rate limiting is handled with explicit error
+    ok 9 - Scenario 9: External provider rate limiting is handled with explicit error
+      ---
+      duration_ms: 0.7492
+      type: 'test'
+      ...
+    # Subtest: Scenario 10: Incomplete telemetry produces uncertainty records and penalizes evidence quality
+    ok 10 - Scenario 10: Incomplete telemetry produces uncertainty records and penalizes evidence quality
+      ---
+      duration_ms: 4.5012
+      type: 'test'
+      ...
+    # Subtest: Scenario 11: Missing telemetry produces null SLI rather than 0% or 100%
+    ok 11 - Scenario 11: Missing telemetry produces null SLI rather than 0% or 100%
+      ---
+      duration_ms: 0.5059
+      type: 'test'
+      ...
+    # Subtest: Scenario 12: Malformed OTLP payload is rejected with a validation error
+    ok 12 - Scenario 12: Malformed OTLP payload is rejected with a validation error
+      ---
+      duration_ms: 0.8303
+      type: 'test'
+      ...
+    # Subtest: Scenario 13: Webhook payload validation handles large payloads safely
+    ok 13 - Scenario 13: Webhook payload validation handles large payloads safely
+      ---
+      duration_ms: 0.3243
+      type: 'test'
+      ...
+    # Subtest: Scenario 14: Tampered AES-256-GCM ciphertext fails authentication tag check
+    ok 14 - Scenario 14: Tampered AES-256-GCM ciphertext fails authentication tag check
+      ---
+      duration_ms: 0.9585
+      type: 'test'
+      ...
+    # Subtest: Scenario 15: Credential decryption without IV or AuthTag throws invalid payload
+    ok 15 - Scenario 15: Credential decryption without IV or AuthTag throws invalid payload
+      ---
+      duration_ms: 0.347
+      type: 'test'
+      ...
+    # Subtest: Scenario 16: Concurrency lock blocks simultaneous executions on same incident
+    ok 16 - Scenario 16: Concurrency lock blocks simultaneous executions on same incident
+      ---
+      duration_ms: 284.1559
+      type: 'test'
+      ...
+    # Subtest: Scenario 17: Execution preflight blocks unapproved runbook execution
+    ok 17 - Scenario 17: Execution preflight blocks unapproved runbook execution
+      ---
+      duration_ms: 127.833
+      type: 'test'
+      ...
+    # Subtest: Scenario 18: Requester cannot self-approve their own remediation plan
+    ok 18 - Scenario 18: Requester cannot self-approve their own remediation plan
+      ---
+      duration_ms: 141.4363
+      type: 'test'
+      ...
+# [AiInvestigationService] Provider invocation failure: 503 Service Unavailable: Simulated provider outage
+    # Subtest: Scenario 19: AI Assistant falls back to deterministic RCA when provider fails
+    ok 19 - Scenario 19: AI Assistant falls back to deterministic RCA when provider fails
+      ---
+      duration_ms: 189.7673
+      type: 'test'
+      ...
+    # Subtest: Scenario 20: Delivery failure tracks failed status and attempt count
+    ok 20 - Scenario 20: Delivery failure tracks failed status and attempt count
+      ---
+      duration_ms: 21.9425
+      type: 'test'
+      ...
+    1..20
+ok 1 - Phase 20: Failure, Chaos & Recovery Validation
+  ---
+  duration_ms: 1205.4405
+  type: 'suite'
+  ...
+1..1
+# tests 20
+# suites 1
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2350.2463

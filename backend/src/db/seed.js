@@ -16,6 +16,10 @@ import {
   INITIAL_PREVENTIVE_RECOMMENDATIONS,
   INITIAL_EARLY_WARNINGS
 } from '../data/operationalIntelligence.js';
+import {
+  INITIAL_CLOUD_RESOURCES,
+  INITIAL_CLOUD_SCHEDULES
+} from '../data/cloudResources.js';
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -454,7 +458,7 @@ export async function seedDatabase() {
         ) VALUES (
           $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20
         )
-        ON CONFLICT (source_system, source_ref_id, event_type) DO NOTHING;`,
+        ON CONFLICT (tenant_id, environment, source_system, source_ref_id, event_type) DO NOTHING;`,
         [
           evt.id, evt.eventType, evt.sourceSystem, evt.sourceRefId, 'default_tenant',
           evt.serviceId, evt.serviceName, evt.environment, evt.eventTimestamp,
@@ -549,6 +553,40 @@ export async function seedDatabase() {
         ]
       );
     }
+    // 17. Seed Cloud Resources Inventory (Phase 23C)
+    for (const r of INITIAL_CLOUD_RESOURCES) {
+      await client.query(
+        `INSERT INTO cloud_resources (
+          id, name, provider, resource_type, region, environment, current_state,
+          estimated_hourly_cost, cost_breakdown, dependencies, persistence_requirements,
+          is_critical_dependency, metadata, last_lifecycle_operation, last_health_check_status
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+        ON CONFLICT (id) DO NOTHING;`,
+        [
+          r.id, r.name, r.provider, r.resource_type, r.region, r.environment, r.current_state,
+          r.estimated_hourly_cost, JSON.stringify(r.cost_breakdown || {}),
+          JSON.stringify(r.dependencies || []), JSON.stringify(r.persistence_requirements || {}),
+          r.is_critical_dependency || false, JSON.stringify(r.metadata || {}),
+          r.last_lifecycle_operation || null, r.last_health_check_status || 'healthy'
+        ]
+      );
+    }
+
+    // 18. Seed Cloud Schedules (Phase 23C)
+    for (const s of INITIAL_CLOUD_SCHEDULES) {
+      await client.query(
+        `INSERT INTO cloud_schedules (
+          id, resource_id, name, action, cron_expression, timezone,
+          enabled, is_paused, days_of_week, time_of_day, missed_execution_recovery, created_by
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+        ON CONFLICT (id) DO NOTHING;`,
+        [
+          s.id, s.resource_id, s.name, s.action, s.cron_expression, s.timezone,
+          s.enabled, s.is_paused, JSON.stringify(s.days_of_week || []), s.time_of_day,
+          s.missed_execution_recovery, s.created_by
+        ]
+      );
+    }
   });
 
   console.log('[Seed] Database seeded successfully.');
@@ -567,4 +605,3 @@ if (process.argv[1] === __filename) {
       process.exit(1);
     });
 }
-

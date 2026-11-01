@@ -19,8 +19,15 @@ import {
   computeWeightedScore 
 } from './scoring.js';
 import { correlateAlerts } from './correlation.js';
+import { recordOperation, rankDistribution, evidenceDistribution } from '../observability/metrics.js';
+import { performance } from 'node:perf_hooks';
 
 export function runRcaAnalysis(input) {
+  const _rcaStart = performance.now();
+  let _rcaFailed = false;
+  try {
+  const records=value=>Array.isArray(value)?value.filter(item=>item&&typeof item==='object'):[];
+  input={...(input||{}),services:records(input?.services).filter(s=>typeof s.id==='string'&&s.id).map(s=>({...s,name:typeof s.name==='string'&&s.name?s.name:s.id,dependencies:Array.isArray(s.dependencies)?s.dependencies:[]})),alerts:records(input?.alerts),deployments:records(input?.deployments),logs:records(input?.logs),traces:records(input?.traces),cloudResources:records(input?.cloudResources),driftEvents:records(input?.driftEvents)};
   const { 
     incident, 
     services = [], 
@@ -28,6 +35,8 @@ export function runRcaAnalysis(input) {
     deployments = [], 
     logs = [], 
     traces = [], 
+    cloudResources = [],
+    driftEvents = [],
     weights: customWeights,
     minScoreThreshold = 20
   } = input || {};
@@ -84,14 +93,78 @@ export function runRcaAnalysis(input) {
       logErrorEvidenceScore: adjustedLogScore
     }, effectiveWeights);
 
-    // Filter non-contenders: services with zero anomalies, deployments, or log/trace evidence
-    if (anomalyRes.score === 0 && deployRes.score === 0 && adjustedLogScore === 0) {
+    // Infrastructure Resources & Container Failure Correlation
+    const serviceResources = (cloudResources || []).filter(res => {
+      const matchName = (res.name || '').toLowerCase();
+      const sId = (service.id || '').toLowerCase();
+      const sName = (service.name || '').toLowerCase();
+      const composeSvc = (res.metadata?.compose_service || '').toLowerCase();
+      const k8sApp = (res.metadata?.app || res.metadata?.['app.kubernetes.io/name'] || '').toLowerCase();
+      return (sId&&(matchName===sId||matchName.includes(sId)||composeSvc===sId||k8sApp===sId))||(sName&&(matchName===sName||composeSvc===sName||k8sApp===sName));
+    });
+
+    const crashedResources = serviceResources.filter(r => {
+      const st = (r.current_state || r.status || '').toLowerCase();
+      return st === 'crashed' || st === 'stopped' || st === 'error' || st === 'failed' || st === 'crashloopbackoff';
+    });
+
+    const infraEvidence = [];
+    const hasInfraFailure = crashedResources.length > 0;
+    if (hasInfraFailure) {
+      crashedResources.forEach(res => {
+        infraEvidence.push({
+          type: 'infrastructure_failure',
+          severity: 'critical',
+          resourceId: res.id,
+          title: `Crashed Infrastructure Workload: ${res.name}`,
+          description: `Underlying resource ${res.name} (${res.resource_type || 'workload'}) is in state '${res.current_state || res.status}'.`
+        });
+      });
+    }
+
+    // Active Infrastructure Drift Correlation
+    const serviceDrifts = (driftEvents || []).filter(d => {
+      const rId = (d.resourceId || d.resource_id || '').toLowerCase();
+      const rName = (d.resourceName || d.resource_name || '').toLowerCase();
+      const sId = (service.id || '').toLowerCase();
+      const sName = (service.name || '').toLowerCase();
+      return (sId&&(rId.includes(sId)||rName.includes(sId)))||(sName&&(rId.includes(sName)||rName.includes(sName)));
+    });
+
+    const hasDrift = serviceDrifts.length > 0;
+    if (hasDrift) {
+      serviceDrifts.forEach(drift => {
+        infraEvidence.push({
+          type: 'infrastructure_drift',
+          severity: drift.severity || 'high',
+          driftId: drift.id,
+          title: `Active Infrastructure Drift: ${drift.driftType}`,
+          description: drift.severityReason || `Infrastructure drift detected on ${drift.resourceName || drift.resourceId}`
+        });
+      });
+    }
+
+    // Filter non-contenders: services with zero anomalies, deployments, log/trace evidence, infrastructure failures, drifts, or alerts
+    if (anomalyRes.score === 0 && deployRes.score === 0 && adjustedLogScore === 0 && !hasInfraFailure && !hasDrift && serviceAlerts.length === 0) {
       continue;
     }
 
-    if (breakdown.weightedTotalScore < minScoreThreshold) {
+    let candidateScore = breakdown.weightedTotalScore;
+    if (hasInfraFailure) {
+      // An observed crash is evidence of state, not proof of causal origin.
+      candidateScore = Math.min(100,candidateScore+15);
+    } else if (hasDrift) {
+      candidateScore = Math.min(100,candidateScore+8);
+    } else if (serviceAlerts.length > 0 && candidateScore < minScoreThreshold) {
+      candidateScore = 35;
+    }
+
+    if (candidateScore < minScoreThreshold && !hasInfraFailure && !hasDrift) {
       continue;
     }
+    breakdown.baseWeightedTotalScore=breakdown.weightedTotalScore;
+    breakdown.infrastructureAdjustment=candidateScore-breakdown.weightedTotalScore;
+    breakdown.weightedTotalScore=candidateScore;
 
     // 7. Evidence Quality Assessment
     const qualityRes = assessEvidenceQuality({
@@ -102,9 +175,9 @@ export function runRcaAnalysis(input) {
       causalResult: causalRes,
       logTraceResult: logRes,
       totalServices: services.length,
-      totalAlerts: alerts.length,
-      totalLogs: logs.length,
-      totalTraces: traces.length
+      totalAlerts: serviceAlerts.length,
+      totalLogs: logRes.evidence.filter(e=>e.type==='log').length,
+      totalTraces: logRes.evidence.filter(e=>e.type==='trace').length
     });
 
     // Supporting evidence consolidation
@@ -119,7 +192,8 @@ export function runRcaAnalysis(input) {
       })),
       ...deployRes.evidence,
       ...causalRes.evidence,
-      ...logRes.evidence
+      ...logRes.evidence,
+      ...infraEvidence
     ];
 
     const uncertaintyAndMissingEvidence = [
@@ -132,11 +206,17 @@ export function runRcaAnalysis(input) {
     const summary = generateHumanExplanation(service, breakdown, deployRes.relevantDeployments, anomalyRes, causalRes);
     const suggestedNextAction = generateSuggestedNextAction(service, breakdown, deployRes.relevantDeployments, anomalyRes);
 
+    let confidenceLevel = 'WEAK_HYPOTHESIS';
+    if (qualityRes.sufficientEvidence && qualityRes.contradictorySignals.length===0 && candidateScore >= 50) {
+      confidenceLevel = 'STRONG_HYPOTHESIS';
+    }
+
     candidates.push({
       candidateServiceId: service.id,
       candidateServiceName: service.name,
       rank: 0,
-      score: breakdown.weightedTotalScore,
+      score: candidateScore,
+      confidenceLevel,
       breakdown,
       causalRole: causalRes.relationship,
       causalDirection: causalRes.direction,
@@ -166,10 +246,24 @@ export function runRcaAnalysis(input) {
     return a.candidateServiceId.localeCompare(b.candidateServiceId);
   });
 
-  return candidates.map((cand, idx) => ({
+  const sorted = candidates.map((cand, idx) => ({
     ...cand,
     rank: idx + 1
   }));
+  try {
+    sorted.forEach((cand, idx) => {
+      rankDistribution.observe(idx + 1);
+      const quality = cand.evidenceQuality || 'MEDIUM';
+      evidenceDistribution.inc({ quality: String(quality).toUpperCase() });
+    });
+  } catch {}
+  return sorted;
+  } catch (err) {
+    _rcaFailed = true;
+    throw err;
+  } finally {
+    try { recordOperation('rca.investigation', performance.now() - _rcaStart, _rcaFailed); } catch {}
+  }
 }
 
 function generateHumanExplanation(service, breakdown, deployments, anomalyRes, causalRes) {
@@ -191,7 +285,7 @@ function generateHumanExplanation(service, breakdown, deployments, anomalyRes, c
   }
 
   if (breakdown.logErrorEvidenceScore >= 40) {
-    parts.push(`Correlated error logs confirm cascading failures.`);
+    parts.push(`Correlated error logs support a failure hypothesis.`);
   }
 
   if (parts.length === 0) {

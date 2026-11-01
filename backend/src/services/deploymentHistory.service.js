@@ -1,3 +1,4 @@
+import {tenantContext} from '../security/tenantContext.js';
 import * as changeRepo from '../repositories/change.repository.js';
 import { initialDeployments } from '../data/deployments.js';
 
@@ -6,11 +7,12 @@ export async function getHistoricalChangeAnalytics(options = {}) {
   try {
     allChanges = await changeRepo.findAllHistoricalDeployments();
   } catch (err) {
+    if(tenantContext())throw err;
     allChanges = [];
   }
 
   // If no DB records yet, use seed deployments as historical baseline
-  if (allChanges.length === 0) {
+  if (allChanges.length === 0 && !tenantContext()) {
     allChanges = initialDeployments.map(d => ({
       id: d.id,
       service_id: d.serviceName,

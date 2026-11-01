@@ -1,5 +1,6 @@
 import * as auditRepo from '../repositories/audit.repository.js';
 import crypto from 'crypto';
+import {withTenant,tenantContext} from '../security/tenantContext.js';
 
 /**
  * Sanitizes metadata to strictly remove passwords, tokens, cookies, secrets.
@@ -57,6 +58,7 @@ export async function recordAuditEvent(params) {
     const correlationId = req?.headers?.['x-correlation-id'] || req?.id || `corr_${crypto.randomBytes(8).toString('hex')}`;
 
     const entry = {
+      tenantId:tenantContext()?.tenantId||actor?.tenantId||'default_tenant',
       actorUserId: actor?.id || null,
       actorEmail: actor?.email || null,
       actorRole: actor?.role || null,
@@ -69,7 +71,7 @@ export async function recordAuditEvent(params) {
       ipAddress: typeof ipAddress === 'string' ? ipAddress.split(',')?.[0]?.trim() : null
     };
 
-    return await auditRepo.createAuditRecord(entry, client);
+    return await (actor?.tenantId ? withTenant(actor.tenantId,()=>auditRepo.createAuditRecord(entry,client)) : auditRepo.createAuditRecord(entry,client));
   } catch (err) {
     console.error('[AuditService Error]: Failed to write audit log entry:', err.message);
     return null;

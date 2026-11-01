@@ -1,0 +1,4201 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "elapsedMs": 2521.741,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "ALL REGIONS",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "US-EAST-1",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "EU-WEST-1",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "ALL",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "TIER-0",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "TIER-1",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "ALL",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "GRPC",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "HTTP",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "KAFKA",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "troubleshoot\nInspect Hypothesis (94% Conf.)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "replay\nRollback Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "open_in_new\nInvestigate in War Room",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Mitigate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "open_in_new\nInvestigate in War Room",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Mitigate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "open_in_new\nInvestigate in War Room",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "open_in_new\nInvestigate in War Room",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Mitigate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Open in Telemetry Explorer\narrow_forward",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/system-overview",
+    "status": 200,
+    "elapsedMs": 1962.3280999999997,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "15m",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "1h",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "6h",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "24h",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "bolt\nRun Diagnostic",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "troubleshoot\nInvestigate INC-8363",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "close",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "hub\nInspect payment-service Pods\narrow_forward",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "terminal\nQuery Error Spans (OTel)\narrow_forward",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "play_circle\nExecute Runbook RB-402\narrow_forward",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/services",
+    "status": 200,
+    "elapsedMs": 2236.6467999999995,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [
+      {
+        "type": "search-empty",
+        "visible": "idents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\naccount_tree\nServices & Topology Correlation\nDegraded Mesh (2 Critical)\n\nTopological service dependency graph, bidirectional causal impact propagation, and live telemetry signals.\n\nbubble_chart\nGraph\ntable_rows\nInventory\nfilter_alt\nAll (8)\nNominal (4)\nDegraded (2)\nCritical (2)\nOVERLAYS:\nreport\nHighlight Unhealthy\nhub\nDownstream Cascade Path\nbolt\nHigh Latency (>150ms)\nsearch_off\nNo Services Match Query\n\nNo services found with search filter \"phase23m-no-match\".\n\nClear Filter"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "bubble_chart\nGraph",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "table_rows\nInventory",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "All (8)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Nominal (4)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Degraded (2)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Critical (2)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "report\nHighlight Unhealthy",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "hub\nDownstream Cascade Path",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "bolt\nHigh Latency (>150ms)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Deep Dive →",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "← checkout-api",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "→ ledger-db-proxy",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "→ fraud-evaluator",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "→ stripe-bridge",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/services/auth-gateway-v2",
+    "status": 200,
+    "elapsedMs": 1843.152,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "arrow_back\nServices & Topology",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "troubleshoot\nInvestigate INC-8363",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "speed\nInject Traffic Burst",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Endpoints & Routes (3)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Pod Instances (2)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Linked Alerts (2)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Dependencies (2)",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/incidents",
+    "status": 200,
+    "elapsedMs": 1882.1100999999999,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "add_alert\nDeclare Incident",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "ALL",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "ACTIVE",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "RESOLVED",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "all",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "SEV-1",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "SEV-2",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "SEV-3",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "notifications_active\n1 Linked Alert",
+        "title": "View correlated alerts",
+        "disabled": false
+      },
+      {
+        "text": "Investigate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Mark Mitigating",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "notifications_active\n1 Linked Alert",
+        "title": "View correlated alerts",
+        "disabled": false
+      },
+      {
+        "text": "Investigate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Investigate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "notifications_active\n8 Linked Alerts",
+        "title": "View correlated alerts",
+        "disabled": false
+      },
+      {
+        "text": "Investigate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Mark Mitigating",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/incidents/INC-8363",
+    "status": 200,
+    "elapsedMs": 2046.3606,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [
+      {
+        "type": "search-empty",
+        "visible": " Assistant\nEvidence-Grounded Diagnostic Reasoning\nRCA GROUNDED\nInquire:\nWhy is this service ranked first?\nWhich signals support this hypothesis?\nWhat evidence contradicts this hypothesis?\nCould the recent deployment be related?\nWhat should I investigate next?\nchat\n\nAsk questions about this incident\n\nThe AI assistant analyzes deterministic hypotheses, cross-references telemetry, evaluates contradictory signals, and recommends safe diagnostic steps.\n\nAsk\nsend\ntimeline\nUNIFIED EVENT TIMELINE\n0 Events\nAll\npre incident_signal\ndeployment change\nalert generation\nincident declaration\nrunbook execution"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "arrow_back\nAll Incidents",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "auth-gateway-v2",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "terminal\nRunbook Orchestration",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "refresh\nRe-Run Unified Correlation",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "description\nExport Postmortem Draft",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nDeterministic Root-Cause Analysis",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "hub\nUnified Investigation Graph",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "route\nCausal Sequence & Propagation",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "build_circle\nGoverned Infrastructure Remediation",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "expand_less\nHide Evidence (8 signals)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "expand_more\nInspect Evidence (4 signals)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "expand_more\nInspect Evidence (7 signals)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "expand_more\nInspect Evidence (9 signals)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "expand_more\nInspect Evidence (1 signals)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "expand_more\nInspect Evidence (0 signals)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Why is this service ranked first?",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Which signals support this hypothesis?",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "What evidence contradicts this hypothesis?",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Could the recent deployment be related?",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "What should I investigate next?",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Ask\nsend",
+        "title": "",
+        "disabled": true
+      },
+      {
+        "text": "All",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "pre incident_signal",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "deployment change",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "alert generation",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "incident declaration",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "runbook execution",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/assistant/conversations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/notifications?incidentId=INC-8363",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/unified-timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/assistant/conversations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/notifications?incidentId=INC-8363",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/investigation",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/unified-timeline",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/investigation-graph",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/investigation",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents/INC-8363/investigation-graph",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/alerts",
+    "status": 200,
+    "elapsedMs": 1981.4972000000016,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [
+      {
+        "type": "filter",
+        "value": "auth-gateway-v2"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "bolt\nEvaluate Alerts",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "speed\nSLO Burn Rates",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "ALL",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "FIRING",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "ACK",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "RESOLVED",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "SILENCED",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "ALL",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "CRITICAL",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "WARNING",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "INFO",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-4921",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-4921",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-4921",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-4921",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-8363",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-4921",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-4921",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-4921",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "link\nLinked INC-4921",
+        "title": "Click to view correlated incident",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Silence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Service",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Acknowledge",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Resolve",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/telemetry",
+    "status": 200,
+    "elapsedMs": 2084.346599999999,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [
+      {
+        "type": "search-empty",
+        "visible": "ns\nReset Filters\nDistributed Traces (0)\nStructured Logs (0)\nTime-Series Metrics (PromQL)\nSAMPLED TRACES MATCHING QUERY (0 RESULTS)\nfilter_list_off\nNo Traces Matched\n\nNo distributed traces found for criteria \"phase23m-no-match\".\n\nClear Filter Query\nRAW SPAN JSON PAYLOAD\n{\n  \"id\": \"span-001\",\n  \"traceId\": \"9f81a72049b1\",\n  \"service\": \"checkout-api\",\n  \"operation\": \"POST /v2/orders/checkout\",\n  \"durationMs\": 412,\n  \"offsetMs\": 0,\n  \"status\": \"error\",\n  \"httpStatus\": 504,\n  \"attributes\": {\n    \"http.method\": \"POST\",\n    \"user.tier\": \"enterprise\",\n    \"cart.items\": 3\n  },\n  \"isCriticalPath\": true\n}"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "Demo Mode",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Live Local Mode",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "refresh",
+        "title": "Refresh Datasource Statuses",
+        "disabled": false
+      },
+      {
+        "text": "search\nRun Query",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Payment 5xx Spikes",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Pool Lock Contention",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Auth Gateway Spans",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Reset Filters",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Distributed Traces (5)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Structured Logs (5)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Time-Series Metrics (PromQL)",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry/status",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry/status",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/deployments",
+    "status": 200,
+    "elapsedMs": 2002.5260999999991,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "speed\nDeployments & ACA",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nPre-Deployment Risk Assessor",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "account_tree\nDependency Blast Radius",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "trending_down\nPost-Deployment Regressions",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "analytics\nHistorical Change Intelligence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Inspect Code Diff",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "replay\nRollback Canary Now",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/slos",
+    "status": 200,
+    "elapsedMs": 2101.7718000000023,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [
+      {
+        "type": "filter",
+        "value": "auth-gateway-v2"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "add\nDefine SLO",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "(inventory-mesh)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Evaluate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "(auth-gateway-v2)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Evaluate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "(checkout-api)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Evaluate",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "(payment-service)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Evaluate",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/slos",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/reliability/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/slos",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/reliability/overview",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/runbooks",
+    "status": 200,
+    "elapsedMs": 2090.3875000000007,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [
+      {
+        "type": "search-empty",
+        "visible": "frapulse.io\nVIEWER\nexpand_more\nterminal\nRunbook Orchestrator & Safe Remediation\nPHASE 14\n\nHuman-approved operational procedures, controlled simulation adapters, and immutable audit logs.\n\nLogged in as:\nSarah Chen\nADMIN\nshield\nSafety Enforced: All remediation actions are dispatched to allowlisted simulation adapters. No arbitrary shell execution, SQL, or unapproved mutations.\nDeterministic RCA Integration\nRUNBOOK CATALOG\n0 Available\nAll Modes\nDiagnostic\nRemediation\nAll Risks\nLow Risk\nMedium Risk\nHigh Risk\nNo runbooks match your filter criteria.\nSelect a runbook from the catalog to view details."
+      },
+      {
+        "type": "filter",
+        "value": "diagnostic"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nVIEWER\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/auth/me: read ECONNRESET"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/login",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/runbooks",
+        "status": 200
+      },
+      {
+        "type": "error",
+        "text": "[API Error] POST /api/auth/login: read ECONNRESET"
+      },
+      {
+        "type": "warning",
+        "text": "[AuthContext] Demo auto-login skipped: read ECONNRESET"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/auth/me: read ECONNRESET"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/runbooks",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/runbooks: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/login",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] POST /api/auth/login: the database system is in recovery mode"
+      },
+      {
+        "type": "warning",
+        "text": "[AuthContext] Demo auto-login skipped: the database system is in recovery mode"
+      }
+    ]
+  },
+  {
+    "route": "/fault-injection",
+    "status": 200,
+    "elapsedMs": 1878.4606999999996,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n2 ACTIVE\nnotifications_active\nAlerts & Rules\n3 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nVIEWER\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "Dismiss",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "play_arrow\nInject Fault Scenario",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/fault-lab/scenarios",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/fault-lab/scenarios: the database system is in recovery mode"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load fault scenarios from backend: Error: the database system is in recovery mode\n    at Q (http://127.0.0.1:5173/assets/index-sxXf24AM.js:289:24571)\n    at async Y (http://127.0.0.1:5173/assets/index-sxXf24AM.js:289:590187)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/services: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/incidents: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/alerts: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/deployments: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/telemetry: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/services: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/auth/me: the database system is in recovery mode"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/incidents: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/fault-lab/scenarios",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/fault-lab/scenarios: the database system is in recovery mode"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load fault scenarios from backend: Error: the database system is in recovery mode\n    at Q (http://127.0.0.1:5173/assets/index-sxXf24AM.js:289:24571)\n    at async Y (http://127.0.0.1:5173/assets/index-sxXf24AM.js:289:590187)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/alerts: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/deployments: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/telemetry: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/auth/me: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/login",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] POST /api/auth/login: the database system is in recovery mode"
+      },
+      {
+        "type": "warning",
+        "text": "[AuthContext] Demo auto-login skipped: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/login",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] POST /api/auth/login: the database system is in recovery mode"
+      },
+      {
+        "type": "warning",
+        "text": "[AuthContext] Demo auto-login skipped: the database system is in recovery mode"
+      }
+    ]
+  },
+  {
+    "route": "/reports",
+    "status": 200,
+    "elapsedMs": 1890.253499999999,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n2 ACTIVE\nnotifications_active\nAlerts & Rules\n3 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nVIEWER\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "content_copy\nExport Postmortem",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "OPEN",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "COMPLETED",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "COMPLETED",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/services: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/alerts: the database system is in recovery mode"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/incidents: the database system is in recovery mode"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/deployments: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/telemetry: the database system is in recovery mode"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/auth/me: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/deployments: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/services: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/alerts: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/incidents: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/auth/me: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/telemetry: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/login",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] POST /api/auth/login: the database system is in recovery mode"
+      },
+      {
+        "type": "warning",
+        "text": "[AuthContext] Demo auto-login skipped: the database system is in recovery mode"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/login",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] POST /api/auth/login: the database system is in recovery mode"
+      },
+      {
+        "type": "warning",
+        "text": "[AuthContext] Demo auto-login skipped: the database system is in recovery mode"
+      }
+    ]
+  },
+  {
+    "route": "/operations",
+    "status": 200,
+    "elapsedMs": 1854.9462000000021,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n2 ACTIVE\nnotifications_active\nAlerts & Rules\n3 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Health"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nVIEWER\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "speed\nExecutive Overview & Early Warnings",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "pattern\nRecurring Failure Patterns",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "task_alt\nPreventive Recommendations Inbox",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "trending_up\nReliability Trends & Forecasting",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/overview",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/overview: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/patterns",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/patterns: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/service-risks",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/service-risks: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/early-warnings",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/early-warnings: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/recommendations",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/recommendations: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/trends?days=30",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/services: the database system is not yet accepting connections"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/trends?days=30: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/incidents: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/alerts: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/deployments: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/overview",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/overview: the database system is not yet accepting connections"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/auth/me: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/patterns",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/patterns: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/service-risks",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/telemetry: the database system is not yet accepting connections"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/service-risks: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/early-warnings",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/early-warnings: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/trends?days=30",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/operations/intelligence/recommendations",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/trends?days=30: the database system is not yet accepting connections"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/operations/intelligence/recommendations: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/services: the database system is not yet accepting connections"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/incidents: the database system is not yet accepting connections"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/alerts: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/deployments: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/auth/me: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/login",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] POST /api/auth/login: the database system is not yet accepting connections"
+      },
+      {
+        "type": "warning",
+        "text": "[AuthContext] Demo auto-login skipped: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/telemetry: the database system is not yet accepting connections"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/login",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] POST /api/auth/login: the database system is not yet accepting connections"
+      },
+      {
+        "type": "warning",
+        "text": "[AuthContext] Demo auto-login skipped: the database system is not yet accepting connections"
+      }
+    ]
+  },
+  {
+    "route": "/cloud-lifecycle",
+    "status": 200,
+    "elapsedMs": 2350.267,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [
+      {
+        "type": "search-empty",
+        "visible": "torage baseline: $0.00/mo\nFree Tier & Savings\nsavings\n$0.00\n/ mo\nFree Tier: Not verified (Billing isolated)\ninventory_2\nResource Inventory\ncompare_arrows\nInfrastructure Drift\napproval\nOperations & Approvals\nschedule\nAutomated Schedules\nbar_chart\nCost & Free Tier Intelligence\nhistory\nLifecycle Audit\nAll Origins (Live + Sim)\nLive AWS Only\nSimulated Only\nAll Providers\nAWS (ap-south-1)\nDocker Compose\nKubernetes\nAll States\nRunning\nStopped\nIn-Use (EBS)\nAvailable\nScaled Down\nRESOURCE & ORIGIN\tPROVIDER / TYPE\tREGION / ENV\tSTATE\tCOST / HR\tPERSISTENCE\tLIFECYCLE ACTIONS\nNo matching cloud workloads found."
+      }
+    ],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "refresh\nRefresh",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "emergency_home\nEngage Kill Switch",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "travel_explore\nDiscover AWS Resources",
+        "title": "Trigger read-only resource discovery in ap-south-1",
+        "disabled": false
+      },
+      {
+        "text": "inventory_2\nResource Inventory",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "compare_arrows\nInfrastructure Drift",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "approval\nOperations & Approvals",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "schedule\nAutomated Schedules",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "bar_chart\nCost & Free Tier Intelligence",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "history\nLifecycle Audit",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/audit?limit=25",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/cloud/audit?limit=25: column \"timestamp\" does not exist"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/aws/free-tier",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/kill-switch",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/audit?limit=25",
+        "status": 500
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/resources",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/schedules",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/operations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/costs/estimate?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/drifts?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/baselines/active?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/aws/status?region=ap-south-1",
+        "status": 200
+      },
+      {
+        "type": "error",
+        "text": "[API Error] GET /api/cloud/audit?limit=25: column \"timestamp\" does not exist"
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/drifts/stats?environment=staging",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/cloud/aws/free-tier",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/sre-intelligence",
+    "status": 200,
+    "elapsedMs": 1985.6859000000004,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "sync\nRefresh State",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Unified Health & Topology",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Predictive Risks (0)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "SLOs & Burn Rates",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Capacity & Cost Optimization",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "SRE Recommendations (0)",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/sre-intelligence/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/sre-intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/sre-intelligence/overview",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/sre-intelligence/recommendations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/integrations",
+    "status": 200,
+    "elapsedMs": 1846.8128999999972,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": ""
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [],
+    "events": [
+      {
+        "type": "pageerror",
+        "text": "isDeadLetterModalOpen is not defined"
+      },
+      {
+        "type": "warning",
+        "text": "%s\n\n%s\n An error occurred in the <Z5> component. Consider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries."
+      }
+    ]
+  },
+  {
+    "route": "/team",
+    "status": 200,
+    "elapsedMs": 1970.185900000004,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [
+      {
+        "type": "filter",
+        "value": "responder"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "ADMIN",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "RESPONDER",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "VIEWER",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Team Members & RBAC (3)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "history_edu\nSecurity Audit Trail",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "API Service Tokens (2)",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/users",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/users/usr_admin_001/role",
+        "status": 400
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+      },
+      {
+        "type": "error",
+        "text": "[API Error] PATCH /api/auth/users/usr_admin_001/role: Cannot demote the only remaining active administrator."
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/users/usr_admin_001/role",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "route": "/auth",
+    "status": 200,
+    "elapsedMs": 2002.1345000000001,
+    "desktop": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "text": "vital_signs\nInfraPulse\n2.4\nAutonomous Intelligence\nemergency\nIncident Overview\nSEV-1\ndashboard\nSystem Overview\nhub\nServices Mesh\nlocal_fire_department\nIncident Center\n3 ACTIVE\nnotifications_active\nAlerts & Rules\n10 FIRING\nquery_stats\nTelemetry Explorer\nrocket_launch\nDeployments & ACA\ntrack_changes\nSLOs & Budgets\nplay_circle\nRunbook Automation\nbolt\nChaos & Fault Lab\ndescription\nReports & Postmortems\npsychology\nOperational Intelligence\nAI\ncloud_sync\nCloud & Cost Governance\nAWS/K8S\ninsights\nAutonomous SRE\nPROACTIVE\nextension\nIntegrations\ngroup\nTeam & RBAC\nsecurity\nAgent Onboarding\nMesh Sync Healt"
+    },
+    "mobile": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "actions": [],
+    "buttons": [
+      {
+        "text": "refresh\nReset Demo State",
+        "title": "Reset services, incidents, and chaos experiments to initial baseline",
+        "disabled": false
+      },
+      {
+        "text": "Production",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Staging",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Canary",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "search\nSearch services, metrics, traces, incidents...\n⌘K",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "psychology\nAI Copilot",
+        "title": "Open AI Root-Cause Diagnostic Report",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more",
+        "title": "Switch User / Role",
+        "disabled": false
+      },
+      {
+        "text": "User Session & Credentials",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Cluster Agent Setup (Helm)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "logout\nEnd Session (Logout)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Sarah Chen (Admin)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Marcus Vance (Responder)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Alex Ross (Viewer)",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Login",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Register",
+        "title": "",
+        "disabled": false
+      },
+      {
+        "text": "Sign In →",
+        "title": "",
+        "disabled": false
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5173/api/deployments",
+        "status": 200
+      }
+    ]
+  }
+]

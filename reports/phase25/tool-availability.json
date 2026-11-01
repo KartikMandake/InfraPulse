@@ -1,0 +1,16 @@
+[
+  {
+    "name": "actionlint",
+    "archiveChecksumVerified": true,
+    "executable": "D:\\Projects\\.infrapulse-phase25\\verified-tools\\actionlint\\1.7.12\\actionlint.exe",
+    "source": "Previously verified cached official release archive",
+    "reason": "Temp-directory executables became absent between runs; no security rejection was returned. Re-extracted into owned retained tool directory."
+  },
+  {
+    "name": "trivy",
+    "archiveChecksumVerified": true,
+    "executable": "D:\\Projects\\.infrapulse-phase25\\verified-tools\\trivy\\0.76.1\\trivy.exe",
+    "source": "Previously verified cached official release archive",
+    "reason": "Temp-directory executables became absent between runs; no security rejection was returned. Re-extracted into owned retained tool directory."
+  }
+]

@@ -1,0 +1,213 @@
+{
+  "integrations": {
+    "actions": [
+      {
+        "label": "/Notification Rails/",
+        "text": "Enterprise Integrations & Platform Ecosystem\nPHASE 19\nROLE: ADMIN\n\nProduction-grade connectors for GitHub, Kubernetes, Prometheus, Grafana, Slack, and OpenTelemetry with AES-256-GCM encryption.\n\nsend\nTest Slack Ping\nextension\nEnterprise Ecosystem (2/6 Connected)\nnotifications_active\nNotification Rails & Queue (7 Deliveries)\nsensors\nCommunity Connectors (6)\nPersistent Delivery Queue Logs\nTime\tChannel\tEvent\tIncident\tRecipient\tStatus\tAttempts\tAction\n9:25:33 PM\tSLACK\talert.critical\tINC-4921\t#incidents-war-room\tSENT\t1 / 3\t\n9:25:33 PM\tEMAIL\tincident.created\tINC-6400\tsre-oncall@infrapulse.io, lead-commander@infrapulse.io\tSENT\t1 / 3\t\n9:25:33 PM\tSLACK\tincident.created\tINC-6400\t#incidents-war-room\tSENT\t1 / 3\t\n9:25:32 PM\tSLACK\talert.critical\tINC-4921\t#incidents-war-room\tSENT\t1 / 3\t\n9:25:32 PM\tSLACK\talert.critical\tINC-4921\t#incidents-war-room\tSENT\t1 / 3\t\n9:25:32 PM\tSLACK\talert.critical\tINC-4921\t#incidents-war-room\tSENT\t1 / 3\t\n9:25:32 PM\tSLACK\talert.critical\tINC-4921\t#incidents-war-room\tSENT\t1 / 3\t"
+      },
+      {
+        "label": "/Community Connectors/",
+        "text": "n\nEnterprise Ecosystem (2/6 Connected)\nnotifications_active\nNotification Rails & Queue (7 Deliveries)\nsensors\nCommunity Connectors (6)\nOpenTelemetry OTLP Collector\nCONNECTED\nCategory: Telemetry Collection\nThroughput: 1.84M spans/sec\nHeartbeat: 2s ago\nVerified OTel Bridge\nActive\nAWS CloudWatch & EKS Telemetry\nCONNECTED\nCategory: Cloud Provider\nThroughput: 420k metrics/sec\nHeartbeat: 4s ago\nVerified OTel Bridge\nActive\nPrometheus Remote Write (Cortex)\nCONNECTED\nCategory: Telemetry Collection\nThroughput: 890k series\nHeartbeat: 1s ago\nVerified OTel Bridge\nActive\nPagerDuty On-Call Escapes\nCONNECTED\nCategory: Incident Alerts\nThroughput: Active On-Call: Tier-0 SRE\nHeartbeat: Live Webhook\nVerified OTel Bridge\nActive\nSlack SRE War Room Automation\nCONNECTED\nCategory: Incident Alerts\nThroughput: 14 channels mapped\nHeartbeat: Live Bot\nVerified OTel Bridge\nActive\nGitHub CI/CD Deployment Marker\nCONNECTED\nCategory: Tracing\nThroughput: Auto-sync PRs & Tags\nHeartbeat: 35m ago\nVerified OTel Bridge\nActive"
+      },
+      {
+        "label": "/Enterprise Ecosystem/",
+        "text": "this provider.\nlink\nConnect Provider\nschema\nOpenTelemetry (OTLP)\nCONNECTED\n\nIngests standard OTLP JSON payloads for distributed traces, metrics, and application logs, preserving full telemetry attributes.\n\nCredentials:\nAES-256-GCM Encrypted\nLast Success:\n9:25:32 PM\nbolt\nTest\nLogs\nEdit\ncode\nGitHub\nDISCONNECTED\n\nIngests GitHub repository webhooks for pushes, pull requests, releases, and Actions CI/CD workflow runs with constant-time HMAC validation.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ndashboard\nGrafana\nDISCONNECTED\n\nIngests Grafana alert notification webhooks, provides dashboard deep-links for investigations, and validates server connectivity.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\nchat\nSlack\nDISCONNECTED\n\nDispatches Block Kit incident notifications, critical alerts, SLO breach warnings, and runbook approval requests via queued Slack webhooks.\n\nNo active connection configured for this provider.\nlink\nConnect Provider"
+      },
+      {
+        "label": "/^Logs$/",
+        "text": "GCM Encrypted\nLast Success:\n9:25:32 PM\nbolt\nTest\nLogs\nEdit\ncode\nGitHub\nDISCONNECTED\n\nIngests GitHub repository webhooks for pushes, pull requests, releases, and Actions CI/CD workflow runs with constant-time HMAC validation.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ndashboard\nGrafana\nDISCONNECTED\n\nIngests Grafana alert notification webhooks, provides dashboard deep-links for investigations, and validates server connectivity.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\nchat\nSlack\nDISCONNECTED\n\nDispatches Block Kit incident notifications, critical alerts, SLO breach warnings, and runbook approval requests via queued Slack webhooks.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\nreceipt_long\nWebhook & Ingestion Deliveries: Phase 23M isolated Kubernetes HTTP fixture\nIdempotent delivery audit trail with retry controls\n✕\nNo webhook deliveries recorded yet for this integration.\nRotate Credentials...\nClose"
+      },
+      {
+        "type": "configuration-form",
+        "text": "8%\nSIMULATION ENVIRONMENT\n|\nDeterministic mock telemetry & Express REST backend. Not connected to live production clusters.\nREST API Connected (port 5000)\nrefresh\nReset Demo State\nprod-k8s-mesh (us-east-1)\neu-k8s-mesh (eu-central-1)\nstaging-mesh (us-west-2)\nProduction\nStaging\nCanary\nsearch\nSearch services, metrics, traces, incidents...\n⌘K\nLast 15m\nLast 1h\nLast 6h\nLast 24h\npsychology\nAI Copilot\nSarah Chen\nsarah.chen@infrapulse.io\nADMIN\nexpand_more\nhub\nEnterprise Integrations & Platform Ecosystem\nPHASE 19\nROLE: ADMIN\n\nProduction-grade connectors for GitHub, Kubernetes, Prometheus, Grafana, Slack, and OpenTelemetry with AES-256-GCM encryption.\n\nextension\nEnterprise Ecosystem (2/6 Connected)\nnotifications_active\nNotification Rails & Queue (7 Deliveries)\nsensors\nCommunity Connectors (6)\ncloud_queue\nAmazon Web Services\nDISCONNECTED\n\nConnects AWS accounts via cross-account IAM role or credentials for read-only discovery of EC2, EBS, RDS, and CloudWatch metrics in ap-south-1.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ninventory_2\nDocker Engine & Compose\nDISCONNECTED\n\nConnects to Docker Engine API for container inventory, Compose service discovery, health monitoring, and live resource statistics.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ncloud\nKubernetes Cluster\nCONNECTED\n\nRead-only cluster monitoring for pods, deployments, statefulsets, restart counts, CrashLoopBackOff, and events.\n\nCredentials:\nAES-256-GCM Encrypted\nLast Success:\n9:25:32 PM\nbolt\nTest\nLogs\nEdit\nshow_chart\nPrometheus\nDISCONNECTED\n\nExecutes PromQL instant and range queries, feeds SLI evaluations, and discovers metrics with configurable name mappings.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\nschema\nOpenTelemetry (OTLP)\nCONNECTED\n\nIngests standard OTLP JSON payloads for distributed traces, metrics, and application logs, preserving full telemetry attributes.\n\nCredentials:\nAES-256-GCM Encrypted\nLast Success:\n9:25:32 PM\nbolt\nTest\nLogs\nEdit\ncode\nGitHub\nDISCONNECTED\n\nIngests GitHub repository webhooks for pushes, pull requests, releases, and Actions CI/CD workflow runs with constant-time HMAC validation.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ndashboard\nGrafana\nDISCONNECTED\n\nIngests Grafana alert notification webhooks, provides dashboard deep-links for investigations, and validates server connectivity.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\nchat\nSlack\nDISCONNECTED\n\nDispatches Block Kit incident notifications, critical alerts, SLO breach warnings, and runbook approval requests via queued Slack webhooks.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ntune\nConfigure Amazon Web Services Integration\n✕\nIntegration Name *\nConfiguration (JSON) *\nCredentials (Encrypted at rest with AES-256-GCM)\nSecrets are never exposed to the browser after saving. Stored using authenticated envelope encryption.\nCancel\nSave & Connect"
+      },
+      {
+        "type": "empty-submit-validation",
+        "invalidFields": 0,
+        "text": "CONNECTED\n\nIngests standard OTLP JSON payloads for distributed traces, metrics, and application logs, preserving full telemetry attributes.\n\nCredentials:\nAES-256-GCM Encrypted\nLast Success:\n9:25:32 PM\nbolt\nTest\nLogs\nEdit\ncode\nGitHub\nDISCONNECTED\n\nIngests GitHub repository webhooks for pushes, pull requests, releases, and Actions CI/CD workflow runs with constant-time HMAC validation.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ndashboard\nGrafana\nDISCONNECTED\n\nIngests Grafana alert notification webhooks, provides dashboard deep-links for investigations, and validates server connectivity.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\nchat\nSlack\nDISCONNECTED\n\nDispatches Block Kit incident notifications, critical alerts, SLO breach warnings, and runbook approval requests via queued Slack webhooks.\n\nNo active connection configured for this provider.\nlink\nConnect Provider\ntune\nConfigure Amazon Web Services Integration\n✕\nIntegration Name *\nConfiguration (JSON) *\nCredentials (Encrypted at rest with AES-256-GCM)\nSecrets are never exposed to the browser after saving. Stored using authenticated envelope encryption.\nCancel\nSave & Connect"
+      }
+    ],
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations/catalog",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations/catalog",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/alerts",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/deployments",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/telemetry",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notification-settings",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notification-settings",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notifications?limit=50",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/services",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/notifications?limit=50",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/incidents",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations/int-kubernetes-8f0a7de2/deliveries",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/integrations",
+        "status": 400
+      }
+    ]
+  },
+  "auth": {
+    "invalid": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nName:\nSarah Chen\nEmail:\nsarah.chen@infrapulse.io\nRBAC Role:\nADMIN\nStatus:\nactive\nSession stored in PostgreSQL sessions table with HTTP-only cookie.\nlogout\nEnd Session (Logout)\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nInvalid email or password.\nWork Email\nPassword (min 8 chars)\nSign In →",
+    "valid": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nName:\nSarah Chen\nEmail:\nsarah.chen@infrapulse.io\nRBAC Role:\nADMIN\nStatus:\nactive\nSession stored in PostgreSQL sessions table with HTTP-only cookie.\nlogout\nEnd Session (Logout)\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nSuccessfully logged in as sarah.chen@infrapulse.io!\nWork Email\nPassword (min 8 chars)\nSign In →",
+    "loggedOut": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nGuest\nVIEWER\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nNo active session found. Please sign in or register below.\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nSuccessfully logged in as sarah.chen@infrapulse.io!\nWork Email\nPassword (min 8 chars)\nSign In →",
+    "afterReload": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nName:\nSarah Chen\nEmail:\nsarah.chen@infrapulse.io\nRBAC Role:\nADMIN\nStatus:\nactive\nSession stored in PostgreSQL sessions table with HTTP-only cookie.\nlogout\nEnd Session (Logout)\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nWork Email\nPassword (min 8 chars)\nSign In →",
+    "events": [
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/logout",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/me",
+        "status": 401
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 200
+      },
+      {
+        "type": "api",
+        "url": "http://127.0.0.1:5180/api/auth/login",
+        "status": 200
+      }
+    ]
+  },
+  "exportWithPermission": {
+    "clipboard": "# Phase 11 Benchmark & Reliability Audit: Performance & RCA Evaluation\r\n\r\n**Author:** Performance & Reliability Team\r\n**Date:** 2026-10-30\r\n**Impact Duration:** Continuous Baseline\r\n\r\n## Root Cause\r\nSystem audit across 8 labeled RCA scenarios (71.4% Top-1, 85.7% Top-3 accuracy, 0% false positives, 100% insufficient evidence detection) and load testing (Core API: 782 RPS health, 410 RPS services, 389 RPS incidents, 356 RPS alerts at 0% error rate).\r\n\r\n## Action Items\r\n- [open] (P1) Investigate JS",
+    "events": []
+  },
+  "mobileNavigation": {
+    "visibleServicesLink": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "eligible": false,
+  "blockers": [
+    "Live AWS Mutations Disabled: AWS_LIFECYCLE_MUTATIONS_ENABLED is false. Real AWS EC2 mutations are disabled by default for zero out-of-pocket safety.",
+    "Instance Not Allowlisted: EC2 instance 'i-23n-no-tags' is not listed in AWS_ALLOWED_INSTANCE_IDS. Governed mutations require explicit administrative allowlisting."
+  ],
+  "warnings": [],
+  "checks": {
+    "isEc2Instance": true,
+    "isAllowlisted": false,
+    "isNonProduction": true,
+    "isNotInfraPulseHost": true,
+    "isNotDatabaseDependency": true,
+    "noActiveIncidentConflict": true,
+    "noActiveRunbookConflict": true,
+    "noDownstreamCallersBlocked": true,
+    "mutationsFlagEnabled": false
+  }
+}

@@ -1,0 +1,1179 @@
+{
+  "ssrf": [
+    {
+      "url": "http://127.0.0.1",
+      "safe": false
+    },
+    {
+      "url": "http://10.0.0.1",
+      "safe": false
+    },
+    {
+      "url": "http://localhost",
+      "safe": true
+    },
+    {
+      "url": "http://[::1]",
+      "safe": true
+    },
+    {
+      "url": "http://[::ffff:127.0.0.1]",
+      "safe": true
+    },
+    {
+      "url": "http://169.254.169.254",
+      "safe": false
+    },
+    {
+      "url": "http://metadata.google.internal",
+      "safe": false
+    },
+    {
+      "url": "http://prometheus.internal",
+      "safe": true
+    },
+    {
+      "url": "http://192.168.1.5",
+      "safe": false
+    }
+  ],
+  "ssrfPrivateOverride": true,
+  "awsRegions": {
+    "ap-south-1": {
+      "valid": true,
+      "errors": []
+    },
+    "us-east-1": {
+      "valid": false,
+      "errors": [
+        "Disallowed AWS region 'us-east-1'. InfraPulse Phase 23 strictly targets [ap-south-1]."
+      ]
+    },
+    "eu-west-1": {
+      "valid": false,
+      "errors": [
+        "Disallowed AWS region 'eu-west-1'. InfraPulse Phase 23 strictly targets [ap-south-1]."
+      ]
+    }
+  },
+  "resourceLock": [
+    {
+      "accepted": true,
+      "rows": [
+        {
+          "id": "phase23m-lock-0",
+          "status": "EXECUTING"
+        }
+      ]
+    },
+    {
+      "accepted": true,
+      "rows": [
+        {
+          "id": "phase23m-lock-1",
+          "status": "EXECUTING"
+        }
+      ]
+    }
+  ],
+  "idempotency": [
+    {
+      "accepted": true,
+      "rows": [
+        {
+          "id": "phase23m-idem-0",
+          "status": "EXECUTING"
+        }
+      ]
+    },
+    {
+      "accepted": false,
+      "code": "23505",
+      "message": "duplicate key value violates unique constraint \"remediation_executions_idempotency_key_key\""
+    }
+  ],
+  "dedupRestart": [
+    {
+      "status": 0,
+      "signal": null,
+      "stdout": "{\"processed\":1,\"duplicates\":0,\"rejected\":0}\n",
+      "stderr": ""
+    },
+    {
+      "status": 0,
+      "signal": null,
+      "stdout": "{\"processed\":1,\"duplicates\":0,\"rejected\":0}\n",
+      "stderr": ""
+    }
+  ],
+  "dedupRows": [
+    {
+      "count": "1"
+    }
+  ],
+  "failedEventAccounting": {
+    "tenantId": "phase23m-accounting",
+    "environment": "staging",
+    "provider": "opentelemetry",
+    "telemetryType": "metric",
+    "processedCount": 1,
+    "rejectedCount": 0,
+    "duplicateCount": 0,
+    "alertTriggers": 9,
+    "inferredDependencies": 0,
+    "ingestedEvents": [
+      {
+        "id": "phase23m-invalid-metric",
+        "eventType": "metric_anomaly",
+        "timestamp": "2026-10-31T15:51:32.085Z",
+        "serviceId": "payment-service",
+        "tenantId": "phase23m-accounting",
+        "organizationId": "default_org",
+        "environment": "staging",
+        "serviceName": "payment-service",
+        "eventTimestamp": "2026-10-31T15:51:32.085Z"
+      }
+    ]
+  },
+  "failedEventRetry": {
+    "tenantId": "phase23m-accounting",
+    "environment": "staging",
+    "provider": "opentelemetry",
+    "telemetryType": "metric",
+    "processedCount": 0,
+    "rejectedCount": 0,
+    "duplicateCount": 1,
+    "alertTriggers": 0,
+    "inferredDependencies": 0,
+    "ingestedEvents": []
+  },
+  "crossTenantCollision": [
+    {
+      "success": true,
+      "event": {
+        "id": "evt-met-phase23m-shared-id",
+        "event_type": "metric_anomaly",
+        "source_system": "prometheus_metric_engine",
+        "source_ref_id": "phase23m-shared-id",
+        "tenant_id": "phase23m-collision-A",
+        "service_id": "payment-service",
+        "service_name": "payment-service",
+        "environment": "staging",
+        "event_timestamp": "2026-10-31T15:51:32.263Z",
+        "ingestion_timestamp": "2026-10-31T15:51:32.263Z",
+        "severity": "critical",
+        "title": "Metric Anomaly: cpu_percent shifted to 10",
+        "summary": "Observed cpu_percent = 10 (baseline: 0, delta: 0.0%) in service payment-service.",
+        "correlation_ids": [],
+        "related_incident_id": null,
+        "related_deployment_id": null,
+        "telemetry_mode": "simulated",
+        "evidence_quality": "good",
+        "normalized_attributes": {
+          "unit": "ms",
+          "metric": "cpu_percent",
+          "threshold": null,
+          "currentValue": 10,
+          "deltaPercent": 0,
+          "baselineValue": 0
+        },
+        "original_source_ref": {
+          "source": "metric_stream",
+          "rawPayload": {
+            "id": "phase23m-shared-id",
+            "value": 10,
+            "metric": "cpu_percent",
+            "tenantId": "phase23m-collision-A",
+            "serviceId": "payment-service",
+            "timestamp": "2026-10-31T15:51:32.263Z",
+            "environment": "staging"
+          },
+          "rawTimestamp": "2026-10-31T15:51:32.263Z"
+        },
+        "created_at": "2026-10-31T15:51:32.265Z"
+      }
+    },
+    {
+      "success": true,
+      "event": {
+        "id": "evt-met-phase23m-shared-id",
+        "event_type": "metric_anomaly",
+        "source_system": "prometheus_metric_engine",
+        "source_ref_id": "phase23m-shared-id",
+        "tenant_id": "phase23m-collision-A",
+        "service_id": "payment-service",
+        "service_name": "payment-service",
+        "environment": "staging",
+        "event_timestamp": "2026-10-31T15:51:32.263Z",
+        "ingestion_timestamp": "2026-10-31T15:51:32.263Z",
+        "severity": "critical",
+        "title": "Metric Anomaly: cpu_percent shifted to 99",
+        "summary": "Observed cpu_percent = 99 (baseline: 0, delta: 0.0%) in service payment-service.",
+        "correlation_ids": [],
+        "related_incident_id": null,
+        "related_deployment_id": null,
+        "telemetry_mode": "simulated",
+        "evidence_quality": "good",
+        "normalized_attributes": {
+          "unit": "ms",
+          "metric": "cpu_percent",
+          "threshold": null,
+          "currentValue": 99,
+          "deltaPercent": 0,
+          "baselineValue": 0
+        },
+        "original_source_ref": {
+          "source": "metric_stream",
+          "rawPayload": {
+            "id": "phase23m-shared-id",
+            "value": 10,
+            "metric": "cpu_percent",
+            "tenantId": "phase23m-collision-A",
+            "serviceId": "payment-service",
+            "timestamp": "2026-10-31T15:51:32.263Z",
+            "environment": "staging"
+          },
+          "rawTimestamp": "2026-10-31T15:51:32.263Z"
+        },
+        "created_at": "2026-10-31T15:51:32.265Z"
+      }
+    }
+  ],
+  "crossTenantRows": [
+    {
+      "id": "evt-met-phase23m-shared-id",
+      "tenant_id": "phase23m-collision-A",
+      "normalized_attributes": {
+        "unit": "ms",
+        "metric": "cpu_percent",
+        "threshold": null,
+        "currentValue": 99,
+        "deltaPercent": 0,
+        "baselineValue": 0
+      }
+    }
+  ],
+  "apiBenchmarks": [
+    {
+      "repetition": 1,
+      "concurrency": 1,
+      "requests": 30,
+      "durationMs": 374.5790999999999,
+      "requestsPerSecond": 80.08989289578625,
+      "p50Ms": 12.066299999999956,
+      "p95Ms": 22.995699999999943,
+      "raw": [
+        {
+          "status": 200,
+          "ms": 25.89940000000024
+        },
+        {
+          "status": 200,
+          "ms": 19.988400000000183
+        },
+        {
+          "status": 200,
+          "ms": 9.81020000000035
+        },
+        {
+          "status": 200,
+          "ms": 22.995699999999943
+        },
+        {
+          "status": 200,
+          "ms": 14.784900000000107
+        },
+        {
+          "status": 200,
+          "ms": 7.145899999999983
+        },
+        {
+          "status": 200,
+          "ms": 10.102600000000166
+        },
+        {
+          "status": 200,
+          "ms": 8.56959999999981
+        },
+        {
+          "status": 200,
+          "ms": 7.153999999999996
+        },
+        {
+          "status": 200,
+          "ms": 6.10570000000007
+        },
+        {
+          "status": 200,
+          "ms": 9.260999999999967
+        },
+        {
+          "status": 200,
+          "ms": 15.605199999999968
+        },
+        {
+          "status": 200,
+          "ms": 17.7529999999997
+        },
+        {
+          "status": 200,
+          "ms": 15.132799999999861
+        },
+        {
+          "status": 200,
+          "ms": 18.128400000000056
+        },
+        {
+          "status": 200,
+          "ms": 5.832100000000082
+        },
+        {
+          "status": 200,
+          "ms": 11.309199999999691
+        },
+        {
+          "status": 200,
+          "ms": 6.737300000000232
+        },
+        {
+          "status": 200,
+          "ms": 5.755499999999756
+        },
+        {
+          "status": 200,
+          "ms": 5.7543000000000575
+        },
+        {
+          "status": 200,
+          "ms": 14.007100000000264
+        },
+        {
+          "status": 200,
+          "ms": 16.254799999999705
+        },
+        {
+          "status": 200,
+          "ms": 16.316299999999956
+        },
+        {
+          "status": 200,
+          "ms": 5.430400000000191
+        },
+        {
+          "status": 200,
+          "ms": 12.066299999999956
+        },
+        {
+          "status": 200,
+          "ms": 16.284200000000055
+        },
+        {
+          "status": 200,
+          "ms": 5.248700000000099
+        },
+        {
+          "status": 200,
+          "ms": 9.875600000000304
+        },
+        {
+          "status": 200,
+          "ms": 18.398800000000392
+        },
+        {
+          "status": 200,
+          "ms": 15.591799999999694
+        }
+      ]
+    },
+    {
+      "repetition": 2,
+      "concurrency": 1,
+      "requests": 30,
+      "durationMs": 328.77689999999984,
+      "requestsPerSecond": 91.24728653381675,
+      "p50Ms": 10.606600000000071,
+      "p95Ms": 17.546000000000276,
+      "raw": [
+        {
+          "status": 200,
+          "ms": 17.439100000000053
+        },
+        {
+          "status": 200,
+          "ms": 5.5408000000002176
+        },
+        {
+          "status": 200,
+          "ms": 10.238400000000183
+        },
+        {
+          "status": 200,
+          "ms": 17.78969999999981
+        },
+        {
+          "status": 200,
+          "ms": 15.885999999999967
+        },
+        {
+          "status": 200,
+          "ms": 17.163600000000315
+        },
+        {
+          "status": 200,
+          "ms": 16.077800000000025
+        },
+        {
+          "status": 200,
+          "ms": 5.657000000000153
+        },
+        {
+          "status": 200,
+          "ms": 11.140600000000177
+        },
+        {
+          "status": 200,
+          "ms": 16.61550000000034
+        },
+        {
+          "status": 200,
+          "ms": 17.546000000000276
+        },
+        {
+          "status": 200,
+          "ms": 5.685500000000047
+        },
+        {
+          "status": 200,
+          "ms": 12.179399999999987
+        },
+        {
+          "status": 200,
+          "ms": 15.134900000000016
+        },
+        {
+          "status": 200,
+          "ms": 5.915700000000015
+        },
+        {
+          "status": 200,
+          "ms": 6.210099999999784
+        },
+        {
+          "status": 200,
+          "ms": 7.571899999999914
+        },
+        {
+          "status": 200,
+          "ms": 14.781399999999849
+        },
+        {
+          "status": 200,
+          "ms": 16.20139999999992
+        },
+        {
+          "status": 200,
+          "ms": 6.105099999999766
+        },
+        {
+          "status": 200,
+          "ms": 9.712300000000141
+        },
+        {
+          "status": 200,
+          "ms": 6.440200000000004
+        },
+        {
+          "status": 200,
+          "ms": 10.606600000000071
+        },
+        {
+          "status": 200,
+          "ms": 5.601799999999912
+        },
+        {
+          "status": 200,
+          "ms": 6.104800000000068
+        },
+        {
+          "status": 200,
+          "ms": 6.419399999999769
+        },
+        {
+          "status": 200,
+          "ms": 14.472299999999905
+        },
+        {
+          "status": 200,
+          "ms": 16.29780000000028
+        },
+        {
+          "status": 200,
+          "ms": 5.938099999999849
+        },
+        {
+          "status": 200,
+          "ms": 5.12519999999995
+        }
+      ]
+    },
+    {
+      "repetition": 3,
+      "concurrency": 1,
+      "requests": 30,
+      "durationMs": 332.76200000000017,
+      "requestsPerSecond": 90.15452485560245,
+      "p50Ms": 10.63530000000037,
+      "p95Ms": 17.705799999999726,
+      "raw": [
+        {
+          "status": 200,
+          "ms": 19.257000000000062
+        },
+        {
+          "status": 200,
+          "ms": 6.055100000000039
+        },
+        {
+          "status": 200,
+          "ms": 13.429200000000037
+        },
+        {
+          "status": 200,
+          "ms": 16.840599999999995
+        },
+        {
+          "status": 200,
+          "ms": 6.222099999999955
+        },
+        {
+          "status": 200,
+          "ms": 10.846500000000106
+        },
+        {
+          "status": 200,
+          "ms": 16.972699999999804
+        },
+        {
+          "status": 200,
+          "ms": 17.705799999999726
+        },
+        {
+          "status": 200,
+          "ms": 6.48909999999978
+        },
+        {
+          "status": 200,
+          "ms": 7.909799999999905
+        },
+        {
+          "status": 200,
+          "ms": 15.576000000000022
+        },
+        {
+          "status": 200,
+          "ms": 5.875500000000102
+        },
+        {
+          "status": 200,
+          "ms": 5.1810999999997875
+        },
+        {
+          "status": 200,
+          "ms": 9.615699999999833
+        },
+        {
+          "status": 200,
+          "ms": 6.179500000000189
+        },
+        {
+          "status": 200,
+          "ms": 7.700400000000172
+        },
+        {
+          "status": 200,
+          "ms": 16.272699999999986
+        },
+        {
+          "status": 200,
+          "ms": 15.93309999999974
+        },
+        {
+          "status": 200,
+          "ms": 16.796499999999924
+        },
+        {
+          "status": 200,
+          "ms": 6.4879000000000815
+        },
+        {
+          "status": 200,
+          "ms": 11.054700000000139
+        },
+        {
+          "status": 200,
+          "ms": 15.510800000000017
+        },
+        {
+          "status": 200,
+          "ms": 6.1953999999996086
+        },
+        {
+          "status": 200,
+          "ms": 10.63530000000037
+        },
+        {
+          "status": 200,
+          "ms": 5.727599999999711
+        },
+        {
+          "status": 200,
+          "ms": 9.1253999999999
+        },
+        {
+          "status": 200,
+          "ms": 6.555699999999888
+        },
+        {
+          "status": 200,
+          "ms": 15.342199999999593
+        },
+        {
+          "status": 200,
+          "ms": 16.682999999999993
+        },
+        {
+          "status": 200,
+          "ms": 7.381000000000313
+        }
+      ]
+    },
+    {
+      "repetition": 1,
+      "concurrency": 5,
+      "requests": 30,
+      "durationMs": 327.8285000000001,
+      "requestsPerSecond": 91.51126274866277,
+      "p50Ms": 10.650899999999638,
+      "p95Ms": 102.83010000000013,
+      "raw": [
+        {
+          "status": 200,
+          "ms": 13.620300000000043
+        },
+        {
+          "status": 200,
+          "ms": 20.264500000000226
+        },
+        {
+          "status": 200,
+          "ms": 189.2461999999996
+        },
+        {
+          "status": 200,
+          "ms": 94.58169999999973
+        },
+        {
+          "status": 200,
+          "ms": 102.83010000000013
+        },
+        {
+          "status": 200,
+          "ms": 9.784200000000055
+        },
+        {
+          "status": 200,
+          "ms": 10.650899999999638
+        },
+        {
+          "status": 200,
+          "ms": 11.718600000000151
+        },
+        {
+          "status": 200,
+          "ms": 16.503700000000208
+        },
+        {
+          "status": 200,
+          "ms": 85.03340000000026
+        },
+        {
+          "status": 200,
+          "ms": 10.147700000000441
+        },
+        {
+          "status": 200,
+          "ms": 10.305599999999686
+        },
+        {
+          "status": 200,
+          "ms": 11.516300000000228
+        },
+        {
+          "status": 200,
+          "ms": 12.520000000000437
+        },
+        {
+          "status": 200,
+          "ms": 13.198899999999412
+        },
+        {
+          "status": 200,
+          "ms": 6.471999999999753
+        },
+        {
+          "status": 200,
+          "ms": 7.219699999999648
+        },
+        {
+          "status": 200,
+          "ms": 8.096400000000358
+        },
+        {
+          "status": 200,
+          "ms": 9.270700000000033
+        },
+        {
+          "status": 200,
+          "ms": 10.19419999999991
+        },
+        {
+          "status": 200,
+          "ms": 6.9200999999993655
+        },
+        {
+          "status": 200,
+          "ms": 8.000100000000202
+        },
+        {
+          "status": 200,
+          "ms": 7.038000000000466
+        },
+        {
+          "status": 200,
+          "ms": 8.862900000000081
+        },
+        {
+          "status": 200,
+          "ms": 7.793399999999565
+        },
+        {
+          "status": 200,
+          "ms": 5.732200000000375
+        },
+        {
+          "status": 200,
+          "ms": 6.9570999999996275
+        },
+        {
+          "status": 200,
+          "ms": 10.964200000000346
+        },
+        {
+          "status": 200,
+          "ms": 11.626199999999699
+        },
+        {
+          "status": 200,
+          "ms": 12.172500000000582
+        }
+      ]
+    },
+    {
+      "repetition": 2,
+      "concurrency": 5,
+      "requests": 30,
+      "durationMs": 73.32120000000032,
+      "requestsPerSecond": 409.1586062421219,
+      "p50Ms": 8.228799999999865,
+      "p95Ms": 12.516899999999623,
+      "raw": [
+        {
+          "status": 200,
+          "ms": 7.043500000000677
+        },
+        {
+          "status": 200,
+          "ms": 7.5788000000002285
+        },
+        {
+          "status": 200,
+          "ms": 8.62960000000021
+        },
+        {
+          "status": 200,
+          "ms": 9.365600000000086
+        },
+        {
+          "status": 200,
+          "ms": 10.068599999999606
+        },
+        {
+          "status": 200,
+          "ms": 6.090400000000045
+        },
+        {
+          "status": 200,
+          "ms": 6.685999999999694
+        },
+        {
+          "status": 200,
+          "ms": 7.675100000000384
+        },
+        {
+          "status": 200,
+          "ms": 6.872699999999895
+        },
+        {
+          "status": 200,
+          "ms": 11.449400000000423
+        },
+        {
+          "status": 200,
+          "ms": 6.9975000000004
+        },
+        {
+          "status": 200,
+          "ms": 7.4179000000003725
+        },
+        {
+          "status": 200,
+          "ms": 7.808500000000095
+        },
+        {
+          "status": 200,
+          "ms": 8.228799999999865
+        },
+        {
+          "status": 200,
+          "ms": 8.867300000000796
+        },
+        {
+          "status": 200,
+          "ms": 7.023700000000645
+        },
+        {
+          "status": 200,
+          "ms": 11.004899999999907
+        },
+        {
+          "status": 200,
+          "ms": 11.873599999999897
+        },
+        {
+          "status": 200,
+          "ms": 12.516899999999623
+        },
+        {
+          "status": 200,
+          "ms": 13.007300000000214
+        },
+        {
+          "status": 200,
+          "ms": 7.181499999999687
+        },
+        {
+          "status": 200,
+          "ms": 7.799600000000282
+        },
+        {
+          "status": 200,
+          "ms": 9.119899999999689
+        },
+        {
+          "status": 200,
+          "ms": 10.211999999999534
+        },
+        {
+          "status": 200,
+          "ms": 11.302999999999884
+        },
+        {
+          "status": 200,
+          "ms": 6.340799999999945
+        },
+        {
+          "status": 200,
+          "ms": 7.138899999999921
+        },
+        {
+          "status": 200,
+          "ms": 8.104699999999866
+        },
+        {
+          "status": 200,
+          "ms": 11.038700000000063
+        },
+        {
+          "status": 200,
+          "ms": 11.785899999999856
+        }
+      ]
+    },
+    {
+      "repetition": 3,
+      "concurrency": 5,
+      "requests": 30,
+      "durationMs": 94.25619999999981,
+      "requestsPerSecond": 318.2814499205364,
+      "p50Ms": 10.947000000000116,
+      "p95Ms": 22.29530000000068,
+      "raw": [
+        {
+          "status": 200,
+          "ms": 6.615700000000288
+        },
+        {
+          "status": 200,
+          "ms": 7.42450000000008
+        },
+        {
+          "status": 200,
+          "ms": 7.966400000000249
+        },
+        {
+          "status": 200,
+          "ms": 8.454800000000432
+        },
+        {
+          "status": 200,
+          "ms": 11.483000000000175
+        },
+        {
+          "status": 200,
+          "ms": 9.082900000000336
+        },
+        {
+          "status": 200,
+          "ms": 10.227499999999964
+        },
+        {
+          "status": 200,
+          "ms": 11.361700000000383
+        },
+        {
+          "status": 200,
+          "ms": 12.296199999999772
+        },
+        {
+          "status": 200,
+          "ms": 12.893699999999626
+        },
+        {
+          "status": 200,
+          "ms": 6.34519999999975
+        },
+        {
+          "status": 200,
+          "ms": 7.274199999999837
+        },
+        {
+          "status": 200,
+          "ms": 8.503099999999904
+        },
+        {
+          "status": 200,
+          "ms": 10.947000000000116
+        },
+        {
+          "status": 200,
+          "ms": 9.551499999999578
+        },
+        {
+          "status": 200,
+          "ms": 8.189100000000508
+        },
+        {
+          "status": 200,
+          "ms": 8.88760000000002
+        },
+        {
+          "status": 200,
+          "ms": 13.45339999999942
+        },
+        {
+          "status": 200,
+          "ms": 15.320200000000114
+        },
+        {
+          "status": 200,
+          "ms": 10.645199999999932
+        },
+        {
+          "status": 200,
+          "ms": 18.862600000000384
+        },
+        {
+          "status": 200,
+          "ms": 19.60440000000017
+        },
+        {
+          "status": 200,
+          "ms": 21.018299999999726
+        },
+        {
+          "status": 200,
+          "ms": 24.062700000000405
+        },
+        {
+          "status": 200,
+          "ms": 22.29530000000068
+        },
+        {
+          "status": 200,
+          "ms": 10.23779999999988
+        },
+        {
+          "status": 200,
+          "ms": 10.841499999999542
+        },
+        {
+          "status": 200,
+          "ms": 11.32089999999971
+        },
+        {
+          "status": 200,
+          "ms": 12.30659999999989
+        },
+        {
+          "status": 200,
+          "ms": 13.152900000000045
+        }
+      ]
+    }
+  ],
+  "ingestionBenchmarks": [
+    {
+      "repetition": 1,
+      "events": 50,
+      "durationMs": 223.92729999999938,
+      "eventsPerSecond": 223.28675422782368,
+      "processed": 50,
+      "rejected": 0
+    },
+    {
+      "repetition": 2,
+      "events": 50,
+      "durationMs": 92.47789999999986,
+      "eventsPerSecond": 540.6697167647629,
+      "processed": 50,
+      "rejected": 0
+    },
+    {
+      "repetition": 3,
+      "events": 50,
+      "durationMs": 107.15900000000056,
+      "eventsPerSecond": 466.596366147498,
+      "processed": 50,
+      "rejected": 0
+    }
+  ],
+  "queryPlan": [
+    {
+      "QUERY PLAN": [
+        {
+          "Plan": {
+            "Node Type": "Index Scan",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Scan Direction": "Forward",
+            "Index Name": "idx_incidents_status_created",
+            "Relation Name": "incidents",
+            "Alias": "incidents",
+            "Startup Cost": 0.14,
+            "Total Cost": 8.15,
+            "Plan Rows": 1,
+            "Plan Width": 2197,
+            "Actual Startup Time": 0.044,
+            "Actual Total Time": 0.05,
+            "Actual Rows": 2,
+            "Actual Loops": 1,
+            "Index Cond": "((status)::text = 'investigating'::text)",
+            "Rows Removed by Index Recheck": 0,
+            "Shared Hit Blocks": 2,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          },
+          "Planning": {
+            "Shared Hit Blocks": 144,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          },
+          "Planning Time": 6.663,
+          "Triggers": [],
+          "Execution Time": 0.375
+        }
+      ]
+    }
+  ],
+  "diagnosticsAfter": {
+    "status": 200,
+    "ms": 44.44239999999991,
+    "data": {
+      "success": true,
+      "data": {
+        "service": "infrapulse-backend",
+        "timestamp": "2026-10-31T15:51:34.578Z",
+        "uptimeSeconds": 446,
+        "nodeVersion": "v26.4.0",
+        "pid": 9124,
+        "process": {
+          "memoryMb": {
+            "rss": 103,
+            "heapUsed": 37,
+            "heapTotal": 42,
+            "external": 9
+          },
+          "cpuUsageUserMicroseconds": 7671000,
+          "cpuUsageSystemMicroseconds": 1296000
+        },
+        "database": {
+          "connected": true,
+          "latencyMs": 5,
+          "pool": {
+            "totalCount": 5,
+            "idleCount": 5,
+            "waitingCount": 0,
+            "activeCount": 0
+          }
+        },
+        "telemetryPipeline": {
+          "totalIngestedEvents": 4,
+          "deadLetterQueueCount": 0,
+          "status": "HEALTHY"
+        }
+      }
+    }
+  },
+  "wal": [
+    {
+      "name": "archive_command",
+      "setting": "(disabled)"
+    },
+    {
+      "name": "archive_mode",
+      "setting": "off"
+    },
+    {
+      "name": "wal_level",
+      "setting": "replica"
+    }
+  ],
+  "databaseConfig": {
+    "port": "5540",
+    "maxPool": "3"
+  }
+}

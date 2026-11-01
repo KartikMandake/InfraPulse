@@ -1,0 +1,5 @@
+{
+  "status": 0,
+  "stdout": "The files belonging to this database system will be owned by user \"karti\".\r\nThis user must also own the server process.\r\n\r\nThe database cluster will be initialized with locale \"C\".\r\nThe default text search configuration will be set to \"english\".\r\n\r\nData page checksums are disabled.\r\n\r\ncreating directory D:/Projects/.infrapulse-23n-followup/pgdata ... ok\r\ncreating subdirectories ... ok\r\nselecting dynamic shared memory implementation ... windows\r\nselecting default max_connections ... 100\r\nselecting default shared_buffers ... 128MB\r\nselecting default time zone ... Asia/Calcutta\r\ncreating configuration files ... ok\r\nrunning bootstrap script ... ok\r\nperforming post-bootstrap initialization ... ok\r\nsyncing data to disk ... ok\r\n\r\nSuccess. You can now start the database server using:\r\n\r\n    ^\"C^:^\\Program^ Files^\\PostgreSQL^\\16^\\bin^\\pg^_ctl^\" -D D:/Projects/.infrapulse-23n-followup/pgdata -l logfile start\r\n\r\n",
+  "stderr": ""
+}

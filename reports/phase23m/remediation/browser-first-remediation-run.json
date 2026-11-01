@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "name": "All 19 production routes render without browser runtime errors",
+      "status": "FAIL",
+      "error": "page.waitForFunction: Timeout 10000ms exceeded.",
+      "stack": "page.waitForFunction: Timeout 10000ms exceeded.\n    at go (D:\\Projects\\InfraPulse\\tests\\runtime-validation\\remediation-browser23m.mjs:5:92)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-browser23m.mjs:9:422\n    at async check (D:\\Projects\\InfraPulse\\tests\\runtime-validation\\remediation-browser23m.mjs:6:71)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-browser23m.mjs:9:2"
+    },
+    {
+      "name": "M16 viewer and responder retain cloud inventory without requesting admin audit",
+      "status": "FAIL",
+      "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('phase23m-pay-mvwsmlv9', { exact: true }).first() to be visible\u001b[22m\n",
+      "stack": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('phase23m-pay-mvwsmlv9', { exact: true }).first() to be visible\u001b[22m\n\n    at D:\\Projects\\InfraPulse\\tests\\runtime-validation\\remediation-browser23m.mjs:10:372\n    at async check (D:\\Projects\\InfraPulse\\tests\\runtime-validation\\remediation-browser23m.mjs:6:71)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-browser23m.mjs:10:2"
+    },
+    {
+      "name": "M17 mobile account controls and all integration tabs stay within 390px",
+      "status": "FAIL",
+      "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Notification Delivery' }).first() to be visible\u001b[22m\n",
+      "stack": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Notification Delivery' }).first() to be visible\u001b[22m\n\n    at D:\\Projects\\InfraPulse\\tests\\runtime-validation\\remediation-browser23m.mjs:11:928\n    at async check (D:\\Projects\\InfraPulse\\tests\\runtime-validation\\remediation-browser23m.mjs:6:71)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-browser23m.mjs:11:2"
+    },
+    {
+      "name": "M18 incomplete JSON survives typing and invalid submit sends no configuration",
+      "status": "FAIL",
+      "error": "The expression evaluated to a falsy value:\n\n  assert.ok(await buttons.count())\n",
+      "stack": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(await buttons.count())\n\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-browser23m.mjs:12:220\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-browser23m.mjs:6:71)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-browser23m.mjs:12:2"
+    },
+    {
+      "name": "M19 denied clipboard shows recoverable feedback without unhandled rejection",
+      "status": "PASS",
+      "recoverableFeedback": true
+    },
+    {
+      "name": "M19 allowed clipboard copies a complete Markdown report",
+      "status": "PASS",
+      "copiedCharacters": 875
+    },
+    {
+      "name": "M25 backend errors display an error instead of seeded service data",
+      "status": "FAIL",
+      "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('alert').filter({ hasText: /unavailable|failed|outage/i }) to be visible\u001b[22m\n",
+      "stack": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('alert').filter({ hasText: /unavailable|failed|outage/i }) to be visible\u001b[22m\n\n    at D:\\Projects\\InfraPulse\\tests\\runtime-validation\\remediation-browser23m.mjs:15:395\n    at async check (D:\\Projects\\InfraPulse\\tests\\runtime-validation\\remediation-browser23m.mjs:6:71)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/remediation-browser23m.mjs:15:2"
+    }
+  ],
+  "pageErrors": [
+    "Cannot read properties of undefined (reading 'id')"
+  ]
+}

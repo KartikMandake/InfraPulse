@@ -1,0 +1,98 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 100,
+      "title": "Customer Telemetry Ingestion & Export Health",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": {
+        "defaults": {
+          "custom": { "drawStyle": "line", "lineInterpolation": "smooth", "lineWidth": 2 },
+          "unit": "ops"
+        }
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 1 },
+      "id": 1,
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "expr": "sum(rate(infrapulse_operations_total{operation=\"telemetry.ingest\"}[1m])) by (outcome)",
+          "legendFormat": "Ingestion ({{outcome}})",
+          "refId": "A"
+        }
+      ],
+      "title": "Telemetry Ingestion Rate (OTLP & Agent)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": {
+        "defaults": {
+          "custom": { "drawStyle": "line", "lineInterpolation": "smooth", "lineWidth": 2 },
+          "unit": "s"
+        }
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 1 },
+      "id": 2,
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "expr": "histogram_quantile(0.95, sum(rate(infrapulse_operation_duration_seconds_bucket{operation=\"telemetry.ingest\"}[5m])) by (le))",
+          "legendFormat": "P95 Ingestion Latency",
+          "refId": "A"
+        }
+      ],
+      "title": "Telemetry Processing Latency (P95)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red", "value": 1 }
+            ]
+          },
+          "unit": "short"
+        }
+      },
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 9 },
+      "id": 3,
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "expr": "rate(infrapulse_trace_export_errors_total[1m])",
+          "legendFormat": "OTEL Trace Export Error Rate",
+          "refId": "A"
+        }
+      ],
+      "title": "Self-Monitoring OpenTelemetry Export Failures",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["infrapulse", "self-monitoring", "telemetry"],
+  "time": { "from": "now-1h", "to": "now" },
+  "timezone": "browser",
+  "title": "InfraPulse — Telemetry Pipeline",
+  "uid": "infrapulse-telemetry-pipeline",
+  "version": 1
+}
+

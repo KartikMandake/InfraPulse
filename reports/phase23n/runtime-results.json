@@ -1,0 +1,279 @@
+[
+  {
+    "id": "SAFE-01",
+    "name": "All lifecycle mutation flags remain false",
+    "status": "PASS",
+    "ms": 1.0291999999999462,
+    "aws": false,
+    "docker": false,
+    "kubernetes": false,
+    "remediation": false
+  },
+  {
+    "id": "SEC-01",
+    "name": "Anonymous API and viewer/responder writes respect RBAC",
+    "status": "PASS",
+    "ms": 175.67239999999993,
+    "anonymous": 401,
+    "viewerWrite": 403,
+    "responderKillSwitch": 403
+  },
+  {
+    "id": "SEC-02",
+    "name": "Tenant isolation of inventory, operation IDs and query overrides",
+    "status": "PASS",
+    "ms": 1142.2937000000002,
+    "tenantA": "n1793495376536_a",
+    "tenantB": "n1793495376536_b",
+    "foreignStatus": 500
+  },
+  {
+    "id": "GOV-01",
+    "name": "Self-approval and missing explicit confirmation are blocked",
+    "status": "PASS",
+    "ms": 174.84389999999985,
+    "selfApproval": {
+      "status": 403,
+      "data": {
+        "success": false,
+        "message": "Separation of Duties Violation: Requester (sarah.chen@infrapulse.io) cannot self-approve their own lifecycle request."
+      }
+    },
+    "missingConfirmation": {
+      "status": 403,
+      "data": {
+        "success": false,
+        "message": "Explicit confirmation required: Governed live infrastructure mutation requires explicit administrative confirmation (explicitConfirmation: true) immediately prior to execution."
+      }
+    }
+  },
+  {
+    "id": "GOV-02",
+    "name": "Provider feature guards dispatch zero AWS/Docker/Kubernetes mutations",
+    "status": "PASS",
+    "ms": 5.90059999999994,
+    "mutationDispatches": []
+  },
+  {
+    "id": "GOV-03",
+    "name": "EC2 production, allowlist and control-plane checks remain independently false",
+    "status": "PASS",
+    "ms": 29.42470000000003,
+    "eligible": false,
+    "blockers": [
+      "Live AWS Mutations Disabled: AWS_LIFECYCLE_MUTATIONS_ENABLED is false. Real AWS EC2 mutations are disabled by default for zero out-of-pocket safety.",
+      "Instance Not Allowlisted: EC2 instance 'i-23n-never-real' is not listed in AWS_ALLOWED_INSTANCE_IDS. Governed mutations require explicit administrative allowlisting.",
+      "Production Protected: Instance '23n-fixture' is tagged as PRODUCTION (production). Governed stop/start is strictly prohibited on production infrastructure.",
+      "Control Plane Protected: Instance 'i-23n-never-real' hosts the InfraPulse control plane. Halting the monitoring host is strictly forbidden."
+    ],
+    "warnings": [
+      "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Halting infrastructure during open incidents requires Incident Commander sign-off."
+    ],
+    "checks": {
+      "isEc2Instance": true,
+      "isAllowlisted": false,
+      "isNonProduction": false,
+      "isNotInfraPulseHost": false,
+      "isNotDatabaseDependency": true,
+      "noActiveIncidentConflict": true,
+      "noActiveRunbookConflict": true,
+      "noDownstreamCallersBlocked": true,
+      "mutationsFlagEnabled": false
+    }
+  },
+  {
+    "id": "GOV-04",
+    "name": "Database/StatefulSet/PVC and system namespace protections",
+    "status": "PASS",
+    "ms": 10.225800000000163,
+    "docker": {
+      "eligible": false,
+      "blockers": [
+        "Critical Database Protected: Container 'postgres' is a PostgreSQL database. Direct container stoppage will crash dependent microservices and transactions."
+      ],
+      "warnings": [
+        "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Halting containers during open incidents requires Incident Commander sign-off."
+      ],
+      "checks": {
+        "isDockerResource": true,
+        "isAllowlisted": true,
+        "isNonProduction": true,
+        "isNotControlPlaneContainer": true,
+        "isNotDatabaseContainer": false,
+        "namedVolumePreserved": true,
+        "noActiveIncidentConflict": true,
+        "noActiveRunbookConflict": true,
+        "noDownstreamCallersBlocked": true,
+        "mutationsFlagEnabled": true
+      }
+    },
+    "ss": {
+      "eligible": false,
+      "blockers": [
+        "Critical Database Workload: 'postgres' is a persistent database (StatefulSet). Scaling database to zero will cause data loss or crash dependent microservices. Requires exceptional authorization."
+      ],
+      "warnings": [
+        "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Scaling workloads during open incidents requires Incident Commander sign-off."
+      ],
+      "checks": {
+        "isKubernetesResource": true,
+        "notSystemNamespace": true,
+        "isNamespaceAllowed": true,
+        "isWorkloadAllowlisted": true,
+        "isNonProduction": true,
+        "isNotControlPlaneWorkload": true,
+        "isDatabaseWorkloadProtected": false,
+        "pvcRetainedAndProtected": true,
+        "pdbAvailabilityMet": true,
+        "noActiveIncidentConflict": true,
+        "noActiveRunbookConflict": true,
+        "noDownstreamCallersBlocked": true,
+        "mutationsFlagEnabled": true
+      }
+    },
+    "system": {
+      "eligible": false,
+      "blockers": [
+        "Protected System Namespace: Workload 'system' resides in system namespace 'kube-system'. Modifying system namespaces is strictly forbidden."
+      ],
+      "warnings": [],
+      "checks": {
+        "isKubernetesResource": true,
+        "notSystemNamespace": false,
+        "isNamespaceAllowed": false,
+        "isWorkloadAllowlisted": false,
+        "isNonProduction": false,
+        "isNotControlPlaneWorkload": false,
+        "isDatabaseWorkloadProtected": false,
+        "pvcRetainedAndProtected": false,
+        "pdbAvailabilityMet": true,
+        "noActiveIncidentConflict": true,
+        "noActiveRunbookConflict": true,
+        "noDownstreamCallersBlocked": true,
+        "mutationsFlagEnabled": false
+      }
+    },
+    "actualVolumesTouched": 0
+  },
+  {
+    "id": "GOV-05",
+    "name": "Persistent freeze blocks execution and survives a fresh process",
+    "status": "PASS",
+    "ms": 565.9171000000001,
+    "denied": {
+      "status": 403,
+      "data": {
+        "success": false,
+        "message": "Execution Blocked: Kill Switch Active (23N validation freeze)."
+      }
+    },
+    "freshProcessActive": true
+  },
+  {
+    "id": "GOV-06",
+    "name": "Remediation plans retain the Phase 23M canonical integrity guard",
+    "status": "PASS",
+    "ms": 61.207800000000134,
+    "planId": "rem_plan_32e55ef2b900",
+    "sqlTamperBlocked": true
+  },
+  {
+    "id": "N01",
+    "name": "Unapproved lifecycle execution cannot use client-supplied dryRunOverride",
+    "status": "FAIL",
+    "ms": 289.96320000000014,
+    "error": "Unapproved override must be denied; actual response 200\n\n200 !== 403\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Unapproved override must be denied; actual response 200\n\n200 !== 403\n\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:18:376\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:18:1",
+    "observed": {}
+  },
+  {
+    "id": "N02",
+    "name": "Approved lifecycle target/action are immutable and bound to execution",
+    "status": "FAIL",
+    "ms": 227.58629999999994,
+    "error": "Approved target/action substitution executed successfully",
+    "stack": "AssertionError [ERR_ASSERTION]: Approved target/action substitution executed successfully\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:19:664\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:19:1",
+    "observed": {}
+  },
+  {
+    "id": "N03",
+    "name": "Concurrent execution of the same approved operation dispatches once",
+    "status": "FAIL",
+    "ms": 485.1778999999997,
+    "error": "Same approved operation dispatched 2 times\n\n2 !== 1\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Same approved operation dispatched 2 times\n\n2 !== 1\n\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:20:764\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:20:1",
+    "observed": {}
+  },
+  {
+    "id": "N04",
+    "name": "Old lifecycle approval expires before execution",
+    "status": "FAIL",
+    "ms": 202.17669999999998,
+    "error": "30-day-old approval still executed: 200",
+    "stack": "AssertionError [ERR_ASSERTION]: 30-day-old approval still executed: 200\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:21:416\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:21:1",
+    "observed": {}
+  },
+  {
+    "id": "N05",
+    "name": "Lifecycle audit attributes the actor and preserves operation details",
+    "status": "FAIL",
+    "ms": 85.40759999999955,
+    "error": "Lifecycle audit actor or metadata missing",
+    "stack": "AssertionError [ERR_ASSERTION]: Lifecycle audit actor or metadata missing\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:22:343\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:22:1",
+    "observed": {}
+  },
+  {
+    "id": "N06",
+    "name": "Partial provider failure cannot be reported as completed/success",
+    "status": "FAIL",
+    "ms": 124.21180000000004,
+    "error": "Partial failure is marked completed/success",
+    "stack": "AssertionError [ERR_ASSERTION]: Partial failure is marked completed/success\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:23:662\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:23:1",
+    "observed": {}
+  },
+  {
+    "id": "SCHED-01",
+    "name": "Asia/Kolkata metadata and pause/resume persist safely",
+    "status": "PASS",
+    "ms": 212.3056999999999,
+    "scheduleId": "n1793495376536-schedule",
+    "timezone": "Asia/Kolkata",
+    "pausedExcluded": true,
+    "repeatedDetection": true
+  },
+  {
+    "id": "N07",
+    "name": "New schedules compute a next-run timestamp and reject invalid timezones",
+    "status": "FAIL",
+    "ms": 56.69870000000083,
+    "error": "Invalid schedule accepted or next_run_at absent",
+    "stack": "AssertionError [ERR_ASSERTION]: Invalid schedule accepted or next_run_at absent\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:25:510\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:25:1",
+    "observed": {}
+  },
+  {
+    "id": "N08",
+    "name": "Kubernetes health/rollout without a cluster is unavailable, not fabricated success",
+    "status": "FAIL",
+    "ms": 9.227700000000368,
+    "error": "Missing cluster/workload reports completed rollout",
+    "stack": "AssertionError [ERR_ASSERTION]: Missing cluster/workload reports completed rollout\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:26:382\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:26:1",
+    "observed": {}
+  },
+  {
+    "id": "N09",
+    "name": "Typed Kubernetes discovery keeps live classification and StatefulSet protection",
+    "status": "FAIL",
+    "ms": 25.110600000000886,
+    "error": "Discovered resource is not recognized by lifecycle is_live guard\n+ actual - expected\n\n+ undefined\n- true\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Discovered resource is not recognized by lifecycle is_live guard\n+ actual - expected\n\n+ undefined\n- true\n\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:27:694\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:4:89)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-runtime.mjs:27:1",
+    "observed": {}
+  },
+  {
+    "id": "SAFE-02",
+    "name": "No provider mutation commands or live-cloud schedules were activated",
+    "status": "PASS",
+    "ms": 1.827499999999418,
+    "mutationCalls": [],
+    "liveSchedules": []
+  }
+]

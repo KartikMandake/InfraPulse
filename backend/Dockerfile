@@ -4,20 +4,18 @@
 # ==============================================================================
 
 # Build & Dependency Stage
-FROM node:20-alpine AS dependencies
+FROM node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85 AS dependencies
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --omit=dev && npm cache clean --force
+RUN npm ci --omit=dev --ignore-scripts
 
 # Production Runtime Stage
-FROM node:20-alpine AS runner
+FROM node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85 AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV PORT=5000
-
-# Install wget for lightweight healthcheck
-RUN apk add --no-cache wget
+ENV NODE_OPTIONS=--max-old-space-size=384
 
 # Create non-root application directory
 COPY --chown=node:node package*.json ./
@@ -31,7 +29,8 @@ EXPOSE 5000
 
 # Healthcheck checking liveness endpoint
 HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:5000/api/health/live || exit 1
+  CMD node -e "fetch('http://127.0.0.1:'+process.env.PORT+'/api/health/live',{signal:AbortSignal.timeout(3000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
 
-CMD ["node", "src/server.js"]
+STOPSIGNAL SIGTERM
+CMD ["node", "src/entrypoint.js", "server"]
 

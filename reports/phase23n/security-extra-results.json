@@ -1,0 +1,55 @@
+[
+  {
+    "id": "SEC-04",
+    "name": "Foreign tenant cannot enumerate or execute an operation by known ID",
+    "status": "PASS",
+    "evidence": {
+      "foreignExecuteStatus": 500,
+      "foreignOperationCount": 0
+    }
+  },
+  {
+    "id": "GOV-07",
+    "name": "Synthetic allowlist opt-in works while feature flag still prevents execution",
+    "status": "PASS",
+    "evidence": {
+      "eligible": false,
+      "blockers": [
+        "Live AWS Mutations Disabled: AWS_LIFECYCLE_MUTATIONS_ENABLED is false. Real AWS EC2 mutations are disabled by default for zero out-of-pocket safety."
+      ],
+      "warnings": [],
+      "checks": {
+        "isEc2Instance": true,
+        "isAllowlisted": true,
+        "isNonProduction": true,
+        "isNotInfraPulseHost": true,
+        "isNotDatabaseDependency": true,
+        "noActiveIncidentConflict": true,
+        "noActiveRunbookConflict": true,
+        "noDownstreamCallersBlocked": true,
+        "mutationsFlagEnabled": false
+      }
+    }
+  },
+  {
+    "id": "N17",
+    "name": "Live EC2 requires an actual approved non-production tag",
+    "status": "FAIL",
+    "error": "An inventory environment substitutes for a missing AWS non-production tag\n\ntrue !== false\n"
+  },
+  {
+    "id": "GOV-08",
+    "name": "Resource exclusion prevents distinct executing operations on one resource",
+    "status": "PASS",
+    "evidence": {
+      "distinctOperationClaims": "one winner",
+      "sameOperationReplay": "separately fails N03"
+    }
+  },
+  {
+    "id": "N18",
+    "name": "Different tenants can independently reuse an idempotency key",
+    "status": "FAIL",
+    "error": "A foreign tenant key collision prevented an independent request"
+  }
+]

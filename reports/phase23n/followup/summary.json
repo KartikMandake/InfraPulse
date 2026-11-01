@@ -1,0 +1,38 @@
+{
+  "at": "2026-11-01T01:35:21.883Z",
+  "decision": "NOT PRODUCTION READY / NO-GO",
+  "retainedExistingTests": {
+    "pass": 196,
+    "fail": 0,
+    "implementationHashesMatch": true
+  },
+  "priorIndependentChecks": {
+    "pass": 19,
+    "fail": 18,
+    "count": 37
+  },
+  "supplementalChecks": {
+    "pass": 7,
+    "fail": 1,
+    "count": 8
+  },
+  "combinedIndependentChecks": {
+    "pass": 26,
+    "fail": 19,
+    "count": 45
+  },
+  "openDefects": 19,
+  "criticalDefects": [
+    "N01",
+    "N02",
+    "N03",
+    "N09",
+    "N11"
+  ],
+  "defectsFixed": 0,
+  "applicationFilesModified": [],
+  "environmentFilesUnchanged": true,
+  "liveAwsCallsThisFollowup": 0,
+  "realInfrastructureMutations": 0,
+  "followupPostgresStopped": true
+}

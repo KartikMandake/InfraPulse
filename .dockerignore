@@ -1,0 +1,17 @@
+node_modules
+.git
+.github
+.env
+.env.*
+!.env.example
+!.env.staging.example
+coverage
+dist
+*.log
+*.dump
+*.sql.gz
+*.bak
+deploy/
+infra/
+docs/
+

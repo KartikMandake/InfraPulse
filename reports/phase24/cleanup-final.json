@@ -1,0 +1,12 @@
+{
+  "ownedCluster": "D:/Projects/.infrapulse-phase24",
+  "port": 5545,
+  "stop": {
+    "status": 0,
+    "ms": 311.3125,
+    "stdout": "waiting for server to shut down.... done\r\nserver stopped\r\n",
+    "stderr": ""
+  },
+  "archivesAndDataRetained": true,
+  "existingServicesStopped": false
+}

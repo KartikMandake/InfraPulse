@@ -1,0 +1,163 @@
+{
+  "first": "n1793495376536-approved-target",
+  "second": "n1793495376536-substituted-target",
+  "op": {
+    "id": "op_a5a49a496955",
+    "resource_id": "n1793495376536-approved-target",
+    "action": "start",
+    "status": "pending_approval",
+    "is_dry_run": false,
+    "safety_checks": {
+      "eligibility": {
+        "checks": {
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isDockerResource": true,
+          "mutationsFlagEnabled": true,
+          "namedVolumePreserved": true,
+          "isNotDatabaseContainer": true,
+          "noActiveRunbookConflict": true,
+          "noActiveIncidentConflict": true,
+          "isNotControlPlaneContainer": true,
+          "noDownstreamCallersBlocked": true
+        },
+        "blockers": [],
+        "eligible": true,
+        "warnings": []
+      },
+      "allowStatefulSetScale": false,
+      "exceptionalAuthorization": false
+    },
+    "requested_by": "marcus.v@infrapulse.io",
+    "requester_role": "responder",
+    "approved_by": null,
+    "approved_at": null,
+    "executed_at": null,
+    "completed_at": null,
+    "execution_logs": [
+      {
+        "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+        "timestamp": "2026-11-01T01:09:40.732Z"
+      }
+    ],
+    "idempotency_key": "n1793495376536-n1793495376536-approved-target-start",
+    "rejection_reason": null,
+    "created_at": "2026-11-01T01:09:40.733Z",
+    "tenant_id": "default_tenant"
+  },
+  "sqlRejected": false,
+  "result": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "data": {
+        "success": true,
+        "operation": {
+          "id": "op_a5a49a496955",
+          "resource_id": "n1793495376536-substituted-target",
+          "action": "stop",
+          "status": "completed",
+          "is_dry_run": false,
+          "safety_checks": {
+            "eligibility": {
+              "checks": {
+                "isAllowlisted": true,
+                "isNonProduction": true,
+                "isDockerResource": true,
+                "mutationsFlagEnabled": true,
+                "namedVolumePreserved": true,
+                "isNotDatabaseContainer": true,
+                "noActiveRunbookConflict": true,
+                "noActiveIncidentConflict": true,
+                "isNotControlPlaneContainer": true,
+                "noDownstreamCallersBlocked": true
+              },
+              "blockers": [],
+              "eligible": true,
+              "warnings": []
+            },
+            "allowStatefulSetScale": false,
+            "exceptionalAuthorization": false
+          },
+          "requested_by": "marcus.v@infrapulse.io",
+          "requester_role": "responder",
+          "approved_by": "sarah.chen@infrapulse.io",
+          "approved_at": "2026-11-01T01:09:40.770Z",
+          "executed_at": "2026-11-01T01:09:40.872Z",
+          "completed_at": "2026-11-01T01:09:40.885Z",
+          "execution_logs": [
+            {
+              "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+              "timestamp": "2026-11-01T01:09:40.732Z"
+            },
+            {
+              "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+              "timestamp": "2026-11-01T01:09:40.770Z"
+            },
+            {
+              "result": {
+                "message": "Resource n1793495376536-substituted-target stopped safely. Compute ceased, persistent storage preserved.",
+                "success": true,
+                "newState": "stopped",
+                "timestamp": "2026-11-01T01:09:40.879Z",
+                "isSimulated": true,
+                "dockerDetails": {
+                  "signal": "SIGTERM",
+                  "containerName": "n1793495376536-substituted-target",
+                  "namedVolumePreserved": null
+                },
+                "previousState": "running",
+                "operationDurationMs": 40
+              },
+              "message": "Execution of 'stop' completed successfully via docker simulated provider.",
+              "timestamp": "2026-11-01T01:09:40.885Z"
+            }
+          ],
+          "idempotency_key": "n1793495376536-n1793495376536-approved-target-start",
+          "rejection_reason": null,
+          "created_at": "2026-11-01T01:09:40.733Z",
+          "tenant_id": "default_tenant"
+        },
+        "result": {
+          "success": true,
+          "previousState": "running",
+          "newState": "stopped",
+          "message": "Resource n1793495376536-substituted-target stopped safely. Compute ceased, persistent storage preserved.",
+          "operationDurationMs": 40,
+          "isSimulated": true,
+          "timestamp": "2026-11-01T01:09:40.879Z",
+          "dockerDetails": {
+            "containerName": "n1793495376536-substituted-target",
+            "namedVolumePreserved": null,
+            "signal": "SIGTERM"
+          }
+        }
+      }
+    }
+  },
+  "targetAfter": {
+    "id": "n1793495376536-substituted-target",
+    "name": "n1793495376536-substituted-target",
+    "provider": "docker",
+    "resource_type": "docker_container",
+    "region": "local",
+    "environment": "staging",
+    "current_state": "stopped",
+    "estimated_hourly_cost": "0.0000",
+    "cost_breakdown": {},
+    "dependencies": [],
+    "persistence_requirements": {},
+    "is_critical_dependency": false,
+    "metadata": {
+      "is_live": false,
+      "container_name": "n1793495376536-substituted-target"
+    },
+    "last_lifecycle_operation": "stop",
+    "last_operation_at": "2026-11-01T01:09:40.880Z",
+    "last_health_check_status": "healthy",
+    "last_health_check_at": "2026-11-01T01:09:40.681Z",
+    "created_at": "2026-11-01T01:09:40.681Z",
+    "updated_at": "2026-11-01T01:09:40.880Z",
+    "tenant_id": "default_tenant"
+  }
+}

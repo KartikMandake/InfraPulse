@@ -1,0 +1,6 @@
+{
+  "database": "infrapulse_phase24_1793497190700",
+  "suiteDatabase": "infrapulse_phase24_1793497190700_suite",
+  "restoreDatabase": "infrapulse_phase24_1793497190700_restore",
+  "securityRestoreDatabase": "infrapulse_phase24_1793498685630_secure_restore"
+}

@@ -1,0 +1,54 @@
+{
+  "op": {
+    "id": "op_359bd4264eb6",
+    "resource_id": "n1793495376536-audit",
+    "action": "start",
+    "status": "pending_approval",
+    "is_dry_run": false,
+    "safety_checks": {
+      "eligibility": {
+        "checks": {
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isDockerResource": true,
+          "mutationsFlagEnabled": true,
+          "namedVolumePreserved": true,
+          "isNotDatabaseContainer": true,
+          "noActiveRunbookConflict": true,
+          "noActiveIncidentConflict": true,
+          "isNotControlPlaneContainer": true,
+          "noDownstreamCallersBlocked": true
+        },
+        "blockers": [],
+        "eligible": true,
+        "warnings": []
+      },
+      "allowStatefulSetScale": false,
+      "exceptionalAuthorization": false
+    },
+    "requested_by": "marcus.v@infrapulse.io",
+    "requester_role": "responder",
+    "approved_by": null,
+    "approved_at": null,
+    "executed_at": null,
+    "completed_at": null,
+    "execution_logs": [
+      {
+        "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+        "timestamp": "2026-11-01T01:09:41.646Z"
+      }
+    ],
+    "idempotency_key": "n1793495376536-n1793495376536-audit-start",
+    "rejection_reason": null,
+    "created_at": "2026-11-01T01:09:41.647Z",
+    "tenant_id": "default_tenant"
+  },
+  "rows": [
+    {
+      "actor_email": null,
+      "actor_role": null,
+      "action": "CLOUD_OPERATION_REQUESTED",
+      "metadata": {}
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+TAP version 13
+# Subtest: Phase 23G: Infrastructure Drift Detection & Reconciliation Intelligence
+    # Subtest: 1. Normalizes resource configuration stripping volatile runtime timestamps
+    ok 1 - 1. Normalizes resource configuration stripping volatile runtime timestamps
+      ---
+      duration_ms: 139.9328
+      type: 'test'
+      ...
+    # Subtest: 2. Computes deterministic SHA-256 hash regardless of object key order
+    ok 2 - 2. Computes deterministic SHA-256 hash regardless of object key order
+      ---
+      duration_ms: 12.8268
+      type: 'test'
+      ...
+    # Subtest: 3. Manages baseline lifecycle, version increments, and resource update
+    ok 3 - 3. Manages baseline lifecycle, version increments, and resource update
+      ---
+      duration_ms: 76.3881
+      type: 'test'
+      ...
+    # Subtest: 4. Detects configuration drift on modified fields
+    ok 4 - 4. Detects configuration drift on modified fields
+      ---
+      duration_ms: 47.4377
+      type: 'test'
+      ...
+    # Subtest: 5. Detects workload state drift when expected running workload is stopped
+    ok 5 - 5. Detects workload state drift when expected running workload is stopped
+      ---
+      duration_ms: 30.152
+      type: 'test'
+      ...
+    # Subtest: 6. Detects replica mismatch between baseline and actual pods
+    ok 6 - 6. Detects replica mismatch between baseline and actual pods
+      ---
+      duration_ms: 26.2066
+      type: 'test'
+      ...
+    # Subtest: 7. Detects missing resource when registered baseline workload is deleted from runtime
+    ok 7 - 7. Detects missing resource when registered baseline workload is deleted from runtime
+      ---
+      duration_ms: 23.7326
+      type: 'test'
+      ...
+    # Subtest: 8. Detects unexpected untracked workload added outside baseline
+    ok 8 - 8. Detects unexpected untracked workload added outside baseline
+      ---
+      duration_ms: 25.6891
+      type: 'test'
+      ...
+    # Subtest: 9. Increments observation_count and updates timestamp without duplicate records
+    ok 9 - 9. Increments observation_count and updates timestamp without duplicate records
+      ---
+      duration_ms: 31.5429
+      type: 'test'
+      ...
+    # Subtest: 10. Auto-marks drift as reconciled when live state returns to matching baseline
+    not ok 10 - 10. Auto-marks drift as reconciled when live state returns to matching baseline
+      ---
+      duration_ms: 36.9903
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\driftDetectionReconciliation.test.js:407:3'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        2 !== 0
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 0
+      actual: 2
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/driftDetectionReconciliation.test.js:456:12)
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+    # Subtest: 11. Classifies drift severity deterministically with explainable reasons and evidence
+    ok 11 - 11. Classifies drift severity deterministically with explainable reasons and evidence
+      ---
+      duration_ms: 9.7303
+      type: 'test'
+      ...
+    # Subtest: 12. Analyzes dependency impact identifying affected callers
+    ok 12 - 12. Analyzes dependency impact identifying affected callers
+      ---
+      duration_ms: 9.0307
+      type: 'test'
+      ...
+    # Subtest: 13. Generates governed reconciliation plan preview with step-by-step actions
+    ok 13 - 13. Generates governed reconciliation plan preview with step-by-step actions
+      ---
+      duration_ms: 29.2153
+      type: 'test'
+      ...
+    # Subtest: 14. Blocks automated execution for unexpected additions requiring manual runbooks
+    ok 14 - 14. Blocks automated execution for unexpected additions requiring manual runbooks
+      ---
+      duration_ms: 23.0297
+      type: 'test'
+      ...
+    # Subtest: 15. Submits reconciliation request into lifecycle framework requiring two-person approval
+    ok 15 - 15. Submits reconciliation request into lifecycle framework requiring two-person approval
+      ---
+      duration_ms: 120.1687
+      type: 'test'
+      ...
+    # Subtest: 16. Supports acknowledging and ignoring drift events with audit recording
+    ok 16 - 16. Supports acknowledging and ignoring drift events with audit recording
+      ---
+      duration_ms: 30.0394
+      type: 'test'
+      ...
+    # Subtest: 17. Enforces strict multi-tenant isolation across drift records and baselines
+    ok 17 - 17. Enforces strict multi-tenant isolation across drift records and baselines
+      ---
+      duration_ms: 21.4194
+      type: 'test'
+      ...
+    1..17
+not ok 1 - Phase 23G: Infrastructure Drift Detection & Reconciliation Intelligence
+  ---
+  duration_ms: 699.8447
+  type: 'suite'
+  location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\driftDetectionReconciliation.test.js:41:1'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 17
+# suites 1
+# pass 16
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1540.5837

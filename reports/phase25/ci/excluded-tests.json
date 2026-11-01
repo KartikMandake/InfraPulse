@@ -1,0 +1,11 @@
+{
+  "reason": "Never enable execution flags or live providers in this CI profile. Existing tests retained without assertion changes.",
+  "files": [
+    "tests/cloud-lifecycle/awsEc2Lifecycle.test.js",
+    "tests/cloud-lifecycle/dockerKubernetesLifecycle.test.js"
+  ],
+  "cases": [
+    "governedRemediationIntelligence cases 11 and 12"
+  ],
+  "liveProviderTests": "5 skipped by explicit opt-out"
+}

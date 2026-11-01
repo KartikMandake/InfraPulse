@@ -1,10 +1,11 @@
 import app from './app.js';
 import { config, validateEnvironment } from './config/env.js';
-import { checkConnection, closePool } from './db/connection.js';
+import { checkConnection, waitForConnection, closePool } from './db/connection.js';
 import { runMigrations } from './db/migrate.js';
 import { seedDatabase } from './db/seed.js';
 import { startBackgroundWorker, stopBackgroundWorker } from './services/notificationDispatcher.service.js';
 import { logger } from './utils/logger.js';
+import {createShutdown} from './utils/shutdown.js';
 
 const PORT = config.port;
 
@@ -27,7 +28,10 @@ async function bootstrap() {
   }
 
   // 2. Explicit PostgreSQL Connection Verification
-  const dbStatus = await checkConnection();
+  const dbStatus = await waitForConnection({
+    retries: config.nodeEnv === 'test' ? 1 : 15,
+    delayMs: 2000
+  });
   if (!dbStatus.connected) {
     logger.error('CRITICAL STARTUP ERROR: PostgreSQL database is unavailable.', {
       host: config.db.host,
@@ -48,15 +52,19 @@ async function bootstrap() {
 
   // 3. Run pending migrations & idempotent seeding
   try {
-    await runMigrations();
-    await seedDatabase();
+    if (config.autoMigrate) {
+      await runMigrations();
+    }
+    if (config.autoSeed) {
+      await seedDatabase();
+    }
   } catch (err) {
-    logger.error('Database migration/seed error:', { error: err.message, stack: err.stack });
+    logger.error('Database migration/seed error:', { code: err.code });
     process.exit(1);
   }
 
   // 4. Start Express server & optional background notification worker
-  const server = app.listen(PORT, () => {
+  const server = app.listen(PORT, config.bindHost, () => {
     logger.info(`InfraPulse Backend Server listening on port ${PORT}`, {
       port: PORT,
       url: `http://localhost:${PORT}`,
@@ -72,35 +80,16 @@ async function bootstrap() {
     }
   });
 
-  const shutdown = async (signal) => {
-    logger.info(`Received ${signal}. Commencing graceful shutdown...`);
-
-    if (config.notificationWorkerEnabled) {
-      stopBackgroundWorker();
-    }
-
-    server.close(async (err) => {
-      if (err) {
-        logger.error('Error during HTTP server close:', { error: err.message });
-      }
-
-      await closePool();
-      logger.info('HTTP server and PostgreSQL pool closed cleanly. Process exiting.');
-      process.exit(0);
-    });
-
-    // Forced exit timeout after 10s if connections fail to close
-    setTimeout(() => {
-      logger.error('Graceful shutdown timed out after 10s. Forcing exit.');
-      process.exit(1);
-    }, 10000).unref();
-  };
+  server.requestTimeout=30000;
+  server.headersTimeout=15000;
+  const shutdown=createShutdown({stopWorkers:()=>stopBackgroundWorker(),closeDatabase:closePool,timeoutMs:config.shutdownTimeoutMs,closeHttp:()=>{app.locals.draining=true;return new Promise((resolve,reject)=>{server.close(error=>error?reject(error):resolve());server.closeIdleConnections?.();});}});
+  server.on('error',error=>{logger.error('HTTP listener failed',{code:error.code});closePool().finally(()=>process.exit(1));});
 
   process.on('SIGTERM', () => shutdown('SIGTERM'));
   process.on('SIGINT', () => shutdown('SIGINT'));
 }
 
 bootstrap().catch(err => {
-  logger.error('Fatal unhandled exception during bootstrap:', { error: err.message, stack: err.stack });
+  logger.error('Fatal unhandled exception during bootstrap:', { code: err.code });
   process.exit(1);
 });

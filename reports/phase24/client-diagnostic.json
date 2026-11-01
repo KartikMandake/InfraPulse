@@ -1,0 +1,10 @@
+{
+  "fetch": {
+    "message": "fetch failed",
+    "cause": "other side closed",
+    "code": "UND_ERR_SOCKET"
+  },
+  "http": {
+    "code": "ECONNRESET"
+  }
+}

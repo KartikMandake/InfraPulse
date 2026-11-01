@@ -1,0 +1,168 @@
+[
+  {
+    "id": "F01",
+    "name": "AWS region rejection occurs before any SDK invocation",
+    "status": "PASS",
+    "mode": "ACTUAL ISOLATED DATABASE / SERVICE WITH SIMULATED PROVIDER",
+    "evidence": {
+      "mode": "INJECTED READ-ONLY CLIENT",
+      "region": "us-east-1",
+      "sdkCalls": []
+    }
+  },
+  {
+    "id": "F02",
+    "name": "Duplicate lifecycle request reuses one operation",
+    "status": "PASS",
+    "mode": "ACTUAL ISOLATED DATABASE / SERVICE WITH SIMULATED PROVIDER",
+    "evidence": {
+      "operationId": "op_e599ccca2c90",
+      "requestCount": 2,
+      "persistedOperations": 1
+    }
+  },
+  {
+    "id": "F03",
+    "name": "Simulated start/stop/restart reconcile state and preserve volume metadata",
+    "status": "PASS",
+    "mode": "ACTUAL ISOLATED DATABASE / SERVICE WITH SIMULATED PROVIDER",
+    "evidence": {
+      "transitions": [
+        {
+          "action": "start",
+          "state": "running",
+          "operationStatus": "completed",
+          "isSimulated": true
+        },
+        {
+          "action": "stop",
+          "state": "stopped",
+          "operationStatus": "completed",
+          "isSimulated": true
+        },
+        {
+          "action": "restart",
+          "state": "running",
+          "operationStatus": "completed",
+          "isSimulated": true
+        }
+      ],
+      "volumeMetadataPreserved": true,
+      "physicalContainerOrVolumeCreated": false
+    }
+  },
+  {
+    "id": "F04",
+    "name": "Running caller blocks a dependency stop",
+    "status": "PASS",
+    "mode": "ACTUAL ISOLATED DATABASE / SERVICE WITH SIMULATED PROVIDER",
+    "evidence": {
+      "dependencyId": "followup1793496650123-dependency",
+      "callerId": "followup1793496650123-caller",
+      "safety": {
+        "safe": false,
+        "blockers": [
+          "Cannot stop 'followup1793496650123-dependency': Downstream running workloads depend on it: 'followup1793496650123-caller' (followup1793496650123-caller). Halt dependent workloads first."
+        ],
+        "warnings": [
+          "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Stopping infrastructure during active incidents is risky."
+        ],
+        "downstreamRunningCallers": [
+          "followup1793496650123-caller"
+        ],
+        "safetyChecks": {
+          "killSwitchPassed": true,
+          "dependencyGraphSafe": false,
+          "activeIncidentsCheck": false,
+          "runningRunbooksCheck": true,
+          "pendingNotificationsCheck": true,
+          "databaseHealthCheck": true,
+          "persistentStorageProtected": true,
+          "activeInvestigationsCheck": true
+        }
+      },
+      "eligibility": {
+        "eligible": false,
+        "blockers": [
+          "Downstream Workloads Active: Cannot stop 'followup1793496650123-dependency': Running workloads depend on it: 'followup1793496650123-caller' (followup1793496650123-caller). Halt callers first."
+        ],
+        "warnings": [
+          "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Halting containers during open incidents requires Incident Commander sign-off."
+        ],
+        "checks": {
+          "isDockerResource": true,
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isNotControlPlaneContainer": true,
+          "isNotDatabaseContainer": true,
+          "namedVolumePreserved": true,
+          "noActiveIncidentConflict": true,
+          "noActiveRunbookConflict": true,
+          "noDownstreamCallersBlocked": false,
+          "mutationsFlagEnabled": true
+        }
+      },
+      "mutations": 0
+    }
+  },
+  {
+    "id": "F05",
+    "name": "Control-plane containers and workloads are protected",
+    "status": "PASS",
+    "mode": "ACTUAL ISOLATED DATABASE / SERVICE WITH SIMULATED PROVIDER",
+    "evidence": {
+      "docker": {
+        "eligible": false,
+        "blockers": [
+          "Control Plane Protected: Container 'infrapulse-backend' runs the InfraPulse monitoring control plane. Halting the control plane is strictly forbidden."
+        ],
+        "warnings": [
+          "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Halting containers during open incidents requires Incident Commander sign-off."
+        ],
+        "checks": {
+          "isDockerResource": true,
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isNotControlPlaneContainer": false,
+          "isNotDatabaseContainer": true,
+          "namedVolumePreserved": true,
+          "noActiveIncidentConflict": true,
+          "noActiveRunbookConflict": true,
+          "noDownstreamCallersBlocked": true,
+          "mutationsFlagEnabled": true
+        }
+      },
+      "kubernetes": {
+        "eligible": false,
+        "blockers": [
+          "Control Plane Protected: Workload 'infrapulse-backend' is part of the InfraPulse control plane. Scaling monitoring workloads to zero is prohibited."
+        ],
+        "warnings": [
+          "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Scaling workloads during open incidents requires Incident Commander sign-off."
+        ],
+        "checks": {
+          "isKubernetesResource": true,
+          "notSystemNamespace": true,
+          "isNamespaceAllowed": true,
+          "isWorkloadAllowlisted": true,
+          "isNonProduction": true,
+          "isNotControlPlaneWorkload": false,
+          "isDatabaseWorkloadProtected": true,
+          "pvcRetainedAndProtected": true,
+          "pdbAvailabilityMet": true,
+          "noActiveIncidentConflict": true,
+          "noActiveRunbookConflict": true,
+          "noDownstreamCallersBlocked": true,
+          "mutationsFlagEnabled": true
+        }
+      }
+    }
+  },
+  {
+    "id": "N19",
+    "name": "Tenant runtime database role cannot rewrite historical audit rows",
+    "status": "FAIL",
+    "error": "Runtime role can rewrite its tenant audit history\n\nfalse !== true\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Runtime role can rewrite its tenant audit history\n\nfalse !== true\n\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:14:1156\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:6:149)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:14:1"
+  }
+]

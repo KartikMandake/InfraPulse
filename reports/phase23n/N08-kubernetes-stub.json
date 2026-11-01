@@ -1,0 +1,21 @@
+{
+  "health": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "data": {
+        "totalPods": 1,
+        "runningPods": 1,
+        "healthy": true,
+        "phase": "Running"
+      }
+    }
+  },
+  "rollout": {
+    "success": true,
+    "workload": "Deployment/23n-does-not-exist",
+    "namespace": "staging",
+    "status": "complete",
+    "message": "deployment \"23n-does-not-exist\" successfully rolled out"
+  }
+}

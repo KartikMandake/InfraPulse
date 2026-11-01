@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = (import.meta.env?.VITE_API_BASE_URL || '/api').replace(/\/+$/, '');
 
 async function request(endpoint, options = {}) {
   const url = `${API_BASE}${endpoint}`;
@@ -364,6 +364,198 @@ export const api = {
   retryIntegrationDelivery: (id, deliveryId) => request(`/integrations/${id}/retry/${deliveryId}`, {
     method: 'POST'
   })
+,
+  // Cloud Resource Lifecycle & Cost Governance (Phase 23C)
+  getCloudResources: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/resources${query ? `?${query}` : ''}`);
+  },
+  getCloudResource: (id) => request(`/cloud/resources/${id}`),
+  probeCloudResourceHealth: (id) => request(`/cloud/resources/${id}/health`, { method: 'POST' }),
+  getCloudCostEstimate: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/costs/estimate${query ? `?${query}` : ''}`);
+  },
+  getCloudOperations: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/operations${query ? `?${query}` : ''}`);
+  },
+  dryRunCloudOperation: (payload) => request('/cloud/operations/dry-run', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  requestCloudOperation: (payload) => request('/cloud/operations', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  approveCloudOperation: (id) => request(`/cloud/operations/${id}/approve`, { method: 'POST' }),
+  executeCloudOperation: (id, payload = {}) => request(`/cloud/operations/${id}/execute`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  checkEc2Eligibility: (id, action = 'stop') => request(`/cloud/resources/${id}/eligibility?action=${action}`),
+  checkWorkloadEligibility: (id, params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/workloads/${id}/eligibility${query ? `?${query}` : ''}`);
+  },
+  getDockerContainers: () => request('/cloud/docker/containers'),
+  getDockerContainerHealth: (id) => request(`/cloud/docker/containers/${id}/health`),
+  getKubernetesWorkloads: () => request('/cloud/kubernetes/workloads'),
+  getKubernetesWorkloadHealth: (namespace, name) => request(`/cloud/kubernetes/workloads/${namespace}/${name}/health`),
+  cancelCloudOperation: (id, payload = {}) => request(`/cloud/operations/${id}/cancel`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  getCloudSchedules: () => request('/cloud/schedules'),
+  createCloudSchedule: (payload) => request('/cloud/schedules', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  updateCloudSchedule: (id, payload) => request(`/cloud/schedules/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(payload)
+  }),
+  getCloudKillSwitch: () => request('/cloud/kill-switch'),
+  toggleCloudKillSwitch: (payload) => request('/cloud/kill-switch', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  getCloudAuditTrail: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/audit${query ? `?${query}` : ''}`);
+  },
+  getAwsStatus: (region = 'ap-south-1') => request(`/cloud/aws/status?region=${region}`),
+  discoverAwsResources: (region = 'ap-south-1') => request('/cloud/aws/discover', {
+    method: 'POST',
+    body: JSON.stringify({ region })
+  }),
+  getAwsFreeTierGuidelines: () => request('/cloud/aws/free-tier'),
+
+  // Phase 23G: Infrastructure Drift & Reconciliation
+  getDriftEvents: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/drifts${query ? `?${query}` : ''}`);
+  },
+  getDriftStats: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/drifts/stats${query ? `?${query}` : ''}`);
+  },
+  getDriftDetails: (id) => request(`/cloud/drifts/${id}`),
+  acknowledgeOrIgnoreDrift: (id, payload) => request(`/cloud/drifts/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(payload)
+  }),
+  triggerDriftDetection: (payload = {}) => request('/cloud/drifts/detect', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  getSnapshots: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/snapshots${query ? `?${query}` : ''}`);
+  },
+  getResourceSnapshots: (resourceId) => request(`/cloud/snapshots/${resourceId}`),
+  getActiveBaseline: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/baselines/active${query ? `?${query}` : ''}`);
+  },
+  getBaselineHistory: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/cloud/baselines/history${query ? `?${query}` : ''}`);
+  },
+  createBaseline: (payload) => request('/cloud/baselines', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  initializeBaselineFromInventory: (payload = {}) => request('/cloud/baselines/init-inventory', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  previewReconciliationPlan: (payload) => request('/cloud/reconciliations/preview', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  submitReconciliationRequest: (payload) => request('/cloud/reconciliations/submit', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  getReconciliationPlan: (id) => request(`/cloud/reconciliations/${id}`),
+
+  // Phase 23J: Governed Automated Remediation Intelligence
+  generateRemediationRecommendations: (incidentId) => request(`/remediation/incidents/${incidentId}/recommendations`, {
+    method: 'POST'
+  }),
+  getRemediationRecommendations: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/remediation/recommendations${query ? `?${query}` : ''}`);
+  },
+  getRemediationRecommendationById: (id) => request(`/remediation/recommendations/${id}`),
+  dryRunRemediationPlan: (planId) => request(`/remediation/plans/${planId}/dry-run`, {
+    method: 'POST'
+  }),
+  requestRemediationApproval: (planId, payload = {}) => request(`/remediation/plans/${planId}/request-approval`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  approveRemediationPlan: (approvalId, payload = {}) => request(`/remediation/approvals/${approvalId}/approve`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  rejectRemediationPlan: (approvalId, payload = {}) => request(`/remediation/approvals/${approvalId}/reject`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  executeRemediationPlan: (planId, payload = {}) => request(`/remediation/plans/${planId}/execute`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+  getRemediationExecutions: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/remediation/executions${query ? `?${query}` : ''}`);
+  },
+  getRemediationExecutionById: (id) => request(`/remediation/executions/${id}`),
+  getRemediationPolicies: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/remediation/policies${query ? `?${query}` : ''}`);
+  },
+  createRemediationPolicy: (payload) => request('/remediation/policies', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+
+  // Phase 23K: Autonomous SRE Intelligence
+  getSreOverview: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/sre-intelligence/overview${query ? `?${query}` : ''}`);
+  },
+  getSreHealth: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/sre-intelligence/health${query ? `?${query}` : ''}`);
+  },
+  getSrePredictiveRisks: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/sre-intelligence/predictive-risks${query ? `?${query}` : ''}`);
+  },
+  getSreSloSummary: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/sre-intelligence/slo-summary${query ? `?${query}` : ''}`);
+  },
+  getSreCapacityOptimization: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/sre-intelligence/capacity-optimization${query ? `?${query}` : ''}`);
+  },
+  getSreRecommendations: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/sre-intelligence/recommendations${query ? `?${query}` : ''}`);
+  },
+  updateSreRecommendationStatus: (id, payload) => request(`/sre-intelligence/recommendations/${id}/status`, {
+    method: 'PATCH',
+    body: JSON.stringify(payload)
+  }),
+
+  // Phase 26: Production Observability & Self-Monitoring
+  getSelfMonitoringOverview: () => request('/self-monitoring/overview'),
+  getSelfMonitoringAlerts: () => request('/self-monitoring/alerts'),
+  getSelfMonitoringSlos: () => request('/self-monitoring/slos'),
 };
 
 export default api;

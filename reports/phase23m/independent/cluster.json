@@ -1,0 +1,32 @@
+{
+  "connection": [
+    {
+      "version": "PostgreSQL 16.14, compiled by Visual C++ build 1944, 64-bit",
+      "inet_server_addr": "127.0.0.1",
+      "inet_server_port": 5540,
+      "current_database": "postgres"
+    }
+  ],
+  "settings": [
+    {
+      "name": "archive_command",
+      "setting": "(disabled)"
+    },
+    {
+      "name": "archive_mode",
+      "setting": "off"
+    },
+    {
+      "name": "data_directory",
+      "setting": "D:/Projects/.infrapulse-23m-runtime/pgdata"
+    },
+    {
+      "name": "max_connections",
+      "setting": "30"
+    },
+    {
+      "name": "wal_level",
+      "setting": "replica"
+    }
+  ]
+}

@@ -1,0 +1,2337 @@
+{
+  "before": {
+    "ready": {
+      "status": 200,
+      "ms": 8.462800000000016,
+      "data": {
+        "status": "READY",
+        "timestamp": "2026-10-31T16:05:18.797Z",
+        "uptimeSeconds": 590,
+        "dependencies": {
+          "database": "CONNECTED",
+          "latencyMs": 1
+        }
+      }
+    },
+    "killSwitch": {
+      "status": 200,
+      "ms": 21.468700000000013,
+      "data": {
+        "success": true,
+        "data": {
+          "active": true,
+          "enabledAt": "2026-10-31T15:55:33.916Z",
+          "enabledBy": "sarah.chen@infrapulse.io",
+          "reason": "Phase 23M safety freeze"
+        }
+      }
+    }
+  },
+  "stop": {
+    "status": 0,
+    "signal": null,
+    "ms": 1377.2413999999999,
+    "stdout": null,
+    "stderr": null
+  },
+  "down": {
+    "live": {
+      "status": 200,
+      "ms": 6.2792000000001735,
+      "data": {
+        "status": "LIVE",
+        "timestamp": "2026-10-31T16:05:20.203Z",
+        "uptimeSeconds": 591,
+        "pid": 23720
+      }
+    },
+    "ready": {
+      "status": 503,
+      "ms": 7.884699999999839,
+      "data": {
+        "status": "DOWN",
+        "timestamp": "2026-10-31T16:05:20.212Z",
+        "dependencies": {
+          "database": "UNAVAILABLE"
+        },
+        "message": "Database connection check failed."
+      }
+    },
+    "services": {
+      "status": 200,
+      "ms": 17.517200000000003,
+      "data": {
+        "success": true,
+        "count": 8,
+        "data": [
+          {
+            "id": "payment-service",
+            "name": "payment-service",
+            "tier": 0,
+            "protocol": "gRPC",
+            "status": "critical",
+            "latencyP99": 412,
+            "latencyBaseline": 24,
+            "errorRate": 4.12,
+            "rps": 18450,
+            "podCount": 16,
+            "region": "us-east-1",
+            "namespace": "payments-core",
+            "cpuPercent": 88.4,
+            "memoryPercent": 94.2,
+            "dependencies": [
+              "ledger-db-proxy",
+              "fraud-evaluator",
+              "stripe-bridge"
+            ],
+            "tags": [
+              "env:prod",
+              "tier:0",
+              "pci-dss",
+              "team:fintech"
+            ],
+            "endpoints": [
+              {
+                "id": "ep-pay-1",
+                "method": "POST",
+                "path": "/v2/payments/authorize",
+                "rps": 12400,
+                "p50Ms": 48,
+                "p99Ms": 412,
+                "errorRatePercent": 8.42,
+                "status": "failing"
+              },
+              {
+                "id": "ep-pay-2",
+                "method": "POST",
+                "path": "/v2/payments/capture",
+                "rps": 4200,
+                "p50Ms": 22,
+                "p99Ms": 38,
+                "errorRatePercent": 0.01,
+                "status": "healthy"
+              },
+              {
+                "id": "ep-pay-3",
+                "method": "POST",
+                "path": "/v2/payments/refund",
+                "rps": 420,
+                "p50Ms": 18,
+                "p99Ms": 24,
+                "errorRatePercent": 0,
+                "status": "healthy"
+              },
+              {
+                "id": "ep-pay-4",
+                "method": "GET",
+                "path": "/v2/payments/:id/status",
+                "rps": 1430,
+                "p50Ms": 8,
+                "p99Ms": 14,
+                "errorRatePercent": 0,
+                "status": "healthy"
+              }
+            ],
+            "pods": [
+              {
+                "id": "pod-pay-canary",
+                "name": "payment-service-canary-88a2",
+                "status": "Degraded",
+                "cpuPercent": 94,
+                "memoryPercent": 98,
+                "restarts": 2,
+                "version": "v1.8.3",
+                "node": "ip-10-240-1-12",
+                "age": "35m"
+              },
+              {
+                "id": "pod-pay-0",
+                "name": "payment-service-stable-9c12-0",
+                "status": "Running",
+                "cpuPercent": 62,
+                "memoryPercent": 68,
+                "restarts": 0,
+                "version": "v1.8.2",
+                "node": "ip-10-240-1-14",
+                "age": "4d"
+              },
+              {
+                "id": "pod-pay-1",
+                "name": "payment-service-stable-9c12-1",
+                "status": "Running",
+                "cpuPercent": 58,
+                "memoryPercent": 65,
+                "restarts": 0,
+                "version": "v1.8.2",
+                "node": "ip-10-240-1-15",
+                "age": "4d"
+              },
+              {
+                "id": "pod-pay-2",
+                "name": "payment-service-stable-9c12-2",
+                "status": "Running",
+                "cpuPercent": 64,
+                "memoryPercent": 71,
+                "restarts": 0,
+                "version": "v1.8.2",
+                "node": "ip-10-240-1-16",
+                "age": "4d"
+              }
+            ]
+          },
+          {
+            "id": "auth-gateway-v2",
+            "name": "auth-gateway-v2",
+            "tier": 0,
+            "protocol": "HTTP",
+            "status": "degraded",
+            "latencyP99": 285,
+            "latencyBaseline": 18,
+            "errorRate": 2.45,
+            "rps": 42100,
+            "podCount": 24,
+            "region": "us-east-1",
+            "namespace": "security-edge",
+            "cpuPercent": 91,
+            "memoryPercent": 82.5,
+            "dependencies": [
+              "redis-session-cache",
+              "vault-cluster"
+            ],
+            "tags": [
+              "env:prod",
+              "tier:0",
+              "edge-gateway"
+            ],
+            "endpoints": [
+              {
+                "id": "ep-auth-1",
+                "method": "POST",
+                "path": "/oauth/v2/token",
+                "rps": 22000,
+                "p50Ms": 14,
+                "p99Ms": 285,
+                "errorRatePercent": 2.45,
+                "status": "degraded"
+              },
+              {
+                "id": "ep-auth-2",
+                "method": "GET",
+                "path": "/oauth/v2/introspect",
+                "rps": 18000,
+                "p50Ms": 6,
+                "p99Ms": 18,
+                "errorRatePercent": 0.01,
+                "status": "healthy"
+              },
+              {
+                "id": "ep-auth-3",
+                "method": "GET",
+                "path": "/.well-known/jwks.json",
+                "rps": 2100,
+                "p50Ms": 3,
+                "p99Ms": 8,
+                "errorRatePercent": 0,
+                "status": "healthy"
+              }
+            ],
+            "pods": [
+              {
+                "id": "pod-auth-0",
+                "name": "auth-gateway-v2-55a1-0",
+                "status": "Running",
+                "cpuPercent": 89,
+                "memoryPercent": 81,
+                "restarts": 0,
+                "version": "v2.4.1",
+                "node": "ip-10-240-2-10",
+                "age": "6d"
+              },
+              {
+                "id": "pod-auth-1",
+                "name": "auth-gateway-v2-55a1-1",
+                "status": "Running",
+                "cpuPercent": 93,
+                "memoryPercent": 84,
+                "restarts": 1,
+                "version": "v2.4.1",
+                "node": "ip-10-240-2-11",
+                "age": "6d"
+              }
+            ]
+          },
+          {
+            "id": "checkout-api",
+            "name": "checkout-api",
+            "tier": 0,
+            "protocol": "gRPC",
+            "status": "degraded",
+            "latencyP99": 340,
+            "latencyBaseline": 45,
+            "errorRate": 3.1,
+            "rps": 12200,
+            "podCount": 14,
+            "region": "us-east-1",
+            "namespace": "commerce",
+            "cpuPercent": 74.2,
+            "memoryPercent": 68,
+            "dependencies": [
+              "payment-service",
+              "inventory-mesh",
+              "cart-service"
+            ],
+            "tags": [
+              "env:prod",
+              "tier:0",
+              "customer-facing"
+            ],
+            "endpoints": [
+              {
+                "id": "ep-chk-1",
+                "method": "POST",
+                "path": "/v2/orders/checkout",
+                "rps": 8400,
+                "p50Ms": 92,
+                "p99Ms": 340,
+                "errorRatePercent": 3.1,
+                "status": "degraded"
+              },
+              {
+                "id": "ep-chk-2",
+                "method": "POST",
+                "path": "/v2/orders/preview",
+                "rps": 3800,
+                "p50Ms": 35,
+                "p99Ms": 62,
+                "errorRatePercent": 0.02,
+                "status": "healthy"
+              }
+            ],
+            "pods": [
+              {
+                "id": "pod-chk-0",
+                "name": "checkout-api-7db94f-0",
+                "status": "Running",
+                "cpuPercent": 72,
+                "memoryPercent": 67,
+                "restarts": 0,
+                "version": "v3.2.0",
+                "node": "ip-10-240-3-10",
+                "age": "2d"
+              },
+              {
+                "id": "pod-chk-1",
+                "name": "checkout-api-7db94f-1",
+                "status": "Running",
+                "cpuPercent": 76,
+                "memoryPercent": 69,
+                "restarts": 0,
+                "version": "v3.2.0",
+                "node": "ip-10-240-3-11",
+                "age": "2d"
+              }
+            ]
+          },
+          {
+            "id": "inventory-mesh",
+            "name": "inventory-mesh",
+            "tier": 1,
+            "protocol": "gRPC",
+            "status": "nominal",
+            "latencyP99": 22,
+            "latencyBaseline": 20,
+            "errorRate": 0.01,
+            "rps": 8900,
+            "podCount": 10,
+            "region": "us-east-1",
+            "namespace": "commerce",
+            "cpuPercent": 44,
+            "memoryPercent": 55,
+            "dependencies": [
+              "redis-session-cache"
+            ],
+            "tags": [
+              "env:prod",
+              "tier:1"
+            ],
+            "endpoints": [
+              {
+                "id": "ep-inv-1",
+                "method": "gRPC",
+                "path": "inventory.Mesh/CheckStock",
+                "rps": 8900,
+                "p50Ms": 12,
+                "p99Ms": 22,
+                "errorRatePercent": 0.01,
+                "status": "healthy"
+              }
+            ],
+            "pods": [
+              {
+                "id": "pod-inv-0",
+                "name": "inventory-mesh-44bb-0",
+                "status": "Running",
+                "cpuPercent": 42,
+                "memoryPercent": 54,
+                "restarts": 0,
+                "version": "v1.4.2",
+                "node": "ip-10-240-4-01",
+                "age": "12d"
+              }
+            ]
+          },
+          {
+            "id": "ledger-db-proxy",
+            "name": "ledger-db-proxy",
+            "tier": 1,
+            "protocol": "gRPC",
+            "status": "critical",
+            "latencyP99": 395,
+            "latencyBaseline": 8,
+            "errorRate": 5.8,
+            "rps": 9200,
+            "podCount": 8,
+            "region": "us-east-1",
+            "namespace": "finance-data",
+            "cpuPercent": 96.5,
+            "memoryPercent": 92,
+            "dependencies": [
+              "aurora-pg-primary"
+            ],
+            "tags": [
+              "env:prod",
+              "tier:1",
+              "database-proxy"
+            ],
+            "endpoints": [
+              {
+                "id": "ep-led-1",
+                "method": "gRPC",
+                "path": "ledger.Proxy/ExecuteTxn",
+                "rps": 9200,
+                "p50Ms": 140,
+                "p99Ms": 395,
+                "errorRatePercent": 5.8,
+                "status": "failing"
+              }
+            ],
+            "pods": [
+              {
+                "id": "pod-led-0",
+                "name": "ledger-db-proxy-0",
+                "status": "Degraded",
+                "cpuPercent": 96,
+                "memoryPercent": 92,
+                "restarts": 3,
+                "version": "v2.0.1",
+                "node": "ip-10-240-5-01",
+                "age": "1d"
+              }
+            ]
+          },
+          {
+            "id": "cart-service",
+            "name": "cart-service",
+            "tier": 1,
+            "protocol": "HTTP",
+            "status": "nominal",
+            "latencyP99": 18,
+            "latencyBaseline": 15,
+            "errorRate": 0.02,
+            "rps": 14300,
+            "podCount": 12,
+            "region": "us-east-1",
+            "namespace": "commerce",
+            "cpuPercent": 38,
+            "memoryPercent": 48,
+            "dependencies": [
+              "redis-session-cache"
+            ],
+            "tags": [
+              "env:prod",
+              "tier:1"
+            ],
+            "endpoints": [
+              {
+                "id": "ep-cart-1",
+                "method": "GET",
+                "path": "/v1/cart/:userId",
+                "rps": 9200,
+                "p50Ms": 7,
+                "p99Ms": 16,
+                "errorRatePercent": 0.01,
+                "status": "healthy"
+              },
+              {
+                "id": "ep-cart-2",
+                "method": "POST",
+                "path": "/v1/cart/items",
+                "rps": 5100,
+                "p50Ms": 11,
+                "p99Ms": 18,
+                "errorRatePercent": 0.02,
+                "status": "healthy"
+              }
+            ],
+            "pods": [
+              {
+                "id": "pod-cart-0",
+                "name": "cart-service-99aa-0",
+                "status": "Running",
+                "cpuPercent": 36,
+                "memoryPercent": 47,
+                "restarts": 0,
+                "version": "v2.1.0",
+                "node": "ip-10-240-6-01",
+                "age": "14d"
+              }
+            ]
+          },
+          {
+            "id": "notification-worker",
+            "name": "notification-worker",
+            "tier": 2,
+            "protocol": "Kafka",
+            "status": "nominal",
+            "latencyP99": 14,
+            "latencyBaseline": 14,
+            "errorRate": 0,
+            "rps": 6500,
+            "podCount": 6,
+            "region": "us-east-1",
+            "namespace": "messaging",
+            "cpuPercent": 28,
+            "memoryPercent": 41,
+            "dependencies": [
+              "kafka-cluster"
+            ],
+            "tags": [
+              "env:prod",
+              "tier:2"
+            ],
+            "endpoints": [
+              {
+                "id": "ep-notif-1",
+                "method": "gRPC",
+                "path": "notification.Dispatch/SendEmailReceipt",
+                "rps": 4500,
+                "p50Ms": 8,
+                "p99Ms": 14,
+                "errorRatePercent": 0,
+                "status": "healthy"
+              },
+              {
+                "id": "ep-notif-2",
+                "method": "gRPC",
+                "path": "notification.Dispatch/SendPushNotification",
+                "rps": 2000,
+                "p50Ms": 6,
+                "p99Ms": 12,
+                "errorRatePercent": 0,
+                "status": "healthy"
+              }
+            ],
+            "pods": [
+              {
+                "id": "pod-notif-0",
+                "name": "notification-worker-55b-0",
+                "status": "Running",
+                "cpuPercent": 27,
+                "memoryPercent": 40,
+                "restarts": 0,
+                "version": "v1.1.4",
+                "node": "ip-10-240-7-01",
+                "age": "20d"
+              }
+            ]
+          },
+          {
+            "id": "fraud-evaluator",
+            "name": "fraud-evaluator",
+            "tier": 1,
+            "protocol": "gRPC",
+            "status": "nominal",
+            "latencyP99": 38,
+            "latencyBaseline": 35,
+            "errorRate": 0.04,
+            "rps": 7800,
+            "podCount": 8,
+            "region": "us-east-1",
+            "namespace": "risk-engine",
+            "cpuPercent": 52,
+            "memoryPercent": 62,
+            "dependencies": [
+              "risk-model-serving"
+            ],
+            "tags": [
+              "env:prod",
+              "tier:1",
+              "ml-inference"
+            ],
+            "endpoints": [
+              {
+                "id": "ep-fraud-1",
+                "method": "gRPC",
+                "path": "risk.Evaluator/ScoreTransaction",
+                "rps": 7800,
+                "p50Ms": 24,
+                "p99Ms": 38,
+                "errorRatePercent": 0.04,
+                "status": "healthy"
+              }
+            ],
+            "pods": [
+              {
+                "id": "pod-fraud-0",
+                "name": "fraud-evaluator-12c-0",
+                "status": "Running",
+                "cpuPercent": 51,
+                "memoryPercent": 61,
+                "restarts": 0,
+                "version": "v3.0.1",
+                "node": "ip-10-240-8-01",
+                "age": "8d"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "authenticated": {
+      "status": 500,
+      "ms": 16.429600000000164,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "connect ECONNREFUSED 127.0.0.1:5541",
+          "statusCode": 500,
+          "details": null
+        }
+      }
+    }
+  },
+  "start": {
+    "status": 0,
+    "signal": null,
+    "ms": 617.4402999999998,
+    "stdout": null,
+    "stderr": null
+  },
+  "recovered": [
+    {
+      "ready": {
+        "status": 200,
+        "ms": 99.50959999999986,
+        "data": {
+          "status": "READY",
+          "timestamp": "2026-10-31T16:05:20.964Z",
+          "uptimeSeconds": 592,
+          "dependencies": {
+            "database": "CONNECTED",
+            "latencyMs": 87
+          }
+        }
+      },
+      "services": {
+        "status": 200,
+        "ms": 53.61999999999989,
+        "data": {
+          "success": true,
+          "count": 8,
+          "data": [
+            {
+              "id": "auth-gateway-v2",
+              "name": "auth-gateway-v2",
+              "tier": 0,
+              "protocol": "HTTP",
+              "status": "degraded",
+              "latencyP99": 285,
+              "latencyBaseline": 18,
+              "errorRate": 2.45,
+              "rps": 42100,
+              "podCount": 24,
+              "region": "us-east-1",
+              "namespace": "security-edge",
+              "cpuPercent": 91,
+              "memoryPercent": 82.5,
+              "dependencies": [
+                "redis-session-cache",
+                "vault-cluster"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "edge-gateway"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-auth-1",
+                  "rps": 22000,
+                  "path": "/oauth/v2/token",
+                  "p50Ms": 14,
+                  "p99Ms": 285,
+                  "method": "POST",
+                  "status": "degraded",
+                  "errorRatePercent": 2.45
+                },
+                {
+                  "id": "ep-auth-2",
+                  "rps": 18000,
+                  "path": "/oauth/v2/introspect",
+                  "p50Ms": 6,
+                  "p99Ms": 18,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-auth-3",
+                  "rps": 2100,
+                  "path": "/.well-known/jwks.json",
+                  "p50Ms": 3,
+                  "p99Ms": 8,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-auth-0",
+                  "age": "6d",
+                  "name": "auth-gateway-v2-55a1-0",
+                  "node": "ip-10-240-2-10",
+                  "status": "Running",
+                  "version": "v2.4.1",
+                  "restarts": 0,
+                  "cpuPercent": 89,
+                  "memoryPercent": 81
+                },
+                {
+                  "id": "pod-auth-1",
+                  "age": "6d",
+                  "name": "auth-gateway-v2-55a1-1",
+                  "node": "ip-10-240-2-11",
+                  "status": "Running",
+                  "version": "v2.4.1",
+                  "restarts": 1,
+                  "cpuPercent": 93,
+                  "memoryPercent": 84
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "checkout-api",
+              "name": "checkout-api",
+              "tier": 0,
+              "protocol": "gRPC",
+              "status": "degraded",
+              "latencyP99": 340,
+              "latencyBaseline": 45,
+              "errorRate": 3.1,
+              "rps": 12200,
+              "podCount": 14,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 74.2,
+              "memoryPercent": 68,
+              "dependencies": [
+                "payment-service",
+                "inventory-mesh",
+                "cart-service"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "customer-facing"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-chk-1",
+                  "rps": 8400,
+                  "path": "/v2/orders/checkout",
+                  "p50Ms": 92,
+                  "p99Ms": 340,
+                  "method": "POST",
+                  "status": "degraded",
+                  "errorRatePercent": 3.1
+                },
+                {
+                  "id": "ep-chk-2",
+                  "rps": 3800,
+                  "path": "/v2/orders/preview",
+                  "p50Ms": 35,
+                  "p99Ms": 62,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.02
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-chk-0",
+                  "age": "2d",
+                  "name": "checkout-api-7db94f-0",
+                  "node": "ip-10-240-3-10",
+                  "status": "Running",
+                  "version": "v3.2.0",
+                  "restarts": 0,
+                  "cpuPercent": 72,
+                  "memoryPercent": 67
+                },
+                {
+                  "id": "pod-chk-1",
+                  "age": "2d",
+                  "name": "checkout-api-7db94f-1",
+                  "node": "ip-10-240-3-11",
+                  "status": "Running",
+                  "version": "v3.2.0",
+                  "restarts": 0,
+                  "cpuPercent": 76,
+                  "memoryPercent": 69
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "payment-service",
+              "name": "payment-service",
+              "tier": 0,
+              "protocol": "gRPC",
+              "status": "critical",
+              "latencyP99": 2000,
+              "latencyBaseline": 24,
+              "errorRate": 0.4,
+              "rps": 18450,
+              "podCount": 16,
+              "region": "us-east-1",
+              "namespace": "payments-core",
+              "cpuPercent": 98,
+              "memoryPercent": 94.2,
+              "dependencies": [
+                "ledger-db-proxy",
+                "fraud-evaluator",
+                "stripe-bridge"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "pci-dss",
+                "team:fintech"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-pay-1",
+                  "rps": 12400,
+                  "path": "/v2/payments/authorize",
+                  "p50Ms": 48,
+                  "p99Ms": 412,
+                  "method": "POST",
+                  "status": "failing",
+                  "errorRatePercent": 8.42
+                },
+                {
+                  "id": "ep-pay-2",
+                  "rps": 4200,
+                  "path": "/v2/payments/capture",
+                  "p50Ms": 22,
+                  "p99Ms": 38,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-pay-3",
+                  "rps": 420,
+                  "path": "/v2/payments/refund",
+                  "p50Ms": 18,
+                  "p99Ms": 24,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                },
+                {
+                  "id": "ep-pay-4",
+                  "rps": 1430,
+                  "path": "/v2/payments/:id/status",
+                  "p50Ms": 8,
+                  "p99Ms": 14,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-pay-canary",
+                  "age": "35m",
+                  "name": "payment-service-canary-88a2",
+                  "node": "ip-10-240-1-12",
+                  "status": "Degraded",
+                  "version": "v1.8.3",
+                  "restarts": 2,
+                  "cpuPercent": 94,
+                  "memoryPercent": 98
+                },
+                {
+                  "id": "pod-pay-0",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-0",
+                  "node": "ip-10-240-1-14",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 62,
+                  "memoryPercent": 68
+                },
+                {
+                  "id": "pod-pay-1",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-1",
+                  "node": "ip-10-240-1-15",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 58,
+                  "memoryPercent": 65
+                },
+                {
+                  "id": "pod-pay-2",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-2",
+                  "node": "ip-10-240-1-16",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 64,
+                  "memoryPercent": 71
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "cart-service",
+              "name": "cart-service",
+              "tier": 1,
+              "protocol": "HTTP",
+              "status": "nominal",
+              "latencyP99": 18,
+              "latencyBaseline": 15,
+              "errorRate": 0.02,
+              "rps": 14300,
+              "podCount": 12,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 38,
+              "memoryPercent": 48,
+              "dependencies": [
+                "redis-session-cache"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-cart-1",
+                  "rps": 9200,
+                  "path": "/v1/cart/:userId",
+                  "p50Ms": 7,
+                  "p99Ms": 16,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-cart-2",
+                  "rps": 5100,
+                  "path": "/v1/cart/items",
+                  "p50Ms": 11,
+                  "p99Ms": 18,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.02
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-cart-0",
+                  "age": "14d",
+                  "name": "cart-service-99aa-0",
+                  "node": "ip-10-240-6-01",
+                  "status": "Running",
+                  "version": "v2.1.0",
+                  "restarts": 0,
+                  "cpuPercent": 36,
+                  "memoryPercent": 47
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "fraud-evaluator",
+              "name": "fraud-evaluator",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "nominal",
+              "latencyP99": 38,
+              "latencyBaseline": 35,
+              "errorRate": 0.04,
+              "rps": 7800,
+              "podCount": 8,
+              "region": "us-east-1",
+              "namespace": "risk-engine",
+              "cpuPercent": 52,
+              "memoryPercent": 62,
+              "dependencies": [
+                "risk-model-serving"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1",
+                "ml-inference"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-fraud-1",
+                  "rps": 7800,
+                  "path": "risk.Evaluator/ScoreTransaction",
+                  "p50Ms": 24,
+                  "p99Ms": 38,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0.04
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-fraud-0",
+                  "age": "8d",
+                  "name": "fraud-evaluator-12c-0",
+                  "node": "ip-10-240-8-01",
+                  "status": "Running",
+                  "version": "v3.0.1",
+                  "restarts": 0,
+                  "cpuPercent": 51,
+                  "memoryPercent": 61
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "inventory-mesh",
+              "name": "inventory-mesh",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "nominal",
+              "latencyP99": 22,
+              "latencyBaseline": 20,
+              "errorRate": 0.01,
+              "rps": 8900,
+              "podCount": 10,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 44,
+              "memoryPercent": 55,
+              "dependencies": [
+                "redis-session-cache"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-inv-1",
+                  "rps": 8900,
+                  "path": "inventory.Mesh/CheckStock",
+                  "p50Ms": 12,
+                  "p99Ms": 22,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-inv-0",
+                  "age": "12d",
+                  "name": "inventory-mesh-44bb-0",
+                  "node": "ip-10-240-4-01",
+                  "status": "Running",
+                  "version": "v1.4.2",
+                  "restarts": 0,
+                  "cpuPercent": 42,
+                  "memoryPercent": 54
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "ledger-db-proxy",
+              "name": "ledger-db-proxy",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "critical",
+              "latencyP99": 395,
+              "latencyBaseline": 8,
+              "errorRate": 5.8,
+              "rps": 9200,
+              "podCount": 8,
+              "region": "us-east-1",
+              "namespace": "finance-data",
+              "cpuPercent": 96.5,
+              "memoryPercent": 92,
+              "dependencies": [
+                "aurora-pg-primary"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1",
+                "database-proxy"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-led-1",
+                  "rps": 9200,
+                  "path": "ledger.Proxy/ExecuteTxn",
+                  "p50Ms": 140,
+                  "p99Ms": 395,
+                  "method": "gRPC",
+                  "status": "failing",
+                  "errorRatePercent": 5.8
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-led-0",
+                  "age": "1d",
+                  "name": "ledger-db-proxy-0",
+                  "node": "ip-10-240-5-01",
+                  "status": "Degraded",
+                  "version": "v2.0.1",
+                  "restarts": 3,
+                  "cpuPercent": 96,
+                  "memoryPercent": 92
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "notification-worker",
+              "name": "notification-worker",
+              "tier": 2,
+              "protocol": "Kafka",
+              "status": "nominal",
+              "latencyP99": 14,
+              "latencyBaseline": 14,
+              "errorRate": 0,
+              "rps": 6500,
+              "podCount": 6,
+              "region": "us-east-1",
+              "namespace": "messaging",
+              "cpuPercent": 28,
+              "memoryPercent": 41,
+              "dependencies": [
+                "kafka-cluster"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:2"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-notif-1",
+                  "rps": 4500,
+                  "path": "notification.Dispatch/SendEmailReceipt",
+                  "p50Ms": 8,
+                  "p99Ms": 14,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                },
+                {
+                  "id": "ep-notif-2",
+                  "rps": 2000,
+                  "path": "notification.Dispatch/SendPushNotification",
+                  "p50Ms": 6,
+                  "p99Ms": 12,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-notif-0",
+                  "age": "20d",
+                  "name": "notification-worker-55b-0",
+                  "node": "ip-10-240-7-01",
+                  "status": "Running",
+                  "version": "v1.1.4",
+                  "restarts": 0,
+                  "cpuPercent": 27,
+                  "memoryPercent": 40
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ready": {
+        "status": 200,
+        "ms": 10.33849999999984,
+        "data": {
+          "status": "READY",
+          "timestamp": "2026-10-31T16:05:21.028Z",
+          "uptimeSeconds": 592,
+          "dependencies": {
+            "database": "CONNECTED",
+            "latencyMs": 1
+          }
+        }
+      },
+      "services": {
+        "status": 200,
+        "ms": 6.507900000000063,
+        "data": {
+          "success": true,
+          "count": 8,
+          "data": [
+            {
+              "id": "auth-gateway-v2",
+              "name": "auth-gateway-v2",
+              "tier": 0,
+              "protocol": "HTTP",
+              "status": "degraded",
+              "latencyP99": 285,
+              "latencyBaseline": 18,
+              "errorRate": 2.45,
+              "rps": 42100,
+              "podCount": 24,
+              "region": "us-east-1",
+              "namespace": "security-edge",
+              "cpuPercent": 91,
+              "memoryPercent": 82.5,
+              "dependencies": [
+                "redis-session-cache",
+                "vault-cluster"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "edge-gateway"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-auth-1",
+                  "rps": 22000,
+                  "path": "/oauth/v2/token",
+                  "p50Ms": 14,
+                  "p99Ms": 285,
+                  "method": "POST",
+                  "status": "degraded",
+                  "errorRatePercent": 2.45
+                },
+                {
+                  "id": "ep-auth-2",
+                  "rps": 18000,
+                  "path": "/oauth/v2/introspect",
+                  "p50Ms": 6,
+                  "p99Ms": 18,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-auth-3",
+                  "rps": 2100,
+                  "path": "/.well-known/jwks.json",
+                  "p50Ms": 3,
+                  "p99Ms": 8,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-auth-0",
+                  "age": "6d",
+                  "name": "auth-gateway-v2-55a1-0",
+                  "node": "ip-10-240-2-10",
+                  "status": "Running",
+                  "version": "v2.4.1",
+                  "restarts": 0,
+                  "cpuPercent": 89,
+                  "memoryPercent": 81
+                },
+                {
+                  "id": "pod-auth-1",
+                  "age": "6d",
+                  "name": "auth-gateway-v2-55a1-1",
+                  "node": "ip-10-240-2-11",
+                  "status": "Running",
+                  "version": "v2.4.1",
+                  "restarts": 1,
+                  "cpuPercent": 93,
+                  "memoryPercent": 84
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "checkout-api",
+              "name": "checkout-api",
+              "tier": 0,
+              "protocol": "gRPC",
+              "status": "degraded",
+              "latencyP99": 340,
+              "latencyBaseline": 45,
+              "errorRate": 3.1,
+              "rps": 12200,
+              "podCount": 14,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 74.2,
+              "memoryPercent": 68,
+              "dependencies": [
+                "payment-service",
+                "inventory-mesh",
+                "cart-service"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "customer-facing"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-chk-1",
+                  "rps": 8400,
+                  "path": "/v2/orders/checkout",
+                  "p50Ms": 92,
+                  "p99Ms": 340,
+                  "method": "POST",
+                  "status": "degraded",
+                  "errorRatePercent": 3.1
+                },
+                {
+                  "id": "ep-chk-2",
+                  "rps": 3800,
+                  "path": "/v2/orders/preview",
+                  "p50Ms": 35,
+                  "p99Ms": 62,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.02
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-chk-0",
+                  "age": "2d",
+                  "name": "checkout-api-7db94f-0",
+                  "node": "ip-10-240-3-10",
+                  "status": "Running",
+                  "version": "v3.2.0",
+                  "restarts": 0,
+                  "cpuPercent": 72,
+                  "memoryPercent": 67
+                },
+                {
+                  "id": "pod-chk-1",
+                  "age": "2d",
+                  "name": "checkout-api-7db94f-1",
+                  "node": "ip-10-240-3-11",
+                  "status": "Running",
+                  "version": "v3.2.0",
+                  "restarts": 0,
+                  "cpuPercent": 76,
+                  "memoryPercent": 69
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "payment-service",
+              "name": "payment-service",
+              "tier": 0,
+              "protocol": "gRPC",
+              "status": "critical",
+              "latencyP99": 2000,
+              "latencyBaseline": 24,
+              "errorRate": 0.4,
+              "rps": 18450,
+              "podCount": 16,
+              "region": "us-east-1",
+              "namespace": "payments-core",
+              "cpuPercent": 98,
+              "memoryPercent": 94.2,
+              "dependencies": [
+                "ledger-db-proxy",
+                "fraud-evaluator",
+                "stripe-bridge"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "pci-dss",
+                "team:fintech"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-pay-1",
+                  "rps": 12400,
+                  "path": "/v2/payments/authorize",
+                  "p50Ms": 48,
+                  "p99Ms": 412,
+                  "method": "POST",
+                  "status": "failing",
+                  "errorRatePercent": 8.42
+                },
+                {
+                  "id": "ep-pay-2",
+                  "rps": 4200,
+                  "path": "/v2/payments/capture",
+                  "p50Ms": 22,
+                  "p99Ms": 38,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-pay-3",
+                  "rps": 420,
+                  "path": "/v2/payments/refund",
+                  "p50Ms": 18,
+                  "p99Ms": 24,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                },
+                {
+                  "id": "ep-pay-4",
+                  "rps": 1430,
+                  "path": "/v2/payments/:id/status",
+                  "p50Ms": 8,
+                  "p99Ms": 14,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-pay-canary",
+                  "age": "35m",
+                  "name": "payment-service-canary-88a2",
+                  "node": "ip-10-240-1-12",
+                  "status": "Degraded",
+                  "version": "v1.8.3",
+                  "restarts": 2,
+                  "cpuPercent": 94,
+                  "memoryPercent": 98
+                },
+                {
+                  "id": "pod-pay-0",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-0",
+                  "node": "ip-10-240-1-14",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 62,
+                  "memoryPercent": 68
+                },
+                {
+                  "id": "pod-pay-1",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-1",
+                  "node": "ip-10-240-1-15",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 58,
+                  "memoryPercent": 65
+                },
+                {
+                  "id": "pod-pay-2",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-2",
+                  "node": "ip-10-240-1-16",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 64,
+                  "memoryPercent": 71
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "cart-service",
+              "name": "cart-service",
+              "tier": 1,
+              "protocol": "HTTP",
+              "status": "nominal",
+              "latencyP99": 18,
+              "latencyBaseline": 15,
+              "errorRate": 0.02,
+              "rps": 14300,
+              "podCount": 12,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 38,
+              "memoryPercent": 48,
+              "dependencies": [
+                "redis-session-cache"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-cart-1",
+                  "rps": 9200,
+                  "path": "/v1/cart/:userId",
+                  "p50Ms": 7,
+                  "p99Ms": 16,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-cart-2",
+                  "rps": 5100,
+                  "path": "/v1/cart/items",
+                  "p50Ms": 11,
+                  "p99Ms": 18,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.02
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-cart-0",
+                  "age": "14d",
+                  "name": "cart-service-99aa-0",
+                  "node": "ip-10-240-6-01",
+                  "status": "Running",
+                  "version": "v2.1.0",
+                  "restarts": 0,
+                  "cpuPercent": 36,
+                  "memoryPercent": 47
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "fraud-evaluator",
+              "name": "fraud-evaluator",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "nominal",
+              "latencyP99": 38,
+              "latencyBaseline": 35,
+              "errorRate": 0.04,
+              "rps": 7800,
+              "podCount": 8,
+              "region": "us-east-1",
+              "namespace": "risk-engine",
+              "cpuPercent": 52,
+              "memoryPercent": 62,
+              "dependencies": [
+                "risk-model-serving"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1",
+                "ml-inference"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-fraud-1",
+                  "rps": 7800,
+                  "path": "risk.Evaluator/ScoreTransaction",
+                  "p50Ms": 24,
+                  "p99Ms": 38,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0.04
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-fraud-0",
+                  "age": "8d",
+                  "name": "fraud-evaluator-12c-0",
+                  "node": "ip-10-240-8-01",
+                  "status": "Running",
+                  "version": "v3.0.1",
+                  "restarts": 0,
+                  "cpuPercent": 51,
+                  "memoryPercent": 61
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "inventory-mesh",
+              "name": "inventory-mesh",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "nominal",
+              "latencyP99": 22,
+              "latencyBaseline": 20,
+              "errorRate": 0.01,
+              "rps": 8900,
+              "podCount": 10,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 44,
+              "memoryPercent": 55,
+              "dependencies": [
+                "redis-session-cache"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-inv-1",
+                  "rps": 8900,
+                  "path": "inventory.Mesh/CheckStock",
+                  "p50Ms": 12,
+                  "p99Ms": 22,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-inv-0",
+                  "age": "12d",
+                  "name": "inventory-mesh-44bb-0",
+                  "node": "ip-10-240-4-01",
+                  "status": "Running",
+                  "version": "v1.4.2",
+                  "restarts": 0,
+                  "cpuPercent": 42,
+                  "memoryPercent": 54
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "ledger-db-proxy",
+              "name": "ledger-db-proxy",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "critical",
+              "latencyP99": 395,
+              "latencyBaseline": 8,
+              "errorRate": 5.8,
+              "rps": 9200,
+              "podCount": 8,
+              "region": "us-east-1",
+              "namespace": "finance-data",
+              "cpuPercent": 96.5,
+              "memoryPercent": 92,
+              "dependencies": [
+                "aurora-pg-primary"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1",
+                "database-proxy"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-led-1",
+                  "rps": 9200,
+                  "path": "ledger.Proxy/ExecuteTxn",
+                  "p50Ms": 140,
+                  "p99Ms": 395,
+                  "method": "gRPC",
+                  "status": "failing",
+                  "errorRatePercent": 5.8
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-led-0",
+                  "age": "1d",
+                  "name": "ledger-db-proxy-0",
+                  "node": "ip-10-240-5-01",
+                  "status": "Degraded",
+                  "version": "v2.0.1",
+                  "restarts": 3,
+                  "cpuPercent": 96,
+                  "memoryPercent": 92
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "notification-worker",
+              "name": "notification-worker",
+              "tier": 2,
+              "protocol": "Kafka",
+              "status": "nominal",
+              "latencyP99": 14,
+              "latencyBaseline": 14,
+              "errorRate": 0,
+              "rps": 6500,
+              "podCount": 6,
+              "region": "us-east-1",
+              "namespace": "messaging",
+              "cpuPercent": 28,
+              "memoryPercent": 41,
+              "dependencies": [
+                "kafka-cluster"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:2"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-notif-1",
+                  "rps": 4500,
+                  "path": "notification.Dispatch/SendEmailReceipt",
+                  "p50Ms": 8,
+                  "p99Ms": 14,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                },
+                {
+                  "id": "ep-notif-2",
+                  "rps": 2000,
+                  "path": "notification.Dispatch/SendPushNotification",
+                  "p50Ms": 6,
+                  "p99Ms": 12,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-notif-0",
+                  "age": "20d",
+                  "name": "notification-worker-55b-0",
+                  "node": "ip-10-240-7-01",
+                  "status": "Running",
+                  "version": "v1.1.4",
+                  "restarts": 0,
+                  "cpuPercent": 27,
+                  "memoryPercent": 40
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ready": {
+        "status": 200,
+        "ms": 8.927599999999984,
+        "data": {
+          "status": "READY",
+          "timestamp": "2026-10-31T16:05:21.044Z",
+          "uptimeSeconds": 592,
+          "dependencies": {
+            "database": "CONNECTED",
+            "latencyMs": 0
+          }
+        }
+      },
+      "services": {
+        "status": 200,
+        "ms": 19.196400000000267,
+        "data": {
+          "success": true,
+          "count": 8,
+          "data": [
+            {
+              "id": "auth-gateway-v2",
+              "name": "auth-gateway-v2",
+              "tier": 0,
+              "protocol": "HTTP",
+              "status": "degraded",
+              "latencyP99": 285,
+              "latencyBaseline": 18,
+              "errorRate": 2.45,
+              "rps": 42100,
+              "podCount": 24,
+              "region": "us-east-1",
+              "namespace": "security-edge",
+              "cpuPercent": 91,
+              "memoryPercent": 82.5,
+              "dependencies": [
+                "redis-session-cache",
+                "vault-cluster"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "edge-gateway"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-auth-1",
+                  "rps": 22000,
+                  "path": "/oauth/v2/token",
+                  "p50Ms": 14,
+                  "p99Ms": 285,
+                  "method": "POST",
+                  "status": "degraded",
+                  "errorRatePercent": 2.45
+                },
+                {
+                  "id": "ep-auth-2",
+                  "rps": 18000,
+                  "path": "/oauth/v2/introspect",
+                  "p50Ms": 6,
+                  "p99Ms": 18,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-auth-3",
+                  "rps": 2100,
+                  "path": "/.well-known/jwks.json",
+                  "p50Ms": 3,
+                  "p99Ms": 8,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-auth-0",
+                  "age": "6d",
+                  "name": "auth-gateway-v2-55a1-0",
+                  "node": "ip-10-240-2-10",
+                  "status": "Running",
+                  "version": "v2.4.1",
+                  "restarts": 0,
+                  "cpuPercent": 89,
+                  "memoryPercent": 81
+                },
+                {
+                  "id": "pod-auth-1",
+                  "age": "6d",
+                  "name": "auth-gateway-v2-55a1-1",
+                  "node": "ip-10-240-2-11",
+                  "status": "Running",
+                  "version": "v2.4.1",
+                  "restarts": 1,
+                  "cpuPercent": 93,
+                  "memoryPercent": 84
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "checkout-api",
+              "name": "checkout-api",
+              "tier": 0,
+              "protocol": "gRPC",
+              "status": "degraded",
+              "latencyP99": 340,
+              "latencyBaseline": 45,
+              "errorRate": 3.1,
+              "rps": 12200,
+              "podCount": 14,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 74.2,
+              "memoryPercent": 68,
+              "dependencies": [
+                "payment-service",
+                "inventory-mesh",
+                "cart-service"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "customer-facing"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-chk-1",
+                  "rps": 8400,
+                  "path": "/v2/orders/checkout",
+                  "p50Ms": 92,
+                  "p99Ms": 340,
+                  "method": "POST",
+                  "status": "degraded",
+                  "errorRatePercent": 3.1
+                },
+                {
+                  "id": "ep-chk-2",
+                  "rps": 3800,
+                  "path": "/v2/orders/preview",
+                  "p50Ms": 35,
+                  "p99Ms": 62,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.02
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-chk-0",
+                  "age": "2d",
+                  "name": "checkout-api-7db94f-0",
+                  "node": "ip-10-240-3-10",
+                  "status": "Running",
+                  "version": "v3.2.0",
+                  "restarts": 0,
+                  "cpuPercent": 72,
+                  "memoryPercent": 67
+                },
+                {
+                  "id": "pod-chk-1",
+                  "age": "2d",
+                  "name": "checkout-api-7db94f-1",
+                  "node": "ip-10-240-3-11",
+                  "status": "Running",
+                  "version": "v3.2.0",
+                  "restarts": 0,
+                  "cpuPercent": 76,
+                  "memoryPercent": 69
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "payment-service",
+              "name": "payment-service",
+              "tier": 0,
+              "protocol": "gRPC",
+              "status": "critical",
+              "latencyP99": 2000,
+              "latencyBaseline": 24,
+              "errorRate": 0.4,
+              "rps": 18450,
+              "podCount": 16,
+              "region": "us-east-1",
+              "namespace": "payments-core",
+              "cpuPercent": 98,
+              "memoryPercent": 94.2,
+              "dependencies": [
+                "ledger-db-proxy",
+                "fraud-evaluator",
+                "stripe-bridge"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:0",
+                "pci-dss",
+                "team:fintech"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-pay-1",
+                  "rps": 12400,
+                  "path": "/v2/payments/authorize",
+                  "p50Ms": 48,
+                  "p99Ms": 412,
+                  "method": "POST",
+                  "status": "failing",
+                  "errorRatePercent": 8.42
+                },
+                {
+                  "id": "ep-pay-2",
+                  "rps": 4200,
+                  "path": "/v2/payments/capture",
+                  "p50Ms": 22,
+                  "p99Ms": 38,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-pay-3",
+                  "rps": 420,
+                  "path": "/v2/payments/refund",
+                  "p50Ms": 18,
+                  "p99Ms": 24,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                },
+                {
+                  "id": "ep-pay-4",
+                  "rps": 1430,
+                  "path": "/v2/payments/:id/status",
+                  "p50Ms": 8,
+                  "p99Ms": 14,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-pay-canary",
+                  "age": "35m",
+                  "name": "payment-service-canary-88a2",
+                  "node": "ip-10-240-1-12",
+                  "status": "Degraded",
+                  "version": "v1.8.3",
+                  "restarts": 2,
+                  "cpuPercent": 94,
+                  "memoryPercent": 98
+                },
+                {
+                  "id": "pod-pay-0",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-0",
+                  "node": "ip-10-240-1-14",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 62,
+                  "memoryPercent": 68
+                },
+                {
+                  "id": "pod-pay-1",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-1",
+                  "node": "ip-10-240-1-15",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 58,
+                  "memoryPercent": 65
+                },
+                {
+                  "id": "pod-pay-2",
+                  "age": "4d",
+                  "name": "payment-service-stable-9c12-2",
+                  "node": "ip-10-240-1-16",
+                  "status": "Running",
+                  "version": "v1.8.2",
+                  "restarts": 0,
+                  "cpuPercent": 64,
+                  "memoryPercent": 71
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "cart-service",
+              "name": "cart-service",
+              "tier": 1,
+              "protocol": "HTTP",
+              "status": "nominal",
+              "latencyP99": 18,
+              "latencyBaseline": 15,
+              "errorRate": 0.02,
+              "rps": 14300,
+              "podCount": 12,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 38,
+              "memoryPercent": 48,
+              "dependencies": [
+                "redis-session-cache"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-cart-1",
+                  "rps": 9200,
+                  "path": "/v1/cart/:userId",
+                  "p50Ms": 7,
+                  "p99Ms": 16,
+                  "method": "GET",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                },
+                {
+                  "id": "ep-cart-2",
+                  "rps": 5100,
+                  "path": "/v1/cart/items",
+                  "p50Ms": 11,
+                  "p99Ms": 18,
+                  "method": "POST",
+                  "status": "healthy",
+                  "errorRatePercent": 0.02
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-cart-0",
+                  "age": "14d",
+                  "name": "cart-service-99aa-0",
+                  "node": "ip-10-240-6-01",
+                  "status": "Running",
+                  "version": "v2.1.0",
+                  "restarts": 0,
+                  "cpuPercent": 36,
+                  "memoryPercent": 47
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "fraud-evaluator",
+              "name": "fraud-evaluator",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "nominal",
+              "latencyP99": 38,
+              "latencyBaseline": 35,
+              "errorRate": 0.04,
+              "rps": 7800,
+              "podCount": 8,
+              "region": "us-east-1",
+              "namespace": "risk-engine",
+              "cpuPercent": 52,
+              "memoryPercent": 62,
+              "dependencies": [
+                "risk-model-serving"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1",
+                "ml-inference"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-fraud-1",
+                  "rps": 7800,
+                  "path": "risk.Evaluator/ScoreTransaction",
+                  "p50Ms": 24,
+                  "p99Ms": 38,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0.04
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-fraud-0",
+                  "age": "8d",
+                  "name": "fraud-evaluator-12c-0",
+                  "node": "ip-10-240-8-01",
+                  "status": "Running",
+                  "version": "v3.0.1",
+                  "restarts": 0,
+                  "cpuPercent": 51,
+                  "memoryPercent": 61
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "inventory-mesh",
+              "name": "inventory-mesh",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "nominal",
+              "latencyP99": 22,
+              "latencyBaseline": 20,
+              "errorRate": 0.01,
+              "rps": 8900,
+              "podCount": 10,
+              "region": "us-east-1",
+              "namespace": "commerce",
+              "cpuPercent": 44,
+              "memoryPercent": 55,
+              "dependencies": [
+                "redis-session-cache"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-inv-1",
+                  "rps": 8900,
+                  "path": "inventory.Mesh/CheckStock",
+                  "p50Ms": 12,
+                  "p99Ms": 22,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0.01
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-inv-0",
+                  "age": "12d",
+                  "name": "inventory-mesh-44bb-0",
+                  "node": "ip-10-240-4-01",
+                  "status": "Running",
+                  "version": "v1.4.2",
+                  "restarts": 0,
+                  "cpuPercent": 42,
+                  "memoryPercent": 54
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "ledger-db-proxy",
+              "name": "ledger-db-proxy",
+              "tier": 1,
+              "protocol": "gRPC",
+              "status": "critical",
+              "latencyP99": 395,
+              "latencyBaseline": 8,
+              "errorRate": 5.8,
+              "rps": 9200,
+              "podCount": 8,
+              "region": "us-east-1",
+              "namespace": "finance-data",
+              "cpuPercent": 96.5,
+              "memoryPercent": 92,
+              "dependencies": [
+                "aurora-pg-primary"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:1",
+                "database-proxy"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-led-1",
+                  "rps": 9200,
+                  "path": "ledger.Proxy/ExecuteTxn",
+                  "p50Ms": 140,
+                  "p99Ms": 395,
+                  "method": "gRPC",
+                  "status": "failing",
+                  "errorRatePercent": 5.8
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-led-0",
+                  "age": "1d",
+                  "name": "ledger-db-proxy-0",
+                  "node": "ip-10-240-5-01",
+                  "status": "Degraded",
+                  "version": "v2.0.1",
+                  "restarts": 3,
+                  "cpuPercent": 96,
+                  "memoryPercent": 92
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            },
+            {
+              "id": "notification-worker",
+              "name": "notification-worker",
+              "tier": 2,
+              "protocol": "Kafka",
+              "status": "nominal",
+              "latencyP99": 14,
+              "latencyBaseline": 14,
+              "errorRate": 0,
+              "rps": 6500,
+              "podCount": 6,
+              "region": "us-east-1",
+              "namespace": "messaging",
+              "cpuPercent": 28,
+              "memoryPercent": 41,
+              "dependencies": [
+                "kafka-cluster"
+              ],
+              "tags": [
+                "env:prod",
+                "tier:2"
+              ],
+              "endpoints": [
+                {
+                  "id": "ep-notif-1",
+                  "rps": 4500,
+                  "path": "notification.Dispatch/SendEmailReceipt",
+                  "p50Ms": 8,
+                  "p99Ms": 14,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                },
+                {
+                  "id": "ep-notif-2",
+                  "rps": 2000,
+                  "path": "notification.Dispatch/SendPushNotification",
+                  "p50Ms": 6,
+                  "p99Ms": 12,
+                  "method": "gRPC",
+                  "status": "healthy",
+                  "errorRatePercent": 0
+                }
+              ],
+              "pods": [
+                {
+                  "id": "pod-notif-0",
+                  "age": "20d",
+                  "name": "notification-worker-55b-0",
+                  "node": "ip-10-240-7-01",
+                  "status": "Running",
+                  "version": "v1.1.4",
+                  "restarts": 0,
+                  "cpuPercent": 27,
+                  "memoryPercent": 40
+                }
+              ],
+              "createdAt": "2026-10-31T15:55:06.047Z",
+              "updatedAt": "2026-10-31T15:55:06.047Z"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "wholeDrillMs": 2244.2846,
+  "limitation": "One controlled outage of this run-owned PostgreSQL cluster; not a WAL or production RTO/RPO drill."
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "dir": ".",
+    "result": {
+      "status": 4294963241,
+      "signal": null,
+      "ms": 734.9086,
+      "stdout": "",
+      "stderr": "npm error code ENOSPC\nnpm error syscall write\nnpm error errno -4055\nnpm error nospc ENOSPC: no space left on device, write\nnpm error nospc There appears to be insufficient space on your system to finish.\nnpm error nospc Clear up some disk space and try again.\nnpm error A complete log of this run can be found in: C:\\Users\\karti\\AppData\\Local\\npm-cache\\_logs\\2026-10-31T16_08_20_760Z-debug-0.log\n"
+    }
+  },
+  {
+    "dir": "backend",
+    "result": {
+      "status": 4294963241,
+      "signal": null,
+      "ms": 693.8251,
+      "stdout": "",
+      "stderr": "npm error code ENOSPC\nnpm error syscall write\nnpm error errno -4055\nnpm error nospc ENOSPC: no space left on device, write\nnpm error nospc There appears to be insufficient space on your system to finish.\nnpm error nospc Clear up some disk space and try again.\nnpm error A complete log of this run can be found in: C:\\Users\\karti\\AppData\\Local\\npm-cache\\_logs\\2026-10-31T16_08_21_508Z-debug-0.log\n"
+    }
+  },
+  {
+    "dir": "frontend",
+    "result": {
+      "status": 4294963241,
+      "signal": null,
+      "ms": 655.5661,
+      "stdout": "",
+      "stderr": "npm error code ENOSPC\nnpm error syscall write\nnpm error errno -4055\nnpm error nospc ENOSPC: no space left on device, write\nnpm error nospc There appears to be insufficient space on your system to finish.\nnpm error nospc Clear up some disk space and try again.\nnpm error A complete log of this run can be found in: C:\\Users\\karti\\AppData\\Local\\npm-cache\\_logs\\2026-10-31T16_08_22_207Z-debug-0.log\n"
+    }
+  },
+  {
+    "dir": "demo-services",
+    "result": {
+      "status": 4294963241,
+      "signal": null,
+      "ms": 641.8248000000003,
+      "stdout": "",
+      "stderr": "npm error code ENOSPC\nnpm error syscall write\nnpm error errno -4055\nnpm error nospc ENOSPC: no space left on device, write\nnpm error nospc There appears to be insufficient space on your system to finish.\nnpm error nospc Clear up some disk space and try again.\nnpm error A complete log of this run can be found in: C:\\Users\\karti\\AppData\\Local\\npm-cache\\_logs\\2026-10-31T16_08_22_804Z-debug-0.log\n"
+    }
+  }
+]

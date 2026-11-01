@@ -1,0 +1,504 @@
+{
+  "results": [
+    {
+      "name": "integration-controls",
+      "tabs": [
+        "/Notification Rails/",
+        "/Community Connectors/",
+        "/Enterprise Ecosystem/"
+      ],
+      "logsOpenedAndClosed": true,
+      "configurationOpenedAndCanceled": true,
+      "invalidJsonDraftValue": "{\n  \"region\": \"ap-south-1\",\n  \"environment\": \"staging\"\n}",
+      "blankNameFormValid": false
+    },
+    {
+      "name": "authentication-form-and-logout",
+      "wrongStatus": 401,
+      "goodStatus": 200,
+      "beforeLogout": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nSarah Chen\nADMIN\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nName:\nSarah Chen\nEmail:\nsarah.chen@infrapulse.io\nRBAC Role:\nADMIN\nStatus:\nactive\nSession stored in PostgreSQL sessions table with HTTP-only cookie.\nlogout\nEnd Session (Logout)\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nSuccessfully logged in as sarah.chen@infrapulse.io!\nWork Email\nPassword (min 8 chars)\nSign In →",
+      "afterReload": "badge\nAuthentication & Cluster Onboarding\n\nSelf-service operator authentication, RBAC session verification, and Kubernetes telemetry agent setup.\n\nCurrent Session:\nGuest\nVIEWER\nUser Session & Credentials\nCluster Agent Setup (Helm)\nverified_user\nActive Server Session\nNo active session found. Please sign in or register below.\nQuick Switch Personas:\nSarah Chen (Admin)\nMarcus Vance (Responder)\nAlex Ross (Viewer)\nSign In with Credentials\nLogin\nRegister\nWork Email\nPassword (min 8 chars)\nSign In →"
+    },
+    {
+      "name": "admin-operations-after-fix",
+      "syncStatus": 200,
+      "scanStatus": 200
+    },
+    {
+      "name": "postmortem-export-with-clipboard-permission",
+      "clipboardLength": 875
+    }
+  ],
+  "events": [
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/integrations/catalog",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/notification-settings",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/notifications?limit=50",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/integrations",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/integrations/catalog",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/notification-settings",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/notifications?limit=50",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/integrations",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/integrations/int-kubernetes-8f0a7de2/deliveries",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/login",
+      "status": 401
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/login",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/logout",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 401
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 401
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/overview",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/service-risks",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/recommendations",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/trends?days=30",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 401
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/recommendations",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/service-risks",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/overview",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 401
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/trends?days=30",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/login",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/login",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns/sync",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/patterns",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/overview",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/service-risks",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/recommendations",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/trends?days=30",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/operations/intelligence/early-warnings/sync",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/services",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/telemetry",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/alerts",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/deployments",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/auth/me",
+      "status": 200
+    },
+    {
+      "type": "api",
+      "url": "http://127.0.0.1:5180/api/incidents",
+      "status": 200
+    }
+  ]
+}

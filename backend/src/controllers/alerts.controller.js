@@ -1,7 +1,8 @@
+import {tenantContext} from '../security/tenantContext.js';
 import * as alertsRepo from '../repositories/alerts.repository.js';
 import * as alertRulesRepo from '../repositories/alertRules.repository.js';
 import * as incidentsRepo from '../repositories/incidents.repository.js';
-import { getAlerts as getMemAlerts, getAlertById as getMemAlertById, updateAlert as updateMemAlert } from '../data/alerts.js';
+import { getAlerts as unsafe_getMemAlerts, getAlertById as unsafe_getMemAlertById, updateAlert as unsafe_updateMemAlert } from '../data/alerts.js';
 import { createAlertRule, updateAlertRule } from '../services/alertRules.service.js';
 import { evaluateAndCorrelateAlerts } from '../services/alertCorrelation.service.js';
 import { withTransaction } from '../db/connection.js';
@@ -25,6 +26,7 @@ export async function getAllAlerts(req, res, next) {
     try {
       data = await alertsRepo.findAllAlerts(filters);
     } catch (err) {
+    if(tenantContext())throw err;
       console.warn('[AlertsController] DB read fallback:', err.message);
       data = getMemAlerts(filters);
     }
@@ -44,6 +46,7 @@ export async function getAlertDetails(req, res, next) {
     try {
       alert = await alertsRepo.findAlertById(req.params.alertId);
     } catch (err) {
+    if(tenantContext())throw err;
       console.warn('[AlertsController] DB read fallback:', err.message);
       alert = getMemAlertById(req.params.alertId);
     }
@@ -98,6 +101,7 @@ export async function acknowledgeAlert(req, res, next) {
         return alt;
       });
     } catch (err) {
+    if(tenantContext())throw err;
       console.warn('[AlertsController] DB ack fallback:', err.message);
     }
 
@@ -159,6 +163,7 @@ export async function resolveAlert(req, res, next) {
         return alt;
       });
     } catch (err) {
+    if(tenantContext())throw err;
       console.warn('[AlertsController] DB resolve fallback:', err.message);
     }
 
@@ -188,6 +193,7 @@ export async function updateAlertState(req, res, next) {
     try {
       updated = await alertsRepo.updateAlertRecord(req.params.alertId, req.body);
     } catch (err) {
+    if(tenantContext())throw err;
       console.warn('[AlertsController] DB update fallback:', err.message);
     }
 
@@ -239,6 +245,7 @@ export async function getAllAlertRules(req, res, next) {
     try {
       rules = await alertRulesRepo.findAllAlertRules();
     } catch (err) {
+    if(tenantContext())throw err;
       console.warn('[AlertsController] DB read fallback:', err.message);
     }
 
@@ -271,3 +278,9 @@ export async function updateRule(req, res, next) {
     next(error);
   }
 }
+
+const getMemAlerts=(...args)=>tenantContext()?[]:unsafe_getMemAlerts(...args);
+
+const getMemAlertById=(...args)=>tenantContext()?null:unsafe_getMemAlertById(...args);
+
+const updateMemAlert=(...args)=>tenantContext()?null:unsafe_updateMemAlert(...args);

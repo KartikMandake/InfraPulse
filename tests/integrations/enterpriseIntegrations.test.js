@@ -25,9 +25,9 @@ const VIEWER_USER = { id: 'usr_viewer_003', role: 'viewer' };
 describe('Phase 19: Enterprise Integrations & Platform Ecosystem', () => {
 
   // === 1. Integration Framework & Security ===
-  test('1. Integration Registry: Registers all 6 canonical enterprise providers', () => {
+  test('1. Integration Registry: Registers all 8 canonical enterprise providers', () => {
     const list = integrationRegistry.list();
-    assert.equal(list.length, 6);
+    assert.equal(list.length, 8);
     const keys = list.map(p => p.key);
     assert.ok(keys.includes('github'));
     assert.ok(keys.includes('kubernetes'));
@@ -35,6 +35,8 @@ describe('Phase 19: Enterprise Integrations & Platform Ecosystem', () => {
     assert.ok(keys.includes('grafana'));
     assert.ok(keys.includes('slack'));
     assert.ok(keys.includes('opentelemetry'));
+    assert.ok(keys.includes('aws'));
+    assert.ok(keys.includes('docker'));
   });
 
   test('2. AES-256-GCM Encryption: Secures credentials at rest and rejects tampered ciphertexts', () => {
@@ -129,7 +131,7 @@ describe('Phase 19: Enterprise Integrations & Platform Ecosystem', () => {
   });
 
   test('6. Kubernetes Provider: Enforces read-only cluster access and normalizes CrashLoopBackOff', async () => {
-    const k8s = new KubernetesProvider();
+    const k8s = new KubernetesProvider({client:{getClusterSnapshot:async()=>({namespaces:['fixture'],deployments:[],statefulsets:[],pods:[{name:'fixture-pod'}],warningEvents:[{reason:'CrashLoopBackOff'}]})}});
 
     // Verification that mutation is prohibited
     await assert.rejects(
@@ -179,7 +181,7 @@ describe('Phase 19: Enterprise Integrations & Platform Ecosystem', () => {
     };
     const healthyNorm = prom.normalizeMetricResult(validResult, 'latency_p99', 'payment-service');
     assert.equal(healthyNorm.available, true);
-    assert.equal(healthyNorm.status, 'OK');
+    assert.equal(healthyNorm.status, 'AVAILABLE');
     assert.equal(healthyNorm.value, 412.5);
   });
 

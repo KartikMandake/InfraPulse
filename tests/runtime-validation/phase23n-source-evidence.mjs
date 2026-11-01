@@ -1,0 +1,18 @@
+import fs from 'node:fs';import path from 'node:path';import {root,digest,save} from './phase23n.mjs';const targets={
+ 'backend/src/controllers/cloudLifecycle.controller.js':['dryRunOverride','executeOperation','listDockerContainers','getPodHealth','time_of_day'],
+ 'backend/src/services/cloud-lifecycle/services/lifecycle.service.js':['dryRunOverride','async approveOperation','async executeOperation','Mark status','status: \'completed\'','recordAuditEvent'],
+ 'backend/src/repositories/cloudLifecycle.repository.js':['idempotency_key','async updateOperationStatus','WHERE id = $1','async updateSchedule'],
+ 'backend/src/services/cloud-lifecycle/services/schedule.service.js':['timezone:','QUEUED_FOR_EVALUATION','checkMissedExecutions'],
+ 'backend/src/services/cloud-lifecycle/services/ec2Eligibility.service.js':['envTag','isApprovedNonProd'],
+ 'backend/src/services/cloud-lifecycle/services/awsDiscovery.service.js':['success','upsertResource','errors'],
+ 'backend/src/services/cloud-lifecycle/providers/awsReadOnly.provider.js':['Promise.allSettled','success: true','errors:'],
+ 'backend/src/services/cloud-lifecycle/providers/kubernetesLifecycle.provider.js':['stub','getRolloutStatus','healthy: true','status: \'complete\''],
+ 'backend/src/integrations/providers/kubernetes/KubernetesProvider.js':["resource_type: 'statefulset'",'is_live_k8s'],
+ 'backend/src/integrations/providers/docker/DockerIntegrationProvider.js':['metadata:','resource_type:'],
+ 'backend/src/services/audit.service.js':['sensitiveKeys','actorUserId','metadata:'],
+ 'backend/src/services/cloud-lifecycle/providers/dockerLifecycle.provider.js':['listComposeServices','catch','return []'],
+ 'backend/src/server.js':['schedule','startBackgroundWorker'],
+ 'backend/src/worker.js':['schedule','notification','startBackgroundWorker'],
+ 'backend/src/db/migrations/011_cloud_lifecycle_cost_governance.sql':['idempotency_key','approved_at','expires'],
+ 'backend/src/db/migrations/019_tenant_security_and_durable_governance.sql':['uq_remediation_tenant_idempotency','immutable_plan'],
+ 'backend/src/db/migrations/022_cross_workflow_resource_exclusion.sql':['uq_active_cloud_resource','executing']};const result=[];for(const [relative,patterns]of Object.entries(targets)){const file=path.join(root,relative),lines=fs.readFileSync(file,'utf8').split(/\r?\n/);result.push({path:relative,sha256:digest(file),matches:lines.flatMap((line,index)=>patterns.some(p=>line.includes(p))?[{line:index+1,text:line.trim()}]:[])});}save('source-evidence.json',result);console.log('Indexed',result.length,'source files with line references.');

@@ -1,0 +1,2 @@
+import {api,save} from './remediation23m.mjs';
+const port=process.argv[2]||'5020';if(!['5020','5021'].includes(port))throw Error('Not a validation backend');const result=await api('/api/health/live',{base:'http://127.0.0.1:'+port});if(result.status!==200||!Number.isInteger(result.data.pid))throw Error('Cannot establish owned backend process');save('backend-'+port+'-before-restart.json',result);process.kill(result.data.pid);console.log('Stopped this validation backend on',port,result.data.pid);

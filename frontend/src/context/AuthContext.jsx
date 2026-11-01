@@ -27,18 +27,7 @@ export function AuthProvider({ children }) {
           return;
         }
       } catch (err) {
-        // No active session in cookies, auto-login as default demo admin for smooth local demo experience
-        try {
-          const loginRes = await api.login({
-            email: DEMO_CREDENTIALS.admin.email,
-            password: DEMO_CREDENTIALS.admin.password
-          });
-          if (isMounted && loginRes?.data?.user) {
-            setUser(loginRes.data.user);
-          }
-        } catch (loginErr) {
-          console.warn('[AuthContext] Demo auto-login skipped:', loginErr.message);
-        }
+        if(isMounted)setUser(null);
       } finally {
         if (isMounted) setLoading(false);
       }

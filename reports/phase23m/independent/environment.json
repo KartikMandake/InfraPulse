@@ -1,0 +1,32 @@
+{
+  "clientDate": "2026-10-31",
+  "timezone": "Asia/Calcutta",
+  "node": "v26.4.0",
+  "os": "10.0.26100",
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13420H",
+  "cores": 12,
+  "totalMemoryBytes": 16802910208,
+  "freeMemoryBytes": 1372803072,
+  "backend": "http://127.0.0.1:5010",
+  "secondBackend": "http://127.0.0.1:5011",
+  "frontend": "http://127.0.0.1:5180",
+  "databasePort": 5540,
+  "database": "infrapulse_23m_independent_1793461903978",
+  "safety": {
+    "NOTIFICATION_MOCK_MODE": "true",
+    "NOTIFICATION_WORKER_ENABLED": "false",
+    "AWS_LIFECYCLE_MUTATIONS_ENABLED": "false",
+    "DOCKER_LIFECYCLE_ENABLED": "false",
+    "KUBERNETES_LIFECYCLE_ENABLED": "false",
+    "REMEDIATION_EXECUTION_ENABLED": "false",
+    "REMEDIATION_PRODUCTION_ENABLED": "false",
+    "REMEDIATION_RECOMMENDATIONS_ENABLED": "true",
+    "REMEDIATION_DRY_RUN_ENABLED": "true",
+    "RUN_LIVE_TESTS": "false",
+    "LIVE_AWS_TEST": "false",
+    "LIVE_DOCKER_TEST": "false",
+    "LIVE_K8S_TEST": "false",
+    "LIVE_PROMETHEUS_TEST": "false",
+    "LIVE_REMEDIATION_TEST": "false"
+  }
+}

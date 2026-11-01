@@ -1,0 +1,204 @@
+[
+  {
+    "id": "N01",
+    "severity": "P0",
+    "title": "Client-controlled approval bypass",
+    "observed": "A responder POSTed an unapproved operation with dryRunOverride:true. HTTP 200, completed operation and simulated resource state changed to running. The override is accepted by the public controller and skips approval in executeOperation. Live AWS remains blocked by its disabled feature flag; no live exploit was attempted.",
+    "source": "[lifecycle.service.js:287](../backend/src/services/cloud-lifecycle/services/lifecycle.service.js#L287)",
+    "evidence": [
+      "N01-approval-bypass.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N02",
+    "severity": "P0",
+    "title": "Approved lifecycle contents are not bound",
+    "observed": "After second-person approval, SQL changed the operation target and action from start(A) to stop(B). No immutable-row/hash guard rejected the edit, and HTTP execution completed against B. This is an isolated stored-row tampering test, not evidence of a public SQL injection vulnerability.",
+    "source": "[lifecycle.service.js:238](../backend/src/services/cloud-lifecycle/services/lifecycle.service.js#L238)",
+    "evidence": [
+      "N02-plan-binding.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N03",
+    "severity": "P0",
+    "title": "Same-operation concurrent replay dispatches twice",
+    "observed": "Two concurrent service invocations read the same approved operation, both dispatch the simulated provider, and both complete. Measured dispatch count: 2. Resource uniqueness protects different operation rows but does not make the status transition an atomic claim of the same row.",
+    "source": "[cloudLifecycle.repository.js:176](../backend/src/repositories/cloudLifecycle.repository.js#L176)",
+    "evidence": [
+      "N03-concurrent-operation.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N04",
+    "severity": "P1",
+    "title": "Lifecycle approval expiration is unsupported",
+    "observed": "An approval backdated 30 days executes successfully. Cloud lifecycle operations have approved_at but no expiry field/check. Thirty days is the probe age, not an existing documented TTL policy. The requested expiry control is absent and needs a defined policy.",
+    "source": "[lifecycle.service.js:284](../backend/src/services/cloud-lifecycle/services/lifecycle.service.js#L284)",
+    "evidence": [
+      "N04-expired-approval.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N05",
+    "severity": "P1",
+    "title": "Lifecycle audit loses structured attribution",
+    "observed": "Operation request audit rows have null actor_email/actor_role and empty metadata. Lifecycle services send userId/userEmail/details; the common audit service expects actor/metadata. Execution-log prose does not repair these missing structured audit fields.",
+    "source": "[audit.service.js:62](../backend/src/services/audit.service.js#L62)",
+    "evidence": [
+      "N05-audit-attribution.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N06",
+    "severity": "P1",
+    "title": "Partial execution is falsely completed",
+    "observed": "An injected simulated provider returns success:false, partialTransition:true and state starting. The orchestrator returns overall success:true and persists status completed. Live provider branches use the same unchecked-result pattern; no live partial transition was induced.",
+    "source": "[lifecycle.service.js:379](../backend/src/services/cloud-lifecycle/services/lifecycle.service.js#L379)",
+    "evidence": [
+      "N06-partial-execution.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N07",
+    "severity": "P1",
+    "title": "Scheduling accepts invalid input and does not compute due time",
+    "observed": "The API accepts timezone Mars/Olympus, time 99:99 and an invalid cron string with HTTP 201. A valid new schedule also has next_run_at:null. Asia/Kolkata is stored and formats correctly, but actual due-time calculation is not established.",
+    "source": "[schedule.service.js:32](../backend/src/services/cloud-lifecycle/services/schedule.service.js#L32)",
+    "evidence": [
+      "N07-scheduling-validation.json",
+      "scheduling-evaluation.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N08",
+    "severity": "P1",
+    "title": "Stock Kubernetes health and rollout report invented success",
+    "observed": "Without a local cluster/client, a nonexistent workload returns healthy pod data through the HTTP health endpoint, and getRolloutStatus returns success:true/complete. The stock lifecycle class contains default stubs rather than a real cluster transport and rollout verification.",
+    "source": "[kubernetesLifecycle.provider.js:172](../backend/src/services/cloud-lifecycle/providers/kubernetesLifecycle.provider.js#L172)",
+    "evidence": [
+      "N08-kubernetes-stub.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N09",
+    "severity": "P0",
+    "title": "Discovery/lifecycle contract loses live and StatefulSet protections",
+    "observed": "Kubernetes normalization emits resource_type:statefulset and metadata.is_live_k8s:true; lifecycle guards expect k8s_statefulset and is_live:true. The emitted resource is declared eligible despite disabled K8s mutations. An approved HTTP scale-to-zero returns 200 through the simulated adapter and changes stored state to scaled_down without confirmation or real cluster mutation. Docker discovery also lacks the lifecycle is_live marker.",
+    "source": "[KubernetesProvider.js:300](../backend/src/integrations/providers/kubernetes/KubernetesProvider.js#L300)",
+    "evidence": [
+      "N09-discovery-classification.json",
+      "N09-classification-http-execution.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N10",
+    "severity": "P1",
+    "title": "Cloud scheduler execution/recovery is not implemented",
+    "observed": "Missed-run detection twice returns QUEUED_FOR_EVALUATION, but creates no job/operation and does not advance last_run_at. Starting/restarting the actual notification worker across two polling intervals creates zero cloud operations. No lifecycle schedule consumer is wired in server/worker startup; duplicate job execution and recovery cannot be verified.",
+    "source": "[schedule.service.js:107](../backend/src/services/cloud-lifecycle/services/schedule.service.js#L107)",
+    "evidence": [
+      "N10-scheduler-worker-restart.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N11",
+    "severity": "P0",
+    "title": "Backend crash leaves a permanent active claim without recovery",
+    "observed": "A disposable full server.js process was killed after the injected simulated provider was entered and executing was stored. A fresh full backend startup leaves executing unchanged and a replacement request gets 409. Follow-up still found executing 391 seconds after dispatch. No lease/reconciliation path was found.",
+    "source": "[lifecycle.service.js:354](../backend/src/services/cloud-lifecycle/services/lifecycle.service.js#L354)",
+    "evidence": [
+      "N11-backend-crash.json",
+      "preservation-final.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N12",
+    "severity": "P1",
+    "title": "Same-ID live discovery overwrites a simulation",
+    "observed": "A simulated AWS inventory fixture and injected discovered resource share one ID. Synchronization overwrites metadata.is_simulated:true with live classification. Normal disjoint-ID preservation passes the existing suite; the collision case is unguarded. Only a synthetic inventory row was overwritten.",
+    "source": "[awsDiscovery.service.js:97](../backend/src/services/cloud-lifecycle/services/awsDiscovery.service.js#L97)",
+    "evidence": [
+      "N12-live-sim-collision.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N13",
+    "severity": "P1",
+    "title": "Complete AWS discovery failure is reported as success",
+    "observed": "Injected timeouts for every resource Describe API leave four errors and zero resources, while discoverAll returns success:true. Synchronization source records success when this flag is true and does not propagate the per-service errors. This failure injection used fake clients, not an actual AWS outage.",
+    "source": "[awsReadOnly.provider.js:526](../backend/src/services/cloud-lifecycle/providers/awsReadOnly.provider.js#L526)",
+    "evidence": [
+      "N13-discovery-failure.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N14",
+    "severity": "P2",
+    "title": "Schedule edit returns 200 but ignores time/weekdays",
+    "observed": "PATCH requested 10:15 and weekend days. The response and stored row retain 20:00 and weekdays. Repository updateSchedule handles enabled, pause and last/next-run timestamps but ignores the fields passed by the controller.",
+    "source": "[cloudLifecycle.repository.js:268](../backend/src/repositories/cloudLifecycle.repository.js#L268)",
+    "evidence": [
+      "N14-schedule-update.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N15",
+    "severity": "P1",
+    "title": "Audit redaction misses ingestion credentials",
+    "observed": "The common audit helper stores a synthetic ingestionKey unchanged in metadata; accessKeyId is also not matched by its sensitive-key list. Integration HTTP credential responses pass masking checks. No real credential was supplied to this redaction probe or exposed in the report.",
+    "source": "[audit.service.js:11](../backend/src/services/audit.service.js#L11)",
+    "evidence": [
+      "N15-audit-redaction.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N16",
+    "severity": "P2",
+    "title": "Docker discovery masks daemon failure as stored inventory success",
+    "observed": "The actual local daemon is unavailable. The inventory endpoint nevertheless returns HTTP 200/success:true, cached database rows and empty composeServices without daemon/source status; listComposeServices swallows the connection failure. The separate per-container health endpoint correctly reports unreachable.",
+    "source": "[dockerLifecycle.provider.js:212](../backend/src/services/cloud-lifecycle/providers/dockerLifecycle.provider.js#L212)",
+    "evidence": [
+      "N16-docker-unavailable.json",
+      "environment.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N17",
+    "severity": "P1",
+    "title": "Inventory environment substitutes for required AWS tag",
+    "observed": "A live-marked synthetic EC2 resource with environment staging and no AWS tags passes checks.isNonProduction. The feature flag still blocks mutation. The tag predicate accepts inventory environment OR tag instead of requiring a verified approved cloud tag.",
+    "source": "[ec2Eligibility.service.js:85](../backend/src/services/cloud-lifecycle/services/ec2Eligibility.service.js#L85)",
+    "evidence": [
+      "N17-nonprod-tag.json"
+    ],
+    "status": "OPEN — validation only"
+  },
+  {
+    "id": "N18",
+    "severity": "P1",
+    "title": "Cloud idempotency uniqueness crosses tenant boundaries",
+    "observed": "Tenant A creates a request using a key; tenant B requests its own independent resource with the same key and gets 409. The lifecycle idempotency_key constraint is global. RLS prevents data reads across tenants, but this key collision interferes with another tenant’s workflow.",
+    "source": "[cloudLifecycle.repository.js:108](../backend/src/repositories/cloudLifecycle.repository.js#L108)",
+    "evidence": [
+      "N18-tenant-idempotency.json"
+    ],
+    "status": "OPEN — validation only"
+  }
+]

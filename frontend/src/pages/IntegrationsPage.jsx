@@ -1,3 +1,4 @@
+import {parseIntegrationDraft} from '../utils/operatorFeedback.js';
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
@@ -6,7 +7,7 @@ import api from '../services/api';
 export const IntegrationsPage = () => {
   const { integrations: mockIntegrations } = useApp();
   const { role, isAdmin, isResponder } = useAuth();
-  
+
   const [activeMainTab, setActiveMainTab] = useState('ecosystem'); // 'ecosystem' | 'notifications' | 'connectors'
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,6 +18,14 @@ export const IntegrationsPage = () => {
   const [configuredIntegrations, setConfiguredIntegrations] = useState([]);
   const [testingId, setTestingId] = useState(null);
   const [testResult, setTestResult] = useState(null);
+  const [syncingId, setSyncingId] = useState(null);
+  const [syncResult, setSyncResult] = useState(null);
+  const [isDeadLetterModalOpen, setIsDeadLetterModalOpen] = useState(false);
+  const [deadLettersList, setDeadLettersList] = useState([]);
+  const [isDependenciesModalOpen, setIsDependenciesModalOpen] = useState(false);
+  const [observedDependencies, setObservedDependencies] = useState([]);
+  const [isStatsModalOpen, setIsStatsModalOpen] = useState(false);
+  const [telemetryStats, setTelemetryStats] = useState(null);
 
   // Modals state
   const [isConfigureModalOpen, setIsConfigureModalOpen] = useState(false);
@@ -28,6 +37,8 @@ export const IntegrationsPage = () => {
     credentials: {}
   });
 
+  const [configDraft,setConfigDraft]=useState('{}');
+  const [credentialsDraft,setCredentialsDraft]=useState('{}');
   // Webhook deliveries modal
   const [isDeliveriesModalOpen, setIsDeliveriesModalOpen] = useState(false);
   const [selectedIntegrationForDeliveries, setSelectedIntegrationForDeliveries] = useState(null);
@@ -36,7 +47,7 @@ export const IntegrationsPage = () => {
 
   // Credential rotation modal
   const [isRotateModalOpen, setIsRotateModalOpen] = useState(false);
-  const [rotationCredentials, setRotationCredentials] = useState({});
+  const [rotationDraft, setRotationDraft] = useState('{}');
 
   // Notification state (preserved from Phase 9)
   const [settings, setSettings] = useState(null);
@@ -96,7 +107,8 @@ export const IntegrationsPage = () => {
     setTestingId(integrationId);
     setTestResult(null);
     try {
-      const res = await api.testIntegration(integrationId);
+      const response = await api.testIntegration(integrationId);
+      const res = response.data;
       setTestResult({
         id: integrationId,
         ok: res.ok,
@@ -112,6 +124,79 @@ export const IntegrationsPage = () => {
       });
     } finally {
       setTestingId(null);
+    }
+  };
+
+
+  const handleSyncIntegration = async (integrationId) => {
+    setSyncingId(integrationId);
+    setSyncResult(null);
+    try {
+      const res = await api.syncIntegration(integrationId);
+      setSyncResult({
+        id: integrationId,
+        ok: true,
+        message: `Synced ${res.data?.resourcesDiscovered || 0} resources (${res.data?.driftsIdentified || 0} drifts detected)`
+      });
+      await loadEcosystemData();
+    } catch (err) {
+      setSyncResult({
+        id: integrationId,
+        ok: false,
+        message: err.message
+      });
+    } finally {
+      setSyncingId(null);
+    }
+  };
+
+
+  const handleOpenDeadLetters = async (integration) => {
+    setSelectedIntegrationForDeliveries(integration);
+    setIsDeadLetterModalOpen(true);
+    try {
+      const res = await api.getIntegrationDeadLetters(integration.id);
+      setDeadLettersList(res?.data || []);
+    } catch (err) {
+      console.warn('Failed to load dead letters:', err.message);
+      setDeadLettersList([]);
+    }
+  };
+
+  const handleOpenDependencies = async () => {
+    setIsDependenciesModalOpen(true);
+    try {
+      const res = await api.getObservedDependencies();
+      setObservedDependencies(res?.data || []);
+    } catch (err) {
+      console.warn('Failed to load observed dependencies:', err.message);
+      setObservedDependencies([]);
+    }
+  };
+
+  const handleOpenStats = async (integration) => {
+    setSelectedIntegrationForDeliveries(integration);
+    setIsStatsModalOpen(true);
+    try {
+      const res = await api.getIntegrationTelemetryStats(integration.id);
+      setTelemetryStats(res?.data || null);
+    } catch (err) {
+      console.warn('Failed to fetch telemetry stats:', err.message);
+      setTelemetryStats(null);
+    }
+  };
+
+  const handleDeleteIntegration = async (integrationId, name) => {
+    if (!window.confirm(`Are you sure you want to revoke and disconnect ${name}?`)) return;
+    try {
+      setLoading(true);
+      await api.deleteIntegration(integrationId);
+      setSuccessMsg(`Integration ${name} successfully disconnected.`);
+      await loadEcosystemData();
+    } catch (err) {
+      setError(`Failed to disconnect integration: ${err.message}`);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -135,11 +220,15 @@ export const IntegrationsPage = () => {
         credentials: getDefaultCredentialsForProvider(provider.key)
       });
     }
+    setConfigDraft(JSON.stringify(existing?.config||getDefaultConfigForProvider(provider.key),null,2));
+    setCredentialsDraft(JSON.stringify(existing?{}:getDefaultCredentialsForProvider(provider.key),null,2));
     setIsConfigureModalOpen(true);
   };
 
   const getDefaultConfigForProvider = (key) => {
     switch (key) {
+      case 'aws': return { region: 'ap-south-1', environment: 'staging' };
+      case 'docker': return { socketPath: '/var/run/docker.sock', remoteEndpoint: '', tlsVerify: false, environment: 'staging' };
       case 'github': return { repository: 'infrapulse-org/payment-service', defaultBranch: 'main' };
       case 'kubernetes': return { clusterUrl: 'https://kubernetes.default.svc', namespaces: ['production', 'default'], timeoutMs: 5000 };
       case 'prometheus': return { endpoint: 'http://localhost:9090', timeoutMs: 5000, metricMappings: { p99_latency: 'http_request_duration_seconds:p99' } };
@@ -152,6 +241,8 @@ export const IntegrationsPage = () => {
 
   const getDefaultCredentialsForProvider = (key) => {
     switch (key) {
+      case 'aws': return { accessKeyId: '', secretAccessKey: '', sessionToken: '' };
+      case 'docker': return { cert: '', key: '', ca: '' };
       case 'github': return { webhookSecret: 'gh_secret_supersecure_32b_token' };
       case 'kubernetes': return { bearerToken: 'k8s_token_service_account_read_only' };
       case 'prometheus': return { apiKey: '' };
@@ -167,13 +258,15 @@ export const IntegrationsPage = () => {
     try {
       setLoading(true);
       setError(null);
+      const parsed=parseIntegrationDraft(configDraft,credentialsDraft);
+      const submitted={...configForm,...parsed};
       if (configForm.id) {
         // Update existing
         await api.updateIntegration(configForm.id, {
           name: configForm.name,
           description: configForm.description,
-          config: configForm.config,
-          ...(Object.keys(configForm.credentials || {}).length > 0 ? { credentials: configForm.credentials } : {})
+          config: submitted.config,
+          ...(Object.keys(submitted.credentials || {}).length > 0 ? { credentials: submitted.credentials } : {})
         });
         setSuccessMsg('Integration configuration updated successfully.');
       } else {
@@ -182,8 +275,8 @@ export const IntegrationsPage = () => {
           provider: selectedProvider.key,
           name: configForm.name,
           description: configForm.description,
-          config: configForm.config,
-          credentials: configForm.credentials
+          config: submitted.config,
+          credentials: submitted.credentials
         });
         setSuccessMsg(`Successfully connected and verified ${selectedProvider.name}.`);
       }
@@ -226,10 +319,11 @@ export const IntegrationsPage = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      await api.rotateIntegrationCredentials(selectedIntegrationForDeliveries.id, { credentials: rotationCredentials });
+      const {credentials}=parseIntegrationDraft('{}',rotationDraft);
+      await api.rotateIntegrationCredentials(selectedIntegrationForDeliveries.id, { credentials });
       setSuccessMsg('Credentials rotated successfully with AES-256-GCM.');
       setIsRotateModalOpen(false);
-      setRotationCredentials({});
+      setRotationDraft('{}');
       setTimeout(() => setSuccessMsg(null), 3500);
       await loadEcosystemData();
     } catch (err) {
@@ -328,7 +422,7 @@ export const IntegrationsPage = () => {
       )}
 
       {/* Main Navigation Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#272a33] text-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:flex gap-2 border-b border-[#272a33] text-xs">
         <button
           onClick={() => setActiveMainTab('ecosystem')}
           className={`px-3 py-2 border-b-2 font-medium transition-colors flex items-center gap-1.5 ${
@@ -336,7 +430,7 @@ export const IntegrationsPage = () => {
           }`}
         >
           <span className="material-symbols-outlined text-[16px]">extension</span>
-          <span>Enterprise Ecosystem ({configuredIntegrations.length}/6 Connected)</span>
+          <span>Enterprise Ecosystem ({configuredIntegrations.length}/{catalog.length} Connected)</span>
         </button>
 
         <button
@@ -380,7 +474,7 @@ export const IntegrationsPage = () => {
                     <div className="flex items-center justify-between pb-2.5 border-b border-[#272a33]">
                       <div className="flex items-center gap-2">
                         <span className="material-symbols-outlined text-[20px] text-[#60a5fa]">
-                          {prov.key === 'github' ? 'code' :
+                          {prov.key === 'aws' ? 'cloud_queue' : prov.key === 'docker' ? 'inventory_2' : prov.key === 'github' ? 'code' :
                            prov.key === 'kubernetes' ? 'cloud' :
                            prov.key === 'prometheus' ? 'show_chart' :
                            prov.key === 'grafana' ? 'dashboard' :
@@ -596,6 +690,157 @@ export const IntegrationsPage = () => {
         </div>
       )}
 
+
+
+      {/* DEAD-LETTER TELEMETRY MODAL */}
+      {isDeadLetterModalOpen && selectedIntegrationForDeliveries && (
+        <div className="fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#101116] border border-[#272a33] w-full max-w-2xl p-5 rounded-xl shadow-2xl flex flex-col gap-3 font-mono text-xs max-h-[85vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-[#272a33] pb-2.5">
+              <div>
+                <span className="text-sm font-bold text-white flex items-center gap-2">
+                  <span className="material-symbols-outlined text-amber-400">warning</span>
+                  Dead-Letter Telemetry: {selectedIntegrationForDeliveries.name}
+                </span>
+                <span className="text-[11px] text-[#9ca3af]">Rejected payloads with validation errors and clock skew details</span>
+              </div>
+              <button onClick={() => setIsDeadLetterModalOpen(false)} className="text-[#9296A3] hover:text-white">✕</button>
+            </div>
+
+            {deadLettersList.length === 0 ? (
+              <div className="p-6 text-center text-[#6b7280]">
+                Clean! No dead-letter or rejected telemetry events recorded for this integration.
+              </div>
+            ) : (
+              <div className="space-y-2">
+                {deadLettersList.map(dl => (
+                  <div key={dl.id} className="p-2.5 bg-[#030407] border border-[#272a33] rounded-lg flex flex-col gap-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-amber-300">{dl.error_code}</span>
+                      <span className="text-[10px] text-[#6b7280]">{new Date(dl.rejected_at).toLocaleTimeString()}</span>
+                    </div>
+                    <div className="text-xs text-rose-300">{dl.error_reason}</div>
+                    <div className="text-[10px] text-[#9ca3af] bg-[#101116] p-1.5 rounded truncate">
+                      {JSON.stringify(dl.payload)}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="flex justify-end pt-2 border-t border-[#272a33]">
+              <button
+                onClick={() => setIsDeadLetterModalOpen(false)}
+                className="px-3 py-1.5 rounded bg-[#171920] border border-[#272a33] text-white hover:bg-[#20232c]"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* OBSERVED DEPENDENCIES MODAL */}
+      {isDependenciesModalOpen && (
+        <div className="fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#101116] border border-[#272a33] w-full max-w-2xl p-5 rounded-xl shadow-2xl flex flex-col gap-3 font-mono text-xs max-h-[85vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-[#272a33] pb-2.5">
+              <div>
+                <span className="text-sm font-bold text-white flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[#60a5fa]">account_tree</span>
+                  Observed Service & Infrastructure Dependency Graph
+                </span>
+                <span className="text-[11px] text-[#9ca3af]">Inferred from distributed traces, container links, and cloud topology</span>
+              </div>
+              <button onClick={() => setIsDependenciesModalOpen(false)} className="text-[#9296A3] hover:text-white">✕</button>
+            </div>
+
+            {observedDependencies.length === 0 ? (
+              <div className="p-6 text-center text-[#6b7280]">
+                No observed dependency relationships captured yet. Dependencies are automatically inferred as distributed traces arrive.
+              </div>
+            ) : (
+              <div className="space-y-2">
+                {observedDependencies.map(dep => (
+                  <div key={dep.id} className="p-2.5 bg-[#030407] border border-[#272a33] rounded-lg flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-white">{dep.source_service_id}</span>
+                        <span className="material-symbols-outlined text-[13px] text-[#60a5fa]">arrow_forward</span>
+                        <span className="font-bold text-[#d4ff24]">{dep.target_service_id}</span>
+                      </div>
+                      <div className="text-[10px] text-[#9ca3af] mt-0.5">
+                        Source: <span className="text-white">{dep.detection_source}</span> | Relationship: <span className="text-white">{dep.relationship_type}</span> | Observations: <span className="text-[#60a5fa]">{dep.observation_count}</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#1558c9]/20 text-[#60a5fa] border border-[#1558c9]/40">
+                        {Math.round(dep.confidence * 100)}% Conf
+                      </span>
+                      <div className="text-[9px] text-[#6b7280] mt-1">
+                        Last: {new Date(dep.last_observed_at).toLocaleTimeString()}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="flex justify-end pt-2 border-t border-[#272a33]">
+              <button
+                onClick={() => setIsDependenciesModalOpen(false)}
+                className="px-3 py-1.5 rounded bg-[#171920] border border-[#272a33] text-white hover:bg-[#20232c]"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TELEMETRY STATS MODAL */}
+      {isStatsModalOpen && selectedIntegrationForDeliveries && (
+        <div className="fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#101116] border border-[#272a33] w-full max-w-lg p-5 rounded-xl shadow-2xl flex flex-col gap-3 font-mono text-xs">
+            <div className="flex items-center justify-between border-b border-[#272a33] pb-2.5">
+              <span className="text-sm font-bold text-white flex items-center gap-2">
+                <span className="material-symbols-outlined text-[#60a5fa]">monitoring</span>
+                Live Telemetry Stats: {selectedIntegrationForDeliveries.name}
+              </span>
+              <button onClick={() => setIsStatsModalOpen(false)} className="text-[#9296A3] hover:text-white">✕</button>
+            </div>
+            {telemetryStats ? (
+              <div className="grid grid-cols-2 gap-3 py-2">
+                <div className="bg-[#171920] p-3 rounded-lg border border-[#272a33]">
+                  <div className="text-[#9ca3af] text-[10px] uppercase">Metrics Received</div>
+                  <div className="text-lg font-bold text-[#60a5fa] mt-1">{telemetryStats.metricsReceived || 0}</div>
+                </div>
+                <div className="bg-[#171920] p-3 rounded-lg border border-[#272a33]">
+                  <div className="text-[#9ca3af] text-[10px] uppercase">Traces Received</div>
+                  <div className="text-lg font-bold text-[#a78bfa] mt-1">{telemetryStats.tracesReceived || 0}</div>
+                </div>
+                <div className="bg-[#171920] p-3 rounded-lg border border-[#272a33]">
+                  <div className="text-[#9ca3af] text-[10px] uppercase">Logs Received</div>
+                  <div className="text-lg font-bold text-[#34d399] mt-1">{telemetryStats.logsReceived || 0}</div>
+                </div>
+                <div className="bg-[#171920] p-3 rounded-lg border border-[#272a33]">
+                  <div className="text-[#9ca3af] text-[10px] uppercase">Errors Encountered</div>
+                  <div className="text-lg font-bold text-rose-400 mt-1">{telemetryStats.errorsEncountered || 0}</div>
+                </div>
+              </div>
+            ) : (
+              <div className="p-4 text-center text-[#6b7280]">No telemetry recorded yet for this integration.</div>
+            )}
+            <div className="flex justify-end pt-2 border-t border-[#272a33]">
+              <button
+                onClick={() => setIsStatsModalOpen(false)}
+                className="px-3 py-1.5 rounded bg-[#171920] border border-[#272a33] text-white hover:bg-[#20232c]"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* CONFIGURE / CONNECT INTEGRATION MODAL */}
       {isConfigureModalOpen && selectedProvider && (
         <div className="fixed inset-0 bg-[#030407]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -633,14 +878,8 @@ export const IntegrationsPage = () => {
               <textarea
                 rows={5}
                 required
-                value={JSON.stringify(configForm.config, null, 2)}
-                onChange={(e) => {
-                  try {
-                    setConfigForm({ ...configForm, config: JSON.parse(e.target.value) });
-                  } catch (err) {
-                    // typing
-                  }
-                }}
+                value={configDraft}
+                onChange={(e)=>setConfigDraft(e.target.value)}
                 className="w-full bg-[#030407] border border-[#272a33] rounded p-2 text-[#60a5fa] font-mono text-[11px] outline-none focus:border-[#1558c9]"
               />
             </div>
@@ -651,14 +890,8 @@ export const IntegrationsPage = () => {
               </label>
               <textarea
                 rows={4}
-                value={JSON.stringify(configForm.credentials, null, 2)}
-                onChange={(e) => {
-                  try {
-                    setConfigForm({ ...configForm, credentials: JSON.parse(e.target.value) });
-                  } catch (err) {
-                    // typing
-                  }
-                }}
+                value={credentialsDraft}
+                onChange={(e)=>setCredentialsDraft(e.target.value)}
                 placeholder="{ webhookSecret: '...' }"
                 className="w-full bg-[#030407] border border-[#272a33] rounded p-2 text-[#d4ff24] font-mono text-[11px] outline-none focus:border-[#1558c9]"
               />
@@ -786,12 +1019,8 @@ export const IntegrationsPage = () => {
               <textarea
                 rows={4}
                 required
-                value={JSON.stringify(rotationCredentials, null, 2)}
-                onChange={(e) => {
-                  try {
-                    setRotationCredentials(JSON.parse(e.target.value));
-                  } catch (err) {}
-                }}
+                value={rotationDraft}
+                onChange={(e) => setRotationDraft(e.target.value)}
                 className="w-full bg-[#030407] border border-[#272a33] rounded p-2 text-[#d4ff24] font-mono text-[11px] outline-none focus:border-purple-500"
               />
             </div>

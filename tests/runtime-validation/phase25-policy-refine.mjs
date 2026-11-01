@@ -1,0 +1,3 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import {root} from './phase25.mjs';
+const file=root+'/scripts/ci/policy.mjs';let text=fs.readFileSync(file,'utf8');const needle='if(step.uses)assert.ok';assert.equal(text.split(needle).length,2);text=text.replace(needle,"if(step.uses&&!step.uses.startsWith('./')){const [repository,commit]=step.uses.split('@');const approved=JSON.parse(fs.readFileSync(path.join(root,'scripts/ci/tools.lock.json'))).actions[repository];assert.ok(approved&&approved.sha===commit,'Action must match the approved upstream lock');}if(step.uses)assert.ok");fs.writeFileSync(file,text);
+console.log('Every external action now matches the recorded upstream SHA allowlist.');

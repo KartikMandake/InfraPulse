@@ -1,6 +1,6 @@
 import * as executionsRepo from '../repositories/runbookExecutions.repository.js';
 import * as runbooksRepo from '../repositories/runbooks.repository.js';
-import { validateApprovalPolicy } from './remediationPolicy.service.js';
+import { validateApprovalPolicy,assertRunbookPlanIntegrity } from './remediationPolicy.service.js';
 import { ApiError } from '../utils/ApiError.js';
 import { recordAuditEvent } from './audit.service.js';
 
@@ -52,6 +52,7 @@ export async function requestApproval({ executionId, user }) {
 export async function approveExecution({ executionId, user, approvalNotes = '', twoFactorConfirmed = false }) {
   const execution = await executionsRepo.findExecutionById(executionId);
   if (!execution) throw ApiError.notFound(`Execution "${executionId}" not found.`);
+  assertRunbookPlanIntegrity(execution);
 
   if (execution.status !== 'PENDING_APPROVAL') {
     throw ApiError.badRequest(`Execution is in "${execution.status}" status, expected "PENDING_APPROVAL".`);
@@ -72,6 +73,7 @@ export async function approveExecution({ executionId, user, approvalNotes = '', 
   if (!approval) {
     throw ApiError.notFound(`No pending approval found for execution "${executionId}".`);
   }
+  if(approval.planHash!==execution.planHash)throw ApiError.conflict('Security violation: approval is bound to a different plan hash.');
 
   const updatedApproval = await executionsRepo.updateApproval(approval.id, {
     status: 'APPROVED',

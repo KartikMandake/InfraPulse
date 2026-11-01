@@ -1,0 +1,21 @@
+{
+  "entry": {
+    "id": "aud_mvx4xcls_vpk8d",
+    "actorUserId": "usr_admin_001",
+    "actorEmail": "sarah.chen@infrapulse.io",
+    "actorRole": "admin",
+    "action": "23N_REDACTION_TEST",
+    "resourceType": "validation",
+    "resourceId": "extra1793495519991",
+    "outcome": "success",
+    "metadata": {
+      "accessKeyId": "synthetic-access-id",
+      "ingestionKey": "synthetic-audit-credential-extra1793495519991",
+      "secretAccessKey": "[REDACTED]"
+    },
+    "correlationId": "corr_b1aa71fbc3c086f4",
+    "ipAddress": null,
+    "createdAt": "2026-11-01T01:12:00.786Z"
+  },
+  "containsSyntheticCredential": true
+}

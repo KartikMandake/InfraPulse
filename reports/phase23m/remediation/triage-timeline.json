@@ -1,0 +1,12 @@
+{
+  "status": 500,
+  "ms": 143.78200000000004,
+  "data": {
+    "success": false,
+    "error": {
+      "message": "timeStr.match is not a function",
+      "statusCode": 500,
+      "details": null
+    }
+  }
+}

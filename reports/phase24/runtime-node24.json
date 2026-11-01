@@ -1,0 +1,127 @@
+[
+  {
+    "name": "Production configuration preflight without database access",
+    "status": "PASS",
+    "commandExit": 0
+  },
+  {
+    "name": "Missing secrets fail fast before opening a listener",
+    "status": "PASS",
+    "commandExit": 1,
+    "structuredError": true
+  },
+  {
+    "name": "Production backend starts with automatic migration and seed disabled",
+    "status": "PASS",
+    "pid": 15040,
+    "unchanged": {
+      "users": 4,
+      "migrations": 22
+    },
+    "node": "v24.22.2",
+    "transport": "Actual local HTTP behind simulated trusted HTTPS proxy headers; native SCRAM database"
+  },
+  {
+    "name": "HTTPS gate, health exemption, exact CORS and correlation headers",
+    "status": "PASS",
+    "httpsRequired": true,
+    "readinessPublic": true,
+    "exactCors": true,
+    "correlation": true
+  },
+  {
+    "name": "Authentication, Secure cookie and tenant service request",
+    "status": "PASS",
+    "register": 201,
+    "me": 200,
+    "services": 200,
+    "cookieFlags": [
+      "Secure",
+      "HttpOnly",
+      "SameSite=Lax"
+    ],
+    "secretValuesRecorded": false
+  },
+  {
+    "name": "Authentication burst receives HTTP 429",
+    "status": "PASS",
+    "statuses": [
+      400,
+      400,
+      400,
+      400,
+      400,
+      400,
+      400,
+      400,
+      400,
+      429,
+      429,
+      429
+    ]
+  },
+  {
+    "name": "Standalone production worker polls the actual disposable database",
+    "status": "PASS",
+    "pid": 20124,
+    "healthProbeExit": 0,
+    "notifications": "No external provider configured; no real delivery attempted"
+  },
+  {
+    "name": "Record local idle memory, database size and readiness timings",
+    "status": "PASS",
+    "node": "v24.22.2",
+    "processes": [
+      {
+        "Id": 15040,
+        "WorkingSet64": 126001152,
+        "CPU": 2.453125
+      },
+      {
+        "Id": 20124,
+        "WorkingSet64": 64049152,
+        "CPU": 0.546875
+      }
+    ],
+    "databaseBytes": 14711831,
+    "readiness": {
+      "samples": 20,
+      "medianMs": 2.932299999998577,
+      "p95Ms": 6.7224999999998545,
+      "maxMs": 7.72439999999915
+    },
+    "scope": "Idle Windows processes and loopback health requests; not a load, capacity, Linux container, ARM or user-journey benchmark."
+  },
+  {
+    "name": "Database outage returns readiness 503 while liveness remains 200",
+    "status": "PASS",
+    "readiness": 503,
+    "liveness": 200,
+    "workerProbe": 1,
+    "target": "Owned phase24 cluster on 5545 only"
+  },
+  {
+    "name": "Database restart restores readiness and worker health",
+    "status": "PASS",
+    "readiness": 200,
+    "workerProbe": 0
+  },
+  {
+    "name": "Worker graceful shutdown and fresh-process recovery",
+    "status": "PASS",
+    "first": {
+      "code": 0,
+      "signal": null
+    },
+    "previousPid": 20124,
+    "newPid": 22180,
+    "nativeLinuxSignal": "NOT TESTED: Windows harness emits SIGTERM in owned child through IPC"
+  },
+  {
+    "name": "Backend graceful shutdown closes listener and database pool",
+    "status": "PASS",
+    "code": 0,
+    "signal": null,
+    "nativeLinuxSignal": "NOT TESTED: trusted test-child IPC emits SIGTERM"
+  }
+]

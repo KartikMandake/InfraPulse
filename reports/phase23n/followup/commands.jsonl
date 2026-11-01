@@ -1,0 +1,16 @@
+{"time":"2026-11-01T01:28:12.466Z","exe":"git","args":["status","--porcelain=v1"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:28:12.586Z","exe":"git","args":["diff","--cached","--name-status"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:28:13.070Z","exe":"C:/Program Files/PostgreSQL/16/bin/initdb.exe","args":["-D","D:/Projects/.infrapulse-23n-followup/pgdata","-U","postgres","-A","trust","--encoding=UTF8","--no-locale"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:28:25.940Z","exe":"C:/Program Files/PostgreSQL/16/bin/pg_ctl.exe","args":["-D","D:/Projects/.infrapulse-23n-followup/pgdata","-l","D:/Projects/.infrapulse-23n-followup/postgres.log","-o","-p 5544 -h 127.0.0.1 -c shared_buffers=24MB -c max_connections=30","-w","start"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:28:27.369Z","exe":"C:\\Program Files\\nodejs\\node.exe","args":["backend/src/db/migrate.js"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:28:30.114Z","exe":"C:\\Program Files\\nodejs\\node.exe","args":["backend/src/db/seed.js"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:29:53.303Z","exe":"docker","args":["context","inspect"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:29:53.571Z","exe":"docker","args":["version","--format","{{.Server.Version}}"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:29:53.821Z","exe":"kubectl","args":["config","view","--minify","-o","json"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:31:17.159Z","exe":"C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe","args":["-NoProfile","-ExecutionPolicy","Bypass","-File","scripts/restore-db.ps1","-BackupFile","D:\\Projects\\InfraPulse\\reports\\phase23n\\backup\\infrapulse_backup_20261101_064639.sql","-DbHost","127.0.0.1","-DbPort","5544","-DbUser","postgres","-DbName","infrapulse_23n_followup_1793496506447_restore"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:31:21.743Z","exe":"C:\\Program Files\\nodejs\\node.exe","args":["backend/src/db/migrate.js"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:31:41.527Z","exe":"C:\\Program Files\\nodejs\\node.exe","args":["backend/src/db/migrate.js"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:33:24.276Z","exe":"C:/Program Files/PostgreSQL/16/bin/pg_ctl.exe","args":["-D","D:/Projects/.infrapulse-23n-followup/pgdata","-m","fast","-w","stop"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:33:30.908Z","exe":"git","args":["diff","--cached","--name-status"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:35:22.644Z","exe":"git","args":["diff","--cached","--name-status"],"cwd":"D:\\Projects\\InfraPulse"}
+{"time":"2026-11-01T01:35:22.750Z","exe":"git","args":["diff","--check"],"cwd":"D:\\Projects\\InfraPulse"}

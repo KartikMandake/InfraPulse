@@ -318,13 +318,11 @@ describe('Phase 20: Failure, Chaos & Recovery Validation', () => {
   // =========================================================================
   // SCENARIO 12: Malformed OpenTelemetry OTLP payload returns validation error
   // =========================================================================
-  test('Scenario 12: Malformed OTLP payload returns empty array safely without server crash', () => {
+  test('Scenario 12: Malformed OTLP payload is rejected with a validation error', () => {
     const otel = new OpenTelemetryProvider();
     // Non-conforming payload missing resourceSpans
     const malformed = { unexpectedRoot: { data: [1, 2, 3] } };
-    const normalized = otel.normalizeTracePayload(malformed);
-    assert.ok(Array.isArray(normalized));
-    assert.equal(normalized.length, 0, 'Malformed payload must normalize to empty array without crashing');
+    assert.throws(()=>otel.normalizeTracePayload(malformed),/resourceSpans/,'Malformed input must be rejected rather than acknowledged as empty telemetry');
   });
 
   // =========================================================================

@@ -1,0 +1,21 @@
+import path from 'node:path';import {createRequire} from 'node:module';import {evidence,save,api,login} from './independent23m.mjs';
+const {chromium}=createRequire(import.meta.url)('C:/Users/karti/AppData/Local/npm-cache/_npx/83f51bd5dfda7e85/node_modules/playwright');
+const browser=await chromium.launch({headless:true,executablePath:'C:/Users/karti/AppData/Local/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-win64/chrome-headless-shell.exe',args:['--disable-gpu','--disable-dev-shm-usage','--renderer-process-limit=1','--js-flags=--max-old-space-size=128']});
+const context=await browser.newContext({viewport:{width:1440,height:1000}});const page=await context.newPage();page.setDefaultTimeout(6000);
+const events=[];page.on('pageerror',e=>events.push({type:'pageerror',message:e.message}));page.on('response',r=>{if(r.url().includes('/api/'))events.push({type:'api',url:r.url(),status:r.status()});});
+const token=await login();await context.addCookies([{name:'infrapulse_session',value:token,url:'http://127.0.0.1:5180',httpOnly:true,sameSite:'Lax'}]);
+const results={};
+async function go(route){await page.goto('http://127.0.0.1:5180'+route,{waitUntil:'domcontentloaded'});await page.waitForTimeout(800);}
+try{
+ await go('/integrations');const actions=[];
+ for(const pattern of [/Notification Rails/,/Community Connectors/,/Enterprise Ecosystem/,/^Logs$/]){await page.locator('main').getByRole('button',{name:pattern}).first().click();await page.waitForTimeout(200);actions.push({label:String(pattern),text:(await page.locator('main').innerText()).slice(-1000)});}
+ await page.getByRole('button',{name:'Close',exact:true}).click();await page.locator('main').getByRole('button',{name:/Connect Provider/}).first().click();await page.waitForTimeout(200);
+ actions.push({type:'configuration-form',text:(await page.locator('body').innerText()).slice(-3000)});
+ await page.getByRole('button',{name:'Save & Connect',exact:true}).click();await page.waitForTimeout(300);actions.push({type:'empty-submit-validation',invalidFields:await page.locator('input:invalid,textarea:invalid,select:invalid').count(),text:(await page.locator('body').innerText()).slice(-1200)});
+ await page.getByRole('button',{name:'Cancel',exact:true}).click();results.integrations={actions,events:[...events]};
+ await go('/auth');await page.getByPlaceholder('operator@infrapulse.io').fill('sarah.chen@infrapulse.io');await page.locator('main input[type=password]').fill('wrong-phase23m-password');await page.locator('main button[type=submit]').click();await page.waitForTimeout(400);const invalid=(await page.locator('main').innerText()).slice(-1500);
+ await page.locator('main input[type=password]').fill('Password123!');await page.locator('main button[type=submit]').click();await page.waitForTimeout(400);const valid=(await page.locator('main').innerText()).slice(0,1500);
+ await page.getByRole('button',{name:/End Session/}).click();await page.waitForTimeout(300);const loggedOut=(await page.locator('main').innerText()).slice(0,1000);await page.reload({waitUntil:'domcontentloaded'});await page.waitForTimeout(1000);const afterReload=(await page.locator('main').innerText()).slice(0,1300);results.auth={invalid,valid,loggedOut,afterReload,events:events.filter(e=>e.type==='api'&&e.url.includes('/auth/'))};
+ await context.grantPermissions(['clipboard-read','clipboard-write']);await go('/reports');const reportBefore=events.length;await page.getByRole('button',{name:/Export Postmortem/}).click();await page.waitForTimeout(250);results.exportWithPermission={clipboard:(await page.evaluate(()=>navigator.clipboard.readText())).slice(0,500),events:events.slice(reportBefore)};
+ await page.setViewportSize({width:390,height:844});await go('/integrations');await page.getByRole('button',{name:/menu/}).first().click();await page.waitForTimeout(200);results.mobileNavigation={visibleServicesLink:await page.getByRole('link',{name:/Services Mesh/}).first().isVisible()};await page.screenshot({path:path.join(evidence,'mobile-navigation.png')});
+}catch(e){results.harnessError=e.message;}finally{save('browser-focused.json',results);await browser.close();}console.log(JSON.stringify({sections:Object.keys(results),error:results.harnessError}));

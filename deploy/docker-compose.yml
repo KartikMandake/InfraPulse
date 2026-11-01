@@ -15,7 +15,7 @@ services:
       backend:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/healthz"]
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8080/healthz"]
       interval: 15s
       timeout: 5s
       retries: 3
@@ -29,13 +29,19 @@ services:
       dockerfile: Dockerfile
     container_name: infrapulse-backend
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
+      - APP_ENV=development
+      - AWS_LIFECYCLE_MUTATIONS_ENABLED=false
+      - DOCKER_LIFECYCLE_ENABLED=false
+      - KUBERNETES_LIFECYCLE_ENABLED=false
+      - REMEDIATION_EXECUTION_ENABLED=false
+      - REMEDIATION_PRODUCTION_ENABLED=false
       - PORT=5000
       - PGHOST=postgres
       - PGPORT=5432
-      - PGDATABASE=infrapulse
-      - PGUSER=postgres
-      - PGPASSWORD=postgres
+      - PGDATABASE=${POSTGRES_DB:-infrapulse}
+      - PGUSER=${POSTGRES_USER:-postgres}
+      - PGPASSWORD=${POSTGRES_PASSWORD:-postgres}
       - FRONTEND_URL=http://localhost:8080
       - APP_BASE_URL=http://localhost:8080
       - NOTIFICATION_WORKER_ENABLED=false # Dedicated worker container handles queue
@@ -49,10 +55,10 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      otel-collector:
-        condition: service_started
+
+
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5000/api/health/ready"]
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5000/api/health/ready',{signal:AbortSignal.timeout(3000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -65,14 +71,21 @@ services:
       context: ../backend
       dockerfile: Dockerfile
     container_name: infrapulse-worker
-    command: ["node", "src/worker.js"]
+    command: ["node", "src/entrypoint.js", "worker"]
     environment:
-      - NODE_ENV=production
+      - WORKER_HEALTH_FILE=/tmp/infrapulse-worker-health.json
+      - NODE_ENV=development
+      - APP_ENV=development
+      - AWS_LIFECYCLE_MUTATIONS_ENABLED=false
+      - DOCKER_LIFECYCLE_ENABLED=false
+      - KUBERNETES_LIFECYCLE_ENABLED=false
+      - REMEDIATION_EXECUTION_ENABLED=false
+      - REMEDIATION_PRODUCTION_ENABLED=false
       - PGHOST=postgres
       - PGPORT=5432
-      - PGDATABASE=infrapulse
-      - PGUSER=postgres
-      - PGPASSWORD=postgres
+      - PGDATABASE=${POSTGRES_DB:-infrapulse}
+      - PGUSER=${POSTGRES_USER:-postgres}
+      - PGPASSWORD=${POSTGRES_PASSWORD:-postgres}
       - NOTIFICATION_MOCK_MODE=true
       - APP_BASE_URL=http://localhost:8080
     depends_on:
@@ -80,6 +93,11 @@ services:
         condition: service_healthy
       backend:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "src/worker-health.js"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
     restart: unless-stopped
 
   # ============================================================================
@@ -91,9 +109,9 @@ services:
     image: postgres:16-alpine
     container_name: infrapulse-postgres
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=infrapulse
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-infrapulse}
     ports:
       - "127.0.0.1:5432:5432"
     volumes:
@@ -108,6 +126,7 @@ services:
 
   # OpenTelemetry Collector
   otel-collector:
+    profiles: ["telemetry", "full"]
     image: otel/opentelemetry-collector-contrib:0.114.0
     container_name: infrapulse-otel-collector
     command: ["--config=/etc/otel-collector-config.yaml"]
@@ -124,6 +143,7 @@ services:
 
   # Prometheus (Metrics Storage & PromQL)
   prometheus:
+    profiles: ["telemetry", "full"]
     image: prom/prometheus:v2.54.1
     container_name: infrapulse-prometheus
     command:
@@ -138,6 +158,7 @@ services:
 
   # Grafana Tempo (Distributed Tracing Storage)
   tempo:
+    profiles: ["telemetry", "full"]
     image: grafana/tempo:2.6.1
     container_name: infrapulse-tempo
     command: ["-config.file=/etc/tempo.yaml"]
@@ -149,6 +170,7 @@ services:
 
   # Grafana Loki (Structured Logs Storage & LogQL)
   loki:
+    profiles: ["telemetry", "full"]
     image: grafana/loki:3.2.1
     container_name: infrapulse-loki
     command: ["-config.file=/etc/loki/local-config.yaml"]
@@ -160,6 +182,7 @@ services:
 
   # Grafana Dashboard (Optional Operator UI)
   grafana:
+    profiles: ["telemetry", "full"]
     image: grafana/grafana:11.3.0
     container_name: infrapulse-grafana
     environment:

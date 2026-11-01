@@ -1,0 +1,32 @@
+{
+  "clientDate": "2026-11-01",
+  "timezone": "Asia/Calcutta",
+  "backend": "http://127.0.0.1:5010",
+  "frontend": "http://127.0.0.1:5180",
+  "databasePort": "5541",
+  "database": "infrapulse_23m_independent_1793461903978",
+  "live": {
+    "status": 200,
+    "ms": 88.68470000000002,
+    "data": {
+      "status": "LIVE",
+      "timestamp": "2026-10-31T18:38:34.846Z",
+      "uptimeSeconds": 432,
+      "pid": 12640
+    }
+  },
+  "ready": {
+    "status": 200,
+    "ms": 73.34190000000001,
+    "data": {
+      "status": "READY",
+      "timestamp": "2026-10-31T18:38:34.933Z",
+      "uptimeSeconds": 432,
+      "dependencies": {
+        "database": "CONNECTED",
+        "latencyMs": 66
+      }
+    }
+  },
+  "frontendStatus": 200
+}

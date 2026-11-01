@@ -1,0 +1,65 @@
+{
+  "ready": {
+    "status": 200,
+    "ms": 7.941199999999753,
+    "data": {
+      "status": "READY",
+      "timestamp": "2026-10-31T15:52:26.114Z",
+      "uptimeSeconds": 2,
+      "dependencies": {
+        "database": "CONNECTED",
+        "latencyMs": 1
+      }
+    }
+  },
+  "live": {
+    "status": 200,
+    "ms": 5.912200000000212,
+    "data": {
+      "status": "LIVE",
+      "timestamp": "2026-10-31T15:52:26.120Z",
+      "uptimeSeconds": 2,
+      "pid": 22980
+    }
+  },
+  "diagnostics": {
+    "status": 200,
+    "ms": 42.21120000000019,
+    "data": {
+      "success": true,
+      "data": {
+        "service": "infrapulse-backend",
+        "timestamp": "2026-10-31T15:52:26.163Z",
+        "uptimeSeconds": 2,
+        "nodeVersion": "v26.4.0",
+        "pid": 22980,
+        "process": {
+          "memoryMb": {
+            "rss": 125,
+            "heapUsed": 31,
+            "heapTotal": 66,
+            "external": 8
+          },
+          "cpuUsageUserMicroseconds": 1781000,
+          "cpuUsageSystemMicroseconds": 484000
+        },
+        "database": {
+          "connected": true,
+          "latencyMs": 2,
+          "pool": {
+            "totalCount": 1,
+            "idleCount": 1,
+            "waitingCount": 0,
+            "activeCount": 0
+          }
+        },
+        "telemetryPipeline": {
+          "totalIngestedEvents": 0,
+          "deadLetterQueueCount": 0,
+          "status": "HEALTHY"
+        }
+      }
+    }
+  },
+  "frontend": 200
+}

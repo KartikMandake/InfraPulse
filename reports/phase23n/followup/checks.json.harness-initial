@@ -1,0 +1,48 @@
+[
+  {
+    "id": "F01",
+    "name": "AWS region rejection occurs before any SDK invocation",
+    "status": "PASS",
+    "mode": "ACTUAL ISOLATED DATABASE / SERVICE WITH SIMULATED PROVIDER",
+    "evidence": {
+      "mode": "INJECTED READ-ONLY CLIENT",
+      "region": "us-east-1",
+      "sdkCalls": []
+    }
+  },
+  {
+    "id": "F02",
+    "name": "Duplicate lifecycle request reuses one operation",
+    "status": "FAIL",
+    "error": "connect ECONNREFUSED 127.0.0.1:5543",
+    "stack": "Error: connect ECONNREFUSED 127.0.0.1:5543\n    at D:\\Projects\\InfraPulse\\backend\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async withTransaction (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:74:18)\n    at async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:70)\n    at async Object.upsertResource (file:///D:/Projects/InfraPulse/backend/src/repositories/cloudLifecycle.repository.js:65:17)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:8:88\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:4:149)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:8:1"
+  },
+  {
+    "id": "F03",
+    "name": "Simulated start/stop/restart reconcile state and preserve volume metadata",
+    "status": "FAIL",
+    "error": "connect ECONNREFUSED 127.0.0.1:5543",
+    "stack": "Error: connect ECONNREFUSED 127.0.0.1:5543\n    at D:\\Projects\\InfraPulse\\backend\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async withTransaction (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:74:18)\n    at async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:70)\n    at async Object.upsertResource (file:///D:/Projects/InfraPulse/backend/src/repositories/cloudLifecycle.repository.js:65:17)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:9:191\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:4:149)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:9:1"
+  },
+  {
+    "id": "F04",
+    "name": "Running caller blocks a dependency stop",
+    "status": "FAIL",
+    "error": "connect ECONNREFUSED 127.0.0.1:5543",
+    "stack": "Error: connect ECONNREFUSED 127.0.0.1:5543\n    at D:\\Projects\\InfraPulse\\backend\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async withTransaction (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:74:18)\n    at async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:70)\n    at async Object.upsertResource (file:///D:/Projects/InfraPulse/backend/src/repositories/cloudLifecycle.repository.js:65:17)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:10:88\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:4:149)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:10:1"
+  },
+  {
+    "id": "F05",
+    "name": "Control-plane containers and workloads are protected",
+    "status": "FAIL",
+    "error": "connect ECONNREFUSED 127.0.0.1:5543",
+    "stack": "Error: connect ECONNREFUSED 127.0.0.1:5543\n    at D:\\Projects\\InfraPulse\\backend\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async withTransaction (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:74:18)\n    at async query (file:///D:/Projects/InfraPulse/backend/src/db/connection.js:52:70)\n    at async Object.getAllResources (file:///D:/Projects/InfraPulse/backend/src/repositories/cloudLifecycle.repository.js:28:17)\n    at async Object._evaluateDockerEligibility (file:///D:/Projects/InfraPulse/backend/src/services/cloud-lifecycle/services/workloadEligibility.service.js:178:28)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:11:97\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:4:149)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:11:1"
+  },
+  {
+    "id": "N19",
+    "name": "Tenant runtime database role cannot rewrite historical audit rows",
+    "status": "FAIL",
+    "error": "Cannot read properties of null (reading 'id')",
+    "stack": "TypeError: Cannot read properties of null (reading 'id')\n    at file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:12:879\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:4:149)\n    at async file:///D:/Projects/InfraPulse/tests/runtime-validation/phase23n-followup-checks.mjs:12:1"
+  }
+]

@@ -1,0 +1,703 @@
+[
+  {
+    "name": "CSRF-origin-prefix-and-cookie-session",
+    "missingOrigin": {
+      "status": 403,
+      "ms": 16.956699999999955,
+      "data": {
+        "error": "Forbidden",
+        "message": "Cross-Site Request Forgery (CSRF) validation failed."
+      }
+    },
+    "unrelatedOrigin": {
+      "status": 403,
+      "ms": 9.71699999999987,
+      "data": {
+        "error": "Forbidden",
+        "message": "Cross-Site Request Forgery (CSRF) validation failed."
+      }
+    },
+    "prefixOrigin": {
+      "status": 200,
+      "ms": 66.45270000000005,
+      "data": {
+        "success": true,
+        "data": {
+          "dryRun": true,
+          "planId": "rem_plan_2aaf87b7d74c",
+          "planVersion": 1,
+          "action": "K8S_DEPLOYMENT_RESTART",
+          "targetResource": {
+            "id": "k8s-phase23m-phase23m-api",
+            "name": "phase23m-api",
+            "provider": "kubernetes",
+            "currentState": "stopped",
+            "environment": "staging"
+          },
+          "intendedState": "running",
+          "preconditionsValid": false,
+          "blastRadius": {},
+          "riskLevel": "LOW",
+          "rollbackPlan": {},
+          "eligibility": {
+            "eligible": false,
+            "blockers": [
+              "Namespace Not Allowed: Namespace 'phase23m' is not listed in KUBERNETES_ALLOWED_NAMESPACES [infrapulse, staging, dev, development, test, qa]."
+            ],
+            "warnings": [],
+            "checks": {
+              "isKubernetesResource": true,
+              "notSystemNamespace": true,
+              "isNamespaceAllowed": false,
+              "isWorkloadAllowlisted": true,
+              "isNonProduction": true,
+              "isNotControlPlaneWorkload": true,
+              "isDatabaseWorkloadProtected": true,
+              "pvcRetainedAndProtected": true,
+              "pdbAvailabilityMet": true,
+              "noActiveIncidentConflict": true,
+              "noActiveRunbookConflict": true,
+              "noDownstreamCallersBlocked": true,
+              "mutationsFlagEnabled": true
+            }
+          },
+          "status": "DRY_RUN_BLOCKED"
+        }
+      }
+    },
+    "authenticatedMe": {
+      "status": 200,
+      "ms": 5.364000000000033,
+      "data": {
+        "status": "ok",
+        "data": {
+          "user": {
+            "id": "usr_admin_001",
+            "name": "Sarah Chen",
+            "email": "sarah.chen@infrapulse.io",
+            "role": "admin",
+            "status": "active"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "cross-tenant-event-collision",
+    "tenantA": {
+      "success": true,
+      "event": {
+        "id": "evt-log-phase23m-tenant-collision",
+        "event_type": "log_error",
+        "source_system": "phase23m-collision",
+        "source_ref_id": "phase23m-tenant-collision",
+        "tenant_id": "phase23m-alpha",
+        "service_id": "payment-service",
+        "service_name": "payment-service",
+        "environment": "production",
+        "event_timestamp": "2026-10-31T16:03:23.139Z",
+        "ingestion_timestamp": "2026-10-31T16:03:23.141Z",
+        "severity": "high",
+        "title": "Log Pattern: Alpha private payload",
+        "summary": "Alpha private payload",
+        "correlation_ids": [],
+        "related_incident_id": null,
+        "related_deployment_id": null,
+        "telemetry_mode": "simulated",
+        "evidence_quality": "good",
+        "normalized_attributes": {
+          "pattern": null,
+          "logLevel": "ERROR",
+          "stackTrace": null,
+          "statusCode": null
+        },
+        "original_source_ref": {
+          "source": "log_stream",
+          "rawPayload": {
+            "id": "phase23m-tenant-collision",
+            "level": "ERROR",
+            "message": "Alpha private payload",
+            "tenantId": "phase23m-alpha",
+            "eventType": "log_error",
+            "serviceId": "payment-service",
+            "timestamp": "2026-10-31T16:03:23.139Z",
+            "sourceSystem": "phase23m-collision"
+          },
+          "rawTimestamp": "2026-10-31T16:03:23.139Z"
+        },
+        "created_at": "2026-10-31T16:03:23.201Z"
+      }
+    },
+    "tenantB": {
+      "success": true,
+      "event": {
+        "id": "evt-log-phase23m-tenant-collision",
+        "event_type": "log_error",
+        "source_system": "phase23m-collision",
+        "source_ref_id": "phase23m-tenant-collision",
+        "tenant_id": "phase23m-alpha",
+        "service_id": "payment-service",
+        "service_name": "payment-service",
+        "environment": "production",
+        "event_timestamp": "2026-10-31T16:03:23.139Z",
+        "ingestion_timestamp": "2026-10-31T16:03:23.141Z",
+        "severity": "high",
+        "title": "Log Pattern: Beta overwrites payload",
+        "summary": "Beta overwrites payload",
+        "correlation_ids": [],
+        "related_incident_id": null,
+        "related_deployment_id": null,
+        "telemetry_mode": "simulated",
+        "evidence_quality": "good",
+        "normalized_attributes": {
+          "pattern": null,
+          "logLevel": "ERROR",
+          "stackTrace": null,
+          "statusCode": null
+        },
+        "original_source_ref": {
+          "source": "log_stream",
+          "rawPayload": {
+            "id": "phase23m-tenant-collision",
+            "level": "ERROR",
+            "message": "Alpha private payload",
+            "tenantId": "phase23m-alpha",
+            "eventType": "log_error",
+            "serviceId": "payment-service",
+            "timestamp": "2026-10-31T16:03:23.139Z",
+            "sourceSystem": "phase23m-collision"
+          },
+          "rawTimestamp": "2026-10-31T16:03:23.139Z"
+        },
+        "created_at": "2026-10-31T16:03:23.201Z"
+      }
+    },
+    "rows": [
+      {
+        "id": "evt-log-phase23m-tenant-collision",
+        "tenant_id": "phase23m-alpha",
+        "summary": "Beta overwrites payload",
+        "title": "Log Pattern: Beta overwrites payload"
+      }
+    ],
+    "viewerArbitraryTenant": {
+      "status": 200,
+      "ms": 32.71109999999999,
+      "data": {
+        "success": true,
+        "count": 1,
+        "total": 314,
+        "data": [
+          {
+            "id": "evt-log-phase23m-tenant-collision",
+            "event_type": "log_error",
+            "source_system": "phase23m-collision",
+            "source_ref_id": "phase23m-tenant-collision",
+            "tenant_id": "phase23m-alpha",
+            "service_id": "payment-service",
+            "service_name": "payment-service",
+            "environment": "production",
+            "event_timestamp": "2026-10-31T16:03:23.139Z",
+            "ingestion_timestamp": "2026-10-31T16:03:23.141Z",
+            "severity": "high",
+            "title": "Log Pattern: Beta overwrites payload",
+            "summary": "Beta overwrites payload",
+            "correlation_ids": [],
+            "related_incident_id": null,
+            "related_deployment_id": null,
+            "telemetry_mode": "simulated",
+            "evidence_quality": "good",
+            "normalized_attributes": {
+              "pattern": null,
+              "logLevel": "ERROR",
+              "stackTrace": null,
+              "statusCode": null
+            },
+            "original_source_ref": {
+              "source": "log_stream",
+              "rawPayload": {
+                "id": "phase23m-tenant-collision",
+                "level": "ERROR",
+                "message": "Alpha private payload",
+                "tenantId": "phase23m-alpha",
+                "eventType": "log_error",
+                "serviceId": "payment-service",
+                "timestamp": "2026-10-31T16:03:23.139Z",
+                "sourceSystem": "phase23m-collision"
+              },
+              "rawTimestamp": "2026-10-31T16:03:23.139Z"
+            },
+            "created_at": "2026-10-31T16:03:23.201Z"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "generated-remediation-risk-and-real-plan-guards",
+    "generation": {
+      "status": 200,
+      "ms": 66.87429999999995,
+      "data": {
+        "success": true,
+        "data": {
+          "incidentId": "INC-4921",
+          "recommendationsGenerated": 1,
+          "recommendations": [
+            {
+              "id": "rem_rec_1b7bd69297a6",
+              "incident_id": "INC-4921",
+              "tenant_id": "default_tenant",
+              "environment": "staging",
+              "service_id": "payment-service",
+              "resource_id": "phase23m-payment-service-container",
+              "detected_problem": "Container 'phase23m-payment-service-container' is in unready state 'crashed'.",
+              "proposed_action": "DOCKER_CONTAINER_START",
+              "expected_outcome": "Start container to restore service availability.",
+              "supporting_evidence": [
+                {
+                  "type": "controlled_synthetic_fixture",
+                  "title": "Synthetic stopped application container, no provider mutation"
+                },
+                {
+                  "type": "resource_state",
+                  "state": "crashed",
+                  "provider": "docker",
+                  "resourceId": "phase23m-payment-service-container",
+                  "resourceName": "phase23m-payment-service-container"
+                }
+              ],
+              "risk_level": "LOW",
+              "risk_score": 30,
+              "risk_rationale": "Non-Production Environment: Resource 'phase23m-payment-service-container' is in 'staging' (+0 risk). Contained Blast Radius: Zero active downstream caller dependencies detected (+0 risk). High Incident Severity: Linked incident is 'SEV-1' (+10 risk). Capacity Restoration: Starting or restoring workload expands available compute (+5 risk).",
+              "confidence_score": "0.85",
+              "blast_radius": {
+                "provider": "docker",
+                "environment": "staging",
+                "targetResourceId": "phase23m-payment-service-container",
+                "downstreamCallers": [],
+                "targetResourceName": "phase23m-payment-service-container",
+                "downstreamCallersCount": 0,
+                "estimatedDowntimeSeconds": 0,
+                "persistentStorageProtected": false
+              },
+              "eligibility_result": {
+                "checks": {
+                  "isAllowlisted": true,
+                  "isNonProduction": true,
+                  "isDockerResource": true,
+                  "mutationsFlagEnabled": true,
+                  "namedVolumePreserved": true,
+                  "isNotDatabaseContainer": true,
+                  "noActiveRunbookConflict": true,
+                  "noActiveIncidentConflict": true,
+                  "isNotControlPlaneContainer": true,
+                  "noDownstreamCallersBlocked": true
+                },
+                "blockers": [],
+                "eligible": true,
+                "warnings": []
+              },
+              "blocking_reasons": [],
+              "rollback_strategy": {
+                "isReversible": true,
+                "rollbackAction": "DOCKER_CONTAINER_STOP",
+                "compensatingProcedure": "If started container fails health checks, gracefully stop container with 10s SIGTERM timeout to avoid host resource exhaustion.",
+                "manualVerificationRequired": true
+              },
+              "status": "PENDING",
+              "created_at": "2026-10-31T16:03:23.351Z",
+              "updated_at": "2026-10-31T16:03:23.351Z",
+              "planId": "rem_plan_a4338ba7b31b",
+              "planHash": "64c445aefdf86761100600150cb8ad0613c0353fcc3714f11312ee1c1bc912de",
+              "isExecutable": true
+            }
+          ]
+        }
+      }
+    },
+    "plan": {
+      "id": "rem_plan_a4338ba7b31b",
+      "recommendation_id": "rem_rec_1b7bd69297a6",
+      "tenant_id": "default_tenant",
+      "version": 1,
+      "action": "DOCKER_CONTAINER_START",
+      "target_resource_id": "phase23m-payment-service-container",
+      "target_resource_name": "phase23m-payment-service-container",
+      "provider": "docker",
+      "parameters": {
+        "containerName": "phase23m-payment-service-container"
+      },
+      "preconditions": [
+        "Resource 'phase23m-payment-service-container' exists and is currently in state 'crashed'.",
+        "No active conflicting lock exists on resource 'phase23m-payment-service-container'.",
+        "Workload eligibility passed without safety blockers."
+      ],
+      "verification_criteria": {
+        "expectedState": "running",
+        "timeoutSeconds": 60,
+        "verifyReadiness": true
+      },
+      "rollback_plan": {
+        "isReversible": true,
+        "rollbackAction": "DOCKER_CONTAINER_STOP",
+        "compensatingProcedure": "If started container fails health checks, gracefully stop container with 10s SIGTERM timeout to avoid host resource exhaustion.",
+        "manualVerificationRequired": true
+      },
+      "plan_hash": "64c445aefdf86761100600150cb8ad0613c0353fcc3714f11312ee1c1bc912de",
+      "is_current_version": true,
+      "created_at": "2026-10-31T16:03:23.354Z"
+    },
+    "dryRun": {
+      "status": 200,
+      "ms": 24.044399999999996,
+      "data": {
+        "success": true,
+        "data": {
+          "dryRun": true,
+          "planId": "rem_plan_a4338ba7b31b",
+          "planVersion": 1,
+          "action": "DOCKER_CONTAINER_START",
+          "targetResource": {
+            "id": "phase23m-payment-service-container",
+            "name": "phase23m-payment-service-container",
+            "provider": "docker",
+            "currentState": "crashed",
+            "environment": "staging"
+          },
+          "intendedState": "running",
+          "preconditionsValid": true,
+          "blastRadius": {
+            "provider": "docker",
+            "environment": "staging",
+            "targetResourceId": "phase23m-payment-service-container",
+            "downstreamCallers": [],
+            "targetResourceName": "phase23m-payment-service-container",
+            "downstreamCallersCount": 0,
+            "estimatedDowntimeSeconds": 0,
+            "persistentStorageProtected": false
+          },
+          "riskLevel": "LOW",
+          "rollbackPlan": {
+            "isReversible": true,
+            "rollbackAction": "DOCKER_CONTAINER_STOP",
+            "compensatingProcedure": "If started container fails health checks, gracefully stop container with 10s SIGTERM timeout to avoid host resource exhaustion.",
+            "manualVerificationRequired": true
+          },
+          "eligibility": {
+            "eligible": true,
+            "blockers": [],
+            "warnings": [],
+            "checks": {
+              "isDockerResource": true,
+              "isAllowlisted": true,
+              "isNonProduction": true,
+              "isNotControlPlaneContainer": true,
+              "isNotDatabaseContainer": true,
+              "namedVolumePreserved": true,
+              "noActiveIncidentConflict": true,
+              "noActiveRunbookConflict": true,
+              "noDownstreamCallersBlocked": true,
+              "mutationsFlagEnabled": true
+            }
+          },
+          "status": "DRY_RUN_PASSED"
+        }
+      }
+    },
+    "approval": {
+      "status": 201,
+      "ms": 27.554499999999962,
+      "data": {
+        "success": true,
+        "data": {
+          "id": "rem_app_1928b2eb5d2e",
+          "plan_id": "rem_plan_a4338ba7b31b",
+          "plan_version": 1,
+          "tenant_id": "default_tenant",
+          "requester_email": "marcus.v@infrapulse.io",
+          "requester_role": "responder",
+          "approver_email": null,
+          "approver_role": null,
+          "second_approver_email": null,
+          "second_approver_role": null,
+          "approval_status": "PENDING",
+          "rejection_reason": null,
+          "revocation_reason": null,
+          "requested_at": "2026-10-31T16:03:23.407Z",
+          "approved_at": null,
+          "expires_at": "2026-10-31T17:03:23.395Z",
+          "created_at": "2026-10-31T16:03:23.407Z",
+          "updated_at": "2026-10-31T16:03:23.407Z"
+        }
+      }
+    },
+    "self": {
+      "status": 500,
+      "ms": 20.2962,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "Separation of Duties Violation: Requester (marcus.v@infrapulse.io) cannot approve their own remediation plan.",
+          "statusCode": 500,
+          "details": null
+        }
+      }
+    },
+    "badHash": {
+      "status": 500,
+      "ms": 18.758200000000215,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "Plan Tampering Detected: Provided plan hash does not match immutable plan version hash (64c445aefdf86761100600150cb8ad0613c0353fcc3714f11312ee1c1bc912de).",
+          "statusCode": 500,
+          "details": null
+        }
+      }
+    },
+    "approved": {
+      "status": 200,
+      "ms": 23.034400000000005,
+      "data": {
+        "success": true,
+        "data": {
+          "id": "rem_app_1928b2eb5d2e",
+          "plan_id": "rem_plan_a4338ba7b31b",
+          "plan_version": 1,
+          "tenant_id": "default_tenant",
+          "requester_email": "marcus.v@infrapulse.io",
+          "requester_role": "responder",
+          "approver_email": "sarah.chen@infrapulse.io",
+          "approver_role": "admin",
+          "second_approver_email": null,
+          "second_approver_role": null,
+          "approval_status": "APPROVED",
+          "rejection_reason": null,
+          "revocation_reason": null,
+          "requested_at": "2026-10-31T16:03:23.407Z",
+          "approved_at": "2026-10-31T16:03:23.468Z",
+          "expires_at": "2026-10-31T17:03:23.395Z",
+          "created_at": "2026-10-31T16:03:23.407Z",
+          "updated_at": "2026-10-31T16:03:23.468Z"
+        }
+      }
+    },
+    "execution": {
+      "status": 500,
+      "ms": 26.623100000000022,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "Remediation Execution Disabled: REMEDIATION_EXECUTION_ENABLED is false. Mutations are globally disabled.",
+          "statusCode": 500,
+          "details": null
+        }
+      }
+    },
+    "expired": {
+      "status": 500,
+      "ms": 22.868299999999863,
+      "data": {
+        "success": false,
+        "error": {
+          "message": "Approval Expired: Approval 'rem_app_1928b2eb5d2e' expired at Sat Oct 31 2026 21:32:23 GMT+0530 (India Standard Time). Request a new approval.",
+          "statusCode": 500,
+          "details": null
+        }
+      }
+    },
+    "executions": [
+      {
+        "count": "0"
+      }
+    ]
+  },
+  {
+    "name": "real-SLO-service-window-calculation-and-freshness",
+    "sloId": "slo-checkout-latency",
+    "input": {
+      "totalEvents": 10000,
+      "goodEvents": 9950,
+      "badEvents": 50
+    },
+    "evaluated": {
+      "id": "eval-slo-checkout-latency-1793462603590",
+      "sloId": "slo-checkout-latency",
+      "evaluatedAt": "2026-10-31T16:03:23.582Z",
+      "windowStart": "2026-10-01T16:03:23.582Z",
+      "windowEnd": "2026-10-31T16:03:23.582Z",
+      "totalEvents": 10000,
+      "goodEvents": 9950,
+      "badEvents": 50,
+      "sliValue": 99.5,
+      "targetPercent": 99.9,
+      "errorBudgetPercent": 0.1,
+      "allowedBadEvents": 10,
+      "remainingBudgetPercent": 0,
+      "budgetConsumedPercent": 100,
+      "burnRate1h": 7.5,
+      "burnRate6h": 5.5,
+      "burnRate24h": 5,
+      "status": "breached",
+      "dataQuality": "good",
+      "isSimulated": true,
+      "telemetrySource": "demo_adapter"
+    },
+    "regression": {
+      "slopePerHour": 10,
+      "intercept": 40,
+      "rSquared": 1,
+      "trend": "INCREASING",
+      "sampleSize": 4,
+      "insufficientData": false
+    },
+    "insufficientRegression": {
+      "slopePerHour": 0,
+      "rSquared": 0,
+      "trend": "STABLE",
+      "sampleSize": 1,
+      "insufficientData": true
+    },
+    "health": [
+      {
+        "label": "fresh",
+        "result": {
+          "tenantId": "default_tenant",
+          "environment": "staging",
+          "overallScore": 100,
+          "healthStatus": "HEALTHY",
+          "telemetryStatus": "FRESH",
+          "confidenceLevel": "HIGH",
+          "dataFreshnessSeconds": 10,
+          "servicesHealth": [],
+          "resourcesHealth": [],
+          "riskIndicators": [],
+          "supportingEvidence": [
+            {
+              "totalResourcesEvaluated": 0,
+              "totalServicesEvaluated": 0,
+              "activeIncidentsCount": 0,
+              "activeDriftCount": 0,
+              "telemetryFreshnessSeconds": 10
+            }
+          ],
+          "evaluatedAt": "2026-10-31T16:03:23.629Z"
+        }
+      },
+      {
+        "label": "stale",
+        "result": {
+          "tenantId": "default_tenant",
+          "environment": "staging",
+          "overallScore": 100,
+          "healthStatus": "HEALTHY",
+          "telemetryStatus": "STALE",
+          "confidenceLevel": "MEDIUM",
+          "dataFreshnessSeconds": 600,
+          "servicesHealth": [],
+          "resourcesHealth": [],
+          "riskIndicators": [],
+          "supportingEvidence": [
+            {
+              "totalResourcesEvaluated": 0,
+              "totalServicesEvaluated": 0,
+              "activeIncidentsCount": 0,
+              "activeDriftCount": 0,
+              "telemetryFreshnessSeconds": 600
+            }
+          ],
+          "evaluatedAt": "2026-10-31T16:03:23.716Z"
+        }
+      },
+      {
+        "label": "old",
+        "result": {
+          "tenantId": "default_tenant",
+          "environment": "staging",
+          "overallScore": 100,
+          "healthStatus": "HEALTHY",
+          "telemetryStatus": "STALE",
+          "confidenceLevel": "MEDIUM",
+          "dataFreshnessSeconds": 90000,
+          "servicesHealth": [],
+          "resourcesHealth": [],
+          "riskIndicators": [],
+          "supportingEvidence": [
+            {
+              "totalResourcesEvaluated": 0,
+              "totalServicesEvaluated": 0,
+              "activeIncidentsCount": 0,
+              "activeDriftCount": 0,
+              "telemetryFreshnessSeconds": 90000
+            }
+          ],
+          "evaluatedAt": "2026-10-31T16:03:23.731Z"
+        }
+      }
+    ],
+    "unavailable": {
+      "tenantId": "default_tenant",
+      "environment": "staging",
+      "overallScore": 45,
+      "healthStatus": "UNKNOWN",
+      "telemetryStatus": "UNAVAILABLE",
+      "confidenceLevel": "LOW",
+      "dataFreshnessSeconds": null,
+      "servicesHealth": [],
+      "resourcesHealth": [],
+      "riskIndicators": [],
+      "supportingEvidence": [
+        {
+          "type": "TELEMETRY_GAP",
+          "note": "Zero recent telemetry ingested. Overall health cannot be validated as nominal."
+        },
+        {
+          "totalResourcesEvaluated": 0,
+          "totalServicesEvaluated": 0,
+          "activeIncidentsCount": 0,
+          "activeDriftCount": 0,
+          "telemetryFreshnessSeconds": null
+        }
+      ],
+      "evaluatedAt": "2026-10-31T16:03:23.745Z"
+    }
+  },
+  {
+    "name": "repository-backup-and-restore-scripts",
+    "backup": {
+      "status": 0,
+      "signal": null,
+      "ms": 1457.8309,
+      "stdout": "[Backup] Creating PostgreSQL snapshot for database 'infrapulse_23m_independent_1793461903978' on 127.0.0.1:5541...\n[Backup Complete] Backup successfully written to D:\\Projects\\InfraPulse\\reports\\phase23m\\independent\\script-backup\\infrapulse_backup_20261031_213324.sql (294168 bytes).\n",
+      "stderr": ""
+    },
+    "restore": {
+      "status": 0,
+      "signal": null,
+      "ms": 4597.4287,
+      "stdout": "[Restore] Restoring database 'infrapulse_23m_independent_1793461903978_restore' on 127.0.0.1:5541 from 'D:\\Projects\\InfraPulse\\reports\\phase23m\\independent\\script-backup\\infrapulse_backup_20261031_213324.sql'...\n[Restore Complete] Database 'infrapulse_23m_independent_1793461903978_restore' restored successfully from D:\\Projects\\InfraPulse\\reports\\phase23m\\independent\\script-backup\\infrapulse_backup_20261031_213324.sql.\n",
+      "stderr": ""
+    },
+    "sentinel": [
+      {
+        "id": "sentinel",
+        "payload": {
+          "test": "phase23m",
+          "bytes": "real application rows and sentinel restored"
+        }
+      }
+    ],
+    "archiveBytes": 294168
+  },
+  {
+    "name": "existing-API-benchmark",
+    "result": {
+      "status": 0,
+      "signal": null,
+      "ms": 10575.2795,
+      "stdout": "[LoadTest] Testing core endpoints at http://127.0.0.1:5010...\n  Evaluating GET /api/health/ready (Concurrency: 10)...\n    -> RPS: 1276.9, p50: 6.52ms, p95: 13.6ms, p99: 18.94ms, ErrorRate: 0%\n  Evaluating GET /api/services (Concurrency: 10)...\n    -> RPS: 572.1, p50: 16.13ms, p95: 26.67ms, p99: 45.56ms, ErrorRate: 0%\n  Evaluating GET /api/incidents (Concurrency: 10)...\n    -> RPS: 584.1, p50: 16.31ms, p95: 23.98ms, p99: 31.13ms, ErrorRate: 0%\n  Evaluating GET /api/alerts (Concurrency: 10)...\n    -> RPS: 660, p50: 14.37ms, p95: 21.8ms, p99: 33.02ms, ErrorRate: 0%\n[LoadTest Completed]\n",
+      "stderr": ""
+    }
+  }
+]

@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: 1. Isolated Upstream Latency Anomaly: Identified without active alert
+ok 1 - 1. Isolated Upstream Latency Anomaly: Identified without active alert
+  ---
+  duration_ms: 2.719
+  type: 'test'
+  ...
+# Subtest: 2. Downstream Symptom vs Upstream Cause: Upstream callee outranks downstream caller
+ok 2 - 2. Downstream Symptom vs Upstream Cause: Upstream callee outranks downstream caller
+  ---
+  duration_ms: 0.6828
+  type: 'test'
+  ...
+# Subtest: 3. Dependency Direction: Correctly identifies caller vs callee relationships
+ok 3 - 3. Dependency Direction: Correctly identifies caller vs callee relationships
+  ---
+  duration_ms: 0.3082
+  type: 'test'
+  ...
+# Subtest: 4. Conflicting Evidence: Downrates quality score when signals contradict
+ok 4 - 4. Conflicting Evidence: Downrates quality score when signals contradict
+  ---
+  duration_ms: 0.7417
+  type: 'test'
+  ...
+# Subtest: 5. Stale Telemetry: Correctly flagged when signals are missing or dated
+ok 5 - 5. Stale Telemetry: Correctly flagged when signals are missing or dated
+  ---
+  duration_ms: 0.3816
+  type: 'test'
+  ...
+# Subtest: 6. Missing Baseline: Handled safely with absolute fallback and no NaN errors
+ok 6 - 6. Missing Baseline: Handled safely with absolute fallback and no NaN errors
+  ---
+  duration_ms: 0.3206
+  type: 'test'
+  ...
+# Subtest: 7. Anti-Double-Counting: Damped score adjustment for duplicate alerts and traces
+ok 7 - 7. Anti-Double-Counting: Damped score adjustment for duplicate alerts and traces
+  ---
+  duration_ms: 2.8885
+  type: 'test'
+  ...
+# Subtest: 8. Insufficient Evidence: Gracefully reports no cause when evidence is absent
+ok 8 - 8. Insufficient Evidence: Gracefully reports no cause when evidence is absent
+  ---
+  duration_ms: 0.4823
+  type: 'test'
+  ...
+# Subtest: 9. Cache Invalidation: Memory cache clears properly on demand
+ok 9 - 9. Cache Invalidation: Memory cache clears properly on demand
+  ---
+  duration_ms: 0.9295
+  type: 'test'
+  ...
+# Subtest: 10. Deterministic Ranking: Repeated executions produce identical ranking order
+ok 10 - 10. Deterministic Ranking: Repeated executions produce identical ranking order
+  ---
+  duration_ms: 24.0131
+  type: 'test'
+  ...
+# Subtest: 11. Deployment-Based RCA: Scenario 1 achieves Top-1 rank with canary rollback action
+ok 11 - 11. Deployment-Based RCA: Scenario 1 achieves Top-1 rank with canary rollback action
+  ---
+  duration_ms: 1.3655
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 534.2462

@@ -1,0 +1,221 @@
+{
+  "op": {
+    "id": "op_3ef7fc8844f8",
+    "resource_id": "n1793495376536-concurrent",
+    "action": "start",
+    "status": "pending_approval",
+    "is_dry_run": false,
+    "safety_checks": {
+      "eligibility": {
+        "checks": {
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isDockerResource": true,
+          "mutationsFlagEnabled": true,
+          "namedVolumePreserved": true,
+          "isNotDatabaseContainer": true,
+          "noActiveRunbookConflict": true,
+          "noActiveIncidentConflict": true,
+          "isNotControlPlaneContainer": true,
+          "noDownstreamCallersBlocked": true
+        },
+        "blockers": [],
+        "eligible": true,
+        "warnings": []
+      },
+      "allowStatefulSetScale": false,
+      "exceptionalAuthorization": false
+    },
+    "requested_by": "marcus.v@infrapulse.io",
+    "requester_role": "responder",
+    "approved_by": null,
+    "approved_at": null,
+    "executed_at": null,
+    "completed_at": null,
+    "execution_logs": [
+      {
+        "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+        "timestamp": "2026-11-01T01:09:40.944Z"
+      }
+    ],
+    "idempotency_key": "n1793495376536-n1793495376536-concurrent-start",
+    "rejection_reason": null,
+    "created_at": "2026-11-01T01:09:40.945Z",
+    "tenant_id": "default_tenant"
+  },
+  "dispatches": 2,
+  "outcomes": [
+    {
+      "status": "fulfilled",
+      "result": {
+        "success": true,
+        "operation": {
+          "id": "op_3ef7fc8844f8",
+          "resource_id": "n1793495376536-concurrent",
+          "action": "start",
+          "status": "completed",
+          "is_dry_run": false,
+          "safety_checks": {
+            "eligibility": {
+              "checks": {
+                "isAllowlisted": true,
+                "isNonProduction": true,
+                "isDockerResource": true,
+                "mutationsFlagEnabled": true,
+                "namedVolumePreserved": true,
+                "isNotDatabaseContainer": true,
+                "noActiveRunbookConflict": true,
+                "noActiveIncidentConflict": true,
+                "isNotControlPlaneContainer": true,
+                "noDownstreamCallersBlocked": true
+              },
+              "blockers": [],
+              "eligible": true,
+              "warnings": []
+            },
+            "allowStatefulSetScale": false,
+            "exceptionalAuthorization": false
+          },
+          "requested_by": "marcus.v@infrapulse.io",
+          "requester_role": "responder",
+          "approved_by": "sarah.chen@infrapulse.io",
+          "approved_at": "2026-11-01T01:09:40.968Z",
+          "executed_at": "2026-11-01T01:09:41.131Z",
+          "completed_at": "2026-11-01T01:09:41.286Z",
+          "execution_logs": [
+            {
+              "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+              "timestamp": "2026-11-01T01:09:40.944Z"
+            },
+            {
+              "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+              "timestamp": "2026-11-01T01:09:40.968Z"
+            },
+            {
+              "result": {
+                "message": "Resource n1793495376536-concurrent started successfully.",
+                "success": true,
+                "newState": "running",
+                "timestamp": "2026-11-01T01:09:41.281Z",
+                "isSimulated": true,
+                "dockerDetails": {
+                  "status": "Up (healthy)",
+                  "network": "infrapulse-staging-net",
+                  "containerName": "n1793495376536-concurrent"
+                },
+                "previousState": "stopped",
+                "operationDurationMs": 45
+              },
+              "message": "Execution of 'start' completed successfully via docker simulated provider.",
+              "timestamp": "2026-11-01T01:09:41.286Z"
+            }
+          ],
+          "idempotency_key": "n1793495376536-n1793495376536-concurrent-start",
+          "rejection_reason": null,
+          "created_at": "2026-11-01T01:09:40.945Z",
+          "tenant_id": "default_tenant"
+        },
+        "result": {
+          "success": true,
+          "previousState": "stopped",
+          "newState": "running",
+          "message": "Resource n1793495376536-concurrent started successfully.",
+          "operationDurationMs": 45,
+          "isSimulated": true,
+          "timestamp": "2026-11-01T01:09:41.281Z",
+          "dockerDetails": {
+            "containerName": "n1793495376536-concurrent",
+            "network": "infrapulse-staging-net",
+            "status": "Up (healthy)"
+          }
+        }
+      }
+    },
+    {
+      "status": "fulfilled",
+      "result": {
+        "success": true,
+        "operation": {
+          "id": "op_3ef7fc8844f8",
+          "resource_id": "n1793495376536-concurrent",
+          "action": "start",
+          "status": "completed",
+          "is_dry_run": false,
+          "safety_checks": {
+            "eligibility": {
+              "checks": {
+                "isAllowlisted": true,
+                "isNonProduction": true,
+                "isDockerResource": true,
+                "mutationsFlagEnabled": true,
+                "namedVolumePreserved": true,
+                "isNotDatabaseContainer": true,
+                "noActiveRunbookConflict": true,
+                "noActiveIncidentConflict": true,
+                "isNotControlPlaneContainer": true,
+                "noDownstreamCallersBlocked": true
+              },
+              "blockers": [],
+              "eligible": true,
+              "warnings": []
+            },
+            "allowStatefulSetScale": false,
+            "exceptionalAuthorization": false
+          },
+          "requested_by": "marcus.v@infrapulse.io",
+          "requester_role": "responder",
+          "approved_by": "sarah.chen@infrapulse.io",
+          "approved_at": "2026-11-01T01:09:40.968Z",
+          "executed_at": "2026-11-01T01:09:41.131Z",
+          "completed_at": "2026-11-01T01:09:41.380Z",
+          "execution_logs": [
+            {
+              "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+              "timestamp": "2026-11-01T01:09:40.944Z"
+            },
+            {
+              "message": "Operation approved by Administrator (sarah.chen@infrapulse.io). Ready for execution.",
+              "timestamp": "2026-11-01T01:09:40.968Z"
+            },
+            {
+              "result": {
+                "message": "Resource n1793495376536-concurrent started successfully.",
+                "success": true,
+                "newState": "running",
+                "timestamp": "2026-11-01T01:09:41.376Z",
+                "isSimulated": true,
+                "dockerDetails": {
+                  "status": "Up (healthy)",
+                  "network": "infrapulse-staging-net",
+                  "containerName": "n1793495376536-concurrent"
+                },
+                "previousState": "stopped",
+                "operationDurationMs": 45
+              },
+              "message": "Execution of 'start' completed successfully via docker simulated provider.",
+              "timestamp": "2026-11-01T01:09:41.380Z"
+            }
+          ],
+          "idempotency_key": "n1793495376536-n1793495376536-concurrent-start",
+          "rejection_reason": null,
+          "created_at": "2026-11-01T01:09:40.945Z",
+          "tenant_id": "default_tenant"
+        },
+        "result": {
+          "success": true,
+          "previousState": "stopped",
+          "newState": "running",
+          "message": "Resource n1793495376536-concurrent started successfully.",
+          "operationDurationMs": 45,
+          "isSimulated": true,
+          "timestamp": "2026-11-01T01:09:41.376Z",
+          "dockerDetails": {
+            "containerName": "n1793495376536-concurrent",
+            "network": "infrapulse-staging-net",
+            "status": "Up (healthy)"
+          }
+        }
+      }
+    }
+  ]
+}

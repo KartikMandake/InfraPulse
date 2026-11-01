@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "region": "ap-south-1",
+  "identity": {
+    "connected": true,
+    "region": "ap-south-1",
+    "accountIdMasked": "********0000",
+    "arnMasked": "arn:aws:iam::********:user/fixture",
+    "userIdMasked": null,
+    "timestamp": "2026-11-01T01:12:00.722Z"
+  },
+  "discoveredResources": [],
+  "counts": {
+    "ec2": 0,
+    "ebs": 0,
+    "elasticIps": 0,
+    "rds": 0,
+    "total": 0
+  },
+  "estimatedMonthlyCostUsd": 0,
+  "freeTierStatus": "Not verified (Requires billing delegation)",
+  "errors": [
+    "EC2: Controlled timeout",
+    "EBS: Controlled timeout",
+    "EIP: Controlled timeout",
+    "RDS: Controlled timeout"
+  ],
+  "durationMs": 2,
+  "timestamp": "2026-11-01T01:12:00.723Z"
+}

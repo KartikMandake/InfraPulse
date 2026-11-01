@@ -4,9 +4,9 @@ export async function createSessionRecord(sessionData, client = null) {
   const q = client ? client.query.bind(client) : query;
   const res = await q(
     `INSERT INTO sessions (
-      id, user_id, expires_at, ip_address, user_agent
+      id, user_id, expires_at, ip_address, user_agent, tenant_id
     ) VALUES (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     )
     RETURNING *;`,
     [
@@ -14,7 +14,8 @@ export async function createSessionRecord(sessionData, client = null) {
       sessionData.userId,
       sessionData.expiresAt,
       sessionData.ipAddress || null,
-      sessionData.userAgent || null
+      sessionData.userAgent || null,
+      sessionData.tenantId || 'default_tenant'
     ]
   );
   return res.rows[0];
@@ -31,7 +32,8 @@ export async function findValidSessionById(sessionId, client = null) {
       u.name as user_name,
       u.email as user_email,
       u.role as user_role,
-      u.status as user_status
+      u.status as user_status,
+      u.tenant_id as tenant_id
     FROM sessions s
     JOIN users u ON s.user_id = u.id
     WHERE s.id = $1 AND s.expires_at > NOW() AND u.status = 'active';`,
@@ -51,6 +53,8 @@ export async function findValidSessionById(sessionId, client = null) {
       email: row.user_email,
       role: row.user_role,
       status: row.user_status
+      ,tenantId: row.tenant_id,
+      organizationId: row.tenant_id
     }
   };
 }

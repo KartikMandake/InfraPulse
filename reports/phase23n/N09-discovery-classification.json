@@ -1,0 +1,40 @@
+{
+  "resource": {
+    "id": "k8s-staging-23n-storage",
+    "name": "23n-storage",
+    "provider": "kubernetes",
+    "resource_type": "statefulset",
+    "region": "kubernetes-cluster",
+    "environment": "staging",
+    "current_state": "running",
+    "estimated_hourly_cost": 0.08,
+    "metadata": {
+      "namespace": "staging",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "is_live_k8s": true
+    }
+  },
+  "eligibility": {
+    "eligible": true,
+    "blockers": [],
+    "warnings": [
+      "Platform has 2 active unresolved incident(s): INC-4921 [SEV-1], INC-4919 [SEV-2]. Scaling workloads during open incidents requires Incident Commander sign-off."
+    ],
+    "checks": {
+      "isKubernetesResource": true,
+      "notSystemNamespace": true,
+      "isNamespaceAllowed": true,
+      "isWorkloadAllowlisted": true,
+      "isNonProduction": true,
+      "isNotControlPlaneWorkload": true,
+      "isDatabaseWorkloadProtected": true,
+      "pvcRetainedAndProtected": true,
+      "pdbAvailabilityMet": true,
+      "noActiveIncidentConflict": true,
+      "noActiveRunbookConflict": true,
+      "noDownstreamCallersBlocked": true,
+      "mutationsFlagEnabled": true
+    }
+  }
+}

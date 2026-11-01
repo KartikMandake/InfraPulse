@@ -1,0 +1,6 @@
+{
+  "status": 0,
+  "ms": 781.796699999999,
+  "stdout": "{\"status\":\"PASS\",\"mode\":\"SYNTHETIC STATIC FIXTURE\",\"scope\":\"Compose syntax and safety invariants only; images, runtime secret permissions, DB roles, TLS and release gates are not verified. No resources started.\"}\n",
+  "stderr": ""
+}

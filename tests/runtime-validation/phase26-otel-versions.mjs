@@ -1,0 +1,1 @@
+const json=await(await fetch('https://registry.npmjs.org/@opentelemetry%2fexporter-trace-otlp-http')).json();for(const version of Object.keys(json.versions).filter(x=>/^0\.2\d\d\.\d+$/.test(x)).slice(-7)){const v=json.versions[version];console.log(JSON.stringify({version,dependencies:v.dependencies}));}

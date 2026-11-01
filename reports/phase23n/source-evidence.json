@@ -1,0 +1,452 @@
+[
+  {
+    "path": "backend/src/controllers/cloudLifecycle.controller.js",
+    "sha256": "47ae83adfb2c0d47cdcc42698adbd687b98d3ff27f484d30106f497c46302e73",
+    "matches": [
+      {
+        "line": 142,
+        "text": "async executeOperation(req, res, next) {"
+      },
+      {
+        "line": 144,
+        "text": "const { dryRunOverride, explicitConfirmation } = req.body || {};"
+      },
+      {
+        "line": 145,
+        "text": "const result = await lifecycleService.executeOperation({"
+      },
+      {
+        "line": 148,
+        "text": "dryRunOverride,"
+      },
+      {
+        "line": 191,
+        "text": "async listDockerContainers(req, res, next) {"
+      },
+      {
+        "line": 238,
+        "text": "const health = await k8sProvider.getPodHealth(namespace, `app.kubernetes.io/name=${name}`);"
+      },
+      {
+        "line": 286,
+        "text": "const { is_paused, enabled, days_of_week, time_of_day } = req.body;"
+      },
+      {
+        "line": 291,
+        "text": "schedule = await scheduleService.updateSchedule(req.params.id, { enabled, days_of_week, time_of_day }, req.user);"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/services/cloud-lifecycle/services/lifecycle.service.js",
+    "sha256": "1dd0d6f95b7e084b236ed3eaf35666f870bf47759c25a7f5de828d03b5a37b60",
+    "matches": [
+      {
+        "line": 16,
+        "text": "import { recordAuditEvent } from '../../audit.service.js';"
+      },
+      {
+        "line": 223,
+        "text": "await recordAuditEvent({"
+      },
+      {
+        "line": 238,
+        "text": "async approveOperation({ operationId, user }) {"
+      },
+      {
+        "line": 268,
+        "text": "await recordAuditEvent({"
+      },
+      {
+        "line": 284,
+        "text": "async executeOperation({"
+      },
+      {
+        "line": 287,
+        "text": "dryRunOverride = false,"
+      },
+      {
+        "line": 296,
+        "text": "if (operation.status !== 'approved' && !dryRunOverride) {"
+      },
+      {
+        "line": 354,
+        "text": "// Mark status: executing"
+      },
+      {
+        "line": 379,
+        "text": "status: 'completed',"
+      },
+      {
+        "line": 391,
+        "text": "await recordAuditEvent({"
+      },
+      {
+        "line": 424,
+        "text": "status: 'completed',"
+      },
+      {
+        "line": 436,
+        "text": "await recordAuditEvent({"
+      },
+      {
+        "line": 468,
+        "text": "status: 'completed',"
+      },
+      {
+        "line": 480,
+        "text": "await recordAuditEvent({"
+      },
+      {
+        "line": 524,
+        "text": "status: 'completed',"
+      },
+      {
+        "line": 536,
+        "text": "await recordAuditEvent({"
+      },
+      {
+        "line": 576,
+        "text": "await recordAuditEvent({"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/repositories/cloudLifecycle.repository.js",
+    "sha256": "2c6e220912abe79f5fdc5ef7e90f97f9e087aeaf8eac8d57947b90ca637f47af",
+    "matches": [
+      {
+        "line": 33,
+        "text": "const res = await query('SELECT * FROM cloud_resources WHERE id = $1;', [id]);"
+      },
+      {
+        "line": 108,
+        "text": "requested_by, requester_role, idempotency_key, rejection_reason, execution_logs"
+      },
+      {
+        "line": 120,
+        "text": "opData.idempotency_key || null,"
+      },
+      {
+        "line": 129,
+        "text": "const res = await query('SELECT * FROM cloud_lifecycle_operations WHERE id = $1;', [id]);"
+      },
+      {
+        "line": 135,
+        "text": "const res = await query('SELECT * FROM cloud_lifecycle_operations WHERE idempotency_key = $1;', [key]);"
+      },
+      {
+        "line": 176,
+        "text": "async updateOperationStatus(id, { status, approved_by, approved_at, executed_at, completed_at, rejection_reason, execution_logs }) {"
+      },
+      {
+        "line": 211,
+        "text": "const sql = `UPDATE cloud_lifecycle_operations SET ${updates.join(', ')} WHERE id = $1 RETURNING *;`;"
+      },
+      {
+        "line": 228,
+        "text": "const res = await query('SELECT * FROM cloud_schedules WHERE id = $1;', [id]);"
+      },
+      {
+        "line": 268,
+        "text": "async updateSchedule(id, updates) {"
+      },
+      {
+        "line": 290,
+        "text": "const sql = `UPDATE cloud_schedules SET ${fields.join(', ')} WHERE id = $1 RETURNING *;`;"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/services/cloud-lifecycle/services/schedule.service.js",
+    "sha256": "9a2a57378f4e9bfbacf45ea0fde17090f432b50d54e6087d7a05038158cf80df",
+    "matches": [
+      {
+        "line": 32,
+        "text": "timezone: data.timezone || 'Asia/Kolkata',"
+      },
+      {
+        "line": 47,
+        "text": "details: { resource_id: data.resource_id, action: data.action, timezone: schedule.timezone }"
+      },
+      {
+        "line": 92,
+        "text": "async checkMissedExecutions(referenceDate = new Date()) {"
+      },
+      {
+        "line": 107,
+        "text": "recoveryAction: 'QUEUED_FOR_EVALUATION'"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/services/cloud-lifecycle/services/ec2Eligibility.service.js",
+    "sha256": "26fa6f887812ee8c81e7ca981d5e5842c549b33857628c2f37abe6a4510605ee",
+    "matches": [
+      {
+        "line": 82,
+        "text": "const envTag = (tags.Environment || tags.env || tags.stage || '').toLowerCase();"
+      },
+      {
+        "line": 84,
+        "text": "const isTaggedProd = PROHIBITED_PROD_TAGS.includes(env) || PROHIBITED_PROD_TAGS.includes(envTag);"
+      },
+      {
+        "line": 85,
+        "text": "const isApprovedNonProd = APPROVED_NON_PROD_ENVIRONMENTS.includes(env) || APPROVED_NON_PROD_ENVIRONMENTS.includes(envTag);"
+      },
+      {
+        "line": 88,
+        "text": "blockers.push(`Production Protected: Instance '${resource.name}' is tagged as PRODUCTION (${env || envTag}). Governed stop/start is strictly prohibited on production infrastructure.`);"
+      },
+      {
+        "line": 89,
+        "text": "} else if (isApprovedNonProd) {"
+      },
+      {
+        "line": 92,
+        "text": "blockers.push(`Unverified Environment Tag: Instance environment '${env || envTag || 'unknown'}' is not an approved non-production environment. Must be tagged with one of: [${APPROVED_NON_PROD_ENVIRONMENTS.join(', ')}].`);"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/services/cloud-lifecycle/services/awsDiscovery.service.js",
+    "sha256": "19b9b4e7d97dd560c1b791cac6adc783da5acead600ffd53f41d75d6eb78ecac",
+    "matches": [
+      {
+        "line": 70,
+        "text": "if (!discoveryResult.success) {"
+      },
+      {
+        "line": 97,
+        "text": "await cloudLifecycleRepository.upsertResource(r);"
+      },
+      {
+        "line": 101,
+        "text": "// Record successful discovery run"
+      },
+      {
+        "line": 111,
+        "text": "'success',"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/services/cloud-lifecycle/providers/awsReadOnly.provider.js",
+    "sha256": "d03fbd16cbb659aa8184793b4cffc484f3c93ed61c04f6e5f996e5ef96a9550e",
+    "matches": [
+      {
+        "line": 491,
+        "text": "const [ec2Result, ebsResult, eipResult, rdsResult] = await Promise.allSettled(["
+      },
+      {
+        "line": 513,
+        "text": "success: true,"
+      },
+      {
+        "line": 526,
+        "text": "errors: errors.length > 0 ? errors : null,"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/services/cloud-lifecycle/providers/kubernetesLifecycle.provider.js",
+    "sha256": "f37dbf47416fe8f97cd2a78f68862a05c782ecb7ca055dda07c4a8a10aa85561",
+    "matches": [
+      {
+        "line": 109,
+        "text": "// Default live API execution stub if real cluster connected"
+      },
+      {
+        "line": 164,
+        "text": "healthy: true,"
+      },
+      {
+        "line": 172,
+        "text": "async getRolloutStatus(name, namespace = 'infrapulse', workloadType = 'Deployment', { maxWaitSeconds = 60 } = {}) {"
+      },
+      {
+        "line": 175,
+        "text": "return this.client.getRolloutStatus(name, namespace, workloadType, { maxWaitSeconds });"
+      },
+      {
+        "line": 181,
+        "text": "status: 'complete',"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/integrations/providers/kubernetes/KubernetesProvider.js",
+    "sha256": "0dc98cc2ed8a805e2b44b602fa75068680e67884b0d7f09c0f3d17a12db83699",
+    "matches": [
+      {
+        "line": 289,
+        "text": "is_live_k8s: true"
+      },
+      {
+        "line": 300,
+        "text": "resource_type: 'statefulset',"
+      },
+      {
+        "line": 310,
+        "text": "is_live_k8s: true"
+      },
+      {
+        "line": 333,
+        "text": "is_live_k8s: true"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/integrations/providers/docker/DockerIntegrationProvider.js",
+    "sha256": "3b29d61e66e15314eee6097328856d219cf53296e52fac68e6023be22a65fff3",
+    "matches": [
+      {
+        "line": 179,
+        "text": "resource_type: composeService ? 'docker_compose_service' : 'docker_container',"
+      },
+      {
+        "line": 184,
+        "text": "metadata: {"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/services/audit.service.js",
+    "sha256": "0c5f9a8b10c86205b777e676517b748b66b23c9b73bb8539384f7105db27dc4e",
+    "matches": [
+      {
+        "line": 11,
+        "text": "const sensitiveKeys = ["
+      },
+      {
+        "line": 19,
+        "text": "const isSensitive = sensitiveKeys.some(s => lowerKey.includes(s));"
+      },
+      {
+        "line": 62,
+        "text": "actorUserId: actor?.id || null,"
+      },
+      {
+        "line": 69,
+        "text": "metadata: sanitizeMetadata(metadata),"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/services/cloud-lifecycle/providers/dockerLifecycle.provider.js",
+    "sha256": "d780364891ad9960d0069d519b3c585f3ce5e062bc7f9cfb9fbdde6d3f712c26",
+    "matches": [
+      {
+        "line": 61,
+        "text": "} catch {"
+      },
+      {
+        "line": 200,
+        "text": "} catch (err) {"
+      },
+      {
+        "line": 212,
+        "text": "async listComposeServices(projectName = 'infrapulse') {"
+      },
+      {
+        "line": 214,
+        "text": "return this.client.listComposeServices(projectName);"
+      },
+      {
+        "line": 229,
+        "text": "} catch (err) {"
+      },
+      {
+        "line": 230,
+        "text": "return [];"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/server.js",
+    "sha256": "9a05c5b017346f23a9d108308ba6c473f14e2932941e95c1e9cebb439f38dab0",
+    "matches": [
+      {
+        "line": 6,
+        "text": "import { startBackgroundWorker, stopBackgroundWorker } from './services/notificationDispatcher.service.js';"
+      },
+      {
+        "line": 75,
+        "text": "startBackgroundWorker(5000);"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/worker.js",
+    "sha256": "0a29f1ee128537db817e26d3ea522e30d91dcf2ac5a63be452df0ff1736c227d",
+    "matches": [
+      {
+        "line": 3,
+        "text": "import { startBackgroundWorker, stopBackgroundWorker } from './services/notificationDispatcher.service.js';"
+      },
+      {
+        "line": 26,
+        "text": "startBackgroundWorker(5000);"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/db/migrations/011_cloud_lifecycle_cost_governance.sql",
+    "sha256": "30dfef78f08732895da948c97c40dabef687fbe16ce339f202948761d708ba3b",
+    "matches": [
+      {
+        "line": 44,
+        "text": "approved_at TIMESTAMPTZ,"
+      },
+      {
+        "line": 48,
+        "text": "idempotency_key VARCHAR(255) UNIQUE,"
+      },
+      {
+        "line": 55,
+        "text": "CREATE INDEX IF NOT EXISTS idx_cloud_operations_idempotency ON cloud_lifecycle_operations(idempotency_key);"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/db/migrations/019_tenant_security_and_durable_governance.sql",
+    "sha256": "6ab35cc6b8084ef0c49fa9e91c6606cca67c9802b6caebf07d7c56404bdb2398",
+    "matches": [
+      {
+        "line": 77,
+        "text": "ALTER TABLE remediation_executions ADD CONSTRAINT uq_remediation_tenant_idempotency UNIQUE(tenant_id,idempotency_key);"
+      },
+      {
+        "line": 87,
+        "text": "CREATE TRIGGER immutable_plan BEFORE UPDATE ON remediation_plans FOR EACH ROW EXECUTE FUNCTION reject_plan_payload_update();"
+      }
+    ]
+  },
+  {
+    "path": "backend/src/db/migrations/022_cross_workflow_resource_exclusion.sql",
+    "sha256": "615bd7c0f7ca9d394a0cd6857534caf694f889dea1172664e99a209b096cede4",
+    "matches": [
+      {
+        "line": 2,
+        "text": "CREATE UNIQUE INDEX uq_active_cloud_resource ON cloud_lifecycle_operations(tenant_id,resource_id)"
+      },
+      {
+        "line": 3,
+        "text": "WHERE status IN ('requested','approved','executing');"
+      },
+      {
+        "line": 6,
+        "text": "IF lower(NEW.status)<>'executing' THEN RETURN NEW; END IF;"
+      },
+      {
+        "line": 9,
+        "text": "SELECT EXISTS(SELECT 1 FROM cloud_lifecycle_operations WHERE tenant_id=NEW.tenant_id AND resource_id=NEW.resource_id AND status='executing') INTO collision;"
+      },
+      {
+        "line": 13,
+        "text": "IF collision THEN RAISE EXCEPTION 'Resource is executing in another governed workflow' USING ERRCODE='23505'; END IF;"
+      }
+    ]
+  }
+]

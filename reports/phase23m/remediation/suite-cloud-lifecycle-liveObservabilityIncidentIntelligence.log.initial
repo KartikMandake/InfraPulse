@@ -1,0 +1,176 @@
+TAP version 13
+# Subtest: Phase 23I: End-to-End Live Observability & Incident Intelligence
+    # Subtest: 1. Ingestion: Processes metrics, traces, and logs with tenant & environment attribution
+    not ok 1 - 1. Ingestion: Processes metrics, traces, and logs with tenant & environment attribution
+      ---
+      duration_ms: 232.6326
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\liveObservabilityIncidentIntelligence.test.js:52:3'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        0 !== 1
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 1
+      actual: 0
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/liveObservabilityIncidentIntelligence.test.js:83:12)
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1869:7)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+      ...
+    # Subtest: 2. Deduplication: Rejects identical events within sliding window without double-counting
+    not ok 2 - 2. Deduplication: Rejects identical events within sliding window without double-counting
+      ---
+      duration_ms: 32.3675
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\liveObservabilityIncidentIntelligence.test.js:94:3'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        0 !== 1
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 1
+      actual: 0
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/liveObservabilityIncidentIntelligence.test.js:120:12)
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+    # Subtest: 3. Timestamp Validation: Rejects future timestamps beyond 5m tolerance and routes to dead-letter
+    ok 3 - 3. Timestamp Validation: Rejects future timestamps beyond 5m tolerance and routes to dead-letter
+      ---
+      duration_ms: 36.0473
+      type: 'test'
+      ...
+    # Subtest: 4. Timestamp Validation: Rejects events older than 7 days and records dead-letter reason
+    ok 4 - 4. Timestamp Validation: Rejects events older than 7 days and records dead-letter reason
+      ---
+      duration_ms: 31.6036
+      type: 'test'
+      ...
+    # Subtest: 5. Out-of-Order Events: Sorts telemetry chronologically before routing
+    not ok 5 - 5. Out-of-Order Events: Sorts telemetry chronologically before routing
+      ---
+      duration_ms: 22.1448
+      type: 'test'
+      location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\liveObservabilityIncidentIntelligence.test.js:211:3'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        0 !== 2
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 2
+      actual: 0
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (file:///D:/Projects/InfraPulse/tests/cloud-lifecycle/liveObservabilityIncidentIntelligence.test.js:235:12)
+        process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        async Test.run (node:internal/test_runner/test:1389:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:960:7)
+      ...
+    # Subtest: 6. Dead-Letter Queue: Records and retrieves malformed telemetry payloads with error reasons
+    ok 6 - 6. Dead-Letter Queue: Records and retrieves malformed telemetry payloads with error reasons
+      ---
+      duration_ms: 21.8716
+      type: 'test'
+      ...
+    # Subtest: 7. Freshness: Accurately calculates telemetry freshness seconds and flags stale integrations
+    ok 7 - 7. Freshness: Accurately calculates telemetry freshness seconds and flags stale integrations
+      ---
+      duration_ms: 23.8867
+      type: 'test'
+      ...
+    # Subtest: 8. Service Identity: Dynamically resolves service IDs across OTLP, K8s, Docker, and AWS
+    ok 8 - 8. Service Identity: Dynamically resolves service IDs across OTLP, K8s, Docker, and AWS
+      ---
+      duration_ms: 20.7796
+      type: 'test'
+      ...
+    # Subtest: 9. Dependency Mapping: Automatically infers caller-to-callee dependencies from distributed traces
+    ok 9 - 9. Dependency Mapping: Automatically infers caller-to-callee dependencies from distributed traces
+      ---
+      duration_ms: 39.1186
+      type: 'test'
+      ...
+    # Subtest: 10. Alert Correlation: Groups alerts on services sharing an underlying crashed infrastructure host
+    ok 10 - 10. Alert Correlation: Groups alerts on services sharing an underlying crashed infrastructure host
+      ---
+      duration_ms: 303.3056
+      type: 'test'
+      ...
+    # Subtest: 11. Alert Correlation: Identifies common incident when distinct alerts share a trace ID
+    ok 11 - 11. Alert Correlation: Identifies common incident when distinct alerts share a trace ID
+      ---
+      duration_ms: 36.7633
+      type: 'test'
+      ...
+    # Subtest: 12. Alert Correlation: Generates explainable rationale and contributing signals
+    ok 12 - 12. Alert Correlation: Generates explainable rationale and contributing signals
+      ---
+      duration_ms: 11.5025
+      type: 'test'
+      ...
+    # Subtest: 13. RCA Engine: Identifies underlying infrastructure crash as CONFIRMED_FACT and boosts candidate
+    ok 13 - 13. RCA Engine: Identifies underlying infrastructure crash as CONFIRMED_FACT and boosts candidate
+      ---
+      duration_ms: 11.9689
+      type: 'test'
+      ...
+    # Subtest: 14. RCA Engine: Correlates active infrastructure drift events into supporting evidence
+    ok 14 - 14. RCA Engine: Correlates active infrastructure drift events into supporting evidence
+      ---
+      duration_ms: 13.8182
+      type: 'test'
+      ...
+    # Subtest: 15. Incident Intelligence: Auto-enriches incident with RCA hypotheses and confidence score
+    ok 15 - 15. Incident Intelligence: Auto-enriches incident with RCA hypotheses and confidence score
+      ---
+      duration_ms: 20.2434
+      type: 'test'
+      ...
+    # Subtest: 16. Incident Deduplication: Avoids opening duplicate open incidents for the same failure domain
+    ok 16 - 16. Incident Deduplication: Avoids opening duplicate open incidents for the same failure domain
+      ---
+      duration_ms: 27.5767
+      type: 'test'
+      ...
+    # Subtest: 17. Isolation: Prevents cross-tenant dead-letter access, telemetry leakage, and dependency pollution
+    ok 17 - 17. Isolation: Prevents cross-tenant dead-letter access, telemetry leakage, and dependency pollution
+      ---
+      duration_ms: 26.5992
+      type: 'test'
+      ...
+    1..17
+not ok 1 - Phase 23I: End-to-End Live Observability & Incident Intelligence
+  ---
+  duration_ms: 917.4899
+  type: 'suite'
+  location: 'D:\\Projects\\InfraPulse\\tests\\cloud-lifecycle\\liveObservabilityIncidentIntelligence.test.js:24:1'
+  failureType: 'subtestsFailed'
+  error: '3 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 17
+# suites 1
+# pass 14
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1434.4125

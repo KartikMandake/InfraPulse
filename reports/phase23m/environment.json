@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-31",
+  "timezone": "Asia/Calcutta",
+  "node": "v26.4.0",
+  "platform": "win32",
+  "os": "10.0.26100",
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13420H",
+  "cores": 12,
+  "memoryBytes": 16802910208,
+  "database": "infrapulse_23m_20261031_7e7465",
+  "suiteDatabase": "infrapulse_23m_20261031_7e7465_suite",
+  "backend": "http://localhost:5000",
+  "frontend": "http://localhost:5173",
+  "mutationFlags": {
+    "AWS_LIFECYCLE_MUTATIONS_ENABLED": "false",
+    "DOCKER_LIFECYCLE_ENABLED": "false",
+    "KUBERNETES_LIFECYCLE_ENABLED": "false",
+    "REMEDIATION_EXECUTION_ENABLED": "false",
+    "REMEDIATION_PRODUCTION_ENABLED": "false",
+    "REMEDIATION_RECOMMENDATIONS_ENABLED": "true",
+    "REMEDIATION_DRY_RUN_ENABLED": "true"
+  }
+}

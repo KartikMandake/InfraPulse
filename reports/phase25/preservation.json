@@ -1,0 +1,41 @@
+{
+  "baselineFiles": 533,
+  "bootstrapHarnessIncluded": true,
+  "missing": [],
+  "protectedFiles": [
+    {
+      "path": ".env",
+      "unchanged": true
+    },
+    {
+      "path": ".env.example",
+      "unchanged": true
+    },
+    {
+      "path": ".env.staging.example",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env.example",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env.staging.example",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/.env.staging.example",
+      "unchanged": true
+    }
+  ],
+  "applicationAndUiSourceUnchanged": true,
+  "originalTestsMigrationsAndEarlierReportsUnchanged": true,
+  "gitCommandsExecuted": false,
+  "originalDatabaseAccessed": false,
+  "ownedCredentialInEvidence": false,
+  "generatedBuildOutput": "frontend/dist rebuilt by requested tests/build"
+}

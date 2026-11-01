@@ -25,7 +25,7 @@ export const TopHeader = () => {
   return (
     <header className="h-14 border-b border-[#272a33] bg-[#030407]/90 backdrop-blur-md px-3 sm:px-4 flex items-center justify-between sticky top-0 z-30 font-mono text-xs">
       {/* Mobile Drawer Trigger & Cluster Selector */}
-      <div className="flex items-center gap-2 sm:gap-3">
+      <div className="flex min-w-0 items-center gap-1 sm:gap-3">
         <button
           onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
           className="md:hidden p-1.5 rounded text-[#9296A3] hover:text-white hover:bg-[#171920] transition-colors"
@@ -39,7 +39,7 @@ export const TopHeader = () => {
           <select 
             value={cluster} 
             onChange={(e) => setCluster(e.target.value)}
-            className="bg-[#101116] border border-[#272a33] rounded px-2 py-1 text-white font-semibold outline-none hover:border-[#3A3E4D] transition-colors cursor-pointer text-xs"
+            className="max-w-[130px] sm:max-w-none min-w-0 bg-[#101116] border border-[#272a33] rounded px-2 py-1 text-white font-semibold outline-none hover:border-[#3A3E4D] transition-colors cursor-pointer text-xs"
           >
             <option value="prod-k8s-mesh">prod-k8s-mesh (us-east-1)</option>
             <option value="eu-k8s-mesh">eu-k8s-mesh (eu-central-1)</option>
@@ -107,7 +107,7 @@ export const TopHeader = () => {
         <div className="relative">
           <button
             onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-            className="flex items-center gap-2 p-1 pl-2 bg-[#101116] border border-[#272a33] rounded-lg hover:border-[#3A3E4D] transition-colors"
+            className="flex shrink-0 items-center gap-1 p-1 sm:pl-2 bg-[#101116] border border-[#272a33] rounded-lg hover:border-[#3A3E4D] transition-colors"
             title="Switch User / Role"
           >
             <div className="text-left hidden sm:block">

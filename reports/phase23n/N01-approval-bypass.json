@@ -1,0 +1,156 @@
+{
+  "op": {
+    "id": "op_321ccc7cce56",
+    "resource_id": "n1793495376536-override",
+    "action": "start",
+    "status": "pending_approval",
+    "is_dry_run": false,
+    "safety_checks": {
+      "eligibility": {
+        "checks": {
+          "isAllowlisted": true,
+          "isNonProduction": true,
+          "isDockerResource": true,
+          "mutationsFlagEnabled": true,
+          "namedVolumePreserved": true,
+          "isNotDatabaseContainer": true,
+          "noActiveRunbookConflict": true,
+          "noActiveIncidentConflict": true,
+          "isNotControlPlaneContainer": true,
+          "noDownstreamCallersBlocked": true
+        },
+        "blockers": [],
+        "eligible": true,
+        "warnings": []
+      },
+      "allowStatefulSetScale": false,
+      "exceptionalAuthorization": false
+    },
+    "requested_by": "marcus.v@infrapulse.io",
+    "requester_role": "responder",
+    "approved_by": null,
+    "approved_at": null,
+    "executed_at": null,
+    "completed_at": null,
+    "execution_logs": [
+      {
+        "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+        "timestamp": "2026-11-01T01:09:40.523Z"
+      }
+    ],
+    "idempotency_key": "n1793495376536-n1793495376536-override-start",
+    "rejection_reason": null,
+    "created_at": "2026-11-01T01:09:40.524Z",
+    "tenant_id": "default_tenant"
+  },
+  "result": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "data": {
+        "success": true,
+        "operation": {
+          "id": "op_321ccc7cce56",
+          "resource_id": "n1793495376536-override",
+          "action": "start",
+          "status": "completed",
+          "is_dry_run": false,
+          "safety_checks": {
+            "eligibility": {
+              "checks": {
+                "isAllowlisted": true,
+                "isNonProduction": true,
+                "isDockerResource": true,
+                "mutationsFlagEnabled": true,
+                "namedVolumePreserved": true,
+                "isNotDatabaseContainer": true,
+                "noActiveRunbookConflict": true,
+                "noActiveIncidentConflict": true,
+                "isNotControlPlaneContainer": true,
+                "noDownstreamCallersBlocked": true
+              },
+              "blockers": [],
+              "eligible": true,
+              "warnings": []
+            },
+            "allowStatefulSetScale": false,
+            "exceptionalAuthorization": false
+          },
+          "requested_by": "marcus.v@infrapulse.io",
+          "requester_role": "responder",
+          "approved_by": null,
+          "approved_at": null,
+          "executed_at": "2026-11-01T01:09:40.612Z",
+          "completed_at": "2026-11-01T01:09:40.643Z",
+          "execution_logs": [
+            {
+              "message": "Operation 'start' requested by marcus.v@infrapulse.io (responder). Reason: Not specified. Pending two-person approval.",
+              "timestamp": "2026-11-01T01:09:40.523Z"
+            },
+            {
+              "result": {
+                "message": "Resource n1793495376536-override started successfully.",
+                "success": true,
+                "newState": "running",
+                "timestamp": "2026-11-01T01:09:40.636Z",
+                "isSimulated": true,
+                "dockerDetails": {
+                  "status": "Up (healthy)",
+                  "network": "infrapulse-staging-net",
+                  "containerName": "n1793495376536-override"
+                },
+                "previousState": "stopped",
+                "operationDurationMs": 45
+              },
+              "message": "Execution of 'start' completed successfully via docker simulated provider.",
+              "timestamp": "2026-11-01T01:09:40.644Z"
+            }
+          ],
+          "idempotency_key": "n1793495376536-n1793495376536-override-start",
+          "rejection_reason": null,
+          "created_at": "2026-11-01T01:09:40.524Z",
+          "tenant_id": "default_tenant"
+        },
+        "result": {
+          "success": true,
+          "previousState": "stopped",
+          "newState": "running",
+          "message": "Resource n1793495376536-override started successfully.",
+          "operationDurationMs": 45,
+          "isSimulated": true,
+          "timestamp": "2026-11-01T01:09:40.636Z",
+          "dockerDetails": {
+            "containerName": "n1793495376536-override",
+            "network": "infrapulse-staging-net",
+            "status": "Up (healthy)"
+          }
+        }
+      }
+    }
+  },
+  "resource": {
+    "id": "n1793495376536-override",
+    "name": "n1793495376536-override",
+    "provider": "docker",
+    "resource_type": "docker_container",
+    "region": "local",
+    "environment": "staging",
+    "current_state": "running",
+    "estimated_hourly_cost": "0.0000",
+    "cost_breakdown": {},
+    "dependencies": [],
+    "persistence_requirements": {},
+    "is_critical_dependency": false,
+    "metadata": {
+      "is_live": false,
+      "container_name": "n1793495376536-override"
+    },
+    "last_lifecycle_operation": "start",
+    "last_operation_at": "2026-11-01T01:09:40.637Z",
+    "last_health_check_status": "healthy",
+    "last_health_check_at": "2026-11-01T01:09:40.451Z",
+    "created_at": "2026-11-01T01:09:40.451Z",
+    "updated_at": "2026-11-01T01:09:40.637Z",
+    "tenant_id": "default_tenant"
+  }
+}

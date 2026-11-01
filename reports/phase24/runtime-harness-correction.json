@@ -1,0 +1,3 @@
+{
+  "reason": "Original test port 5040 was occupied by an existing IPv4 listener; Node had listened on IPv6, so IPv4 clients reached the existing listener. Existing service left untouched. Re-run uses owned port 5074 and explicit loopback binding. Missing-secret stack assertion also corrected to match stack-frame lines, not the words at least."
+}

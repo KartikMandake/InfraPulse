@@ -1,0 +1,59 @@
+TAP version 13
+# Subtest: AI Assistant 1: Explains top-ranked hypothesis without changing deterministic scores
+ok 1 - AI Assistant 1: Explains top-ranked hypothesis without changing deterministic scores
+  ---
+  duration_ms: 365.387
+  type: 'test'
+  ...
+# Subtest: AI Assistant 2: Grounded evidence references exist in context evidence catalog
+ok 2 - AI Assistant 2: Grounded evidence references exist in context evidence catalog
+  ---
+  duration_ms: 106.0866
+  type: 'test'
+  ...
+# Subtest: AI Assistant 3: Identifies and reports contradictory or inhibiting signals
+ok 3 - AI Assistant 3: Identifies and reports contradictory or inhibiting signals
+  ---
+  duration_ms: 93.7027
+  type: 'test'
+  ...
+# Subtest: AI Assistant 4: Prompt injection defense blocks hostile control instructions
+ok 4 - AI Assistant 4: Prompt injection defense blocks hostile control instructions
+  ---
+  duration_ms: 95.3447
+  type: 'test'
+  ...
+# Subtest: AI Assistant 5: Redaction strips passwords, bearer tokens, and secrets from context
+ok 5 - AI Assistant 5: Redaction strips passwords, bearer tokens, and secrets from context
+  ---
+  duration_ms: 0.952
+  type: 'test'
+  ...
+# Subtest: AI Assistant 6: Recommends safe read-only diagnostics without mutations
+ok 6 - AI Assistant 6: Recommends safe read-only diagnostics without mutations
+  ---
+  duration_ms: 54.6839
+  type: 'test'
+  ...
+# Subtest: AI Assistant 7: Conversation isolation prevents cross-tenant / cross-user leak
+ok 7 - AI Assistant 7: Conversation isolation prevents cross-tenant / cross-user leak
+  ---
+  duration_ms: 88.9202
+  type: 'test'
+  ...
+# [AiInvestigationService] Provider invocation failure: 503 Service Unavailable: Model capacity exceeded
+# Subtest: AI Assistant 8: Provider failure triggers graceful fallback without crashing server
+ok 8 - AI Assistant 8: Provider failure triggers graceful fallback without crashing server
+  ---
+  duration_ms: 93.5224
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1436.8903

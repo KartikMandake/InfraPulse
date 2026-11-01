@@ -1,0 +1,119 @@
+TAP version 13
+# Subtest: Phase 23H: Real Infrastructure Integrations & Live Telemetry Pipeline
+    # Subtest: 1. AWS Provider: STS authentication & discovery of EC2, EBS, RDS, and CloudWatch metrics
+    ok 1 - 1. AWS Provider: STS authentication & discovery of EC2, EBS, RDS, and CloudWatch metrics
+      ---
+      duration_ms: 185.5485
+      type: 'test'
+      ...
+    # Subtest: 2. AWS Provider: Multi-page EC2 discovery using NextToken pagination
+    ok 2 - 2. AWS Provider: Multi-page EC2 discovery using NextToken pagination
+      ---
+      duration_ms: 17.9386
+      type: 'test'
+      ...
+    # Subtest: 3. Docker Provider: Health check ping over Engine API
+    ok 3 - 3. Docker Provider: Health check ping over Engine API
+      ---
+      duration_ms: 14.9447
+      type: 'test'
+      ...
+    # Subtest: 4. Docker Provider: Inventory and deterministic CPU & memory percentage calculation
+    ok 4 - 4. Docker Provider: Inventory and deterministic CPU & memory percentage calculation
+      ---
+      duration_ms: 12.5653
+      type: 'test'
+      ...
+    # Subtest: 5. Docker Provider: Multi-container Compose service topology extraction
+    ok 5 - 5. Docker Provider: Multi-container Compose service topology extraction
+      ---
+      duration_ms: 20.5763
+      type: 'test'
+      ...
+    # Subtest: 6. Kubernetes Provider: Namespaces, Deployments, StatefulSets, Pods, and Warning Events
+    ok 6 - 6. Kubernetes Provider: Namespaces, Deployments, StatefulSets, Pods, and Warning Events
+      ---
+      duration_ms: 14.3412
+      type: 'test'
+      ...
+    # Subtest: 7. Kubernetes Provider: Rollout status detection for degraded deployments
+    ok 7 - 7. Kubernetes Provider: Rollout status detection for degraded deployments
+      ---
+      duration_ms: 10.7195
+      type: 'test'
+      ...
+    # Subtest: 8. Prometheus Provider: Instant and range PromQL querying
+    ok 8 - 8. Prometheus Provider: Instant and range PromQL querying
+      ---
+      duration_ms: 10.9765
+      type: 'test'
+      ...
+    # Subtest: 9. Prometheus Provider: Distinguishes between valid 0 metric vs unavailable endpoint
+    ok 9 - 9. Prometheus Provider: Distinguishes between valid 0 metric vs unavailable endpoint
+      ---
+      duration_ms: 9.5063
+      type: 'test'
+      ...
+    # Subtest: 10. OTLP Provider: Preserves service.name, environment, and gauge/counter values
+    ok 10 - 10. OTLP Provider: Preserves service.name, environment, and gauge/counter values
+      ---
+      duration_ms: 15.1129
+      type: 'test'
+      ...
+    # Subtest: 11. OTLP Provider: Preserves traceId, spanId, parentSpanId, and error status
+    ok 11 - 11. OTLP Provider: Preserves traceId, spanId, parentSpanId, and error status
+      ---
+      duration_ms: 13.3008
+      type: 'test'
+      ...
+    # Subtest: 12. OTLP Provider: Maps OpenTelemetry severity numbers into canonical severity levels
+    ok 12 - 12. OTLP Provider: Maps OpenTelemetry severity numbers into canonical severity levels
+      ---
+      duration_ms: 10.7409
+      type: 'test'
+      ...
+    # Subtest: 13. SSRF Protection: Enforces protocol restrictions and blocks cloud metadata IPs
+    ok 13 - 13. SSRF Protection: Enforces protocol restrictions and blocks cloud metadata IPs
+      ---
+      duration_ms: 10.1274
+      type: 'test'
+      ...
+    # Subtest: 14. Credential Security: AES-256-GCM envelope encryption and secret redaction
+    ok 14 - 14. Credential Security: AES-256-GCM envelope encryption and secret redaction
+      ---
+      duration_ms: 14.2471
+      type: 'test'
+      ...
+    # Subtest: 15. Telemetry Pipeline: Routes metrics, evaluates alert conditions, and updates telemetry stats
+    ok 15 - 15. Telemetry Pipeline: Routes metrics, evaluates alert conditions, and updates telemetry stats
+      ---
+      duration_ms: 134.6641
+      type: 'test'
+      ...
+    # Subtest: 16. Telemetry Pipeline: Synchronizes infrastructure inventory and invokes drift detection
+    ok 16 - 16. Telemetry Pipeline: Synchronizes infrastructure inventory and invokes drift detection
+      ---
+      duration_ms: 60.3087
+      type: 'test'
+      ...
+    # Subtest: 17. Isolation: Multi-tenant boundary enforcement across integrations and telemetry
+    ok 17 - 17. Isolation: Multi-tenant boundary enforcement across integrations and telemetry
+      ---
+      duration_ms: 22.4762
+      type: 'test'
+      ...
+    1..17
+ok 1 - Phase 23H: Real Infrastructure Integrations & Live Telemetry Pipeline
+  ---
+  duration_ms: 586.4787
+  type: 'suite'
+  ...
+1..1
+# tests 17
+# suites 1
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1850.0093

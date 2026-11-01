@@ -1,0 +1,9 @@
+{
+  "database": "infrapulse_23m_independent_1793461903978",
+  "suiteDatabase": "infrapulse_23m_independent_1793461903978_suite",
+  "restoreDatabase": "infrapulse_23m_independent_1793461903978_restore",
+  "backendPid": 10952,
+  "backend-secondPid": 22032,
+  "frontendPid": 14500,
+  "port": "5541"
+}

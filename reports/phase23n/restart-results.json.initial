@@ -1,0 +1,14 @@
+[
+  {
+    "id": "N10",
+    "name": "Missed schedules enqueue once and recover across worker restart",
+    "status": "FAIL",
+    "error": "No cloud operation was queued/executed across notification worker restart"
+  },
+  {
+    "id": "N11",
+    "name": "Interrupted lifecycle execution reconciles state after backend restart",
+    "status": "FAIL",
+    "error": "Operation remains executing after restart with no lease/recovery"
+  }
+]

@@ -1,5 +1,7 @@
 # InfraPulse — Production Rollback Plan
 
+> Historical plan. Use [current Phase 24 rollback/recovery](../PRODUCTION_ROLLBACK_PLAN.md). Preserve the original database and volumes; restore only into a newly verified empty target. No automatic schema downgrade or destructive restore is authorized.
+
 **Phase 20 Release Engineering Deliverable**  
 **Document Version**: 2.4.0  
 **Target Release**: InfraPulse v2.4.0  

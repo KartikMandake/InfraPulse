@@ -102,7 +102,7 @@ async function verifyAllIntegrations() {
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(data),
-        'X-OTLP-KEY': 'infrapulse-otlp-collector-key-2026'
+        'X-OTLP-KEY': 'otlp_runtime_key'
       }
     }, res => {
       let body = '';
@@ -127,7 +127,7 @@ async function verifyAllIntegrations() {
       author: { name: 'Vanshika', email: 'kartikmandake2611@gmail.com' }
     }
   });
-  const ghSig = 'sha256=' + crypto.createHmac('sha256', 'infrapulse-github-webhook-secret-2026').update(ghPayload).digest('hex');
+  const ghSig = 'sha256=' + crypto.createHmac('sha256', 'gh_runtime_secret').update(ghPayload).digest('hex');
   const ghRes = await new Promise((resolve) => {
     const req = http.request('http://localhost:5001/api/integrations/webhooks/github', {
       method: 'POST',

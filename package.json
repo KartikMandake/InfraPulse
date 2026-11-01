@@ -40,7 +40,7 @@
     "release:prepare": "node scripts/release/prepare.mjs"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2",
+    "concurrently": "^10.0.6",
     "yaml": "2.8.3"
   },
   "dependencies": {

@@ -16,7 +16,8 @@ async function rotateCredentials() {
   try {
     const { encryptCredentials } = await import('../backend/src/integrations/core/crypto.js');
     const newOtlpKey = process.env.OTEL_INGESTION_KEY || `otlp_${crypto.randomBytes(24).toString('hex')}`;
-    const enc = encryptCredentials({ ingestionKey: newOtlpKey });
+    const encKey = process.env.INTEGRATION_ENCRYPTION_KEY || 'MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDE=';
+    const enc = encryptCredentials({ ingestionKey: newOtlpKey }, { keyOverride: encKey });
 
     const res = await pool.query(`
       UPDATE integration_credentials
